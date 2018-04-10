@@ -1,0 +1,17 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "semester": "2014-2015-2",
+        "courseNum":"326541",
+        "courseName":"网络安全",
+        "credit":"3",
+        "totalHour":"54",
+        "examWay":"考试",
+        "theoryHour":"48",
+        "practiceHour":"6"
+      }
+    ]
+  }
+}

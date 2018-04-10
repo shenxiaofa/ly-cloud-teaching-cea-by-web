@@ -1,0 +1,118 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">新 增</h3>
+</div>
+<div class="modal-body">
+	<form name="userAddForm" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">用户类型：</label>
+				<div class="col-xs-8">
+					<select ng-model="user.yhlx" ui-chosen="userAddForm.yhlx" ng-required="true" id="yhlx_select" name="yhlx" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option value="">== 请选择 ==</option>
+						<option value="0">教职工</option>
+						<option value="1">学生</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">用户名：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="user.yhbh" ng-required="true" id="yhbh" name="yhbh" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">姓名：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="user.xm" id="xm" name="xm" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">昵称：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="user.nc" id="nc" name="nc" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">密码：</label>
+				<div class="col-xs-8">
+					<input type="password" ng-model="user.mm" ng-required="true" id="mm" name="mm" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label">性别：</label>
+				<div class="col-xs-8">
+					<label class="radio-inline">
+						<input type="radio" ng-model="user.xbm" name="xbm" value="0"> 女
+					</label>
+					&nbsp;
+					<label class="radio-inline">
+						<input type="radio" ng-model="user.xbm" name="xbm" value="1"> 男
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">所属部门：</label>
+				<div class="col-xs-8">
+					<select ng-model="user.bmbh" ui-chosen="userAddForm.bmbh" ng-required="true" id="bmbh_select" name="bmbh" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="bmbhItem in bmbhData" value="{{bmbhItem.dwh}}">{{bmbhItem.dwmc}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">角色：</label>
+				<div class="col-xs-8">
+					<select ng-model="user.yhjs" id="yhjs_select" name="yhjs" ui-jq="chosen" multiple ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="yhjsItem in yhjsData" value="{{yhjsItem.jsbh}}">{{yhjsItem.mc}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">移动电话：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="user.yddh" id="yddh" name="yddh" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">电子邮箱：</label>
+				<div class="col-xs-8">
+					<input type="email" ng-model="user.dzyx" id="dzyx" name="dzyx" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">QQ：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="user.qq" id="qq" name="qq" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label">状态：</label>
+				<div class="col-xs-8">
+					<label class="radio-inline">
+						<input type="radio" ng-model="user.zt" name="zt" value="0"> 停用
+					</label>
+					&nbsp;
+					<label class="radio-inline">
+						<input type="radio" ng-model="user.zt" name="zt" value="1"> 启用
+					</label>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(userAddForm)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

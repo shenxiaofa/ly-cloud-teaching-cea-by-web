@@ -1,0 +1,28 @@
+{
+  "data": {
+    "total": 3,
+    "list": [
+      {
+        "degreeType": "xxx",
+        "degreeCollege": "计算机学院",
+        "degreeMajor": "计算机专业",
+        "degreeGrade": "2",
+        "degreeConclusion": "通过"
+      },
+      {
+        "degreeType": "xxx",
+        "degreeCollege": "计算机学院",
+        "degreeMajor": "计算机专业",
+        "degreeGrade": "2",
+        "degreeConclusion": "通过"
+      },
+      {
+        "degreeType": "xxx",
+        "degreeCollege": "计算机学院",
+        "degreeMajor": "计算机专业",
+        "degreeGrade": "2",
+        "degreeConclusion": "通过"
+      }
+    ]
+  }
+}

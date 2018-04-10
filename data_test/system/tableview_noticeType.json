@@ -1,0 +1,15 @@
+{
+  "data": {
+    "total": 2,
+    "rows": [
+      {
+        "noticeTypeName": "教务公告",
+        "describe": "无"
+      },
+      {
+        "noticeTypeName": "学生公告",
+        "describe": "无"
+      }
+    ]
+  }
+}

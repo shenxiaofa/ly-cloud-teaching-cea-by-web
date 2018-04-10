@@ -1,0 +1,68 @@
+<div class="modal-header">
+	<h3 class="modal-title" ><div class="top-left col-xs-8">用户组角色管理 &nbsp;&nbsp;（用户组名称：{{userGroup.yhzmc}}）</div>
+	</h3>
+	<div class=" top-right"><button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button></div>
+</div>
+<div class="modal-body">
+	<div class="right-content">
+		<div class="right-content-search">
+			<div>
+				<label class="control-label search-control" ng-click="searchFormHideToggle()">
+					<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+				</label>
+			</div>
+			<div ng-hide="isHideSearchForm">
+				<form name="userGroupSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">所属服务：</label>
+							<div class="col-xs-8">
+								<select ng-model="role.fwbh" ui-chosen="userGroupSearchForm.fwbh" ng-required="true" id="fwbh" name="fwbh" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+									<option ng-repeat="fwbhItem in fwbhData" value="{{fwbhItem.bh}}">{{fwbhItem.mc}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">角色编号：</label>
+							<div class="col-xs-8">
+								<input type="text" ng-model="role.jsbh" id="jsbh" name="jsbh" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">名称：</label>
+							<div class="col-xs-8">
+								<input type="text" ng-model="role.mc" id="mc" name="mc" class="form-control"/>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 btn-center">
+							<!-- 点击触发 ng-submit 事件 -->
+							<button type="submit" class="btn btn-info">
+								<span class="fa fa-search refer btn-icon-padding"></span>查询
+							</button>
+							<button type="button" class="btn btn-default" ng-click="searchReset()">
+								<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="right-content-table">
+			<div id="childToolbar" class="btn-group">
+				<div>
+					<button  type="button" class="btn btn-default add_btn" ng-click="openAdd()">
+						<span class="fa fa-plus toolbar-btn-icon">新增</span>
+					</button>
+					<button  type="button" class="btn btn-default del_btn" ng-click="openDelete()">
+						<span class="fa fa-plus toolbar-btn-icon">删除</span>
+					</button>
+				</div>
+			</div>
+			<table id="roleTable" ui-jq="bootstrapTable" ui-options="roleTable" class="table table-responsive"></table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,88 @@
+<style>
+	.modal-lg {
+		width: 1200px;
+	}
+	.bootstrap-table .table:not(.table-condensed), .bootstrap-table .table:not(.table-condensed) > tbody > tr > td, .bootstrap-table .table:not(.table-condensed) > tbody > tr > th, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > td, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > th, .bootstrap-table .table:not(.table-condensed) > thead > tr > td {
+		height: 34px!important;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="cancel()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">成绩表预览</h3>
+</div>
+<div class="modal-body">
+	<form name="schemeVersionCopyform" class="form-horizontal" novalidate>
+		<h1 style="text-align:center">北京电影学院成绩表</h1>
+		<div class="row">
+			<div class="form-group col-xs-3">
+				<label class="col-xs-5 control-label">学院：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{departmentName}}</label>
+			</div>
+			<div class="form-group col-xs-3">
+				<label class="col-xs-5 control-label">专业：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{majorName}}</label>
+			</div>
+			<div class="form-group col-xs-2">
+				<label class="col-xs-5 control-label">班级：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{className}}</label>
+			</div>
+			<div class="form-group col-xs-2">
+				<label class="col-xs-7 control-label">学制：</label>
+				<label class="col-xs-5"style="margin-top:7px;">{{schoolSystem}}</label>
+			</div>
+			<div class="form-group col-xs-3">
+				<label class="col-xs-5 control-label">学号：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{studentNum}}</label>
+			</div>
+		</div>
+
+
+		<div class="form-group" id="tableForm">
+			<div class="col-xs-3">
+			<table id="scoreIntoTable" ui-jq="bootstrapTable" ui-options="scoreIntoTable" class="table table-responsive"></table>
+			</div>
+			<div class="col-xs-3">
+				<table id="scoreIntoTable1" ui-jq="bootstrapTable" ui-options="scoreIntoTable1" class="table table-responsive"></table>
+			</div>
+			<div class="col-xs-3">
+				<table id="scoreIntoTable2" ui-jq="bootstrapTable" ui-options="scoreIntoTable2" class="table table-responsive"></table>
+			</div>
+			<div class="col-xs-3">
+				<table id="scoreIntoTable3" ui-jq="bootstrapTable" ui-options="scoreIntoTable3" class="table table-responsive"></table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-xs-4">
+				<label class="col-xs-5 control-label">平均学分绩点：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{averageGradePoint}}</label>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-5 control-label">总学分：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{totalCredit}}   其中  必修 {{requireCourseCredit}}  选修 {{electiveCourseCredit}}</label>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-7 control-label">毕业证书编号：</label>
+				<label class="col-xs-5"style="margin-top:7px;">{{}}</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-4">
+				<label class="col-xs-5 control-label">学位号：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{}}</label>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-5 control-label">教务处(章)：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{}}</label>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="col-xs-12 modal-footer" style="background-color: #FFFFFF;">
+	<!--<button class="btn btn-default" ng-click="cancel()" >-->
+		<!--返回-->
+	<!--</button>-->
+</div>

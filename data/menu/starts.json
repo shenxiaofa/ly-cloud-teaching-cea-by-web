@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "parentName": "开课时间设置",
+    "isShow": true,
+    "target": "startsTimeSetting",
+    "targetUrl": "home.common.startsTimeSetting",
+    "icon":"fa fa-th-large",
+    "permission": "startsTimeSetting:query"
+  },
+  {
+    "id": 2,
+    "parentName": "必修课开课管理",
+    "isShow": true,
+    "target": "requiredCourseClassManage",
+    "targetUrl": "home.common.requiredCourseClassManage",
+    "icon": "fa fa-th-large",
+    "permission": "requiredCourseClassManage:query"
+  },{"id": 20,
+    "parentName": "必修-教学班安排",
+    "isShow": false,
+    "target": "requiredCourseArrange",
+    "targetUrl": "home.common.requiredCourseArrange"
+},
+  {
+    "id": 3,
+    "parentName": "选修课开课管理",
+    "isShow": true,
+    "target": "electiveCourseClassManage",
+    "targetUrl": "home.common.electiveCourseClassManage",
+    "icon": "fa fa-th-large",
+    "permission": "electiveCourseClassManage:query"
+  },{
+    "id": 30,
+    "parentName": "选修-教学班安排",
+    "icon": "fa fa-th-large",
+    "isShow": false,
+    "target": "electiveCourseArrange",
+    "targetUrl": "home.common.electiveCourseArrange"
+  },{
+  "id": 4,
+  "parentName": "项目课开课管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "项目代码维护",
+    "isShow": true,
+    "target": "projectCodeMaintenance",
+    "targetUrl": "home.common.projectCode",
+    "permission": "projectCode:query"
+  },{
+    "name": "项目代码类型维护",
+    "isShow": true,
+    "target": "projectCodeTypeMaintenance",
+    "targetUrl": "home.common.projectCodeMaintenance",
+    "permission": "projectCodeMaintenance:query"
+  },{
+    "name": "项目模板设置",
+    "isShow": true,
+    "target": "projectModule",
+    "targetUrl": "home.common.projectModule",
+    "permission": "projectModule:query"
+  }
+  ,{
+      "name": "项目教学班设置",
+      "isShow": true,
+      "target": "projectTeachingClass",
+      "targetUrl": "home.common.projectTeachingClass",
+      "permission": "projectTeachingClass:query"
+    },{
+      "name": "行政班模块设置",
+      "isShow": true,
+      "target": "administrativeSection",
+      "targetUrl": "home.common.administrativeSection",
+      "permission": "administrativeSection:query"
+    }
+  ]
+  },{
+    "id": 5,
+    "parentName": "等级课开课管理",
+    "isShow": true,
+    "target": "",
+    "targetUrl": "",
+    "icon": "glyphicon glyphicon-stats",
+    "child": [{
+      "name": "等级代码维护",
+      "isShow": true,
+      "target": "hierarchicalCodeMaintenance",
+      "targetUrl": "home.common.hierarchicalCodeMaintenance",
+      "permission": "hierarchicalCodeMaintenance:query"
+    },{
+      "name": "等级学生名单维护",
+      "isShow": true,
+      "target": "gradeListMaintenance",
+      "targetUrl": "home.common.gradeListMaintenanceController",
+      "permission": "gradeListMaintenance:query"
+    },{
+      "name": "等级课程板块设置",
+      "isShow": true,
+      "target": "gradePlateSetting",
+      "targetUrl": "home.common.gradePlateSettingController",
+      "permission": "gradePlateSetting:query"
+    },{
+      "name": "行政班板块设置",
+      "isShow": true,
+      "target": "plateSetting",
+      "targetUrl": "home.common.plateSettingController",
+      "permission": "plateSetting:query"
+    },{
+      "name": "板块教学任务安排",
+      "isShow": true,
+      "target": "plateTeachingTask",
+      "targetUrl": "home.common.plateTeachingTaskController",
+      "permission": "plateTeachingTask:query"
+    }]
+  }
+]

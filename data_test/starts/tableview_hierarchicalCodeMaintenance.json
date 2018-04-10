@@ -1,0 +1,113 @@
+{
+  "total": 12, "rows":
+[{
+  "id": "0001",
+  "xh": "1",
+  "hierarchicalCode":"A",
+  "hierarchicalType":"初级",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "0002",
+  "xh": "2",
+  "hierarchicalCode":"B",
+  "hierarchicalType":"中级",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "0003",
+  "xh": "3",
+  "hierarchicalCode":"03",
+  "hierarchicalType":"03",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "0004",
+  "xh": "1",
+  "hierarchicalCode":"A",
+  "hierarchicalType":"初级",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "0005",
+  "xh": "2",
+  "hierarchicalCode":"B",
+  "hierarchicalType":"中级",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "0006",
+  "xh": "3",
+  "hierarchicalCode":"03",
+  "hierarchicalType":"03",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "0007",
+  "xh": "1",
+  "hierarchicalCode":"A",
+  "hierarchicalType":"初级",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "0008",
+  "xh": "2",
+  "hierarchicalCode":"B",
+  "hierarchicalType":"中级",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "0009",
+  "xh": "3",
+  "hierarchicalCode":"03",
+  "hierarchicalType":"03",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "00010",
+  "xh": "1",
+  "hierarchicalCode":"A",
+  "hierarchicalType":"初级",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "00011",
+  "xh": "2",
+  "hierarchicalCode":"B",
+  "hierarchicalType":"中级",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+},{
+  "id": "00012",
+  "xh": "3",
+  "hierarchicalCode":"03",
+  "hierarchicalType":"03",
+  "englishName":"sdgsdgv",
+  "correspondingCourseNumber": "0009",
+  "correspondingCourseName": "英语初级",
+  "operation": ""
+}]
+}
+

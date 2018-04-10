@@ -1,0 +1,68 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">新 增</h3>
+</div>
+<div class="right-content">
+
+    <div search-show-hide  class="col-xs-12 searchDiv right-content-search">
+        <div class="control-label" >
+            <span class="fa {{searchListFlag}}"  ></span>
+            <label class="control-label search-control" ng-click="showHideSearchList()">&nbsp;查询条件</label>
+        </div>
+        <div class="col-xs-12 " ng-hide="searchList">
+            <form name="pyfabzkz_form" class="form-horizontal search-form" novalidate>
+                <div class="row">
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-6 control-label">学年学期：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="student.semesterId" id="semesterId" name="semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+                                <option value="">==请选择==</option>
+                                <option value="2016-2017-1">2016-2017-1</option>
+                                <option value="2016-2017-2">2016-2017-2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-6 control-label" >课程号/名称：</label>
+                        <div class="col-xs-6">
+                            <input type="text" ng-model="student.studentNameOrId" id="studentNameOrId" name="studentNameOrId" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-6 control-label">开课单位：</label>
+                        <div class="col-xs-6"  >
+                            <input type="text" ng-model="student.dept" id="dept" name="dept" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 btn-center">
+                        <!-- 点击触发 ng-submit 事件 -->
+                        <button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="right-content-table">
+        <table id="examQualificationAddTable" ui-jq="bootstrapTable" ui-options="examQualificationAddTable" class="table table-responsive"></table>
+    </div>
+
+    <div class="col-xs-12 modal-footer" style="text-align:right;padding-right: 30px;background-color: #FFFFFF;">
+        <button class="btn btn-primary" ng-click="ok()">
+            确认
+        </button>
+        <button class="btn btn-default" ng-click="cancel()" >
+            取消
+        </button>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">新 增</h3>
+</div>
+<div class="modal-body">
+	<form name="permissionAddForm" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">权限编号：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="permission.qxbh" ng-required="true" id="qxbh" name="qxbh" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">权限名称：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="permission.mc" ng-required="true" id="mc" name="mc" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">所属域：</label>
+				<div class="col-xs-8">
+					<select ng-model="permission.ybh" ui-chosen="permissionAddForm.ybh" ng-required="true" id="ybh_select" name="ybh" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="ybhItem in ybhData" value="{{ybhItem.bh}}">{{ybhItem.mc}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">所属服务：</label>
+				<div class="col-xs-8">
+					<select ng-model="permission.fwbh" ui-chosen="permissionAddForm.fwbh" ng-required="true" id="fwbh_select" name="fwbh" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="fwbhItem in fwbhData" value="{{fwbhItem.qxbh}}">{{fwbhItem.mc}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">所属权限：</label>
+				<div class="col-xs-8">
+					<select ng-model="permission.sjbh" id="sjbh_select" name="sjbh" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="sjbhItem in sjbhData" value="{{sjbhItem.bh}}">{{sjbhItem.mc}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">类型：</label>
+				<div class="col-xs-8">
+					<select ng-model="permission.lx" ui-chosen="permissionAddForm.lx" ng-required="true" id="lx_select" name="lx" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option value="">== 请选择 ==</option>
+						<option value="function">功能</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-xs-2 control-label">包含资源：</label>
+				<div class="col-xs-9">
+					<div id="resourcesToolbar" class="btn-group">
+						<div>
+							<button has-permission="resources:insert" type="button" class="btn btn-default add-btn" ng-click="resourcesOpenAdd()">
+								<span class="fa fa-plus toolbar-btn-icon"></span>新增
+							</button>
+						</div>
+					</div>
+					<table id="resourcesTable" ui-jq="bootstrapTable" ui-options="resourcesTable" class="table table-responsive"></table>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(permissionAddForm)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

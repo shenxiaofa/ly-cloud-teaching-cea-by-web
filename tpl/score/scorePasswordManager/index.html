@@ -1,0 +1,65 @@
+
+<div class="right-content" >
+	<div id="left-tree" class="col-xs-2 left-tree" ng-style="leftTreeStyle" ng-scroll-bar>
+		<ul id="menuTree" z-tree tree-options="zTreeOptions" class="ztree"></ul>
+	</div>
+	<div class="col-xs-10" style="padding: 0px">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="searchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+				<div class="row">
+					<div class="form-group col-xs-6">
+						<label class="col-xs-4 control-label">职工号：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="searchParam.teacherNum" id="teacherNum" name="teacherNum" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-6">
+						<label class="col-xs-4 control-label">姓名：</label>
+						<div class="col-xs-6 ">
+							<input type="text" ng-model="searchParam.teacherName" id="teacherName" name="teacherName" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-6">
+						<label class="col-xs-4 control-label">密码状态：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="searchParam.passwordStatus" id="passwordStatus" name="passwordStatus" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<div id="toolbar" class="btn-group">
+			<div>
+				<button type="button" has-permission="majorSchemeInfoManage:copyScheme" class="btn btn-default " ng-click="initPassword()">
+					<span class="fa fa-copy toolbar-btn-icon"></span>初始化密码
+				</button>
+				<button type="button" has-permission="majorSchemeInfoManage:copyScheme" class="btn btn-default " ng-click="resetPassword()">
+					<span class="fa fa-copy toolbar-btn-icon"></span>重置密码
+				</button>
+			</div>
+		</div>
+		<table id="passwordTable" ui-jq="bootstrapTable" ui-options="passwordTable" class="table table-responsive"></table>
+	</div>
+</div>
+</div>

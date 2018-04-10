@@ -1,0 +1,85 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">上课人数详情</h3>
+</div>
+<div class="modal-body">
+	<div class="right-content-search">
+		<div ng-hide="isHideSearchForm">
+			<form name="studentCountDetailForm" id="studentCountDetailForm" class="form-horizontal search-form">
+				<div class="row">
+					<div class="col-xs-4 form-group">
+						<label class="col-xs-5 control-label">所属校区:</label>
+						<div class="col-xs-7">
+							<select name="campusId" id="campusId" ng-model="inStudentBaseInfoFindDto.campusId" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-4 form-group">
+						<label class="col-xs-5 control-label">所属学院:</label>
+						<div class="col-xs-7">
+							<input type="text" ng-model="inStudentBaseInfoFindDto.deptName" name="deptName" id="deptName" class="form-control"/>
+						</div>
+					</div>
+					<div class="col-xs-4 form-group">
+						<label class="col-xs-5 control-label">年级:</label>
+						<div class="col-xs-7">
+							<select ng-model="inStudentBaseInfoFindDto.grade" name="grade" id="grade" class="form-control">
+								<option>==请选择==</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+						<label class="col-xs-5 control-label">专业:</label>
+						<div class="col-xs-7">
+							<input type="text" ng-model="inStudentBaseInfoFindDto.majorName" name="majorName" id="majorName" class="form-control"/>
+						</div>
+					</div>
+					<div class="col-xs-4 form-group">
+						<label class="col-xs-5 control-label">班级:</label>
+						<div class="col-xs-7">
+							<input type="text" ng-model="inStudentBaseInfoFindDto.className" name="className" id="className" class="form-control"/>
+						</div>
+					</div>
+					<div class="col-xs-4 form-group">
+						<label class="col-xs-5 control-label">姓名/学号:</label>
+						<div class="col-xs-7">
+							<input type="text" ng-model="inStudentBaseInfoFindDto.studentKeyword" name="studentKeyword" id="studentKeyword" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+						<label class="col-xs-5 control-label">学籍状态:</label>
+						<div class="col-xs-7">
+							<select ng-model="statusState" name="statusState" id="statusState" class="form-control">
+								<option>==请选择==</option>
+								<option>在校</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div>
+		<table id="studentCountDetailTable" ui-jq="bootstrapTable" ui-options="studentCountDetailTable" class="table table-responsive"></table>
+	</div>
+</div>

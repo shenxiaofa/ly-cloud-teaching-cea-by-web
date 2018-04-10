@@ -1,0 +1,40 @@
+<style>
+    .modal-content{
+        width:700px;
+    }
+    </style>
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">修 改</h3>
+</div>
+
+<div class="modal-body">
+    <form name="stuFlagInfoEdit_form" class="form-horizontal" novalidate>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label required">学生标签：</label>
+                <div class="col-xs-7">
+                    <!--<select ng-model="stuFlagInfo.stuFlagName" ng-required="true" ui-chosen="stuFlagInfoEdit_form.stuFlagName"
+                            ng-options="stuFlagName.id as stuFlagName.name for stuFlagName in stuFlagNameList"
+                            name="stuFlagName" id="stuFlagName_search" class="form-control" ui-jq="chosen"
+                            ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>-->
+                    <select ng-model="stuFlagInfo.stuFlagCode" name="stuFlagName"  ng-required="true" ui-chosen="stuFlagInfoEdit_form.stuFlagName"
+                            id="stuFlagName_search" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="1">班长</option>
+                        <option value="0">课代表</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button"  ng-click="ok(stuFlagInfoEdit_form)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

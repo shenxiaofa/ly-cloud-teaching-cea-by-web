@@ -1,0 +1,123 @@
+<style>
+	.bootstrap-table .table:not(.table-condensed), .bootstrap-table .table:not(.table-condensed) > tbody > tr > td, .bootstrap-table .table:not(.table-condensed) > tbody > tr > th, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > td, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > th, .bootstrap-table .table:not(.table-condensed) > thead > tr > td {
+	    height: 25px!important;
+	    line-height: 18px!important;
+	    padding: 4px 5px!important;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">教学计划添加</h3>
+</div>
+<div class="modal-body" style="padding: 0px;">
+	<div class="right-content-search" style="padding: 0px;">
+		<form name="searchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+			<div class="row">
+				<div class="form-group col-xs-4">
+					<label class="col-xs-6 control-label">课程名称/代码：</label>
+					<div class="col-xs-6">
+						<input type="text" ng-model="inCourseFindDto.courseNameOrNum" id="courseNameOrNum" name="courseNameOrNum" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-4">
+					<div class=" btn-center">
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="right-content-table">
+		<table id="classCoursePlanAddTable" ui-jq="bootstrapTable" ui-options="classCoursePlanAddTable" class="table table-responsive"></table>
+	</div>
+	<div class="right-content-search"  style="padding: 0px;">
+		<form name="addForm" ng-submit="searchSubmit()" class="form-horizontal search-form" style="padding-top: 10px;">
+			<div class="row">
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;margin-top: 5px;">
+					<input type="hidden" ng-model="inCurriculumStoreDto.id" id="id" name="id"/>
+					<label class="col-xs-6 control-label required">开课学期：</label>
+					<div class="col-xs-6">
+						<select name="semesterId"  ng-required="true" id="semesterId" ng-model="inCurriculumStoreDto.semesterId" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+							<option value="">==请选择==</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;margin-top: 5px;">
+					<label class="col-xs-6 control-label required">课程名称：</label>
+					<div class="col-xs-6">
+						<input type="text"  ng-required="true" ng-model="inCurriculumStoreDto.courseName" disabled id="courseName" name="courseName" class="form-control"/>
+						<input type="hidden"  ng-required="true" ng-model="inCurriculumStoreDto.courseId" disabled id="courseId" name="courseId" class="form-control"/>
+						<input type="hidden"  ng-required="true" ng-model="inCurriculumStoreDto.courseNum" disabled id="courseNum" name="courseNum" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">课程属性：</label>
+					<div class="col-xs-6">
+						<input type="hidden"  ng-required="true" ng-model="inCurriculumStoreDto.coursePropertyNum" id="coursePropertyNum" name="coursePropertyNum" class="form-control"/>
+						<input type="text"  ng-required="true" ng-model="inCurriculumStoreDto.coursePropertyName" disabled id="coursePropertyName" name="coursePropertyName" class="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">学分：</label>
+					<div class="col-xs-6">
+						<input type="text" ng-required="true" ng-model="inCurriculumStoreDto.credit" id="credit" name="credit" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">总学时：</label>
+					<div class="col-xs-6">
+						<input type="text" ng-required="true" ng-model="inCurriculumStoreDto.totalHour" id="totalHour" name="totalHour" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label">考核方式：</label>
+					<div class="col-xs-6">
+						<select name="examWayNum"  id="examWayNum" ng-model="inCurriculumStoreDto.examWayNum" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+							<option value="">==请选择==</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">开课方式：</label>
+					<div class="col-xs-6">
+						<select name="way"  ng-required="true" id="way" ng-model="inCurriculumStoreDto.way" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+							<option value="">==请选择==</option>
+							<option value="1">普通课</option>
+							<option value="2">体育课</option>
+							<option value="3">等级课</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label" >上课人数：</label>
+					<div class="col-xs-6">
+						<input type="text" ng-required="true" ng-model="inCurriculumStoreDto.studentCount" name="studentCount" id="studentCount" class="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group" style="margin-bottom: 5px;">
+					<label class="col-xs-2 control-label" style="margin-left: -5px;">备注：</label>
+					<div class="col-xs-9" style="width: 73%;">
+						<textarea  ng-model="inCurriculumStoreDto.remark" id="remark" name="remark" class="form-control" rows="3"></textarea>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(addForm)">保 存</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

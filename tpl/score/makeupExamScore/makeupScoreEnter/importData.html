@@ -1,0 +1,48 @@
+<style>
+	.modal-body {
+		padding: 15px 34px;
+	}
+	.modal-footer {
+		text-align: left;
+	}
+	.log-info {
+		color: #5DFF16
+	}
+	.log-error {
+		color: #982C2C
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">补考成绩数据导入</h3>
+</div>
+<div class="modal-body">
+	<form name="formalScoreImportForm" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 required" style="padding-top: 4px;font-size: 18px;">上传文件：</label>
+				<div class="col-xs-8">
+					<input type="file" accept=".xls" id="excelFile"/>
+				</div>
+			</div>
+			<div style="float:right;">
+				<button class="btn btn-primary" type="button" ng-click="uploadExcelFile()">导 入</button>
+			</div>
+		</div>
+		<div class="row">
+			<span style="font-size: 18px;">请先<a href="javascript:void(0)" ng-click="exportTemplate()" style="font-size: 18px;color: #03a9f4;">下载模板</a>按照模块格式导入。</span>
+			<div style="margin-top: 14px;font-size: 13px;">
+				<p style=""><font color="red">注：</font>1、请选择正确的Excel(.xls)模板进行数据的导入。</p>
+				<p style="text-indent:2em;">2、成绩格式为保留一位小数。</p>
+				<p style="text-indent:2em;">3、如果您发现您导入的数据没有正确导入,那么请确认相关必填的字段已经填写!</p>
+				<p style="text-indent:2em;">4、数据的导入时间可能比较长，请耐心等候...</p></div>
+		</div>
+</form>
+</div>
+<div class="modal-footer">
+	<div id="logs" class="right-content-textarea" style="resize:none;background:transparent;background-color:#7F7F7F;border-radius:5px;border-style:none;overflow-y: scroll;">
+		<p ng-repeat="log in logs" ng-class="{'log-info': log.info, 'log-error': log.error}">{{log.index}}.{{log.message}}</p>
+	</div>
+</div>

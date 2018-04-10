@@ -1,0 +1,12 @@
+{
+  "data": [
+    { "id":1, "parentId":0, "name":"2016", "type":"grade"},
+    { "id":890812949479526400, "parentId":1, "name":"2016本科培养方案", "type":"name"},
+    { "id":12, "parentId":1, "name":"2016专科培养方案", "type":"name"},
+    { "id":13, "parentId":1, "name":"2016继续教育方案", "type":"name"},
+    { "id":2, "parentId":0, "name":"2017", "type":"grade"},
+    { "id":21, "parentId":2, "name":"2017本科培养方案", "type":"name"},
+    { "id":22, "parentId":2, "name":"2017专科培养方案", "type":"name"},
+    { "id":23, "parentId":2, "name":"2017继续教育方案", "type":"name"}
+  ]
+}

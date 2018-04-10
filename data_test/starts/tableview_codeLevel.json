@@ -1,0 +1,26 @@
+{
+  "total": 3, "rows":
+[{
+  "id": "0001",
+  "xh": "1",
+  "levelCode":"01",
+  "levelName":"A",
+  "order":"01",
+  "operation": ""
+},{
+  "id": "0002",
+  "xh": "2",
+  "levelCode":"02",
+  "levelName":"B",
+  "order": "02",
+  "operation": ""
+},{
+  "id": "0003",
+  "xh": "3",
+  "levelCode":"03",
+  "levelName":"C",
+  "order": "03",
+  "operation": ""
+}]
+}
+

@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">提 示</h3>
+</div>
+<div class="modal-body">
+    <div uib-alert ng-class="'alert-warning'">{{message}}</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

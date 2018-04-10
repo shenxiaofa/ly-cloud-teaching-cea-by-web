@@ -1,0 +1,235 @@
+<style>
+	.col-xs-5{
+		padding-left: 9px;
+	}
+	.col-xs-9{
+		padding-left: 6px;
+	}
+	.right-content-table {
+	    padding: 10px 8px 0px 8px;
+	}
+	.fixed-table-container tbody td .th-inner, .fixed-table-container thead th .th-inner {
+		padding: 3px;
+	}
+	.bootstrap-table .table:not(.table-condensed), .bootstrap-table .table:not(.table-condensed)>tbody>tr>td, .bootstrap-table .table:not(.table-condensed)>tbody>tr>th, .bootstrap-table .table:not(.table-condensed)>tfoot>tr>td, .bootstrap-table .table:not(.table-condensed)>tfoot>tr>th, .bootstrap-table .table:not(.table-condensed)>thead>tr>td{
+		padding: 3px;				
+	    line-height: 14px!important;
+	}
+	.bootstrap-table .table:not(.table-condensed), .bootstrap-table .table:not(.table-condensed) > tbody > tr > td, .bootstrap-table .table:not(.table-condensed) > tbody > tr > th, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > td, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > th, .bootstrap-table .table:not(.table-condensed) > thead > tr > td {
+	    padding: 0 5px!important;	/* 星期节次压缩 */
+	}
+	.btn_selectButton {
+		background-color: rgb(255, 255, 255);
+		height: 20px;				/* 小方格压缩 */
+		width: 100%; 
+		padding-bottom: 5px;
+		cursor: pointer;
+		border: 1px solid rgb(222, 222, 222);
+		border-radius: 4px;
+	}
+	.ng-isolate-scope ul li a {		/* tab标签压缩 */
+	    padding: 2px 15px!important;
+	}
+	.nav {
+		margin-bottom: 5px;
+	}
+	.modal-footer {
+		padding: 0px 2px 4px 0px;
+	}
+	.modal-footer .btn-default {
+	    height: 30px;
+	    line-height: 30px;
+	}
+	.form-group {
+	    margin-bottom: 5px;
+	}
+	.btn-center {
+		text-align : right;
+	}
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+    	border-bottom: none;
+	}
+	.modal-body {
+	    position: relative;
+	    padding: 0px 5px 5px 5px;
+	}
+	hr {
+	    margin-top: 7px;
+	    margin-bottom: 7px;
+	}
+	.fixed-table-container tbody td .th-inner, .fixed-table-container thead th .th-inner {		
+	    padding: 0px;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+	<h3 class="modal-title">教学任务安排</h3>
+</div>
+<div class="modal-body">
+	<div class="right-content-table">
+		<div class="form-group row">
+			<small class="col-xs-4">
+				课程名称：{{courseName}}<br />
+            </small>
+			<small class="col-xs-4">
+				开课单位：{{openDeptName}}
+            </small>
+			<small class="col-xs-2">
+				学分：{{credit}}
+            </small>
+			<small class="col-xs-2">
+				总学时：{{totalHour}}
+            </small>
+			<small ng-hide="true" class="col-xs-2">
+				未排学时：{{notArrangeNum}}
+			</small>
+		</div>
+		<table id="semesterArrangeSituatiomTable" ui-jq="bootstrapTable" ui-options="semesterArrangeSituatiomTable" class="table table-responsive"></table>
+		<hr>
+		<form name="arrangeSetSearchForm" class="tab-form-demo">
+			<uib-tabset active="activeForm">
+				<uib-tab index="0" heading="时间地点安排">
+					<div class="row right-content-table">
+						<div class="col-xs-9" >
+							<div class="row form-group" style="padding-right: 15px;">
+								<div class="col-xs-4">
+									<small class="col-xs-5 control-label" style="padding: 7px 0 0 15px;"><label class="required">任课老师:</label></small>
+									<div class="col-xs-7">
+										<!--<select id="teacherId" class="form-control">-->
+										<!--</select>-->
+										<div class="input-group" style="width: 102%;">
+											<input ng-model="arrangeTeachingTask.teacherName" ng-readonly="true" ng-required="true" id="teacherId" name="teacherId" type="text" class="form-control">
+											<input type="text" ng-hide="true" ng-model="arrangeTeachingTask.teacherId" id="studentNum" name="studentNum" class="form-control"/>
+											<span class="input-group-btn">
+												<button class="btn btn-default" type="button" ng-click="selectTeacher()">选择</button>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-4">
+									<small class="col-xs-5 control-label" style="padding: 7px 0 0 15px;"><label class="required">开始周次:</label></small>
+									<div class="col-xs-7">
+                                        <input ng-model="arrangeTeachingTask.startWeek" ng-required="true" name="startWeek" id="startWeek"
+                                        		 class="form-control" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" 
+                                        		 onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                                    </div>
+								</div>
+								<div class="col-xs-4">
+										<small class="col-xs-5 control-label" style="padding: 7px 0 0 15px;"><label class="required">结束周次:</label></small>
+										<div class="col-xs-7">
+                                        <input ng-model="arrangeTeachingTask.endWeek" ng-required="true" name="endWeek" id="endWeek"
+                                        		 class="form-control" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"  
+                                        		 onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+									</div>
+								</div>
+							</div>
+							<div class="row form-group" style="padding-right: 15px;">
+								<div class="col-xs-4">
+									<small class="col-xs-5 control-label" style="padding: 7px 0 0 27px;"><label class="required">单双周:</label></small>
+									<div class="col-xs-7 control-label">
+										<select ng-model="arrangeTeachingTask.oddEvenWeek" name="oddEvenWeek" id="oddEvenWeek"
+												class="form-control" ui-jq="chosen">
+											<option value="">全部</option>
+											<option value="1">单周</option>
+											<option value="0">双周</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-6"></div>
+								<div class="col-xs-2 btn-center">
+									<button type="submit" class="btn btn-info" id="searchSubmit" ng-click="searchSubmit(arrangeSetSearchForm)">
+										<span class="fa fa-search refer btn-icon-padding"></span>查询
+									</button>
+								</div>
+							</div>
+							<table id="timeRoomArrangeTable" ui-jq="bootstrapTable" ui-options="timeRoomArrangeTable" class="table table-responsive"></table>
+						</div>
+						<div class="col-xs-3" style="border: 1px solid #CFDADD; padding: 0 0 0 0;">
+							<!--border: 1px solid #cfdadd; margin: 0;-->
+							<div class="row" style=" margin: 0 0 0 0;">
+								<small class="jw_border_ky" style="display: inline-block;">
+									<div class="" style="display: inline-block;width: 10px;height: 10px;background-color: #ffffff;margin: 10px 5px 0 7px;border: 1px solid rgb(221, 221, 221);"></div>
+									可排
+								</small>
+								<small class="jw_border_ky" style="display: inline-block;">
+									<div class="" style="display: inline-block;width: 10px;height: 10px;background-color: #cccccc;margin: 10px 5px 0 7px;border: 1px solid rgb(221, 221, 221);"></div>
+									不可排
+								</small>
+								<small class="jw_border_ky" style="display: inline-block;">
+									<div class="" style="display: inline-block;width: 10px;height: 10px;background-color: #03a9f4;margin: 10px 5px 0 7px;border: 1px solid rgb(221, 221, 221);"></div>
+									当前选定
+								</small>
+							</div>
+							<hr style="margin: 1px;">
+							<div style="height: 342px;padding-top: 8px;">
+								<textview style="padding-left: 10px;">
+									星期节次：<br>
+								</textview>
+								<scrollview ng-if="scrollViewIsExistence" style="width: 155px; height: 181px; overflow-y: auto; margin: 0 0 0 15%; display: inline-block;">
+									<table id="weekSectionTable" ui-jq="bootstrapTable" ui-options="weekSectionTable" class="table"></table>
+								</scrollview>
+								<scrollview ng-if="!scrollViewIsExistence" style="height: 181px; display: inline-block;">
+								</scrollview>
+								<br>
+								<textview style="padding-left: 10px;">已选择&nbsp;&nbsp;&nbsp;<font style="color: red;">{{weekSectionCount}}</font>&nbsp;&nbsp;&nbsp;节，再次点击取消</textview>
+								<br><br>
+								<textview style="padding-left: 10px;">
+									上课地点：<br>
+									<div class="col-xs-2"></div>
+								</textview>
+								<input type="hidden" ng-model="arrangeTeachingTask.roomId" />
+                                <div class="input-group" style="width: 100%;">
+								    <input ng-dblclick="clearRoom()" type="text" readonly style="margin-left:1px;" class="form-control" ng-model="room.roomName" 
+								    	placeholder="双击清空上课地点"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" has-permission="scheduleManage:query" ng-click="selectRoom()">选择</button>
+                                    </span>
+                                </div>
+								<hr style="margin: 6px 0;">
+								<button class="btn btn-default btn-sm" type="button" ng-click="ensureRoomAndTime(arrangeSetSearchForm)" style="margin: 0 23% 9px;">
+									确定上课时间地点
+								</button>
+							</div>
+						</div>
+					</div>
+				</uib-tab>
+				<uib-tab index="1" heading="已安排时间地点" ng-click="clickAlready()">
+					<div class="right-content-table">
+						<button type="button" class="btn btn-default col-xs-2" has-permission="scheduleManage:delete" ng-click="openEmpty()" style="width: 13%;">
+							<span class="fa fa-trash-o refer btn-icon-padding"></span>清空所有安排
+						</button>
+						<div class="form-group col-xs-3">
+							<label class="col-xs-6 control-label" style="padding: 5px 0;">开始周次：</label>
+							<div class="col-xs-6">
+								<input type="text" ng-model="arrangeTeachingTask.startWeek" id="startWeek" name="startWeek" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group col-xs-3">
+							<label class="col-xs-6 control-label" style="padding: 5px 0;">结束周次：</label>
+							<div class="col-xs-6">
+								<input type="text" ng-model="arrangeTeachingTask.endWeek" id="endWeek" name="endWeek" class="form-control"/>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-info col-xs-1" ng-click="searchTimeRoomAlreadyArrange()">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+					</div>
+					<div class="row right-content-table">
+						<div class="col-xs-12">
+							<table id="timeRoomAlreadyArrangeTable" ui-jq="bootstrapTable" ui-options="timeRoomAlreadyArrangeTable" class="table table-responsive"></table>
+						</div>
+					</div>
+				</uib-tab>
+			</uib-tabset>
+		</form>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" type="button" ng-click="close()" style="margin-top: 5px;">关 闭</button>
+</div>

@@ -1,0 +1,61 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="courseTimeDemandSearchForm" class="form-horizontal search-form">
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">课程号/名称：</label>
+						<div class="col-xs-6">
+							<input ng-model="courseTimeDemand.courseNum" type="text" id="courseNum" name="courseNum" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">学年学期：</label>
+						<div class="col-xs-6">
+							<select id="semesterId" class="form-control">
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">开课单位：</label>
+						<div class="col-xs-6">
+							<select id="deptId" class="form-control">
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">是否设置要求：</label>
+						<div class="col-xs-6">
+							<select ng-model="courseTimeDemand.arrangeEnableSign" name="arrangeEnableSign" id="arrangeEnableSign" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+								<option value="是">是</option>
+								<option value="否">否</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="courseTimeDemandTableDiv" class="right-content-table">
+	</div>
+</div>
+

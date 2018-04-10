@@ -1,0 +1,33 @@
+{
+	"total": "1",
+	"rows": [
+		{
+			"semester": "2017-2018-1",
+			"studentName": "张三",
+			"deptName": "计算机科学与技术",
+			"gradeName": "2014",
+			"majorName": "软件工程",
+			"fromClassName": "软1班",
+			"forbidReason": "未注册",
+			"chooseEnable": "是"
+		}, {
+			"semester": "2017-2018-1",
+			"studentName": "李四",
+			"deptName": "计算机科学与技术",
+			"gradeName": "2014",
+			"majorName": "软件工程",
+			"fromClassName": "软1班",
+			"forbidReason": "未注册",
+			"chooseEnable": "否"
+		}, {
+			"semester": "2017-2018-1",
+			"studentName": "王五",
+			"deptName": "计算机科学与技术",
+			"gradeName": "2017",
+			"majorName": "网络工程",
+			"fromClassName": "网1班",
+			"forbidReason": "未评价",
+			"chooseEnable": "否"
+		}
+	]
+}

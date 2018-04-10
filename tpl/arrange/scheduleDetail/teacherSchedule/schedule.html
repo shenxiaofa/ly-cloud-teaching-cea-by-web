@@ -1,0 +1,238 @@
+<style>
+	.modal-footer {
+		border-top: 0px #e5e5e5 solid!important;
+		padding: 10px;
+	}
+	.nav-tabs>li.active>a,
+	.nav-tabs>li.active>a:hover,
+	.nav-tabs>li.active>a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+		border-bottom: none;
+	}
+	html, body, .module {
+	    background-color: #f0f2f5;
+	    
+	}
+	::-webkit-scrollbar{
+		width:0px;
+	}
+	.page .content .module {
+	    background-color: #fff!important;
+	}	
+	
+	.all {
+		background: #f5f7f9;
+		width: 100%;
+		margin-top: 0;
+	}
+	.user_info{
+	    margin-top: 15px;
+	}
+	.user_info li{
+		width: 100%;
+   		height: auto;
+	}
+	.user_info label{
+		width: 50% !important;
+	}
+	.user_info li span{
+		display: inline-block;
+	    width: 50%;
+	    height: 20px;
+	}
+	
+	/***从login.css拿过来的***/
+	.all-left {
+	    margin: 0 0 0 242px;
+	    height: calc(100% + -127px);
+	    margin-top: -12px;
+	}
+	.all .all-right .right-content .right-content-search .warning {
+	    width: 100%;
+	    height: 100%;
+	    background: #fff;
+	    border: 1px solid #DBDBDB;
+	    margin-top: 0;
+	}
+	.all .all-right .right-content .right-content-search .times {
+	    overflow: hidden;
+	    position: relative;
+	}
+	.all .all-right .right-content .right-content-search .times>a.pre {
+	    left: 0;
+	}
+	.all .all-right .right-content .right-content-search .times>a.next {
+	    right: 0;
+	}
+	.all .all-right .right-content .right-content-search .times>a {
+	    width: 30px;
+	    height: 42px;
+	    line-height: 42px;
+	    display: inline-block;
+	    position: absolute;
+	    top: 0;
+	    background: #fff;
+	    z-index: 990;
+	}
+	.all .all-right .right-content .right-content-search .times a {
+	    color: #575757;
+	    text-align: center;
+	}
+	.all .all-right .right-content .right-content-search .times .tabs-all {
+	    width: calc(100% - 43px);
+	    height: 42px;
+	    padding: 0;
+	    margin: 0;
+	}
+	.all .all-right .right-content .right-content-search .times .tabs-all .nav {
+	    position: absolute;
+	    width: 10000px;
+	    border-bottom: none;
+	    left: 30px;
+	    top: 0;
+	}
+	.all .all-right .right-content .right-content-search .times .tabs-all .nav li {
+	    border-bottom: none;
+	    margin-bottom: 0;
+	    padding: 0;
+	    margin: 0;
+	}
+	.all .all-right .right-content .right-content-search .times .tabs-all .nav li a {
+	    padding: 0;
+	    margin: 0;
+	    display: inline-block;
+	    height: 42px;
+	    line-height: 42px;
+	    margin-right: 0;
+	    width: 100%;
+	}
+	.all .all-right .right-content .right-content-search .times .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	    border: none;
+	    border-bottom: 2px solid #03a9f5;
+	    border-radius: 0;
+	    text-align: center;
+	    margin-bottom: 0;
+	}
+	.all .all-right .right-content .right-content-search .times a {
+	    color: #575757;
+	    text-align: center;
+	}
+	/***从login.css拿过来的***/
+	
+	.page .content .module {
+	    background-color: #f5f7f9;
+	}
+	body {
+	    background-color: #f5f7f9;
+	}
+	.all-right {
+	    padding: 0;
+	}
+	
+	/****左侧的样式***/
+	.all-left {
+	    border: 1px solid #DBDBDB;
+	}
+	.all-left_wrap li {
+	    display: block;
+	    position: relative;
+	    height: 45px;
+	    color: #5a5a5a;
+	    text-align: left;
+	    font-size: 14px;
+	    padding-left: 56px;
+	    margin-bottom: 2px;
+		cursor: pointer;
+	    line-height: 48px;
+	    vertical-align: middle;
+	}
+	.all-left_wrap ul :hover {
+	    background-color: #f5f7f9;
+	}
+	.all-left-wrap-active {
+	    background-color: #03a9f4;
+	}
+	.all-left_wrap li label{
+		cursor: pointer;
+	}
+	/****左侧的样式***/
+</style>
+<div class="all">
+	<!-- 左侧 -->
+	<div class="all-left">
+		<div class="all-left_wrap">
+			<ul class="user_info" ng-repeat="item in semesterObjs" id="changeSemesterCss" ng-click="changeSemesterCss($event)">
+				<li ng-click="changeSemesterId(item.acadYearSemester)" id="{{item.acadYearSemester}}"><label>{{item.acadYearSemester}}</label></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 右侧 -->
+	<div class="all-right">
+		<div class="right-content">
+			<div class="right-content-search" style="overflow-y: scroll; height: -webkit-fill-available; padding-bottom: 170px;">
+				<div class="warning">
+					<div class="tab times">
+						<a class="pre" ng-click="pre()">&lt;&lt;</a>
+						<div class="tabs-all">
+							<ul id="myTab2" class="nav nav-tabs">
+								<li ng-repeat="item in weeklyList" ng-class="{true:'active'}[item.weekly == weekly]" ng-style="{ 'width' : '{{liWidth}}' }" target="_self">
+									<a data-toggle="tab" ng-click="getCourse(item.weekly)">{{item.weeklyName}}</a>
+								</li>
+							</ul>
+						</div>
+						<a class="next" ng-click="next()">&gt;&gt;</a>
+						<div id="myTabContent2" class="tab-content">
+							<div class="tab-pane fade in active" id="one">
+								<h4 class="tc" style="margin: 15px 0;text-align: center;"><span ng-bind="academicYear"></span>第{{weekly}}</span>周：（<span ng-bind="weekTimeMap.startTime"></span>至<span ng-bind="weekTimeMap.endTime"></span>）</h4>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>节次</th>
+											<th>星期日</th>
+											<th>星期一</th>
+											<th>星期二</th>
+											<th>星期三</th>
+											<th>星期四</th>
+											<th>星期五</th>
+											<th>星期六</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in sectionList">
+											<td>{{item.section}} <br/>（{{item.beginTime}}~{{item.endTime}}）</td>
+											<td>
+												<div>{{courseList[$index]['sunday']}}</div>
+											</td>
+											<td>
+												<div>{{courseList[$index]['monday']}}</div>
+											</td>
+											<td>
+												<div>{{courseList[$index]['tuesday']}}</div>
+											</td>
+											<td>
+												<div>{{courseList[$index]['wednesday']}}</div>
+											</td>
+											<td>
+												<div>{{courseList[$index]['thursday']}}</div>
+											</td>
+											<td>
+												<div>{{courseList[$index]['friday']}}</div>
+											</td>
+											<td>
+												<div>{{courseList[$index]['saturday']}}</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

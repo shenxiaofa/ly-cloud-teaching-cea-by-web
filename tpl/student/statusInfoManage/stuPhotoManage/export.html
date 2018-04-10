@@ -1,0 +1,86 @@
+<style>
+    .drilltable_table {
+        max-height: 300px;
+        overflow: auto;
+    }
+
+    .drilltable_table div label {
+        width: 250px;
+        height: 30px;
+        line-height: 40px;
+    }
+</style>
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">导 出</h3>
+</div>
+
+<div class="modal-body">
+    <div class="drilltable_content">
+        <div class="drilltable_table">
+            <!--<table class="table table-bordered table-hover">-->
+            <div style="float: left;width: 15%;">
+                <label style="width: 100%;">
+                    <input name="select" type="checkbox" ng-click="afterSelectAll()" value="">全选
+                </label>
+            </div>
+            <div style="float: left;width: 85%;">
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="exaNumber" value="考生号">考生号
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="stuNumber" value="学号">学号
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="stuName" value="姓名">姓名
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="sexCode" value="性别">性别
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="campus" value="校区">校区
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="collegeNum"  value="学院">学院
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="grade"  value="年级">年级
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox"  id="major"  value="专业方向">专业方向
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="gradeDirection"  value="年级专业方向">年级专业方向
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="className"  value="班级">班级
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="enterWay"  value="入学方式">入学方式
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="startPhotoStatus" value="有无入学照片">有无入学照片(1-有，0-没有)
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="endPhotoStatus" value="有无毕业照片">有无毕业照片(1-有，0-没有)
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="phototype" value="照片类型">照片类型(1-入学照片，0-毕业照片)
+                </label>
+                <label class="ng-binding ng-scope">
+                    <input name="afterFruit" type="checkbox" id="photoPath" value="照片路径">照片路径
+                </label>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <!--<input type="button" class="btn btn-info btn_close" value="关闭" style="float:right;margin:0 10px;">-->
+    <!--<button data-ng-click="afterReport($event)" type="button" class="btn btn-info" style="float:right">导出-->
+    <!--</button>-->
+    <button class="btn btn-primary" type="button" ng-click="afterReport( )">导 出</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

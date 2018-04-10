@@ -1,0 +1,45 @@
+{"total": "5", "rows":
+	[
+		{
+			"id": "436a6402bb5942d2b6d6111a15e8798c",
+			"college": "中山大学",
+			"major":"网本",
+			"electiveClass":"计算机一班",
+			"section":"板块一",
+			"startEndWeek":"1-10",
+			"classTime":"上午"
+		},{
+		"id": "436a6402bb5942d2b6d6111a15e8798c",
+		"college": "中山大学",
+		"major":"网本",
+		"electiveClass":"计算机一班",
+		"section":"板块一",
+		"startEndWeek":"1-10",
+		"classTime":"上午"
+	},{
+		"id": "436a6402bb5942d2b6d6111a15e8798c",
+		"college": "中山大学",
+		"major":"网本",
+		"electiveClass":"计算机一班",
+		"section":"板块一",
+		"startEndWeek":"1-10",
+		"classTime":"上午"
+	},{
+		"id": "436a6402bb5942d2b6d6111a15e8798c",
+		"college": "中山大学",
+		"major":"网本",
+		"electiveClass":"计算机一班",
+		"section":"板块一",
+		"startEndWeek":"1-10",
+		"classTime":"上午"
+	},{
+		"id": "436a6402bb5942d2b6d6111a15e8798c",
+		"college": "中山大学",
+		"major":"网本",
+		"electiveClass":"计算机一班",
+		"section":"板块一",
+		"startEndWeek":"1-10",
+		"classTime":"上午"
+	}
+	]
+}

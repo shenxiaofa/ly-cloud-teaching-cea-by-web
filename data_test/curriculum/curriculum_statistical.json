@@ -1,0 +1,42 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "openCoursePlanId": "kcjh0001",
+        "semester": "2017-2018-1",
+        "deptName":"计算机科学与技术",
+        "courseName":"毛泽理论",
+        "courseModelName":"公共必修",
+        "courseProperty":"必修",
+        "credit":"3",
+        "totalHour":48,
+        "studentCount":700,
+        "schemeCount":23
+      }, {
+        "openCoursePlanId": "kcjh0001",
+        "semester": "2017-2018-1",
+        "courseName":"编译原理",
+        "deptName":"计算机科学与技术",
+        "courseModelName":"专业必修",
+        "courseProperty":"必修",
+        "credit":"3",
+        "totalHour":48,
+        "studentCount":700,
+        "schemeCount":23
+      }, {
+        "openCoursePlanId": "kcjh0001",
+        "semester": "2017-2018-1",
+        "courseName":"JavaScript工作机制",
+        "deptName":"计算机科学与技术",
+        "courseModelName":"专业选修",
+        "courseProperty":"选修",
+        "credit":"3",
+        "totalHour":48,
+        "studentCount":0,
+        "schemeCount":0
+      }
+    ]
+  }
+}
+

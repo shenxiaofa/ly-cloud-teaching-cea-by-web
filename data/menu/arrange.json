@@ -1,0 +1,91 @@
+[
+	{
+		"id": 1,
+		"parentName": "排课基本设置",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "排课时间设置",
+				"isShow": true,
+				"target": "timeSetting",
+				"targetUrl": "home.common.timeSetting",
+            	"permission": "timeSetting:query"
+			}
+		]
+	}, {
+		"id": 2,
+		"parentName": "排课要求设置",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "教师时间要求",
+				"isShow": true,
+				"target": "teacherTimeDemand",
+				"targetUrl": "home.common.teacherTimeDemand",
+            	"permission": "teacherTimeDemand:query"
+			}, {
+				"name": "课程时间要求",
+				"isShow": true,
+				"target": "courseTimeDemand",
+				"targetUrl": "home.common.courseTimeDemand",
+            	"permission": "courseTimeDemand:query"
+			}, {
+				"name": "场地时间要求",
+				"isShow": true,
+				"target": "roomTimeDemand",
+				"targetUrl": "home.common.roomTimeDemand",
+            	"permission": "roomTimeDemand:query"
+			}
+		]
+	}, {
+		"id": 3,
+		"parentName": "课表安排管理",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "排课安排管理",
+				"isShow": true,
+				"target": "scheduleManage",
+				"targetUrl": "home.common.scheduleManage",
+            	"permission": "scheduleManage:query"
+			}
+		]
+	}, {
+		"id": 4,
+		"parentName": "课表信息查看",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "教师课表",
+				"isShow": true,
+				"target": "teacherSchedule",
+				"targetUrl": "home.common.teacherSchedule",
+            	"permission": "teacherSchedule:teacherQuery"
+			}, {
+				"name": "场地课表",
+				"isShow": true,
+				"target": "roomSchedule",
+				"targetUrl": "home.common.roomSchedule",
+            	"permission": "roomSchedule:Schedulequery"
+			}, {
+				"name": "学生课表",
+				"isShow": true,
+				"target": "studentSchedule",
+				"targetUrl": "home.common.studentSchedule",
+            	"permission": "studentSchedule:studentQuery"
+			}
+		]
+	}
+]

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title> 排课时间设置</title>
+	<style>
+
+		.ms-container{
+			width: 700px;
+		}
+
+		.ms-container .ms-list{
+			height: 330px;
+			/*height: 370px;*/
+		}
+        .radio label, .checkbox label{
+        	padding-top: 5px;
+        }
+	    #selectable-footer, #selection-footer {
+	        background-color: #fff;
+		    cursor: pointer;
+		    color: black;
+		    border-top: none;
+		    border-left: 1px solid #ccc;
+		    border-right: 1px solid #ccc;
+		    border-bottom: 1px solid #ccc;
+		    border-radius: 0 0 4px 4px;
+	    }
+	    #selectable-footer .btn-primary {
+	        height: 24px;
+	        line-height: 24px;
+	    }
+	    #selection-footer .btn-default {
+	        height: 24px;
+	        line-height: 24px;
+	    }
+	</style>
+
+</head>
+<body>
+<div class="right-content">
+	<div class="" ng-style="mainStyle">
+			<form name="timeSettingForm" class="form-horizontal search-form">
+                <input type="hidden" ng-model="timeSetting.id" />
+				<div class="row" class="col-xs-12">
+					<div class="col-xs-1"></div>
+
+					<div class="col-xs-10">
+						<div class="row">
+							<div class="form-group col-xs-6">
+							    <label class="col-xs-5 control-label" style="color: red;">排课学年学期：</label>
+                                <input id="arrangeSemester" type="hidden" ng-model="arrangeSemester" />
+						        <div class="col-xs-7"><label class="control-label" style="text-align:left; color: red;">{{timeSetting.arrangeSemester}}</label></div>
+							</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-xs-6">
+                                <label class="col-xs-5 control-label required" for="arrangeSemesterSelect">学年学期：</label>
+                                <div class="col-xs-7">
+                                    <select id="arrangeSemesterSelect" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-6">
+                                <label class="col-xs-5 control-label required">是否排课学期：</label>
+                                <div class="col-xs-7 radio">
+                                    <label class="col-xs-6">
+                                        <input type="radio" ng-required="true" ng-checked="arrangeSign" ng-model="timeSetting.arrangeSign" value="1" /> 是
+                                    </label>
+                                    <label class="col-xs-6">
+                                        <input type="radio" ng-required="true" ng-model="timeSetting.arrangeSign" value="2" /> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-xs-6">
+                                <label class="col-xs-5 control-label required">排课开始日期：</label>
+                                <div class="col-xs-7">
+                                    <div class="input-group">
+                                        <input ng-model="timeSetting.startTime" id="startTime" name="startTime" type="text" class="form-control"
+                                                uib-datepicker-popup="yyyy-MM-dd"
+                                                is-open="startTimeOptions.opened"
+                                                datepicker-options="startTimeOptions"
+                                                ng-required="true"
+                                                date-lt equals="timeSetting.startTime"
+                                                current-text="今天"
+                                                clear-text="清除"
+                                                close-text="关闭"
+                                                ng-click="startTimeOptions.open()" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="startTimeOptions.open()">
+                                                <i class="glyphicon glyphicon-calendar"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-6">
+                                <label class="col-xs-5 control-label required">排课结束日期：</label>
+                                <div class="col-xs-7">
+                                    <div class="input-group">
+                                        <input ng-model="timeSetting.endTime" id="endTime" name="endTime" type="text" class="form-control"
+                                                tooltip-placement="bottom"
+                                                tooltip-trigger="'focus'"
+                                                uib-datepicker-popup="yyyy-MM-dd"
+                                                is-open="endTimeOptions.opened"
+                                                datepicker-options="endTimeOptions"
+                                                ng-required="true"
+                                                date-gt equals="timeSetting.endTime"
+                                                current-text="今天"
+                                                clear-text="清除"
+                                                close-text="关闭"
+                                                ng-click="endTimeOptions.open()" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="endTimeOptions.open()">
+                                                <i class="glyphicon glyphicon-calendar"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-xs-6">
+                                <label class="col-xs-5 control-label required">教师是否可查课表：</label>
+                                <div class="col-xs-7 radio">
+                                    <label class="col-xs-6">
+                                        <input type="radio" ng-required="true" ng-model="timeSetting.teacherEnableSeeSign" value="1" /> 是
+                                    </label>
+                                    <label class="col-xs-6">
+                                        <input type="radio" ng-required="true" ng-model="timeSetting.teacherEnableSeeSign" value="2" /> 否
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-6">
+                                <label class="col-xs-5 control-label required">学生是否可查课表：</label>
+                                <div class="col-xs-7 radio">
+                                    <label class="col-xs-6">
+                                        <input type="radio" ng-required="true" ng-model="timeSetting.studentEnableSeeSign" value="1" /> 是
+                                    </label>
+                                    <label class="col-xs-6">
+                                        <input type="radio" ng-required="true" ng-model="timeSetting.studentEnableSeeSign" value="2" /> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-xs-6">
+                                <label class="col-xs-5 control-label">排课单位设置：</label>
+                                <div class="col-xs-7">
+                                    <div class="input-group">
+                                        <select id="arrangeDept" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-6 control-label"></label>
+                                <button type="button" has-permission="timeSetting:insert" class="btn btn-info" ng-click="saveFun(timeSettingForm)">
+                                    <span class="fa btn-icon-padding">&nbsp;&nbsp;&nbsp;保存</span>
+                                </button>
+                            </div>
+                        </div>
+				    </div>
+                    <div class="col-xs-1"></div>
+				</div>
+			</form>
+	</div>
+</div>
+</body>
+</html>

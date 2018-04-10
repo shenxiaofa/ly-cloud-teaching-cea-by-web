@@ -1,0 +1,121 @@
+<style>
+    .modal-body{
+        background-color: #f0f2f5;
+    }
+    .modal-all .tables-all {
+        padding: 10px 0;
+    }
+    .seachClass{
+        background-color: #f5f7f9;
+        margin-top:0px;
+    }
+
+    .tables-all {
+        /*width: 100%;*/
+        border-top: 1px solid #DBDBDB;
+        margin-bottom: -16px;
+        /* overflow: hidden; */
+        padding: 10px 15px 0;
+        background-color: #ffffff;
+    }
+</style>
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">新 增</h3>
+</div>
+
+<div class="modal-body">
+    <form name="stuFlagAdd_form" class="form-horizontal" novalidate>
+        <div class="seachClass" >
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">学号：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="stuFlagInfo.stuNumber"  id="stuNumber"
+                           name="stuNumber" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">姓名：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="stuFlagInfo.stuName" id="stuName" name="stuName" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">是否在校：</label>
+                <div class="col-xs-7">
+                    <!--<select ng-model="stuFlagInfo.whetherInSchool"
+                            ng-options="whetherInSchool.id as whetherInSchool.name for whetherInSchool in whetherInSchoolList"
+                            name="whetherInSchool" id="whetherInSchool_search" class="form-control" ui-jq="chosen"
+                            ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>-->
+                    <select ng-model="stuFlagInfo.whetherInSchool" name="whetherInSchool"
+                            id="whetherInSchool" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="1">在校</option>
+                        <option value="0">离校</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">入学方式：</label>
+                <div class="col-xs-7">
+                    <select ng-model="stuFlagInfo.entranceType"
+                            ng-options="entranceType.dataNumber as entranceType.dataName for entranceType in entranceTypeAddList"
+                            name="entranceType" id="entranceType_add" class="form-control" ui-jq="chosen"
+                            ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+            </div>
+            <div class="form-group col-xs-6">
+               <!-- <button id="btn_refer" type="button" ng-click="search()" class="btn search_btn ng-binding">
+                    <span class="fa fa-search refer"></span>
+                    查询
+                </button>-->
+                <button type="submit" class="btn btn-info" style="margin-right: 36px;" ng-click="search(stuFlagAdd_form)">
+                    <span class="fa fa-search refer btn-icon-padding"></span>查询
+                </button>
+                <button id="btn_reset" type="button" class="btn btn-default ng-binding" ng-click="reset()">
+                    <span class="fa fa-refresh reset"></span>
+                    重置
+                </button>
+            </div>
+        </div>
+        </div>
+        <div class="row tables-all">
+            <div class="form-group col-xs-6 ">
+                <label class="col-xs-5 control-label required" style="width:40%;">请选择学生标签：</label>
+                <div class="col-xs-7" style="width:60%;">
+                   <!-- <select ng-model="stuFlagInfo.stuFlagName" ng-required="true"  ui-chosen="stuFlagAdd_form.stuFlagName"
+                            ng-options="stuFlagName.id as stuFlagName.name for stuFlagName in stuFlagNameList"
+                            name="stuFlagName" id="stuFlagName_search" class="form-control" ui-jq="chosen"
+                            ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>-->
+                    <select ng-model="stuFlagInfo.stuFlagCode" name="stuFlagName"  ng-required="true" ui-chosen="stuFlagAdd_form.stuFlagName"
+                            id="stuFlagName_search" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="1">班长</option>
+                        <option value="0">课代表</option>
+                    </select>
+                </div>
+            </div>
+            <table id="stuFlagManageAddTable" ui-jq="bootstrapTable" ui-options="stuFlagManageAddTable"
+                   class="table table-responsive"></table>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(stuFlagAdd_form)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

@@ -1,0 +1,91 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">添加家庭成员</h3>
+</div>
+<div class="modal-body">
+    <form name="stuExperienceAddForm" class="form-horizontal" novalidate>
+        <div class="row">
+            <!-- 学号 -->
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label required">学号：</label>
+                <div class="col-xs-8">
+                    <span ng-bind="stuOverseasInfo_experience.stuNumber" ng-required="true" id="stuNumber" name="stuNumber" class="form-control"  style="border: 0px;">14301025</span>
+                </div>
+            </div>
+            <!-- 姓名 -->
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label required">学生姓名：</label>
+                <div class="col-xs-8">
+                    <span ng-bind="stuOverseasInfo_experience.stuName" ng-required="true" id="stuName" name="stuName" class="form-control"  style="border: 0px;">14301025</span>
+
+                </div>
+            </div>
+                <!-- 开始年月 -->
+                <div class="form-group col-xs-12">
+                    <label class="col-xs-3 control-label required ">开始年月：</label>
+                    <div class="col-xs-8">
+                        <div class="input-group" style="width: 102%;">
+                            <input ng-model="stuOverseasInfoAddform.experBeginTime" ng-required="true" id="experBeginTime"
+                                   name="experBeginTime" type="text" class="form-control"
+                                   uib-datepicker-popup="yyyy-MM-dd"
+                                   is-open="experBeginTimeOptions.opened"
+                                   datepicker-options="experBeginTimeOptions.dateOptions"
+                                   current-text="今天"
+                                   clear-text="清除"
+                                   close-text="关闭"
+                                   ng-click="experBeginTimeOptions.open()"/>
+                                              <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default"
+                                                        ng-click="experBeginTimeOptions.open()"><i
+                                                        class="glyphicon glyphicon-calendar"></i></button>
+                                              </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 结束年月 -->
+                <div class="form-group col-xs-12">
+                    <label class="col-xs-3 control-label required">结束年月：</label>
+                    <div class="col-xs-8">
+                        <div class="input-group" style="width: 102%;">
+                            <input ng-model="stuOverseasInfoAddform.experEndTime" ng-required="true" id="experEndTime"
+                                   name="experEndTime" type="text" class="form-control"
+                                   uib-datepicker-popup="yyyy-MM-dd"
+                                   is-open="experEndTimeOptions.opened"
+                                   datepicker-options="experEndTimeOptions.dateOptions"
+                                   current-text="今天"
+                                   clear-text="清除"
+                                   close-text="关闭"
+                                   ng-click="experEndTimeOptions.open()"/>
+                                              <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default"
+                                                        ng-click="experEndTimeOptions.open()"><i
+                                                        class="glyphicon glyphicon-calendar"></i></button>
+                                              </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 学校或单位全称-->
+                <div class="form-group col-xs-12">
+                    <label class="col-xs-3 control-label required">学校或单位全称：</label>
+                    <div class="col-xs-8">
+                        <input ng-model="stuExperience.experStudyUnit" ng-required="true"  id="experStudyUnit" name="experStudyUnit" class="form-control" ng-maxlength="180">
+                    </div>
+                </div>
+                <!-- 地址 -->
+                <div class="form-group col-xs-12">
+                    <label class="col-xs-3 control-label required">地址：</label>
+                    <div class="col-xs-8">
+                        <input ng-model="stuExperience.experSite" ng-required="true" id="experSite" name="experSite" class="form-control" ng-maxlength="180">
+                    </div>
+                </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(stuExperienceAddForm)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

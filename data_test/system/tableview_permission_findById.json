@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "success": true,
+    "statusCode": 200,
+    "message": "ok"
+  },
+  "data": {
+    "qxbh": "label:query",
+    "mc": "应用标签查询",
+    "ybh": "base",
+    "fwbh": "apps",
+    "lx": "function",
+    "sjbh": "label:*",
+    "pxh": 1,
+    "underPermissionList": [],
+    "lxmc": null,
+    "ymc": "公共域",
+    "fwmc": "事务中心服务",
+    "resources": [
+      {
+        "zybh": "label_query",
+        "zymc": "应用标签查询",
+        "uri": "^/label",
+        "action": "get",
+        "zt": "1",
+        "qxbh": "label:query",
+        "pxh": 0
+      }
+    ]
+  }
+}

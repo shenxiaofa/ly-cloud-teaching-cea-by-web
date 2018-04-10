@@ -1,0 +1,93 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">学生新增</h3>
+</div>
+<div class="right-content">
+
+    <div search-show-hide  class="col-xs-12 searchDiv right-content-search">
+        <div class="control-label" >
+            <span class="fa {{searchListFlag}}"  ></span>
+            <label class="control-label search-control" ng-click="showHideSearchList()">&nbsp;查询条件</label>
+        </div>
+        <div  ng-hide="searchList">
+            <form name="classListMaintainAddForm" class="form-horizontal search-form" novalidate>
+                <div class="row">
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-4 control-label">学生类别：</label>
+                        <div class="col-xs-8">
+                            <select ng-model="student.studentTypeCode" id="studentTypeCode" name="studentTypeCode" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label" >学号/姓名：</label>
+                        <div class="col-xs-8">
+                            <input type="text" ng-model="student.numOrName" id="studentNameOrId" name="studentNameOrId" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-4 control-label">所属学院：</label>
+                        <!--<div class="col-xs-8"  >-->
+                        <!--<input type="text" ng-model="prohibitionListManage.deptId" id="deptId" name="deptId" class="form-control" />-->
+                        <!--</div>-->
+                        <div class="col-xs-8">
+                            <select id="deptId" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label">年级：</label>
+                        <div class="col-xs-8">
+                            <input type="text" ng-model="student.grade" id="grade" name="grade" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label">行政班：</label>
+                        <div class="col-xs-8">
+                            <input type="text" ng-model="student.executiveClassName" id="executiveClassName" name="executiveClassName" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label">校区：</label>
+                        <div class="col-xs-8">
+                            <select ng-model="student.campusId" id="campusId" name="campusId" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 btn-center">
+                        <!-- 点击触发 ng-submit 事件 -->
+                        <button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="right-content-table">
+        <table id="classListMaintainAddTable" ui-jq="bootstrapTable" ui-options="classListMaintainAddTable" class="table table-responsive"></table>
+    </div>
+
+    <div class="col-xs-12 modal-footer" style="text-align:right;padding-right: 30px;background-color: #FFFFFF;">
+        <button class="btn btn-primary" ng-click="ok(classListMaintainAddForm)">
+            确认
+        </button>
+        <button class="btn btn-default" ng-click="close()" >
+            取消
+        </button>
+    </div>
+</div>

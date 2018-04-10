@@ -1,0 +1,84 @@
+<div class="right-content">
+    <div class="right-content-search">
+        <div>
+            <label class="control-label search-control" ng-click="searchFormHideToggle()">
+                <i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+            </label>
+        </div>
+        <div ng-hide="isHideSearchForm">
+            <form name="examArrangeCountSearchForm" class="form-horizontal search-form" novalidate>
+                <div class="row">
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">学年学期：</label>
+			            <div class="col-xs-8" align="left">
+			                <select name="semesterId" id="semesterId" ng-model="examArrangeCount.semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+			                    <option value="">==请选择==</option>
+			                </select>
+			            </div>
+			        </div>
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">课程代码：</label>
+			            <div class="col-xs-8" align="left">
+			                <input class="form-control" ng-model="examArrangeCount.courseNum" class="input-small">
+			            </div>
+			        </div>
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">课程名称：</label>
+			            <div class="col-xs-8" align="left">
+			                <input class="form-control" ng-model="examArrangeCount.courseName" class="input-small">
+			            </div>
+			        </div>
+                </div>
+                <div class="row">
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">行政班：</label>
+			            <div class="col-xs-8" align="left">
+			                <input class="form-control" ng-model="examArrangeCount.className" class="input-small">
+			            </div>
+			        </div>
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">考试地点：</label>
+			            <div class="col-xs-8" align="left">
+			                <input class="form-control" ng-model="examArrangeCount.examLocationName" class="input-small">
+			            </div>
+			
+			        </div>
+			        <!--<div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">监考教师：</label>
+			            <div class="col-xs-8" align="left">
+			                <input class="form-control" ng-model="examArrangeCount.teacherId" class="input-small">
+			            </div>
+			        </div>-->
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">开课单位：</label>
+						<div class="col-xs-8" align="left">
+							<input class="form-control" ng-model="examArrangeCount.dept" class="input-small">
+						</div>
+					</div>
+                </div>
+                <div class="row">
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">姓名/学号：</label>
+			            <div class="col-xs-8" align="left">
+			                <input class="form-control" ng-model="examArrangeCount.studentNumOrName" class="input-small">
+			            </div>
+			        </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 btn-center">
+                        <!-- 点击触发 ng-submit 事件 -->
+                        <button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+                    </div>
+			    </div>
+			</form>
+		</div>
+	</div>
+    <div class="right-content-table">
+		<table id="examArrangeCountTable" ui-jq="bootstrapTable" ui-options="examArrangeCountTable" class="table table-responsive"></table>
+    </div>
+</div>

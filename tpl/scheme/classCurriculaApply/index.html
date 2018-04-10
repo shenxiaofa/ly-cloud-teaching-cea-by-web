@@ -1,0 +1,140 @@
+<style>
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+    	border-bottom: none;
+	}
+</style>
+<div class="right-content" >
+	<div class="col-xs-2 left-tree" ng-style="leftTreeStyle" ng-scroll-bar>
+		<ul id="menuTree" z-tree tree-options="zTreeOptions" class="ztree"></ul>
+	</div>
+	<div class="col-xs-10" style="padding: 5px 5px 0px 5px;">
+		<uib-tabset active="active">
+			<uib-tab index="0" heading="班级课程计划" ng-click="clickAlready1()">
+				<div class="right-content-search" style="margin-top: 5px;">
+					<div>
+						<label class="control-label search-control" ng-click="searchFormToggle()">
+							<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+						</label>
+					</div>
+					<div ng-hide="isHideSearchForm">
+						<form name="curriculaSearchForm" ng-submit="curriculaSearchSubmit()" class="form-horizontal search-form" novalidate>
+							<div class="row">
+								<div class="form-group col-xs-6">
+									<label class="col-xs-4 control-label">学生类别：</label>
+									<div class="col-xs-6">
+										<select name="studentCategoryCode"   id="studentCategoryCode" ng-model="classScheme.studentCategoryCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+											<option value="">==请选择==</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-6">
+									<label class="col-xs-4 control-label">专业名称：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="classScheme.majorName" id="majorName" name="majorName" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-xs-6">
+									<label class="col-xs-4 control-label">班级名称：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="classScheme.className" id="clazzName" name="clazzName" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group col-xs-6">
+									<label class="col-xs-4 control-label">是否存在培养方案：</label>
+									<div class="col-xs-6">
+										<select name="schemeSign" id="schemeSign" ng-model="classScheme.schemeSign" class="form-control">
+											<option value="">==请选择==</option>
+											<option value="1">是</option>
+											<option value="0">否</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 btn-center">
+									<!-- 点击触发 ng-submit 事件 -->
+									<button type="submit" class="btn btn-info">
+										<span class="fa fa-search refer btn-icon-padding"></span>查询
+									</button>
+									<button type="button" class="btn btn-default" ng-click="curriculaSearchReset()">
+										<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div style="padding: 0px 5px 0px 5px;">
+					<table id="classCurriculaTable" ui-jq="bootstrapTable" ui-options="classCurriculaTable" class="table table-responsive"></table>
+				</div>
+			</uib-tab>
+			<uib-tab index="1" heading="班级课程计划申请记录" ng-click="clickAlready2()">
+				<div class="right-content-search" style="margin-top: 5px;">
+					<div>
+						<label class="control-label search-control" ng-click="searchFormHideToggle()">
+							<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+						</label>
+					</div>
+					<div ng-hide="isHideSearchForm">
+						<form name="recordForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+							<div class="row">
+								<div class="form-group col-xs-6">
+									<label class="col-xs-4 control-label">学生类别：</label>
+									<div class="col-xs-6">
+										<select name="studentCategory" id="studentCategory" ng-model="record.studentCategoryCode" class="form-control" ui-options="{search_contains: true}">
+											<option value="">==请选择==</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-6">
+									<label class="col-xs-4 control-label">专业名称：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="record.majorName" id="major" name="major" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-xs-6">
+									<label class="col-xs-4 control-label">班级名称：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="record.className" id="clazz" name="clazz" class="form-control"/>
+									</div>
+								</div>
+								<!--<div class="form-group col-xs-6">
+									<label class="col-xs-4 control-label">是否存在培养方案：</label>
+									<div class="col-xs-6">
+										<select name="scheme" id="scheme" ng-model="record.schemeSign" class="form-control">
+											<option value="">==请选择==</option>
+											<option value="1">是</option>
+											<option value="0">否</option>
+										</select>
+									</div>
+								</div>-->
+							</div>
+							<div class="row">
+								<div class="col-xs-12 btn-center">
+									<!-- 点击触发 ng-submit 事件 -->
+									<button type="submit" class="btn btn-info">
+										<span class="fa fa-search refer btn-icon-padding"></span>查询
+									</button>
+									<button type="button" class="btn btn-default" ng-click="searchReset()">
+										<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div style="padding: 5px 5px 0px 5px;">
+					<table id="classCurriculaRecordTable" ui-jq="bootstrapTable" ui-options="classCurriculaRecordTable" class="table table-responsive"></table>
+				</div>
+			</uib-tab>
+		</uib-tabset>
+	</div>
+</div>

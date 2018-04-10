@@ -1,0 +1,143 @@
+<style>
+
+
+	/*#treegrid tbody {
+		display: block;
+		height: 400px;
+		overflow: auto;
+
+	}*/
+	#treegrid tbody tr {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+
+	}
+
+	/*滚动条垂直方向的宽度*/
+	::-webkit-scrollbar
+	{
+		width: 8px;
+	}
+	/* 垂直滚动条的滑动块 */
+	::-webkit-scrollbar-thumb:vertical {
+		border-radius: 4px;
+		background-color:#e3e3e3;
+	}
+	/*.fancytree-active{
+		background-color: white;
+	}
+		#treegrid thead {
+            width: calc( 100% - 1.5em )
+        }
+    table.fancytree-ext-table.fancytree-container>tbody>tr.fancytree-active>td { //树样式覆盖
+		background-color: #f9f9f9;
+	}
+	table.fancytree-ext-table.fancytree-treefocus.fancytree-container>tbody>tr.fancytree-active>td {//树样式覆盖
+		background-color: #f9f9f9 !important
+	}*/
+	table.fancytree-ext-table.fancytree-container>tbody>tr.fancytree-active>td {
+		background-color: #f5f7f9 !important;
+	}
+.active>td, table.fancytree-ext-table.fancytree-container>tbody>tr.fancytree-active>td span.fancytree-title {
+    color: #333 !important;
+}
+	.fancytree-plain.fancytree-container.fancytree-ext-wide span.fancytree-node.fancytree-active, table.fancytree-ext-table.fancytree-colorize-selected>tbody>tr.fancytree-selected>td, table.fancytree-ext-table.fancytree-colorize-selected>tbody>tr.fancytree-selected>td span.fancytree-title, table.fancytree-ext-table.fancytree-container>tbody>tr.fancytree-active>td, table.fancytree-ext-table.fancytree-container>tbody>tr.fancytree-active>td span.fancytree-title {
+	 color: #333;
+ }
+
+	.table-header-wrap{
+		width: 100%;
+	}
+	.table-header-wrap table{
+		width: 100%;
+	}
+
+	.table-body-wrap table{
+		width: 100%;
+	}
+</style>
+<div class="modal-header">
+	<h3 class="modal-title" ><div class="top-left col-xs-5">用户数据权限管理 &nbsp;&nbsp; (用户组名称：{{userGroup.yhzmc}})</div>
+	</h3>
+	<div class=" top-right"><button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button></div>
+
+</div>
+<div class="modal-body">
+</div>
+<div class="modal-footer" style="text-align: left">
+	<div class="col-xs-6 left-tree" >
+		<!--<ul id="menuTree" z-tree tree-options="zTreeOptions" class="ztree"></ul>-->
+		<!--<div class="right-content-table">-->
+		<div class="table-header-wrap">
+			<table>
+
+				<colgroup>
+					<col width="33.3%"/>
+					<col width="33.3%"/>
+					<col width="33.3%"/>
+				</colgroup>
+				<tr > <th ></th> <th >权限</th> <th >范围值</th> </tr>
+			</table>
+		</div>
+		<table id="treegrid" ui-jq="fancytree" ui-options="treegrid" class="table table-responsive table-selector ng-scope table-hover table-bordered ">
+
+			<tbody style="overflow:auto; display: block;" ng-style="leftTreeStyle" >
+
+			<tr > <td></td> <td></td> <td></td> </tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="col-xs-6" style="padding: 5px 5px 0px 5px;">
+		<div class="right-content-search">
+			<div>
+				<label class="control-label search-control" ng-click="searchFormHideToggle()">
+					<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;下拉筛选
+				</label>
+			</div>
+			<div ng-hide="isHideSearchForm">
+				<form name="userSearchForm"  class="form-horizontal search-form" novalidate>
+					<div class="row">
+						<div class="form-group col-xs-6">
+							<label class="col-xs-4 control-label">服务：</label>
+							<div class="col-xs-8">
+								<!--<input type="text" ng-model="user.xm" name="xm" class="form-control"/>-->
+								<select ng-model="userGroup.yhzmc" ui-chosen="userSearchForm.fwbh" ng-required="true" id="ybh" name="ybh" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+									<option ng-repeat="serving in servingData" value="{{serving.bh}}">{{serving.mc}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-xs-7">
+							<label class="col-xs-4 control-label">权限维度：</label>
+							<div class="col-xs-8">
+								<select ng-model="permission.sjqxbh" ui-chosen="userGroupSearchForm.fwbh" ng-required="true" id="sjqxbh" name="sjqxbh" ui-jq="chosen"  ui-options="{search_contains: true}" class="form-control">
+									<option disabled></option>
+									<option ng-repeat="sjqxItem in sjqxData" value="{{sjqxItem.sjqxbh}}">{{sjqxItem.wdmc}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 btn-center">
+							<!-- 点击触发 ng-submit 事件 -->
+							<button type="submit" class="btn btn-info" ng-click="bundling()">
+								<span class="fa fa-search refer btn-icon-padding"></span>保存
+							</button>
+							<button type="button" class="btn btn-default" ng-click="Unbundling()">
+								<span class="fa fa-refresh reset btn-icon-padding"></span>清除
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="datafwdiv" style="padding: 5px 0px 0px 0px;">
+
+			<table id="datafwTable" ui-jq="bootstrapTable" ui-options="datafwTable" class="table table-responsive"></table>
+		</div>
+	</div>
+
+</div>

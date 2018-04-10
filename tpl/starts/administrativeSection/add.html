@@ -1,0 +1,22 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">批量设置</h3>
+</div>
+<div class="modal-body">
+	<form name="codeCategoryAddform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-2 control-label" >板块名称：</label>
+			<div class="col-xs-9 pull-left">
+				<select ng-model="adminSection.plateId"  id="plateId" name="plateId" class="form-control ">
+					<option style="margin: auto" ng-repeat="date in projectPalateData" value="{{date.id}}">{{date.name}}</option>
+				</select>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(codeCategoryAddform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

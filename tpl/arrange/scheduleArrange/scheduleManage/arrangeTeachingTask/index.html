@@ -1,0 +1,144 @@
+<style>
+	#goBackDiv {
+		width: 18px;
+		height: 18px;
+		background-color: #CFDADD;
+		position: relative;
+		left: 101.8%;
+		bottom: 60%;
+		border-radius:10px;
+		z-index:999; 
+	}
+	#goBackDiv:hover {
+		width: 18px;
+		height: 18px;
+		background-color: #2DB7F5;
+		position: relative;
+		left: 101.8%;
+		bottom: 60%;
+		border-radius:10px;
+		z-index:999; 
+		cursor:pointer;
+	}
+	#goBackDiv:active {
+		width: 18px;
+		height: 18px;
+		background-color: #0992CF;
+		position: relative;
+		left: 101.8%;
+		bottom: 60%;
+		border-radius:10px;
+		z-index:999; 
+		cursor:pointer;
+	}
+	.changeRowCss {
+		padding: 8px;
+	}
+	.changeRowCss:hover {
+		cursor:pointer;
+	}
+	.changeRowCss:active {
+		cursor:pointer;
+	}
+	.btn-success {
+	    background: #03a9f5 !important;
+	    border: 1px solid #03a9f5 !important;
+	    color: #fff !important;
+	    margin: 0 5px 0 0;
+	    height: 30px;
+	    line-height: 25px;
+	    padding: 0 10px;
+	}
+	.fixed-table-toolbar .bs-bars, .fixed-table-toolbar .columns, .fixed-table-toolbar .search {
+	    width: 100%;
+	}
+	.right-content-table {
+	    padding: 20px 10px 2px 10px;
+	}
+</style>
+<div class="right-content">
+	<div class="col-xs-2" ng-style="leftTree">
+		<div class="col">
+			<div class="wrapper-md">
+				<div class="b-a bg-light dk r r-2x">
+					<table id="courseArrangeLeftTable" ui-jq="bootstrapTable" ui-options="courseArrangeLeftTable" class="table"></table>
+				</div>
+			</div>
+		</div>
+		<div ng-click="goBack()" id="goBackDiv">
+		</div>
+	</div>
+	<div class="col-xs-10" style="padding: 0px">
+		<div class="right-content-search">
+			<div>
+				<label class="control-label search-control" ng-click="searchFormHideToggle()">
+					<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+				</label>
+			</div>
+			<div ng-hide="isHideSearchForm">
+				<form name="arrangeTeachingTaskSearchForm" class="form-horizontal search-form">
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<label class="col-xs-5 control-label">教师安排情况：</label>
+							<div class="col-xs-7">
+								<select ng-model="arrangeTeachingTask.teacherArrange" id="teacherArrange" name="teacherArrange" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+									<option value="">==请选择==</option>
+									<option value="1">未安排</option>
+									<option value="2">部分已安排</option>
+									<option value="3">全部已安排</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-5 control-label">地点安排情况：</label>
+							<div class="col-xs-7">
+								<select ng-model="arrangeTeachingTask.roomArrange" id="roomArrange" name="roomArrange" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+									<option value="">==请选择==</option>
+									<option value="1">未安排</option>
+									<option value="2">部分已安排</option>
+									<option value="3">全部已安排</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-5 control-label">课程安排情况：</label>
+							<div class="col-xs-7">
+								<select ng-model="arrangeTeachingTask.courseArrange" id="courseArrange" name="courseArrange" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+									<option value="">==请选择==</option>
+									<option value="1">未安排</option>
+									<option value="2">部分已安排</option>
+									<option value="3">全部已安排</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4">
+						</div>
+						<div class="col-xs-3 btn-center">
+							<button type="submit" class="btn btn-info" ng-click="searchSubmit(arrangeTeachingTaskSearchForm)">
+								<span class="fa fa-search refer btn-icon-padding"></span>查询
+							</button>
+							<button type="reset" class="btn btn-info" ng-click="searchReset()">
+								<span class="fa fa-refresh refer btn-icon-padding"></span>重置
+							</button>
+						</div>
+						<div class="col-xs-5">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="right-content-table">
+			<div class="col-xs-12 row">
+				<label class="col-xs-2 control-label">课程编号：{{topOfTable.courseId}}</label>
+				<label class="col-xs-3 control-label">课程名称：{{topOfTable.courseName}}</label>
+				<label class="col-xs-2 control-label">课程属性：{{topOfTable.coursePropertyName}}</label>
+				<label class="col-xs-1 control-label">学分：{{topOfTable.credit}}</label>
+				<label class="col-xs-3 control-label">开课单位：{{topOfTable.openDeptName}}</label>
+			</div>
+			<!-- 教学任务安排 -->
+			<table id="courseArrangeTable" ui-jq="bootstrapTable" ui-options="courseArrangeTable" class="table table-responsive"></table>
+		</div>
+	</div>
+</div>

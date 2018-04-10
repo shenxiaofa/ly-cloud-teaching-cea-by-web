@@ -1,0 +1,14 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "majorName": "2017会计学",
+        "majorCode":"20173901",
+        "deptName":"计算机学院",
+        "SchemeVersionName":"2017",
+        "educationLevel":"本科"
+      }
+    ]
+  }
+}

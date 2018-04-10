@@ -1,0 +1,27 @@
+{
+	"total": "1",
+	"rows": [
+		{
+			"studentNum": "F2080001",
+			"studentName": "张三",
+			"deptName": "教务处",
+			"gradeName": "2016级",
+			"majorName": "计算机科学",
+			"fromClassName": "Excel高级应用1班"
+		}, {
+			"studentNum": "F2080002",
+			"studentName": "李四",
+			"deptName": "教务处",
+			"gradeName": "2016级",
+			"majorName": "计算机科学",
+			"fromClassName": "Excel高级应用1班"
+		}, {
+			"studentNum": "F2080003",
+			"studentName": "王五",
+			"deptName": "教务处",
+			"gradeName": "2016级",
+			"majorName": "计算机科学",
+			"fromClassName": "Excel高级应用1班"
+		}
+	]
+}

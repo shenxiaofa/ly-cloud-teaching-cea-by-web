@@ -1,0 +1,15 @@
+{
+  "data": {
+    "total": 1,
+    "list": [
+      {
+        "rewPunSutName": "小宇",
+        "rewPunGender": "男",
+        "rewPunSchrollState": "在籍",
+        "rewPunWhetherAtsch": "是",
+        "rewPunCollege": "计算机学院",
+        "rewPunGradeMajor": "计算机"
+      }
+    ]
+  }
+}

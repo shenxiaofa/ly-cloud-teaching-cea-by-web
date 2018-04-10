@@ -1,0 +1,16 @@
+<div class="right-content">
+	<div class="right-content-table">
+		<div id="toolbar" class="btn-group">
+		<div>
+			<button has-permission="projectCodeMaintenance:insert" type="button" class="btn btn-default add-btn" ng-click="openAdd()">
+				<span class="fa fa-plus toolbar-btn-icon"></span>新增
+			</button>
+			&nbsp;
+			<button has-permission="projectCodeMaintenance:delete" type="button" class="btn btn-default del-btn" ng-click="openDelete()">
+				<span class="fa fa-times toolbar-btn-icon"></span>删除
+			</button>
+		</div>
+	</div>
+		<table id="projectCodeTable" ui-jq="bootstrapTable" ui-options="projectCodeTable" class="table table-responsive"></table>
+	</div>
+</div>

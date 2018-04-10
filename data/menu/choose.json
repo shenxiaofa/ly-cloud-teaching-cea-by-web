@@ -1,0 +1,97 @@
+[
+	{
+		"id": 1,
+		"parentName": "选课策略管理",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "学年学期设置",
+				"isShow": true,
+				"target": "semesterSettingManage",
+				"targetUrl": "home.common.semesterSettingManage",
+				"permission": ""
+			}, {
+				"name": "禁选名单管理",
+				"isShow": true,
+				"target": "prohibitionListManage",
+				"targetUrl": "home.common.prohibitionListManage",
+				"permission": ""
+			}, {
+				"name": "选课轮次管理",
+				"isShow": true,
+				"target": "chooseCourseRoundManage",
+				"targetUrl": "home.common.chooseCourseRoundManage",
+				"permission": ""
+			}, {
+				"name": "选课门数控制",
+				"isShow": true,
+				"target": "chooseCourseNumberManage",
+				"targetUrl": "home.common.chooseCourseNumberManage",
+				"permission": ""
+			}
+		]
+	}, {
+		"id": 2,
+		"parentName": "选课过程管理",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "选课课程管理",
+				"isShow": true,
+				"target": "chooseCourseManage",
+				"targetUrl": "home.common.chooseCourseManage",
+				"permission": ""
+			}, {
+				"name": "监控调整管理",
+				"isShow": true,
+				"target": "monitorAdjustManage",
+				"targetUrl": "home.common.monitorAdjustManage",
+				"permission": ""
+			}
+		]
+	}, {
+		"id": 3,
+		"parentName": "选课结果管理",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "选课筛选管理",
+				"isShow": true,
+				"target": "chooseCourseScreenManage",
+				"targetUrl": "home.common.chooseCourseScreenManage",
+				"permission": ""
+			}, {
+				"name": "选课结果管理",
+				"isShow": true,
+				"target": "chooseCourseResultManage",
+				"targetUrl": "home.common.chooseCourseResultManage",
+				"permission": ""
+			}
+		]
+	}, {
+		"id": 4,
+		"parentName": "班级名单管理",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "班级名单管理",
+				"isShow": true,
+				"target": "classListManage",
+				"targetUrl": "home.common.classListManage",
+				"permission": ""
+			}
+		]
+	}
+]

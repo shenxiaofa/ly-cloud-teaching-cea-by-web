@@ -1,0 +1,52 @@
+{
+  "data": {
+    "total": 3,
+    "list": [
+      {
+        "exaNumber": "354655657",
+        "stuNumber": "14429601151078",
+        "stuName": "石宇妍",
+        "sexCode": "女",
+        "campus": "东校区",
+        "collegeNum": "电子商务（管理学院）",
+        "grade": "2014",
+        "major": "电子商务",
+        "gradeDirection": "2014电子商务",
+        "className": "5班",
+        "enterWay": "体育特招",
+        "startPhotoStatus": 1,
+        "endPhotoStatus": 1
+      },
+      {
+        "exaNumber": "354655657",
+        "stuNumber": "14429601151078",
+        "stuName": "石宇妍",
+        "sexCode": "女",
+        "campus": "东校区",
+        "collegeNum": "电子商务（管理学院）",
+        "grade": "2014",
+        "major": "电子商务",
+        "gradeDirection": "2014电子商务",
+        "className": "5班",
+        "enterWay": "体育特招",
+        "startPhotoStatus": 1,
+        "endPhotoStatus": 1
+      },
+      {
+        "exaNumber": "354655657",
+        "stuNumber": "14429601151078",
+        "stuName": "石宇妍",
+        "sexCode": "女",
+        "campus": "东校区",
+        "collegeNum": "电子商务（管理学院）",
+        "grade": "2014",
+        "major": "电子商务",
+        "gradeDirection": "2014电子商务",
+        "className": "5班",
+        "enterWay": "体育特招",
+        "startPhotoStatus": 1,
+        "endPhotoStatus": 1
+      }
+    ]
+  }
+}

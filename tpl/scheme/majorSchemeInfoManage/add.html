@@ -1,0 +1,99 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">方案新增</h3>
+</div>
+<div class="modal-body">
+	<div class="right-content-search">
+		<form name="codeCategorySearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" style=" padding-top: 0px">
+			<div class="row" style="padding-bottom: 10px;">
+				<label class="col-xs-2 control-label ">
+					&nbsp;年级专业信息
+				</label>
+				<div style="border-bottom:1px solid #ddd;margin-top: 15px" class="col-xs-10"></div>
+			</div>
+			<div ng-hide="isHideSearchForm">
+
+				<div class="row">
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label">单位名称：</label>
+						<div class="col-xs-6">
+							<input type="text" name="codeTypeName" disabled class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label">单位编号：</label>
+						<div class="col-xs-6">
+							<input type="text" name="codeTypeName" disabled class="form-control "/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label">年级：</label>
+						<div class="col-xs-6">
+							<input type="text"  name="codeTypeName" disabled class="form-control "/>
+						</div>
+					</div>
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label">专业：</label>
+						<div class="col-xs-6">
+							<input type="text" name="codeTypeName" disabled class="form-control "/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="padding-bottom: 10px;">
+				<label class="col-xs-2 control-label ">
+					&nbsp;复制来源信息
+				</label>
+				<div style="border-bottom:1px solid #ddd;margin-top: 15px" class="col-xs-10"></div>
+			</div>
+			<div ng-hide="isHideSearchForm">
+				<div class="row">
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label required">来源版本：</label>
+						<div class="col-xs-6">
+							<select name="schemeVersion_ID" id="schemeVersion_ID" ng-model="majorScheme.schemeVersion_ID" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+								<option value="">单位1</option>
+								<option value="">单位2</option>
+								<option value="">单位3</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label ">来源学院：</label>
+						<div class="col-xs-6">
+							<select name="dept_ID" id="dept_ID"  ng-model="majorScheme.dept_ID" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="0">==请选择==</option>
+								<option value="1">单位1</option>
+								<option value="2">单位2</option>
+								<option value="3">单位3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label">来源专业：</label>
+						<div class="col-xs-6">
+							<select name="major_ID" id="major_ID" ng-model="majorScheme.major_ID" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+								<option value="">单位1</option>
+								<option value="">单位2</option>
+								<option value="">单位3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok()">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

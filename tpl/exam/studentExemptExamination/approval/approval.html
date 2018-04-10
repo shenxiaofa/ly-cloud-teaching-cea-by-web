@@ -1,0 +1,121 @@
+<style>
+    .ms-container{
+        width: 650px;
+    }
+    .ms-container .ms-list{
+        height: 300px;
+    }
+    #selectable-footer, #selection-footer {
+        background-color: #fff;
+        cursor: pointer;
+        color: black;
+        border-top: none;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        border-radius: 0 0 4px 4px;
+    }
+    #selectable-footer .btn-primary {
+        height: 24px;
+        line-height: 24px;
+    }
+    #selection-footer .btn-default {
+        height: 24px;
+        line-height: 24px;
+    }
+</style>
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">免考审批</h3>
+</div>
+<div class="modal-body">
+    <form name="addForm" class="form-horizontal" novalidate>
+        <div class="row">
+            <div class="col-xs-6">
+                <label class="col-xs-5" style="text-align: right;padding: 5px;">学号：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.studentId}}</label>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-3" style="text-align: right;padding: 5px;">姓名：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.studentName}}</label>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">学生所在院系：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.dept}}</label>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-3 control-label" style="text-align: right;padding: 5px;">班级：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.className}}</label>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">申请缓考课程：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.courseName}}</label>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-3 control-label" style="text-align: right;padding: 5px;">开课单位：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.dept}}</label>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">学分：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.credit}}</label>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-3 control-label" style="text-align: right;padding: 5px;">课程性质：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.courseQuality}}</label>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">任课教师：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.teacherName}}</label>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-3 control-label" style="text-align: right;padding: 5px;">上课时间：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.classTime}}</label>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">考核方式：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.examWay}}</label>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-3 control-label" style="text-align: right;padding: 5px;">附件：</label>
+                <label class="col-xs-5" style="text-align: left;padding: 5px;">{{apply.classTime}}</label>
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-top: 15px;margin: 10px;">
+            <div class="col-xs-3" style="text-align: center;line-height:50px;height:50px;border:1px solid">
+                申请免考事由
+            </div>
+            <div class="col-xs-9" style="text-align: center;line-height:50px;height:50px;border:1px solid">
+                {{apply.reason}}
+            </div>
+        </div>
+        <!--<div>-->
+        <!--缓考申请须知：-->
+        <!--1、     缓考申请必须在考试开始前办理。-->
+        <!--2、     缺课超过1/3时，不予安排缓考。-->
+        <!--3、     缓考一般安排在下一学期。-->
+        <!--4、     本表由任课教师签字，学生所在系及教务处签署同意意见并盖章方可有效。-->
+        <!--5、     本表一式三份，由考试中心、任课教师及学生各保留一份。-->
+        <!--6、     教务处下学期缓考安排通知公布后，根据本人缓考课程查询考试安排。如未安排缓考，持本申请表于考试前咨询教务处成绩管理处。-->
+        <!--</div>-->
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(addForm)">办理完成</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

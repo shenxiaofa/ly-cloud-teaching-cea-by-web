@@ -1,0 +1,12 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "name": "通识基础模块",
+        "courseProperty":"必修",
+        "presetCourseSign":"是"
+      }
+    ]
+  }
+}

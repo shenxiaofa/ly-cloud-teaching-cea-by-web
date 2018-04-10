@@ -1,0 +1,43 @@
+<div class="modal-header">
+	<h3 class="modal-title">等级代码维护</h3>
+</div>
+<div class="modal-body">
+	<form name="codeGrade_modify_form" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">等级类别代码：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="codeGrade.num" id="num" name="num" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">等级类别：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="codeGrade.name" id="name" name="name" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">英文名称：</label>
+			<div class="col-xs-8">
+				<input
+						type="text"
+						ng-model="codeGrade.engName"
+						ng-required="true"
+						id="engName"
+						name="engName"
+						class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required" >对应课程名称：</label>
+			<div class="col-xs-8 pull-left">
+				<select ng-model="codeGrade.courseId" ng-required="true" id="courseName" name="courseName" class="form-control ">
+					<option style="margin: auto" ng-repeat="date in courseData" value="{{date.id}}">{{date.name}}</option>
+				</select>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(codeGrade_modify_form)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

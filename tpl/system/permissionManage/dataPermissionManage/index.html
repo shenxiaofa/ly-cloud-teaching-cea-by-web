@@ -1,0 +1,50 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="dataPermissionSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">服务：</label>
+						<div class="col-xs-8">
+							<select ng-model="dataPermission.fwbh" id="fwbh" name="fwbh" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="fwbhItem in fwbhData" value="{{fwbhItem.bh}}">{{fwbhItem.mc}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">维度名称：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="dataPermission.wdmc" id="wdmc" name="wdmc" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<div id="toolbar" class="btn-group">
+			<div>
+				<button has-dataPermission="dataPermission:insert" type="button" class="btn btn-default add-btn" ng-click="openAdd()">
+					<span class="fa fa-plus toolbar-btn-icon"></span>新增
+				</button>
+			</div>
+		</div>
+		<table id="dataPermissionTable" ui-jq="bootstrapTable" ui-options="dataPermissionTable" class="table table-responsive"></table>
+	</div>
+</div>

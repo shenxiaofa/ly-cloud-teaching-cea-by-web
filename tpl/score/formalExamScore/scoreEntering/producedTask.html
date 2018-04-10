@@ -1,0 +1,109 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">生成录入任务</h3>
+</div>
+<div class="modal-body">
+    <form name="jkjswh_add_form" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <div class="col-xs-11">
+                <label class="col-xs-3 control-label required">正考学年学期：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.semesterId" ng-required="true" id="semesterId" name="semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+                <label class="col-xs-3 control-label">学籍状态：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.studentStatus" id="studentStatus" name="studentStatus" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-11">
+                <label class="col-xs-3 control-label">开课单位：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.deptId" id="deptId" name="deptId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+                <label class="col-xs-3 control-label ">课程属性：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.coursePropertyNum" id="coursePropertyNum" name="coursePropertyNum" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-11">
+                <label class="col-xs-3 control-label">课程模块：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.courseModuleId" id="courseModuleId" name="courseModuleId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+                <label class="col-xs-3 control-label">课程：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.courseNum" id="courseNum" name="courseNum" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <label class="col-xs-3 control-label">学院：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.collegeId" id="collegeId" name="collegeId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                        <option value="2017-2018-1">2017-2018-1</option>
+                        <option value="2017-2018-2">2017-2018-2</option>
+                    </select>
+                </div>
+                <label class="col-xs-3 control-label">年级：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.gradeName" id="gradeName" name="gradeName" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                        <option value="男">2015</option>
+                        <option value="女">2016</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <label class="col-xs-3 control-label">专业：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.majorId" id="majorId" name="majorId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                        <option value="是">计算机</option>
+                        <option value="否">物理</option>
+                    </select>
+                </div>
+                <label class="col-xs-3 control-label">班级：</label>
+                <div class="col-xs-3">
+                    <select ng-model="producedTask.executiveClassId" id="executiveClassId" name="executiveClassId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                        <option value="男">清华1班</option>
+                        <option value="女">清华2班</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(jkjswh_add_form)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

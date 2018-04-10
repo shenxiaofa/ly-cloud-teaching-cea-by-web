@@ -1,0 +1,32 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">班级课程计划详情</h3>
+</div>
+<div class="modal-body" style="height: 500px;">
+	<form name="outerForm" class="tab-form-demo">
+		<uib-tabset active="activeForm" >
+			<uib-tab ng-repeat="a in title" index="$index" heading="{{a.name+'('+a.creditDemand+'学分)'}}" ng-click="change(a)">
+				<ng-form name="nestedForm">
+					<div class="row right-content-table" style="padding-bottom: 10px">
+						<div class="col-xs-9">
+						</div>
+						<div class="col-xs-3" style="padding-top: 10px">
+							<small>
+								共{{a.creditDemand}}学分，已完成{{completeCredit}}学分
+							</small>
+						</div>
+					</div>
+				</ng-form>
+			</uib-tab>
+		</uib-tabset>
+	</form>
+	<div class="right-content-table">
+		<table id="adjustTable" ui-jq="bootstrapTable" ui-options="adjustTable" class="table table-responsive"></table>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="close()">确定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

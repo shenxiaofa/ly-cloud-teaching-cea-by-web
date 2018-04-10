@@ -1,0 +1,12 @@
+{
+  "data": [
+    { "id":1, "parentId":0, "name":"2016", "type":"grade"},
+    { "id":890812949479526400, "parentId":1, "name":"舞蹈学院", "type":"name"},
+    { "id":12, "parentId":1, "name":"体育学院", "type":"name"},
+    { "id":13, "parentId":1, "name":"经济管理学院", "type":"name"},
+    { "id":2, "parentId":0, "name":"2017", "type":"grade"},
+    { "id":21, "parentId":2, "name":"舞蹈学院", "type":"name"},
+    { "id":22, "parentId":2, "name":"体育学院", "type":"name"},
+    { "id":23, "parentId":2, "name":"经济管理学院", "type":"name"}
+  ]
+}

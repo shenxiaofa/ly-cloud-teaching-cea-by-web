@@ -1,0 +1,89 @@
+{
+  "data": {
+    "total": 6,
+    "rows": [
+      {
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "excutiveClassName":"软件工程1班",
+        "studentNum":"ZS0001",
+        "studentName":"张三",
+        "statusState":"在校",
+        "statusSign":"有"
+      }, {
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "excutiveClassName":"软件工程1班",
+        "studentNum":"ZS0001",
+        "studentName":"张三",
+        "statusState":"在校",
+        "statusSign":"有"
+      }, {
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "excutiveClassName":"软件工程1班",
+        "studentNum":"ZS0001",
+        "studentName":"张三",
+        "statusState":"在校",
+        "statusSign":"有"
+      }, {
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "excutiveClassName":"软件工程1班",
+        "studentNum":"ZS0001",
+        "studentName":"张三",
+        "statusState":"在校",
+        "statusSign":"有"
+      }, {
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "excutiveClassName":"软件工程1班",
+        "studentNum":"ZS0001",
+        "studentName":"张三",
+        "statusState":"在校",
+        "statusSign":"有"
+      }, {
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "excutiveClassName":"软件工程1班",
+        "studentNum":"ZS0001",
+        "studentName":"张三",
+        "statusState":"在校",
+        "statusSign":"有"
+      }, {
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "excutiveClassName":"软件工程1班",
+        "studentNum":"ZS0001",
+        "studentName":"张三",
+        "statusState":"在校",
+        "statusSign":"有"
+      }, {
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "excutiveClassName":"软件工程1班",
+        "studentNum":"ZS0001",
+        "studentName":"张三",
+        "statusState":"在校",
+        "statusSign":"有"
+      }
+    ]
+  }
+}
+

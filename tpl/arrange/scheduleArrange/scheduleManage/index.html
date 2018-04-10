@@ -1,0 +1,58 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="scheduleManageSearchForm" class="form-horizontal search-form">
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">课程名称：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="scheduleManage.courseName" id="courseName" name="courseName" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">开课单位：</label>
+						<div class="col-xs-6">
+							<select id="openDeptId" class="form-control">
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">课程属性：</label>
+						<div class="col-xs-6">
+							<select id="coursePropertyNum" class="form-control">
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">课程号：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="scheduleManage.courseId" id="courseId" name="courseId" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<button type="submit" class="btn btn-info" ng-click="searchSubmit(scheduleManageSearchForm)">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default " ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="" class="right-content-table">
+		<table id="scheduleManageTable" ui-jq="bootstrapTable" ui-options="scheduleManageTable" class="table table-responsive"></table>
+	</div>
+</div>
+
+
+
+

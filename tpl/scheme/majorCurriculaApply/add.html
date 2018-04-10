@@ -1,0 +1,114 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">课程新增</h3>
+</div>
+<div class="modal-body" style="padding: 0px;">
+	<div class="right-content-search" style="padding: 0px;">
+		<form name="courseSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+			<div class="row">
+				<div class="form-group col-xs-4">
+					<label class="col-xs-6 control-label">开课单位：</label>
+					<div class="col-xs-6">
+						<select name="dept_ID" id="dept_ID" ng-model="courseParam.dept_ID" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+							<option value="">==请选择==</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-xs-4">
+					<label class="col-xs-6 control-label">课程名称/代码：</label>
+					<div class="col-xs-6">
+						<input type="text" ng-model="courseParam.courseNameOrCode" id="courseNameOrCode" name="courseNameOrCode" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-4">
+					<div class=" btn-center">
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="right-content-table" style="padding-top: 0px;padding-bottom: 0px;">
+		<table id="majorCoursePlanAddTable" ui-jq="bootstrapTable" ui-options="majorCoursePlanAddTable" class="table table-responsive"></table>
+	</div>
+	<div class="right-content-search" style="padding: 0px;">
+		<form name="addForm" ng-submit="searchSubmit()" class="form-horizontal search-form" style="padding-top: 10px;">
+			<div class="row">
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<input type="hidden" ng-model="courseInfo.course_ID" id="course_ID" name="course_ID"/>
+					<label class="col-xs-6 control-label required">开课学期：</label>
+					<div class="col-xs-6">
+						<select name="semester"  ng-required="true" id="semester" ng-model="courseInfo.semester" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+							<option value="">==请选择==</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">课程名称：</label>
+					<div class="col-xs-6">
+						<input type="text"  ng-required="true" ng-model="courseInfo.courseName" disabled id="courseName" name="courseName" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">课程模块：</label>
+					<div class="col-xs-6">
+						<input type="text"  ng-required="true" ng-model="courseInfo.courseModel" disabled id="courseModel" name="courseModel" class="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">学分：</label>
+					<div class="col-xs-6">
+						<input type="text" decimal maxlength="5" disabled ng-model="courseInfo.credit" id="credit" name="credit" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">总学时：</label>
+					<div class="col-xs-6">
+						<input type="text" decimal maxlength="5" disabled ng-model="courseInfo.totalHour" id="totalHour" name="totalHour" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label">工作量学时：</label>
+					<div class="col-xs-6">
+						<input type="text" decimal maxlength="5"  id="" name="curricula" class="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">理论学时：</label>
+					<div class="col-xs-6">
+						<input type="text" decimal maxlength="5" disabled ng-model="courseInfo.theoryHour" id="theoryHour" name="theoryHour" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-4" style="margin-bottom: 5px;">
+					<label class="col-xs-6 control-label required">实践学时：</label>
+					<div class="col-xs-6">
+						<input type="text" decimal maxlength="5" disabled ng-model="courseInfo.practiceHour" id="practiceHour" name="practiceHour" class="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group" style="margin-bottom: 5px;">
+					<label class="col-xs-2 control-label" style="margin-left: -5px;">备注：</label>
+					<div class="col-xs-9" style="width: 73%;">
+						<textarea maxlength="500"  ng-model="courseInfo.remark" id="remark" name="remark" class="form-control" rows="3"></textarea>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(addForm)">保 存</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

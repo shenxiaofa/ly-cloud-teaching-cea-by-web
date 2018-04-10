@@ -1,0 +1,16 @@
+{"total": "1", "rows":
+	[
+		{
+			"id": "436a6402bb5942d2b6d6111a15e8798c",
+			"codeTypeId": "5",
+			"codeTypeName":"上课单位",
+			"englishName":"classUnit",
+			"sort":"50",
+			"createTime":"2017-07-05 15:23:13",
+			"creator":"1",
+			"remarks":"备注信息",
+			"updateTime": "2017-07-05 16:16:09",
+			"updator": "1"
+		}
+	]
+}

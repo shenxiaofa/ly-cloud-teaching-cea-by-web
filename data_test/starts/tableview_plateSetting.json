@@ -1,0 +1,125 @@
+{
+  "total": 12, "rows":
+[{
+  "id": "0001",
+  "xh": "1",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "0002",
+  "xh": "2",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "0003",
+  "xh": "3",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "0004",
+  "xh": "4",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "0005",
+  "xh": "5",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "0006",
+  "xh": "6",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "导演板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "0007",
+  "xh": "7",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "演员板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "0008",
+  "xh": "8",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "0009",
+  "xh": "9",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "00010",
+  "xh": "10",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "00011",
+  "xh": "11",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+},{
+  "id": "00012",
+  "xh": "12",
+  "college":"导演系",
+  "major":"导演专业",
+  "executiveClass": "2016001",
+  "courseName": "戏剧表演",
+  "plate": "戏剧板块",
+  "startStopCycle": "2-8",
+  "classTime": "2017-05-13 09:36:00"
+}]
+}
+

@@ -1,0 +1,63 @@
+<style>
+	
+	.radio-class {
+		padding-top: 2px!important;
+	}
+	
+	.modal-footer {
+	    padding: 4.5px 0!important;
+	}
+</style>
+
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">新增</h3>
+</div>
+<div class="right-content">
+
+    <div search-show-hide  class="col-xs-12 searchDiv right-content-search" style="padding-bottom: 0;">
+        <div  ng-hide="searchList">
+            <form name="chooseCourseNumberManageAddForm" class="form-horizontal search-form" novalidate>
+                <div class="row">
+                    <div class="form-group col-xs-12" >
+                        <label class="col-xs-4 control-label">学年学期：</label>
+                        <div class="col-xs-8">
+							<select id="semesterIdLeftAdd" class="form-control">
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label class="col-xs-4 control-label">最高选课门数：</label>
+                        <div class="col-xs-8">
+                            <input type="number" ng-model="chooseCourseNumberManage.highestNum" min="0" class="form-control" ng-required="true"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label class="col-xs-4 control-label">校公选门数：</label>
+                        <div class="col-xs-8">
+                            <input type="number" ng-model="chooseCourseNumberManage.schoolNum" min="0" class="form-control" ng-required="true"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label class="col-xs-4 control-label">院系选修门数：</label>
+                        <div class="col-xs-8">
+                            <input type="number" ng-model="chooseCourseNumberManage.deptNum" min="0" class="form-control" ng-required="true"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        
+        
+    <div class="col-xs-12 modal-footer" style="text-align: right;padding: 15px 0;background-color: #fff;margin-left: -8px;width: 102%;">
+        <button class="btn btn-primary" ng-click="ok(chooseCourseNumberManageAddForm)">
+            	确认
+        </button>
+        <button class="btn btn-default" ng-click="close()" >
+            	取消
+        </button>
+    </div>
+</div>

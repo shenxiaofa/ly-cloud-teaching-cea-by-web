@@ -1,0 +1,28 @@
+{
+  "data": {
+    "total": 3,
+    "list": [
+      {
+        "stuNumber": "14429601151078",
+        "stuName": "石宇妍",
+        "gender": "女",
+        "whetherInSchool": 1,
+        "entranceType": "体育特招"
+      },
+      {
+        "stuNumber": "14429601151078",
+        "stuName": "石宇妍",
+        "gender": "女",
+        "whetherInSchool": 1,
+        "entranceType": "体育特招"
+      },
+      {
+        "stuNumber": "14429601151078",
+        "stuName": "石宇妍",
+        "gender": "女",
+        "whetherInSchool": 1,
+        "entranceType": "体育特招"
+      }
+    ]
+  }
+}

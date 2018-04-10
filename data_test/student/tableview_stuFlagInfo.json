@@ -1,0 +1,52 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "stuNumber": "14429601151078",
+        "stuName": "石宇妍",
+        "gender": "女",
+        "stuFlagName": "课代表",
+        "locationCampus": "电子商务（管理学院）",
+        "professionDirect": "电子商务",
+        "grade": "2014",
+        "gradeProfession": "14级电子商务（管理学院",
+        "clasz": "英语（翻译）C班",
+        "registerCampus": "东校区",
+        "whetherInSchool": 1,
+        "entranceType": "体育特招",
+        "flagTime": "1996-10-24 11:12:10"
+      },
+      {
+        "stuNumber": "14429601151078",
+        "stuName": "石宇妍",
+        "gender": "女",
+        "stuFlagName": "班长",
+        "locationCampus": "电子商务（管理学院）",
+        "professionDirect": "电子商务",
+        "grade": "2014",
+        "gradeProfession": "14级电子商务（管理学院",
+        "clasz": "英语（翻译）C班",
+        "registerCampus": "东校区",
+        "whetherInSchool": 1,
+        "entranceType": "体育特招",
+        "flagTime": "1996-10-24 11:12:10"
+      },
+      {
+        "stuNumber": "14429601151078",
+        "stuName": "石宇妍",
+        "gender": "女",
+        "stuFlagName": "学习委员",
+        "locationCampus": "电子商务（管理学院）",
+        "professionDirect": "电子商务",
+        "grade": "2014",
+        "gradeProfession": "14级电子商务（管理学院",
+        "clasz": "英语（翻译）C班",
+        "registerCampus": "东校区",
+        "whetherInSchool": 1,
+        "entranceType": "体育特招",
+        "flagTime": "1996-10-24 11:12:10"
+      }
+    ]
+  }
+}

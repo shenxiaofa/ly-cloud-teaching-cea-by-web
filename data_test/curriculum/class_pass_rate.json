@@ -1,0 +1,45 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "grade": "2017",
+        "deptName": "计算机科学与技术",
+        "marjorName":"软件工程",
+        "executiveClassName":"软件工程1班",
+        "courseModle":"专业必修课",
+        "courseNum":"KCH0001",
+        "courseName":"C语言程序设计",
+        "studentCount":"40",
+        "passCount":"20",
+        "passRate":"50%",
+        "unPassCount":"20"
+      }, {
+        "grade": "2017",
+        "deptName": "计算机科学与技术",
+        "marjorName":"软件工程",
+        "executiveClassName":"软件工程1班",
+        "courseModle":"专业必修课",
+        "courseNum":"KCH0001",
+        "courseName":"C语言程序设计",
+        "studentCount":"40",
+        "passCount":"20",
+        "passRate":"50%",
+        "unPassCount":"20"
+      }, {
+        "grade": "2017",
+        "deptName": "计算机科学与技术",
+        "marjorName":"软件工程",
+        "executiveClassName":"软件工程1班",
+        "courseModle":"专业必修课",
+        "courseNum":"KCH0001",
+        "courseName":"C语言程序设计",
+        "studentCount":"40",
+        "passCount":"20",
+        "passRate":"50%",
+        "unPassCount":"20"
+      }
+    ]
+  }
+}
+

@@ -1,0 +1,195 @@
+<style>
+    /*.pull- pagination-detail{
+
+    }*/
+</style>
+<div class="right-content">
+    <div class="right-content-search">
+        <div>
+            <label class="control-label search-control" ng-click="searchFormHideToggle()">
+                <i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+            </label>
+        </div>
+        <div ng-hide="isHideSearchForm">
+            <form name="stuPhotoManageSearchForm" class="form-horizontal search-form">
+                <div class="row">
+                    <!--学号-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">学号：</label>
+                        <div class="col-xs-6">
+                            <input type="text" ng-model="stuPhotoInfo.stuNumber" id="stuNumber" name="stuNumber"
+                                   class="form-control"/>
+                        </div>
+                    </div>
+                    <!--姓名-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">姓名：</label>
+                        <div class="col-xs-6">
+                            <input type="text" ng-model="stuPhotoInfo.stuName" id="stuName" name="stuName"
+                                   class="form-control"/>
+                        </div>
+                    </div>
+                    <!--性别-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">性别：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.sexCode" name="sexCode" id="sexCode" class="form-control"
+                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                                <option value="1">男</option>
+                                <option value="0">女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--学院-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">学院：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.collegeNum"
+                                    ng-options="collegeNum.id as collegeNum.name for collegeNum in collegeNumList"
+                                    name="collegeNum" id="collegeNum_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--年级-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">年级：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.grade"
+                                    ng-options="grade.id as grade.name for grade in gradeList"
+                                    name="grade" id="grade_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--专业方向-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">专业方向：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.majorEntity"
+                                    ng-options="majorEntity.id as majorEntity.name for majorEntity in majorEntityList"
+                                    name="majorEntity" id="majorEntity_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--年级专业方向-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">年级专业方向：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.gradeDirectionEntity"
+                                    ng-options="gradeDirectionEntity.id as gradeDirectionEntity.name for gradeDirectionEntity in gradeDirectionEntityList"
+                                    name="gradeDirectionEntity" id="gradeDirectionEntity_search" class="form-control"
+                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--班级-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">班级：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.className"
+                                    ng-options="className.id as className.name for className in classNameList"
+                                    name="classNames" id="className_search " class="form-control"
+                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--当前校区-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">当前校区：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.campus"
+                                    ng-options="campus.id as campus.name for campus in campusList"
+                                    name="campus" id="campus_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--入学方式-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">入学方式：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.enterWay"
+                                    ng-options="enterWay.id as enterWay.name for enterWay in enterWayList"
+                                    name="enterWay" id="enterWay_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--有无入学照片-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">入学照片：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.startPhotoStatus" name="startPhotoStatus"
+                                    id="startPhotoStatus" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                                <option value="1">有</option>
+                                <option value="0">无</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--有无毕业照片-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">毕业照片：</label>
+                        <div class="col-xs-6">
+                            <select ng-model="stuPhotoInfo.endPhotoStatus" name="endPhotoStatus" id="endPhotoStatus"
+                                    class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                                <option value="1">有</option>
+                                <option value="0">无</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 btn-center">
+                        <!-- 点击触发 ng-submit 事件 -->
+                        <button type="submit" class="btn btn-info" style="margin-right: 36px;" ng-click="searchSubmit(stuPhotoManageSearchForm)">
+                        <span class="fa fa-search refer btn-icon-padding"></span>查询
+                    </button>
+                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="" class="right-content-table">
+        <div id="stuPhoto_toolbar" class="btn-group">
+            <div>
+                <button type="button" has-permission="stuPhotoInfo:insert" class="btn btn-default add-btn"
+                        ng-click="btnUpload()">
+                    <span class="fa fa-plus toolbar-btn-icon"></span>批量上传照片
+                </button>
+                &nbsp;
+                <button type="button" has-permission="stuPhotoInfo:delete" class="btn btn-default del-btn"
+                        ng-click="btnDownPic()">
+                    <span class="fa fa-times toolbar-btn-icon"></span>批量下载照片
+                </button>
+                &nbsp;
+               <!-- <button type="button" has-permission="stuPhotoInfo:export" class="btn btn-default"
+                        ng-click="openExport()">
+                    <span class="fa  toolbar-btn-icon"></span>导出
+                </button>-->
+            </div>
+        </div>
+        <table id="stuPhotoManageTable" ui-jq="bootstrapTable" ui-options="stuPhotoManageTable"
+               class="table table-responsive"></table>
+    </div>
+</div>
+
+
+
+

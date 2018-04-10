@@ -1,0 +1,118 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="operationLogSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">模块名称：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="operationLog.mkmc" id="mkmc" name="mkmc" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">操作类型：</label>
+						<div class="col-xs-8">
+							<select ng-model="operationLog.czlx" id="czlx_select" name="czlx" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option value="">== 请选择 ==</option>
+								<option value="0">登录</option>
+								<option value="1">新增</option>
+								<option value="2">更新</option>
+								<option value="3">删除</option>
+								<option value="4">查询</option>
+								<option value="5">导出</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">操作说明：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="operationLog.czsm" id="czsm" name="czsm" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">操作人姓名：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="operationLog.czrxm" id="czrxm" name="czrxm" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">操作人账号：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="operationLog.czrzh" id="czrzh" name="czrzh" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">IP地址：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="operationLog.ip" id="ip" name="ip" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">操作开始时间：</label>
+						<div class="col-xs-8">
+							<div class="input-group" style="width: 102%;">
+								<input ng-model="operationLog.startTime" id="startTime" name="startTime" type="text" class="form-control"
+									   uib-datepicker-popup="yyyy-MM-dd"
+									   is-open="startTimeOptions.opened"
+									   datepicker-options="startTimeOptions.dateOptions"
+									   current-text="今天"
+									   clear-text="清除"
+									   close-text="关闭"
+									   ng-click="startTimeOptions.open()" />
+								  <span class="input-group-btn">
+									<button type="button" class="btn btn-default" ng-click="startTimeOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+								  </span>
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">操作结束时间：</label>
+						<div class="col-xs-8">
+							<div class="input-group" style="width: 102%;">
+								<input ng-model="operationLog.endTime" id="endTime" name="endTime" type="text" class="form-control"
+									   uib-datepicker-popup="yyyy-MM-dd"
+									   is-open="endTimeOptions.opened"
+									   datepicker-options="endTimeOptions.dateOptions"
+									   current-text="今天"
+									   clear-text="清除"
+									   close-text="关闭"
+									   ng-click="endTimeOptions.open()" />
+								  <span class="input-group-btn">
+									<button type="button" class="btn btn-default" ng-click="endTimeOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+								  </span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<div id="toolbar" class="btn-group">
+			<div>
+				<button has-permission="" type="button" class="btn btn-default " ng-click="">导出</button>
+			</div>
+		</div>
+		<table id="operationLogTable" ui-jq="bootstrapTable" ui-options="operationLogTable" class="table table-responsive"></table>
+	</div>
+</div>

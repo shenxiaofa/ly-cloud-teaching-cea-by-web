@@ -1,0 +1,97 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">修 改</h3>
+</div>
+<div class="modal-body">
+	<form name="executiveClassAddform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">学院：</label>
+			<div class="col-xs-8">
+				<select id="deptId" class="form-control">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">年级：</label>
+			<div class="col-xs-8">
+				<select id="grade" class="form-control">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">年级专业：</label>
+			<div class="col-xs-8">
+				<select id="gradeMajorId" class="form-control">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">班级号：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="executiveClass.classCode" ng-required="true" id="classCode" name="classCode" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">班级名称：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="executiveClass.className" ng-required="true" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">入学时间：</label>
+			<div class="input-group col-xs-8" style="width: 67.2%;">
+				<input ng-model="executiveClass.entranceTime" id="entranceTime" name="entranceTime" type="text" class="form-control"
+					   uib-datepicker-popup="yyyy-MM-dd"
+					   is-open="ksrqOptions.opened"
+					   datepicker-options="ksrqOptions.dateOptions"
+					   ng-required="true"
+					   current-text="今天"
+					   clear-text="清除"
+					   close-text="关闭"
+					   ng-click="ksrqOptions.open()" />
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="ksrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+
+				<!--<input id="entranceTime" name="entranceTime" type="text" ng-model="executiveClass.entranceTime" ng-required="true" class="form-control"/>-->
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">离校时间：</label>
+			<div class="input-group col-xs-8" style="width: 67.2%;">
+				<input ng-model="executiveClass.leaveTime" id="leaveTime" name="leaveTime" type="text" class="form-control"
+					   uib-tooltip="结束日期不能小于开始日期"
+					   tooltip-placement="bottom"
+					   tooltip-trigger="'focus'"
+					   tooltip-enable="jsrqTooltipEnableAndOpen"
+					   tooltip-is-open="jsrqTooltipEnableAndOpen"
+					   uib-datepicker-popup="yyyy-MM-dd"
+					   is-open="jsrqOptions.opened"
+					   datepicker-options="jsrqOptions.dateOptions"
+					   ng-required="true"
+					   date-gt
+					   equals="executiveClass.entranceTime"
+					   current-text="今天"
+					   clear-text="清除"
+					   close-text="关闭"
+					   ng-click="jsrqOptions.open()"/>
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="jsrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+				<!--<input id="leaveTime" name="leaveTime" type="text" ng-model="executiveClass.leaveTime" ng-required="true" class="form-control"/>-->
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">学制：</label>
+			<div class="col-xs-8">
+				<input id="educationYear" name="educationYear" type="text" ng-model="executiveClass.educationYear" ng-required="true" class="form-control"/>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(executiveClassAddform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

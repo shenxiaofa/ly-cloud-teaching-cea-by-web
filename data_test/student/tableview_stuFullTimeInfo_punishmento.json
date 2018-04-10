@@ -1,0 +1,67 @@
+{
+  "data": {
+    "total": 3,
+    "list": [
+      {
+        "rewPundate": "2017-01-11",
+        "rewPunBriefing": "违纪简况_xxx",
+        "rewPunTypeName": "违纪类别_xxx",
+        "rewPunSourceName": "处分来源_xxx",
+        "rewPunName": "处分名称_xxx",
+        "rewPunCause": "处分原因_xxx",
+        "rewPunTime": "2017-01-12",
+        "rewPunProof": "处分文号_xxx",
+        "rewPunRepealTime": "2017-01-12",
+        "rewPunRepealProof": "处分撤销文号_xxx",
+        "rewPunWheGraduate": "是",
+        "rewPunWheDegree": "是",
+        "rewPunSponDeparName": "处分发起单位_xxx",
+        "rewPunDeparName": "处分单位_xxx",
+        "rewPunAdapt": "适用条款_xxx",
+        "rewPunMoney": "490",
+        "rewPunSchrollState": "正常",
+        "rewPunWhetherAtsch": "是"
+      },
+      {
+        "rewPundate": "2017-01-11",
+        "rewPunBriefing": "违纪简况_xxx",
+        "rewPunTypeName": "违纪类别_xxx",
+        "rewPunSourceName": "处分来源_xxx",
+        "rewPunName": "处分名称_xxx",
+        "rewPunCause": "处分原因_xxx",
+        "rewPunTime": "2017-01-12",
+        "rewPunProof": "处分文号_xxx",
+        "rewPunRepealTime": "2017-01-12",
+        "rewPunRepealProof": "处分撤销文号_xxx",
+        "rewPunWheGraduate": "是",
+        "rewPunWheDegree": "是",
+        "rewPunSponDeparName": "处分发起单位_xxx",
+        "rewPunDeparName": "处分单位_xxx",
+        "rewPunAdapt": "适用条款_xxx",
+        "rewPunMoney": "490",
+        "rewPunSchrollState": "正常",
+        "rewPunWhetherAtsch": "是"
+      },
+      {
+        "rewPundate": "2017-01-11",
+        "rewPunBriefing": "违纪简况_xxx",
+        "rewPunTypeName": "违纪类别_xxx",
+        "rewPunSourceName": "处分来源_xxx",
+        "rewPunName": "处分名称_xxx",
+        "rewPunCause": "处分原因_xxx",
+        "rewPunTime": "2017-01-12",
+        "rewPunProof": "处分文号_xxx",
+        "rewPunRepealTime": "2017-01-12",
+        "rewPunRepealProof": "处分撤销文号_xxx",
+        "rewPunWheGraduate": "是",
+        "rewPunWheDegree": "是",
+        "rewPunSponDeparName": "处分发起单位_xxx",
+        "rewPunDeparName": "处分单位_xxx",
+        "rewPunAdapt": "适用条款_xxx",
+        "rewPunMoney": "490",
+        "rewPunSchrollState": "正常",
+        "rewPunWhetherAtsch": "是"
+      }
+    ]
+  }
+}

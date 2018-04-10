@@ -1,0 +1,75 @@
+<style>
+	.radio label, .radio input{
+		padding-top: 5px;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">学年学期设置修改</h3>
+</div>
+<form name="courseTimeDemandUpdateForm" class="form-horizontal search-form">
+	<div class="modal-body">
+		<div class="right-content-table">
+			<div id="semester" class="row">
+				<div class="form-group col-xs-6">
+					<label class="col-xs-6 control-label required">学年学期：</label>
+					<label class="col-xs-6 control-label" style="text-align: left;">{{semesterSettingManage.semester}}</label>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="col-xs-6 control-label required">是否选课学期：</label>
+					<div class="col-xs-6 radio">
+						<label class="col-xs-6">
+							<input type="radio" ng-required="true" ng-model="semesterSettingManage.chooseSemester" value="1" /> 是
+						</label>
+						<label class="col-xs-6">
+							<input type="radio" ng-required="true" ng-model="semesterSettingManage.chooseSemester" value="0" /> 否
+						</label>
+					</div>
+				</div>
+			</div>
+			<div id="arrearsChoose" class="row">
+				<div class="form-group col-xs-6">
+					<label class="col-xs-6 control-label required">学生必须注册：</label>
+					<div class="col-xs-6 radio">
+						<label class="col-xs-6">
+							<input type="radio" ng-required="true" ng-model="semesterSettingManage.unregisteredChoose" value="1" /> 是
+						</label>
+						<label class="col-xs-6">
+							<input type="radio" ng-required="true" ng-model="semesterSettingManage.unregisteredChoose" value="0" /> 否
+						</label>
+					</div>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="col-xs-6 control-label required">学生必须缴费：</label>
+					<div class="col-xs-6 radio">
+						<label class="col-xs-6">
+							<input type="radio" ng-required="true" ng-model="semesterSettingManage.arrearsChoose" value="1" /> 是
+						</label>
+						<label class="col-xs-6">
+							<input type="radio" ng-required="true" ng-model="semesterSettingManage.arrearsChoose" value="0" /> 否
+						</label>
+					</div>
+				</div>
+			</div>
+			<div id="unfinishedEvaluateChoose" class="row">
+				<div class="form-group col-xs-6">
+					<label class="col-xs-6 control-label required">学生必须评教：</label>
+					<div class="col-xs-6 radio">
+						<label class="col-xs-6">
+							<input type="radio" ng-required="true" ng-model="semesterSettingManage.unfinishedEvaluateChoose" value="1" /> 是
+						</label>
+						<label class="col-xs-6">
+							<input type="radio" ng-required="true" ng-model="semesterSettingManage.unfinishedEvaluateChoose" value="0" /> 否
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="button" ng-click="ok(courseTimeDemandUpdateForm)">确 定</button>
+		<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+	</div>
+</form>

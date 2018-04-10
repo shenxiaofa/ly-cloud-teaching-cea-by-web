@@ -1,0 +1,53 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">新 增</h3>
+</div>
+<div class="modal-body">
+	<div class="col-xs-12" style="padding: 0; border-bottom: solid 1px #DDDDDD; margin-bottom: 10px;">
+		<div class="right-content-search">
+			<div>
+				<label class="control-label search-control" ng-click="searchFormHideToggle()">
+					<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+				</label>
+			</div>
+			<div ng-hide="isHideSearchForm">
+				<form name="studentSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+					<div class="row">
+						<div class="form-group col-xs-6">
+							<label class="col-xs-4 control-label">学号/姓名：</label>
+							<div class="col-xs-8">
+								<input type="text" ng-model="student.num" name="num" class="form-control"/>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 btn-center">
+							<!-- 点击触发 ng-submit 事件 -->
+							<button type="submit" class="btn btn-info">
+								<span class="fa fa-search refer btn-icon-padding"></span>查询
+							</button>
+							<button type="button" class="btn btn-default" ng-click="searchReset()">
+								<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="selectStudentTableDiv" style="padding: 5px 0px 0px 0px;">
+			<div id="selectStudentToolbar" class="btn-group">
+				<div>
+					<button has-permission="schoolTransaction:insert" type="button" class="btn btn-default add-btn" ng-click="openAdd()">
+						<span class=""></span>进行异动
+					</button>
+				</div>
+			</div>
+			<table id="selectStudentTable" ui-jq="bootstrapTable" ui-options="selectStudentTable" class="table table-responsive"></table>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" type="button" ng-click="close()">关 闭</button>
+</div>

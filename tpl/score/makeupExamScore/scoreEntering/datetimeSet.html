@@ -1,0 +1,80 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">时间设定</h3>
+</div>
+<div class="modal-body">
+    <form name="addForm" class="form-horizontal" novalidate>
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label required">更改模式：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <select ng-model="datetimeManage.createModel" id="createModel" name="createModel" ui-jq="chosen" ng-required="true" ui-options="{search_contains: true}" class="form-control">
+                        <option value="1">当前选中记录</option>
+                        <option value="2">当前页面</option>
+                        <option value="3">当前查询结果</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">复核天数：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <input type="number" ng-model="datetimeManage.recheckDays" id="" ng-required="true" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label">发布日期：</label>
+
+                <div class="input-group col-xs-6" style="width: 51.4%;">
+                    <input ng-model="datetimeManage.startDate" id="startDate" name="startDate" type="text" class="form-control"
+                           uib-datepicker-popup="yyyy-MM-dd"
+                           is-open="ksrqOptions.opened"
+                           datepicker-options="ksrqOptions.dateOptions"
+                           ng-required="true"
+                           current-text="今天"
+                           clear-text="清除"
+                           close-text="关闭"
+                           ng-click="ksrqOptions.open()" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="ksrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+                    <!--<datetimepicker dateID="timepicker2" ng-model="kskssj" format="yyyy-MM-dd hh:ii" class="form-control"></datetimepicker>-->
+                </div>
+
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" >截止日期：</label>
+                <div class="input-group col-xs-6" style="width: 51.4%;">
+                    <input ng-model="datetimeManage.endDate" id="endDate" name="endDate" type="text" class="form-control"
+                           uib-tooltip="结束日期不能小于开始日期"
+                           tooltip-placement="bottom"
+                           tooltip-trigger="'focus'"
+                           tooltip-enable="jsrqTooltipEnableAndOpen"
+                           tooltip-is-open="jsrqTooltipEnableAndOpen"
+                           uib-datepicker-popup="yyyy-MM-dd"
+                           is-open="jsrqOptions.opened"
+                           datepicker-options="jsrqOptions.dateOptions"
+                           ng-required="true"
+                           date-gt
+                           equals="datetimeManage.startDate"
+                           current-text="今天"
+                           clear-text="清除"
+                           close-text="关闭"
+                           ng-click="jsrqOptions.open()"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="jsrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                    <!--<datetimepicker dateID="timepicker2" ng-model="ksjssj" format="yyyy-MM-dd hh:ii" class="form-control"></datetimepicker>-->
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- end 表单区域 -->
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(addForm)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

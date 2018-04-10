@@ -1,0 +1,30 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "courseNum": "KCH001",
+        "courseName": "C语言程序设计",
+        "studentCount":"700",
+        "passCount":"500",
+        "passRate":"70%",
+        "unPassCount":"200"
+      }, {
+        "courseNum": "KCH001",
+        "courseName": "C语言程序设计",
+        "studentCount":"700",
+        "passCount":"500",
+        "passRate":"70%",
+        "unPassCount":"200"
+      }, {
+        "courseNum": "KCH001",
+        "courseName": "C语言程序设计",
+        "studentCount":"700",
+        "passCount":"500",
+        "passRate":"70%",
+        "unPassCount":"200"
+      }
+    ]
+  }
+}
+

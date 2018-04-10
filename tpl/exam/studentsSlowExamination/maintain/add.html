@@ -1,0 +1,242 @@
+<style>
+    .ms-container{
+        width: 650px;
+    }
+    .ms-container .ms-list{
+        height: 300px;
+    }
+    #selectable-footer, #selection-footer {
+        background-color: #fff;
+        cursor: pointer;
+        color: black;
+        border-top: none;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        border-radius: 0 0 4px 4px;
+    }
+    #selectable-footer .btn-primary {
+        height: 24px;
+        line-height: 24px;
+    }
+    #selection-footer .btn-default {
+        height: 24px;
+        line-height: 24px;
+    }
+
+    html, body, .module {
+        width: 100%;
+        /*height: 96%;*/
+    }
+
+    .row {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .modal_t {
+        background: #e4e4e4;
+    }
+
+    /**** 对input里面的按钮样式进行修改 ****/
+    .input-file{
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        width: auto;
+        background-color: #03a9f4;
+        border: solid 1px #03a9f4;
+        border-radius: 4px;
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 18px;
+        color:#fff;
+        text-decoration: none;
+    }
+
+    .input-file input[type="file"] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 14px;
+        background-color: #fff;
+        transform: translate(0px, 0px) scale(4);
+        height: 40px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+    .input-file:hover {
+        background: #AADFFD;
+        border-color: #78C3F3;
+        color: #004974;
+        text-decoration: none;
+    }
+</style>
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">新增缓考学生</h3>
+</div>
+<div class="modal-body">
+    <form name="addForm" class="form-horizontal" novalidate>
+
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label required" style="text-align: right;padding: 5px;">缓考课程：</label>
+                <div class="input-group col-xs-6">
+                    <input type="text" class="form-control" ng-model="slowExam.courseName" ng-required="ture" disabled placeholder="选择课程">
+                    <input type="hidden" ng-model="slowExam.courseNum">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="courseChoose()" type="button">选择</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">学年学期：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <label  style="margin-top:7px;" >{{slowExam.semester}}</label>
+                    <input type="hidden" ng-model="slowExam.semesterId">
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">开课单位：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <label  style="margin-top:7px;" >{{slowExam.dept}}</label>
+                    <input type="hidden" ng-model="slowExam.deptId">
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">学分：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <label  style="margin-top:7px;" >{{slowExam.credit}}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">课程性质：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <label  style="margin-top:7px;" >{{slowExam.courseProperty}}</label>
+                    <input type="hidden" ng-model="slowExam.coursePropertyCode">
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">考试方式：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <label  style="margin-top:7px;" >{{slowExam.examWay}}</label>
+                    <input type="hidden" ng-model="slowExam.examWayCode">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label required" style="text-align: right;padding: 5px;">学生：</label>
+                <div class="input-group col-xs-6">
+                    <input type="text" class="form-control" ng-model="slowExam.studentName" ng-required="ture" disabled placeholder="选择学生">
+                    <input type="hidden" ng-model="slowExam.registerId">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="stuChoose()" type="button">选择</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">学号：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <label  style="margin-top:7px;" >{{slowExam.studentNum}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">学生所在院系：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <label  style="margin-top:7px;" >{{slowExam.college}}</label>
+                    <input type="hidden" ng-model="slowExam.collegeId">
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <label class="col-xs-5 control-label" style="text-align: right;padding: 5px;">班级：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <label  style="margin-top:7px;" >{{slowExam.className}}</label>
+                    <input type="hidden" ng-model="slowExam.classId">
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="row" style="padding-top: 15px;">
+            <div class="col-xs-12">
+                <label class="col-xs-2 control-label" style="text-align: right;margin: 0px 0px 0px 30px;" required>附件：</label>
+                <div class="col-xs-5" style="padding: 0px;">
+                    <input type="file" nv-file-select uploader="uploader" ng-required="true" class="form-control" style="padding-top: 1.5px;"/>
+                </div>
+                <div class="col-xs-3 control-label" style="padding-top: 0px;">
+                    <div class="progress" style="margin: 5px 0 0 0;">
+                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                    </div>
+                </div>
+                <div class="col-xs-1 control-label" style="padding-top: 0px;">
+                    <button class="btn btn-info control-label" type="button" ng-click="uploader.uploadAll()"
+                            style="padding-top: 0px;" ng-disabled="!uploader.getNotUploadedItems().length">上传</button>
+                </div>
+            </div>
+        </div>-->
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-12">
+                <label class="col-xs-2 control-label" style="text-align: right;padding: 5px 0px 0px 0px;margin-left: 25px" required>附件：</label>
+                <div class="col-xs-6" style="padding: 0px;">
+                    <a class="input-file" ng-show="!showProgress" href="javascript:;" style="margin-left: 5px;">
+                        + 选择文件<input type="file" nv-file-select uploader="uploader" class="form-control"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px;" ng-repeat="item in uploader.queue" ng-show="showProgress">
+            <div class="col-xs-12">
+                <label class="col-xs-2 control-label" style="text-align: right;padding: 0px;" required></label>
+                <label class="col-xs-3 control-label" style="text-align: left;margin-left: 20px;">
+                    {{item.file.name}}
+                    <font color="#8e877d">({{item.file.size/1024/1024|number:2}} MB)</font>
+                </label>
+                <div class="col-xs-3 control-label" style="padding-top: 0px;">
+                    <div class="progress" style="margin: 5px 0 0 0;">
+                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                    </div>
+                </div>
+                <button type="button" class="col-xs-1 btn btn-danger btn-xs" ng-click="deleteAttachment(fileId)">
+                    <span class="glyphicon glyphicon-trash"></span> 删除
+                </button>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 15px;">
+            <div class="col-xs-12">
+                <label class="col-xs-2 control-label" style="text-align: right;margin: 0px 0px 0px 30px;">申请缓考事由：</label>
+                <div class="col-xs-9" style="padding: 0px;;">
+                    <textarea class="form-control" rows="5" ng-model="slowExam.reason" style="border-radius: 3px;resize: none;overflow-y: scroll;"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-group " style="padding: 15px 0 0 28px;margin: 10px; border-top: 1px solid #ccc;">
+            <div style="font-size: 10px;">
+                <span style="color: red;font-size: 15px;"> 缓考申请须知：</span><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;1、     缓考申请必须在考试开始前办理。<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;2、     缺课超过1/3时，不予安排缓考。<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;3、     缓考一般安排在下一学期。<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;4、     本表由任课教师签字，学生所在系及教务处签署同意意见并盖章方可有效。<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;5、     本表一式三份，由考试中心、任课教师及学生各保留一份。<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;6、     教务处下学期缓考安排通知公布后，根据本人缓考课程查询考试安排。如未安排缓考，持本申请表于考试前咨询教务处成绩管理处。
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(addForm)">保存</button>
+    <button class="btn btn-default" type="button" ng-click="cancel(fileId)">取 消</button>
+</div>

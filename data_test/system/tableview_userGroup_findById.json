@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "success": true,
+    "statusCode": 200,
+    "message": "ok"
+  },
+  "data": {
+    "yhzbh":"1",
+    "yhzbm": "teacher",
+    "yhzmc": "普通教师",
+    "ms":"说明"
+  }
+}

@@ -1,0 +1,1824 @@
+<style>
+    .stu-manage .stu-tab ul li.active a {
+        border: none;
+        border-bottom: 2px solid #03a9f5;
+        margin-right: 0;
+        color: #03a9f5;
+    }
+
+    .stu-manage .stu-msg {
+        width: 1024px;
+        height: 30px;
+        margin-top: 20px;
+        margin-left: 20px;
+        font-family: '微软雅黑';
+        font-size: 15px;
+    }
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-radius: 6px 6px 0 0;
+        border-top-color: #03a9f5;
+        border-bottom: none;
+    }
+
+    .titles {
+        color: #0a6ec3;
+        font-size: 20px;
+        height: 40px;
+        margin-top: 15px;
+        clear: both;
+        border-bottom: #ccc 1px solid;
+        cursor: pointer;
+    }
+
+    .marginTopClass {
+        margin-top: 10px;
+    }
+
+    .titles span {
+        margin-bottom: 0px;;
+    }
+
+    .stu-msg-img {
+        height: 170px;
+    }
+
+    .stu-msg-img-div {
+        height: 150px;
+        padding: 0 !important;
+    }
+
+    .stu-msg-img .col-xs-12 div img {
+        width: 110px;
+        height: 140px;
+    }
+
+    .stu-msg-img .imgs {
+        /* border: 1px solid #d9d9d9; */
+        width: 108px;
+        height: 140px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+
+    .tc {
+        text-align: center !important;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        var rightHeaderHeight = $(".header").height() + 20;
+        var tabHeaderHeight = $(".nav-tabs").height();
+        +40;
+        var titleHeaderHeight = $(".stu-manage").height();
+        +40;
+        $("#rollModel").height(window.innerHeight - rightHeaderHeight - tabHeaderHeight - titleHeaderHeight - 100);
+        $("#easyModel").height(window.innerHeight - rightHeaderHeight - tabHeaderHeight - titleHeaderHeight - 100);
+    });
+</script>
+<div class="right-content">
+    <!--style="overflow-y:auto;height:880px;"-->
+    <div class="stu-manage ng-scope">
+        <div class="stu-tab">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#basico" data-toggle="tab" target="_self">基本信息</a></li>
+                <li ng-click="queryFamilly()">
+                    <a href="#familyo" data-toggle="tab" target="_self">家庭成员及社会关系</a></li>
+                <li ng-click="queryExperience()">
+                    <a href="#experienceo" tabindex="-1" data-toggle="tab" target="_self">学历及经历</a>
+                </li>
+                <li ng-click="queryInterflowo()">
+                    <a href="#interflowo" tabindex="-1" data-toggle="tab" target="_self">交流经历</a></li>
+                <li ng-click="queryChangerollo()">
+                    <a href="#changerollo" tabindex="-1" data-toggle="tab" target="_self">异动情况</a></li>
+                <li ng-click="queryDoubdegreeo()">
+                    <a href="#doubdegreeo" tabindex="-1" data-toggle="tab" target="_self">双专业双学位辅修</a></li>
+                <li ng-click="queryRegistero()">
+                    <a href="#registero" tabindex="-1" data-toggle="tab" target="_self">注册状态</a></li>
+                <li ng-click="queryCourseo()">
+                    <a href="#courseo" tabindex="-1" data-toggle="tab" target="_self">学籍变动日志</a></li>
+                <li ng-click="queryPunishmento()">
+                    <a href="#punishmento" tabindex="-1" data-toggle="tab" target="_self">惩处</a></li>
+            </ul>
+        </div>
+        <div class="stu-msg">
+            <label class="" style="width:160px;">学号：
+                <span ng-bind="stuFullTimeInfo.num" id="title_num">  </span>
+            </label>
+            <label class="">姓名：
+                <span ng-bind="stuFullTimeInfo.name" id="title_name">  </span>
+            </label>
+        </div>
+        <div class="tab-content stu-all">
+            <div class="tab-pane active in" id="basico">
+                <form name="stuFullTimeInfoEditform" class="form-horizontal" novalidate>
+                    <div class="form-group  col-xs-12">
+                        <div style="margin-left:20px">
+                            <uib-tabset tactive="active">
+                                <uib-tab heading="简易模式">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-12 " id="easyModel" style="overflow-y:auto;">
+                                        <!-- height:700px;-->
+                                        <h4 class="titles"><span>全日制新生必要信息</span></h4>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-xs-10 marginTopClass">
+                                                <div class="row">
+                                                    <!--  考生号 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">考生号：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.examNum"
+                                                                   ng-required="true"
+                                                                   id="easy_examNum" name="easy_examNum"
+                                                                   class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <!--  学号 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">学 号：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.num"
+                                                                   ng-required="true"
+                                                                   id="easy_num" name="easy_num" class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <!--  学生姓名 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">姓 名：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.name"
+                                                                   ng-required="true"
+                                                                   id="easy_name" name="easy_name"
+                                                                   class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <!--  国籍/地区 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">国籍/地区 ：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.countryCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.countryCode"
+                                                                    ng-options="countryCode.id as countryCode.name for countryCode in countryCodeList"
+                                                                    name="easy_countryCode" id="easy_countryCode_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!--  身份证件类型 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">身份证件类型：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.idCardType"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.idCardType"
+                                                                    ng-options="idCardType.id as idCardType.name for idCardType in idCardTypeList"
+                                                                    name="easy_idCardType" id="easy_idCardType_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!--  身份证件号 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required"> 身份证件号：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.idCard"
+                                                                   ng-required="true"
+                                                                   id="easy_idCard" name="easy_idCard"
+                                                                   class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <!--  性别 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label  required"> 性别：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.sexCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.sexCode"
+                                                                    ng-options="sex.id as sex.name for sex in sexList"
+                                                                    name="easy_sexCode" id="easy_sexCode_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!--  出生日期 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label  required"> 出生日期：</label>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group" style="width: 102%;">
+                                                                <input ng-model="stuFullTimeInfo.bornTime"
+                                                                       ng-required="true"
+                                                                       id="easy_bornTime"
+                                                                       name="easy_bornTime" type="text"
+                                                                       class="form-control"
+                                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                                       is-open="bornTimeOptions.opened"
+                                                                       datepicker-options="bornTimeOptions.dateOptions"
+                                                                       current-text="今天"
+                                                                       clear-text="清除"
+                                                                       close-text="关闭"
+                                                                       ng-click="bornTimeOptions.open()"/>
+                                              <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default"
+                                                        ng-click="bornTimeOptions.open()"><i
+                                                        class="glyphicon glyphicon-calendar"></i></button>
+                                              </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  民族 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required"> 民族：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.nationCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.nationCode"
+                                                                    ng-options="nation.id as nation.name for nation in nationList"
+                                                                    name="easy_nationCode" id="easy_nationCode_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!--  政治面貌 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label "> 政治面貌：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.politicalStatus"
+                                                                    ng-options="politicalStatus.id as politicalStatus.name for politicalStatus in politicalStatusList"
+                                                                    name="easy_politicalStatus"
+                                                                    id="easy_politicalStatus_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 学院 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required"> 学院：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.dept"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.dept"
+                                                                    ng-options="dept.id as dept.name for dept in deptList"
+                                                                    name="easy_dept" id="easy_dept_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 系部 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label ">系部：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.department"
+                                                                    ng-options="department.id as department.name for department in departmentList"
+                                                                    name="easy_department" id="easy_department_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 年级 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required"> 年级：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.grade"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.grade"
+                                                                    ng-options="grade.id as grade.name for grade in gradeList"
+                                                                    name="easy_grade" id="easy_grade_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 年级专业方向 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required"> 年级专业方向：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.classMajor"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.classMajor"
+                                                                    ng-options="classMajor.id as classMajor.name for classMajor in classMajorList"
+                                                                    name="easy_classMajor" id="easy_classMajor_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 当前校区 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">当前校区：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.schoolArea"
+                                                                   ng-required="true"
+                                                                   id="easy_schoolArea" name="easy_schoolArea"
+                                                                   class="form-control"
+                                                                   readonly="true">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 学制 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label">学制：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.schoolForm"
+                                                                   id="easy_schoolForm"
+                                                                   name="easy_schoolForm" class="form-control"
+                                                                   readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 学生类别 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label">学生类别：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.stuTypeName"
+                                                                   id="easy_stuTypeName"
+                                                                   name="easy_stuTypeName" class="form-control"
+                                                                   readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 班级 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label">班级：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.class"
+                                                                    ng-options="class.id as class.name for class in classList"
+                                                                    name="easy_class" id="easy_class_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- 当前学籍状态 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">当前学籍状态：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.studyStatus"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.studyStatus"
+                                                                    ng-options="studyStatus.id as studyStatus.name for studyStatus in studyStatusList"
+                                                                    name="easy_studyStatus" id="easy_studyStatus_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 是否在校  -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required">是否在校：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.schoolStatus"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.schoolStatus"
+                                                                    ng-options="schoolStatus.id as schoolStatus.name for schoolStatus in schoolStatusList"
+                                                                    name="easy_schoolStatus"
+                                                                    id="easy_schoolStatus_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 是否在籍 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required"> 是否在籍：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.nationStatus"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.nationStatus"
+                                                                    ng-options="nationStatus.id as nationStatus.name for nationStatus in nationStatusList"
+                                                                    name="easy_nationStatus"
+                                                                    id="easy_nationStatus_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 学习形式 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required"> 学习形式：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.studyForm"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.studyForm"
+                                                                    ng-options="studyForm.id as studyForm.name for studyForm in studyFormList"
+                                                                    name="easy_studyForm" id="easy_studyForm_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 培养层次 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required">培养层次：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.developLevel"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.developLevel"
+                                                                    ng-options="developLevel.id as developLevel.name for developLevel in developLevelList"
+                                                                    name="easy_developLevel"
+                                                                    id="easy_developLevel_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 入学方式 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required"> 入学方式：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.schoolWay"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.schoolWay"
+                                                                    ng-options="schoolWay.id as schoolWay.name for schoolWay in schoolWayList"
+                                                                    name="easy_schoolWay" id="easy_schoolWay_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 入学日期 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required"> 入学日期：</label>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group" style="width: 102%;">
+                                                                <input ng-model="stuFullTimeInfo.goSchooleTime"
+                                                                       ng-required="true"
+                                                                       id="easy_goSchooleTime" name="easy_goSchooleTime"
+                                                                       type="text"
+                                                                       class="form-control"
+                                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                                       is-open="goSchooleTimeOptions.opened"
+                                                                       datepicker-options="goSchooleTimeOptions.dateOptions"
+                                                                       current-text="今天"
+                                                                       clear-text="清除"
+                                                                       close-text="关闭"
+                                                                       ng-click="goSchooleTimeOptions.open()"/>
+                                                      <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default"
+                                                                ng-click="goSchooleTimeOptions.open()"><i
+                                                                class="glyphicon glyphicon-calendar"></i></button>
+                                                      </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 预计毕业日期  -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">预计毕业日期：</label>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group" style="width: 102%;">
+                                                                <input ng-model="stuFullTimeInfo.expectGraduateTime"
+                                                                       ng-required="true" id="easy_expectGraduateTime"
+                                                                       name="easy_expectGraduateTime" type="text"
+                                                                       class="form-control"
+                                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                                       is-open="expectGraduateTimeOptions.opened"
+                                                                       datepicker-options="expectGraduateTimeOptions.dateOptions"
+                                                                       current-text="今天"
+                                                                       clear-text="清除"
+                                                                       close-text="关闭"
+                                                                       ng-click="expectGraduateTimeOptions.open()"/>
+                                                      <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default"
+                                                                ng-click="expectGraduateTimeOptions.open()"><i
+                                                                class="glyphicon glyphicon-calendar"></i></button>
+                                                      </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 生源地 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required "> 生源地：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.orginCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.orginCode"
+                                                                    ng-options="orginCode.id as orginCode.name for orginCode in orginCodeList"
+                                                                    name="easy_orginCode" id="easy_orginCode_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 录取方式 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">录取方式：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.originEnrollCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.originEnrollCode"
+                                                                    ng-options="originEnrollCode.id as originEnrollCode.name for originEnrollCode in originEnrollCodeList"
+                                                                    name="easy_originEnrollCode"
+                                                                    id="easy_originEnrollCode_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row modal-footer btn-center">
+                                                    <button class="btn btn-primary" type="button"
+                                                            style="margin-right: 36px;"
+                                                            ng-click="ok(stuFullTimeInfoEditform)">确 定
+                                                    </button>
+                                                    <button class="btn btn-default" type="button" ng-click="close()">取 消
+                                                    </button>
+                                                </div>
+
+
+                                            </div>
+                                            <!-- 入学照片-->
+                                            <div class="col-xs-2 stu-msg-img marginTopClass">
+                                                <div class="col-xs-12  stu-msg-img-div">
+                                                    <div class="col-xs-7">
+                                                        <input type="file" name="easy_stuPhotoFile"
+                                                               ng-model="stuPhotoFormAll.stuPhotoFile"
+                                                               class="form-control" id="easy_startPhotoFileAll"
+                                                               style="display: none;">
+                                                        <img id="easy_startPhotoUrlAll" src="img/man.png"
+                                                             onclick="easy_startPhotoFileAll.click();" class="imgs">
+                                                    </div>
+                                                    <p class="tc" style="width:108px;margin-top: 150px;">入学照片</p>
+                                                    <!-- ngIf: startPhotoAll == 'true' -->
+                                                    <!--<p ng-bind="startPhotoMessageAll" class="warn-msg ng-binding"></p>-->
+                                                </div>
+                                            </div>
+                                            <!-- 毕业照片-->
+                                            <div class="col-xs-2 stu-msg-img" style="float:right">
+                                                <div class="col-xs-12  stu-msg-img-div">
+                                                    <div class="col-xs-7">
+                                                        <input type="file" name="easy_stuPhotoFile"
+                                                               ng-model="stuPhotoFormAll.stuPhotoFile2"
+                                                               class="form-control" id="easy_endPhotoFileAll"
+                                                               style="display: none;">
+                                                        <img id="easy_endPhotoUrlAll" src="img/man.png"
+                                                             onclick="easy_endPhotoFileAll.click();" class="imgs">
+
+                                                    </div>
+                                                    <p class="tc" style="width:108px;margin-top: 150px;">毕业照片</p>
+                                                    <!-- ngIf: endPhotoAll == 'true' -->
+                                                    <!--<p ng-bind="endPhotoMessageAll" class="warn-msg ng-binding"></p>-->
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </uib-tab>
+                                <uib-tab heading="全局模式">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-12 " id="rollModel" style="overflow-y:auto;">
+                                        <!-- height:700px;-->
+                                        <!--<h4 style="display: none;"><span>全日制新生必要信息</span></h4>-->
+                                        <h4 class="titles" ng-click="showBasicMsgs =! showBasicMsgs"
+                                            style="display: block;">
+                                            <span>人员基本信息</span>
+                                            <!--<img src="images/msg-close.png">--></h4>
+                                        <div class="col-xs-12">
+                                            <div class="col-xs-10">
+                                                <div class="row marginTopClass" ng-hide="showBasicMsgs" style="">
+                                                    <!-- 考生号 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">考生号：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.examNum"
+                                                                   ng-required="true"
+                                                                   id="examNum" name="examNum" class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 学号 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">学 号：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.num"
+                                                                   ng-required="true"
+                                                                   id="num" name="num" class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 学生姓名 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">姓 名：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.name"
+                                                                   ng-required="true"
+                                                                   id="name" name="name" class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 英文姓名 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 英文姓名：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.basicEngName"
+                                                                   id="basicEngName"
+                                                                   name="basicEngName" class="form-control"
+                                                                   ng-maxlength="60">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 姓名拼音 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 姓名拼音：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.basicNameSpell"
+                                                                   id="basicNameSpell"
+                                                                   name="basicNameSpell" class="form-control"
+                                                                   ng-maxlength="60">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 中文姓名 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 中文姓名：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.basicChName"
+                                                                   id="basicChName"
+                                                                   name="basicChName" class="form-control"
+                                                                   ng-maxlength="60">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 曾用名 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 曾用名：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.basicOnceName"
+                                                                   id="basicOnceName"
+                                                                   name="basicOnceName" class="form-control"
+                                                                   ng-maxlength="60">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 国籍/地区 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">国籍/地区 ：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.countryCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.countryCode"
+                                                                    ng-options="countryCode.id as countryCode.name for countryCode in countryCodeList"
+                                                                    name="countryCode" id="countryCode_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 身份证件类型 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">身份证件类型：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.idCardType"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.idCardType"
+                                                                    ng-options="idCardType.id as idCardType.name for idCardType in idCardTypeList"
+                                                                    name="idCardType" id="idCardType_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 身份证件号 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required"> 身份证件号：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.idCard"
+                                                                   ng-required="true"
+                                                                   id="idCard" name="idCard" class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 曾用身份证件类型 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label ">曾用身份证件类型：</label>
+                                                        <div class="col-xs-6 ">
+                                                            <select ng-model="stuFullTimeInfo.oldIdCardType"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.oldIdCardType"
+                                                                    ng-options="oldIdCardType.id as oldIdCardType.name for oldIdCardType in oldIdCardTypeList"
+                                                                    name="oldIdCardType" id="oldIdCardType_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 曾用身份证件号 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label">曾用身份证件号：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.oldIdCard"
+                                                                   ng-required="true"
+                                                                   id="oldIdCard" name="oldIdCard"
+                                                                   class="form-control"/>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 性别 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label  required"> 性别：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.sexCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.sexCode"
+                                                                    ng-options="sex.id as sex.name for sex in sexList"
+                                                                    name="sexCode" id="sexCode_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 出生日期 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label  required"> 出生日期：</label>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group" style="width: 102%;">
+                                                                <input ng-model="stuFullTimeInfo.bornTime"
+                                                                       ng-required="true"
+                                                                       id="bornTime"
+                                                                       name="bornTime" type="text" class="form-control"
+                                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                                       is-open="bornTimeOptions.opened"
+                                                                       datepicker-options="bornTimeOptions.dateOptions"
+                                                                       current-text="今天"
+                                                                       clear-text="清除"
+                                                                       close-text="关闭"
+                                                                       ng-click="bornTimeOptions.open()"/>
+                                              <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default"
+                                                        ng-click="bornTimeOptions.open()"><i
+                                                        class="glyphicon glyphicon-calendar"></i></button>
+                                              </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 婚姻状况 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 婚姻状况：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.marrayStatus"
+                                                                    ng-options="marrayStatus.id as marrayStatus.name for marrayStatus in marrayStatusList"
+                                                                    name="marrayStatus" id="marrayStatus"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 健康状况 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 健康状况：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.healthyStatus"
+                                                                    ng-options="healthyStatus.id as healthyStatus.name for healthyStatus in healthyStatusList"
+                                                                    name="healthyStatus" id="healthyStatus"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 信仰宗教 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 信仰宗教：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.religion"
+                                                                    ng-options="religion.id as religion.name for religion in religionList"
+                                                                    name="religion" id="religion" class="form-control"
+                                                                    ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 血型 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 血型：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.bloodType"
+                                                                    ng-options="bloodType.id as bloodType.name for bloodType in bloodTypeList"
+                                                                    name="bloodType" id="bloodType" class="form-control"
+                                                                    ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 身份证件有效期 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 身份证件有效期：</label>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group" style="width: 102%;">
+                                                                <input ng-model="stuFullTimeInfo.idCardEffectTime"
+                                                                       id="idCardEffectTime_add"
+                                                                       type="text"
+                                                                       class="form-control"
+                                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                                       is-open="idCardEffectTimeOptions.opened"
+                                                                       datepicker-options="idCardEffectTimeOptions.dateOptions"
+                                                                       current-text="今天"
+                                                                       clear-text="清除"
+                                                                       close-text="关闭"
+                                                                       ng-click="idCardEffectTimeOptions.open()"/>
+                                                                  <span class="input-group-btn">
+                                                                    <button type="button" class="btn btn-default"
+                                                                            ng-click="idCardEffectTimeOptions.open()">
+                                                                        <i class="glyphicon glyphicon-calendar"></i></button>
+                                                                  </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 出生地 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label ">出生地：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.bornArea"
+                                                                    ng-options="bornArea.id as bornArea.name for bornArea in bornAreaList"
+                                                                    name="bornArea" id="bornArea" class="form-control"
+                                                                    ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- 民族 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required"> 民族：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.nationCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.nationCode"
+                                                                    ng-options="nation.id as nation.name for nation in nationList"
+                                                                    name="nationCode" id="nationCode_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 政治面貌 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label "> 政治面貌：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.politicalStatus"
+                                                                    ng-options="politicalStatus.id as politicalStatus.name for politicalStatus in politicalStatusList"
+                                                                    name="politicalStatus" id="politicalStatus_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 籍贯 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label ">籍贯：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.originPlace"
+                                                                    ng-options="originPlace.id as originPlace.name for originPlace in originPlaceList"
+                                                                    name="originPlace" id="originPlace_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- 港澳台侨外 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label">港澳台侨外：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.overseas"
+                                                                    ng-options="overseas.id as overseas.name for overseas in overseasList"
+                                                                    name="overseas" id="overseas_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 特长或爱好 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 特长或爱好：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.basicHobby"
+                                                                   id="basicHobby"
+                                                                   name="basicHobby" class="form-control"
+                                                                   ng-maxlength="200">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 学籍信息-->
+                                                <h4 class="titles"
+                                                    ng-click="showStudentStatusMsgs = !showStudentStatusMsgs"
+                                                    style="display: block;"><span>学籍信息</span>
+                                                    <!--<img src="images/msg-close.png">-->
+                                                </h4>
+                                                <div class="row marginTopClass" ng-hide="showStudentStatusMsgs"
+                                                     style="">
+                                                    <!-- 学院 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required"> 学院：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.dept"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.dept"
+                                                                    ng-options="dept.id as dept.name for dept in deptList"
+                                                                    name="dept" id="dept_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 系部 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label ">系部：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.department"
+                                                                    ng-options="department.id as department.name for department in departmentList"
+                                                                    name="department" id="department_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 年级 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required"> 年级：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.grade"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.grade"
+                                                                    ng-options="grade.id as grade.name for grade in gradeList"
+                                                                    name="grade" id="grade_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 年级专业方向 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required"> 年级专业方向：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.classMajor"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.classMajor"
+                                                                    ng-options="classMajor.id as classMajor.name for classMajor in classMajorList"
+                                                                    name="classMajor" id="classMajor_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 当前校区 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">当前校区：</label>
+                                                        <div class="col-xs-6">
+                                                            <input type="text" ng-model="stuFullTimeInfo.schoolArea"
+                                                                   ng-required="true"
+                                                                   id="schoolArea" name="schoolArea"
+                                                                   class="form-control"
+                                                                   readonly="true">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 所属年级专业大类 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5  control-label">所属年级专业大类：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.belongMajorType"
+                                                                   id="belongMajorType"
+                                                                   name="belongMajorType" class="form-control"
+                                                                   readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 专业大类 -->
+                                                    <div class="form-group  col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5  control-label">专业大类：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.majorType" id="majorType"
+                                                                   name="majorType"
+                                                                   class="form-control" readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 专业方向 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5 control-label">专业方向：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.majorSubject"
+                                                                   id="majorSubject"
+                                                                   name="majorSubject" class="form-control" readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 国标专业 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5  control-label">国标专业：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.standardName"
+                                                                   id="standardName"
+                                                                   name="standardName" class="form-control" readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 跨院系大类 -->
+                                                    <div class="form-group  col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5  control-label">跨院系大类：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.facultyName"
+                                                                   id="facultyName"
+                                                                   name="facultyName" class="form-control" readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 学制 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label">学制：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.schoolForm" id="schoolForm"
+                                                                   name="schoolForm" class="form-control" readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 学生类别 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label">学生类别：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.stuTypeName"
+                                                                   id="stuTypeName"
+                                                                   name="stuTypeName" class="form-control" readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 是否全面学分制 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5 control-label">是否全面学分制：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.whetherCreditShow"
+                                                                   id="whetherCreditShow"
+                                                                   name="whetherCreditShow" class="form-control"
+                                                                   readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 是否需要认定 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5 control-label">是否需要认定：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.affirmShow" id="affirmShow"
+                                                                   name="affirmShow" class="form-control" readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 最短修读年限  -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5  control-label">最短修读年限：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.shortest" id="shortest"
+                                                                   name="shortest"
+                                                                   class="form-control" readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 最长修读年限 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5 control-label">最长修读年限：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.longtest" id="longtest"
+                                                                   name="longtest"
+                                                                   class="form-control" readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 班级 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label">班级：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.class"
+                                                                    ng-options="class.id as class.name for class in classList"
+                                                                    name="classId" id="classId_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 当前学籍状态 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">当前学籍状态：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.studyStatus"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.studyStatus"
+                                                                    ng-options="studyStatus.id as studyStatus.name for studyStatus in studyStatusList"
+                                                                    name="studyStatus" id="studyStatus_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 是否在校  -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required">是否在校：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.schoolStatus"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.schoolStatus"
+                                                                    ng-options="schoolStatus.id as schoolStatus.name for schoolStatus in schoolStatusList"
+                                                                    name="schoolStatus" id="schoolStatus_edit"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 是否在籍 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required"> 是否在籍：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.nationStatus"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.nationStatus"
+                                                                    ng-options="nationStatus.id as nationStatus.name for nationStatus in nationStatusList"
+                                                                    name="nationStatus" id="nationStatus_edit"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 学习形式 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required"> 学习形式：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.studyForm"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.studyForm"
+                                                                    ng-options="studyForm.id as studyForm.name for studyForm in studyFormList"
+                                                                    name="studyForm" id="studyForm_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 培养层次 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required">培养层次：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.developLevel"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.developLevel"
+                                                                    ng-options="developLevel.id as developLevel.name for developLevel in developLevelList"
+                                                                    name="developLevel" id="developLevel_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 培养方式 -->
+                                                    <div class="form-group col-xs-6" style="display: block;">
+                                                        <label class="col-xs-5  control-label">培养方式：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.developWay"
+                                                                    ng-options="developWay.id as developWay.name for developWay in developWayList"
+                                                                    name="developWay" id="developWay_search"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 入学方式 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label required"> 入学方式：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.schoolWay"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.schoolWay"
+                                                                    ng-options="schoolWay.id as schoolWay.name for schoolWay in schoolWayList"
+                                                                    name="schoolWay" id="schoolWay_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 入学日期 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5  control-label requried"> 入学日期：</label>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group" style="width: 102%;">
+                                                                <input ng-model="stuFullTimeInfo.goSchooleTime"
+                                                                       ng-required="true" id="goSchooleTime"
+                                                                       name="goSchooleTime"
+                                                                       type="text" class="form-control"
+                                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                                       is-open="goSchooleTimeOptions.opened"
+                                                                       datepicker-options="goSchooleTimeOptions.dateOptions"
+                                                                       current-text="今天"
+                                                                       clear-text="清除"
+                                                                       close-text="关闭"
+                                                                       ng-click="goSchooleTimeOptions.open()"/>
+                                                      <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default"
+                                                                ng-click="goSchooleTimeOptions.open()"><i
+                                                                class="glyphicon glyphicon-calendar"></i></button>
+                                                      </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 预计毕业日期  -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">预计毕业日期：</label>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group" style="width: 102%;">
+                                                                <input ng-model="stuFullTimeInfo.expectGraduateTime"
+                                                                       ng-required="true" id="expectGraduateTime"
+                                                                       name="expectGraduateTime" type="text"
+                                                                       class="form-control"
+                                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                                       is-open="expectGraduateTimeOptions.opened"
+                                                                       datepicker-options="expectGraduateTimeOptions.dateOptions"
+                                                                       current-text="今天"
+                                                                       clear-text="清除"
+                                                                       close-text="关闭"
+                                                                       ng-click="expectGraduateTimeOptions.open()"/>
+                                                      <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default"
+                                                                ng-click="expectGraduateTimeOptions.open()"><i
+                                                                class="glyphicon glyphicon-calendar"></i></button>
+                                                      </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 毕业日期 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5  control-label">毕业日期：</label>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group" style="width: 102%;">
+                                                                <input ng-model="stuFullTimeInfo.graduateTime"
+                                                                       id="graduateTime_add" type="text"
+                                                                       class="form-control"
+                                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                                       is-open="graduateTimeOptions.opened"
+                                                                       datepicker-options="graduateTimeOptions.dateOptions"
+                                                                       current-text="今天"
+                                                                       clear-text="清除"
+                                                                       close-text="关闭"
+                                                                       ng-click="graduateTimeOptions.open()"/>
+                                                      <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default"
+                                                                ng-click="graduateTimeOptions.open()"><i
+                                                                class="glyphicon glyphicon-calendar"></i></button>
+                                                      </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 授予学位类别 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5  control-label">授予学位类别：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.gradDegreeCode"
+                                                                    ng-options="gradDegreeCode.id as gradDegreeCode.name for gradDegreeCode in gradDegreeCodeList"
+                                                                    name="gradDegreeCode" id="gradDegreeCode_search"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 校长名 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5 control-label"> 校长名：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuGraduateAllAddForm.gradPrincipal"
+                                                                   id="gradPrincipal"
+                                                                   name="gradPrincipal" class="form-control"
+                                                                   ng-maxlength="60">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 证书编号 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5  control-label">证书编号：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuGraduateAllAddForm.gradCertNum"
+                                                                   id="gradCertNum"
+                                                                   name="gradCertNum" class="form-control"
+                                                                   ng-maxlength="20">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--学生来源信息-->
+                                                <h4 class="titles"
+                                                    ng-click="showStudentStatusSourceMsgs = !showStudentStatusSourceMsgs"
+                                                    style="display: block;"><span>学生来源信息</span>
+                                                    <!--<img src="images/msg-close.png">-->
+                                                </h4>
+                                                <div class="row marginTopClass" class="close-div"
+                                                     ng-hide="showStudentStatusSourceMsgs">
+                                                    <!-- 生源地 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required "> 生源地：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.orginCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.orginCode"
+                                                                    ng-options="orginCode.id as orginCode.name for orginCode in orginCodeList"
+                                                                    name="orginCode" id="orginCode_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 考生类别 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5 control-label">考生类别：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.examStuType"
+                                                                    ng-options="examStuType.id as examStuType.name for examStuType in examStuTypeList"
+                                                                    name="examStuType" id="examStuType_edit"
+                                                                    class="form-control"
+                                                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 毕业类别 -->
+                                                    <div class="form-group col-xs-6 " style="display: block;">
+                                                        <label class="col-xs-5 control-label">毕业类别：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.originGradTypeCode"
+                                                                    ng-options="originGradTypeCode.id as originGradTypeCode.name for originGradTypeCode in originGradTypeCodeList"
+                                                                    name="originGradTypeCode"
+                                                                    id="originGradTypeCode_edit"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 录取方式 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label required">录取方式：</label>
+                                                        <div class="col-xs-6">
+                                                            <select ng-model="stuFullTimeInfo.originEnrollCode"
+                                                                    ng-required="true"
+                                                                    ui-chosen="stuFullTimeInfoEditform.originEnrollCode"
+                                                                    ng-options="originEnrollCode.id as originEnrollCode.name for originEnrollCode in originEnrollCodeList"
+                                                                    name="originEnrollCode" id="originEnrollCode_edit"
+                                                                    class="form-control" ui-jq="chosen"
+                                                                    ui-options="{search_contains: true}">
+                                                                <option value="">==请选择==</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 毕业中学 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label">毕业中学：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originHighSchName"
+                                                                   id="originHighSchName"
+                                                                   name="originHighSchName" class="form-control"
+                                                                   ng-maxlength="180">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 高考成绩 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 高考成绩：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originExam" id="originExam"
+                                                                   name="originExam" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 语文 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 语文：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originChPer"
+                                                                   id="originChPer"
+                                                                   name="originChPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 数学 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 数学：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originMathPer"
+                                                                   id="originMathPer"
+                                                                   name="originMathPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 英语 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 英语：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originEnglishPer"
+                                                                   id="originEnglishPer"
+                                                                   name="originEnglishPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 综合 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 综合：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originSynthePer"
+                                                                   id="originSynthePer"
+                                                                   name="originSynthePer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 日语 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 日语：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originJapanesePer"
+                                                                   id="originJapanesePer"
+                                                                   name="originJapanesePer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 西班牙语 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 西班牙语：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originSpainPer"
+                                                                   id="originSpainPer"
+                                                                   name="originSpainPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 汉语文 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 汉语文：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originChCharaPer"
+                                                                   id="originChCharaPer"
+                                                                   name="originChCharaPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 藏文 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 藏文：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originTibetanPer"
+                                                                   id="originTibetanPer"
+                                                                   name="originTibetanPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 物理 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 物理：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originPhysicsPer"
+                                                                   id="originPhysicsPer"
+                                                                   name="originPhysicsPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 化学 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 化学：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originChemistryPer"
+                                                                   id="originChemistryPer"
+                                                                   name="originChemistryPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 生物 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 生物：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originBiologyPer"
+                                                                   id="originBiologyPer"
+                                                                   name="originBiologyPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 政治 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 政治：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originPoliticsPer"
+                                                                   id="originPoliticsPer"
+                                                                   name="originPoliticsPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 历史 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 历史：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originHistoryPer"
+                                                                   id="originHistoryPer"
+                                                                   name="originHistoryPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 地理 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 地理：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originGeographyPer"
+                                                                   id="originGeographyPer"
+                                                                   name="originGeographyPer" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 毕业鉴定 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 毕业鉴定：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originGradAuthen"
+                                                                   id="originGradAuthen"
+                                                                   name="originGradAuthen" class="form-control"
+                                                                   ng-maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 考生特征 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 考生特征：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.originStuTrait"
+                                                                   id="originStuTrait"
+                                                                   name="originStuTrait" class="form-control"
+                                                                   ng-maxlength="180">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!--联系方式-->
+                                                <h4 class="titles" ng-click="showContactMsgs = !showContactMsgs"
+                                                    style="display: block;"><span>联系方式</span>
+                                                    <!--<img src="images/msg-close.png">-->
+                                                </h4>
+                                                <div class="row marginTopClass" ng-hide="showContactMsgs"
+                                                     style="display: block;">
+                                                    <!-- 联系电话 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 联系电话：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.contaPhone" id="contaPhone"
+                                                                   name="contaPhone" class="form-control"
+                                                                   ng-maxlength="30">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 邮箱 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 邮箱：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.contaLetter"
+                                                                   id="contaLetter"
+                                                                   name="contaLetter" class="form-control"
+                                                                   ng-maxlength="80">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 火车到达站 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 火车到达站：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.contaArrive"
+                                                                   id="contaArrive"
+                                                                   name="contaArrive" class="form-control"
+                                                                   ng-maxlength="180">
+                                                        </div>
+                                                    </div>
+                                                    <!-- QQ/微信号 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> QQ/微信号：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.contaWeChat"
+                                                                   id="contaWeChat"
+                                                                   name="contaWeChat" class="form-control"
+                                                                   ng-maxlength="40">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 邮政编码 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 邮政编码：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.contaPostalCode"
+                                                                   id="contaPostalCode"
+                                                                   name="contaPostalCode" class="form-control"
+                                                                   ng-maxlength="6">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 家庭电话 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 家庭电话：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.contaFaPhone"
+                                                                   id="contaFaPhone"
+                                                                   name="contaFaPhone" class="form-control"
+                                                                   ng-maxlength="30">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 邮寄地址 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 邮寄地址：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.contaEailAddress"
+                                                                   id="contaEailAddress"
+                                                                   name="contaEailAddress" class="form-control"
+                                                                   ng-maxlength="180">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 家庭地址 -->
+                                                    <div class="form-group col-xs-6">
+                                                        <label class="col-xs-5 control-label"> 家庭地址：</label>
+                                                        <div class="col-xs-6">
+                                                            <input ng-model="stuFullTimeInfo.contaFaAddress"
+                                                                   id="contaFaAddress"
+                                                                   name="contaFaAddress" class="form-control"
+                                                                   ng-maxlength="180">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row modal-footer btn-center">
+                                                    <button class="btn btn-primary" type="button"
+                                                            style="margin-right: 36px;"
+                                                            ng-click="ok(stuFullTimeInfoEditform)">确 定
+                                                    </button>
+                                                    <button class="btn btn-default" type="button" ng-click="close()">取 消
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- 入学照片-->
+                                            <div class="col-xs-2 stu-msg-img marginTopClass">
+                                                <div class="col-xs-12 ">
+                                                    <div class="col-xs-7">
+                                                        <input type="file" name="stuPhotoFile"
+                                                               ng-model="stuPhotoFormAll.stuPhotoFile"
+                                                               class="form-control" id="startPhotoFileAll"
+                                                               style="display: none;">
+                                                        <img id="startPhotoUrlAll" src="img/man.png"
+                                                             onclick="startPhotoFileAll.click();" class="imgs">
+                                                    </div>
+                                                    <p class="tc" style="width:108px;margin-top: 150px;">入学照片</p>
+                                                    <!-- ngIf: startPhotoAll == 'true' -->
+                                                    <!--<p ng-bind="startPhotoMessageAll" class="warn-msg ng-binding"></p>-->
+                                                </div>
+                                            </div>
+                                            <!-- 毕业照片-->
+                                            <div class="col-xs-2 stu-msg-img" style="float:right">
+                                                <div class="col-xs-12">
+                                                    <div class="col-xs-7">
+                                                        <input type="file" name="stuPhotoFile"
+                                                               ng-model="stuPhotoFormAll.stuPhotoFile2"
+                                                               class="form-control" id="endPhotoFileAll"
+                                                               style="display: none;">
+                                                        <img id="endPhotoUrlAll" src="img/man.png"
+                                                             onclick="endPhotoFileAll.click();" class="imgs">
+
+                                                    </div>
+                                                    <p class="tc" style="width:108px;margin-top: 150px;">毕业照片</p>
+                                                    <!-- ngIf: endPhotoAll == 'true' -->
+                                                    <!--<p ng-bind="endPhotoMessageAll" class="warn-msg ng-binding"></p>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                            </uib-tabset>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- 家庭成员及社会关系 -->
+            <div class="tab-pane fade" id="familyo">
+                <div class="col-xs-12 tables-all">
+                    <div id="familly_toolbar" class="btn-group">
+                        <div>
+                            <button type="button" has-permission="stuFullTimeFamillyInfo:insert"
+                                    class="btn btn-default add-btn"
+                                    ng-click="btnAddFamily()">
+                                <span class="fa fa-plus toolbar-btn-icon"></span>新增
+                            </button>
+                            &nbsp;
+                            <button type="button" has-permission="stuFullTimeFamillyInfo:delete"
+                                    class="btn btn-default del-btn"
+                                    ng-click="btnDelFamily()">
+                                <span class="fa fa-times toolbar-btn-icon"></span>删除
+                            </button>
+                        </div>
+                    </div>
+                    <table id="stuFullTimeInfoFamillyTable" ui-jq="bootstrapTable"
+                           ui-options="stuFullTimeInfoFamillyTable"
+                           class="table table-responsive"></table>
+                </div>
+            </div>
+
+            <!-- 学历及经历 -->
+            <div class="tab-pane fade" id="experienceo">
+                <div class="col-xs-12 tables-all">
+                    <div id="experience_toolbar" class="btn-group">
+                        <div>
+                            <button type="button" has-permission="stuFullTimeExperienceInfo:insert"
+                                    class="btn btn-default add-btn"
+                                    ng-click="btnExperAdd()">
+                                <span class="fa fa-plus toolbar-btn-icon"></span>新增
+                            </button>
+                            &nbsp;
+                            <button type="button" has-permission="stuFullTimeExperienceInfo:delete"
+                                    class="btn btn-default del-btn"
+                                    ng-click="btnDelexper()">
+                                <span class="fa fa-times toolbar-btn-icon"></span>删除
+                            </button>
+                        </div>
+                    </div>
+                    <table id="stuFullTimeInfoExperienceTable" ui-jq="bootstrapTable"
+                           ui-options="stuFullTimeInfoExperienceTable"
+                           class="table table-responsive"></table>
+                </div>
+            </div>
+            <!-- 交流经历 -->
+            <div class="tab-pane fade" id="interflowo">
+                <div class="col-xs-12 tables-all">
+                    <div class="col-xs-12 tables-all">
+                        <table id="stuFullTimeInfoInterflowoTable" ui-jq="bootstrapTable"
+                               ui-options="stuFullTimeInfoInterflowoTable"
+                               class="table table-responsive"></table>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 异动情况 -->
+            <div class="tab-pane fade" id="changerollo">
+                <div class="col-xs-12 tables-all">
+                    <table id="stuFullTimeInfoChangerolloTable" ui-jq="bootstrapTable"
+                           ui-options="stuFullTimeInfoChangerolloTable"
+                           class="table table-responsive"></table>
+                </div>
+            </div>
+            <!--  双专业双学位辅修 -->
+            <div class="tab-pane fade" id="doubdegreeo">
+                <div class="col-xs-12 tables-all">
+                    <table id="stuFullTimeInfoDoubdegreeoTable" ui-jq="bootstrapTable"
+                           ui-options="stuFullTimeInfoDoubdegreeoTable"
+                           class="table table-responsive"></table>
+                </div>
+            </div>
+            <!--  注册状态 -->
+            <div class="tab-pane fade" id="registero">
+                <div class="col-xs-12 tables-all">
+                    <table id="stuFullTimeInfoRegisteroTable" ui-jq="bootstrapTable"
+                           ui-options="stuFullTimeInfoRegisteroTable"
+                           class="table table-responsive"></table>
+                </div>
+            </div>
+            <!-- 学籍变动日志-->
+            <div class="tab-pane fade" id="courseo">
+                <div class="col-xs-12 tables-all">
+                    <table id="stuFullTimeInfoCourseoTable" ui-jq="bootstrapTable"
+                           ui-options="stuFullTimeInfoCourseoTable"
+                           class="table table-responsive"></table>
+                </div>
+            </div>
+            <!-- 惩处 -->
+            <div class="tab-pane fade" id="punishmento">
+                <div class="col-xs-12 tables-all">
+                    <table id="stuFullTimeInfoPunishmentoTable" ui-jq="bootstrapTable"
+                           ui-options="stuFullTimeInfoPunishmentoTable"
+                           class="table table-responsive"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok(stuFullTimeInfoEditform)">确 定</button>
+        <button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+    </div>-->
+</div>
+
+
+
+

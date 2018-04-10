@@ -1,0 +1,66 @@
+
+<style>
+	#treegrid tbody tr {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+
+	}
+	/*滚动条垂直方向的宽度*/
+	/*::-webkit-scrollbar*/
+	/*{*/
+		/*width: 8px;*/
+	/*}*/
+	/*!* 垂直滚动条的滑动块 *!*/
+	/*::-webkit-scrollbar-thumb:vertical {*/
+		/*border-radius: 4px;*/
+		/*background-color:#e3e3e3;*/
+	/*}*/
+
+	.table-header-wrap{
+		width: 100%;
+	}
+	.table-header-wrap table{
+		width: 100%;
+	}
+
+	.table-body-wrap table{
+		width: 100%;
+	}
+</style>
+<div class="modal-header">
+	<h3 class="modal-title" ><div class="top-left col-xs-10">范围值详细 &nbsp;&nbsp; (权限名：&nbsp;&nbsp{{detailtitle}})</div>
+	</h3>
+	<div class=" top-right"><button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button></div>
+
+</div>
+<div class="modal-footer" style="text-align: left">
+<div class="col-xs-12 left-tree">
+	<div class="table-header-wrap">
+		<table>
+			<colgroup>
+				<col width="50%"/>
+				<col width="50%"/>
+
+			</colgroup>
+			<tr > <th >维度名称</th> <th >范围名称</th> </tr>
+		</table>
+	</div>
+	<table id="treegrid" ui-jq="fancytree" ui-options="treegrid" class="table table-responsive table-selector ng-scope table-hover table-bordered ">
+
+		<tbody style="overflow:auto; display: block;" ng-style="theight" >
+
+		<tr ng-repeat="detail in detaildata " >
+			<td>{{detail.WDMC}}</td> <td>{{detail.FWMC}}</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
+
+</div>
+
+
+

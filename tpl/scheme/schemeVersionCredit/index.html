@@ -1,0 +1,19 @@
+<div class="right-content" >
+	<div class="col-xs-2 left-tree" ng-style="leftTreeStyle" ng-scroll-bar>
+		<ul id="menuTree" z-tree tree-options="zTreeOptions" class="ztree"></ul>
+	</div>
+	<div class="col-xs-10">
+		<div id="toolbar" class="btn-group">
+			<div>
+				<button type="button" has-permission="schemeVersionCredit:save" class="btn btn-default " ng-click="save()">
+					<span class="fa fa-save toolbar-btn-icon"></span>保存
+				</button>
+				&nbsp;
+				<button type="button" has-permission="schemeVersionCredit:copyToMajor" class="btn btn-default" ng-click="copyToMajor()">
+					<span class="fa fa-copy toolbar-btn-icon"></span>复制到专业
+				</button>
+			</div>
+		</div>
+		<table id="versionModelTable" ui-jq="bootstrapTable" ui-options="versionModelTable" class="table table-responsive"></table>
+	</div>
+</div>

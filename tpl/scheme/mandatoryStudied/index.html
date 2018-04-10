@@ -1,0 +1,188 @@
+<style>
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+    	border-bottom: none;
+	}
+</style>
+<div class="right-content" >
+	<div class="col-xs-2 left-tree" ng-style="leftTreeStyle">
+		<div class="col">
+			<div class="wrapper-md">
+				<span ng-if="doing_async">...loading...</span>
+				<div class="b-a bg-light dk r r-2x">
+					<abn-tree
+							tree-data         = "menuTreeData"
+							tree-control      = "menuTreeControl"
+							on-select         = "menuTreeHandler(branch)"
+							expand-level      = "2"
+							initial-selection = ""
+							icon-leaf         = "fa fa-file-o"
+							icon-expand       = "fa fa-plus"
+							icon-collapse     = "fa fa-minus"
+					>
+					</abn-tree>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-10" style="padding: 5px 5px 0px 5px;">
+		<uib-tabset active="active">
+			<uib-tab index="0" heading="按课程统计">
+				<div class="right-content-search">
+					<div>
+						<label class="control-label search-control" ng-click="coursePassRateSearchFormHideToggle()">
+							<i class="fa" ng-class="{'fa-caret-down': !isHideCoursePassRateSearchForm, 'fa-caret-right': isHideCoursePassRateSearchForm}"></i>&nbsp;查询条件
+						</label>
+					</div>
+					<div ng-hide="isHideCoursePassRateSearchForm">
+						<form name="coursePassRateSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+							<div class="row">
+								<div class="form-group col-xs-4">
+									<label class="col-xs-6 control-label">起始年级：</label>
+									<div class="col-xs-6">
+										<select name="startGrade" id="coursePassRate.startGrade" ng-model="coursePassRate.startGrade" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+											<option value="">==请选择==</option>
+											<option value="">2016</option>
+											<option value="">2017</option>
+											<option value="">2018</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-6 control-label">截止年级：</label>
+									<div class="col-xs-6">
+										<select name="endGrade" id="coursePassRate.endGrade" ng-model="coursePassRate.endGrade" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+											<option value="">==请选择==</option>
+											<option value="">2016</option>
+											<option value="">2017</option>
+											<option value="">2018</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-6 control-label">课程/编号：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="coursePassRate.courseKeyword" id="coursePassRate.courseKeyword" name="courseKeyword" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 btn-center">
+									<!-- 点击触发 ng-submit 事件 -->
+									<button type="submit" class="btn btn-info">
+										<span class="fa fa-search refer btn-icon-padding"></span>查询
+									</button>
+									<button type="button" class="btn btn-default" ng-click="searchReset()">
+										<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="right-content-table">
+					<div id="coursePassRateToolbar" class="btn-group">
+						<div>
+							<button type="button" class="btn btn-default " ng-click="exportExcel()">
+								<span class="fa fa-edit toolbar-btn-icon"></span>导出Excel
+							</button>
+						</div>
+					</div>
+					<table id="coursePassRateTable" ui-jq="bootstrapTable" ui-options="coursePassRateTable" class="table table-responsive"></table>
+				</div>
+			</uib-tab>
+			<uib-tab index="1" heading="按班级统计" ng-click="clickAlready()">
+				<div class="right-content-search">
+					<div>
+						<label class="control-label search-control" ng-click="classPassRateSearchFormHideToggle()">
+							<i class="fa" ng-class="{'fa-caret-down': !isHideClassPassRateSearchForm, 'fa-caret-right': isHideClassPassRateSearchForm}"></i>&nbsp;查询条件
+						</label>
+					</div>
+					<div ng-hide="isHideClassPassRateSearchForm">
+						<form name="classPassRateSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+							<div class="row">
+								<div class="form-group col-xs-4">
+									<label class="col-xs-6 control-label">年级：</label>
+									<div class="col-xs-6">
+										<select name="grade" id="classPassRate.grade" ng-model="classPassRate.grade" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+											<option value="">==请选择==</option>
+											<option value="">2016</option>
+											<option value="">2017</option>
+											<option value="">2018</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-6 control-label">学院：</label>
+									<div class="col-xs-6">
+										<select name="deptNum" id="classPassRate.deptNum" ng-model="classPassRate.deptName" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+											<option value="">==请选择==</option>
+											<option value="">导演系</option>
+											<option value="">表演系</option>
+											<option value="">声乐系</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-6 control-label">专业方向：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="classPassRate.majorName" id="classPassRate.majorName" name="majorName" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-xs-4">
+									<label class="col-xs-6 control-label">班级：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="classPassRate.executiveClassName" id="classPassRate.executiveClassName" name="executiveClassName" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-6 control-label">课程模块：</label>
+									<div class="col-xs-6">
+										<select name="courseModel" id="classPassRate.courseModel" ng-model="classPassRate.courseModel" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+											<option value="">==请选择==</option>
+											<option value="">公共必修</option>
+											<option value="">公共选修</option>
+											<option value="">专业必修</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-6 control-label">课程/编号：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="classPassRate.courseKeyword" id="classPassRate.courseKeyword" name="courseKeyword" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 btn-center">
+									<!-- 点击触发 ng-submit 事件 -->
+									<button type="submit" class="btn btn-info">
+										<span class="fa fa-search refer btn-icon-padding"></span>查询
+									</button>
+									<button type="button" class="btn btn-default" ng-click="searchReset()">
+										<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="right-content-table">
+					<div id="classPassRateToolbar" class="btn-group">
+						<div>
+							<button type="button" class="btn btn-default " ng-click="exportExcel()">
+								<span class="fa fa-edit toolbar-btn-icon"></span>导出Excel
+							</button>
+						</div>
+					</div>
+					<table id="classPassRateTable" ui-jq="bootstrapTable" ui-options="classPassRateTable" class="table table-responsive"></table>
+				</div>
+			</uib-tab>
+		</uib-tabset>
+	</div>
+</div>

@@ -1,0 +1,162 @@
+<style>
+	.btn {
+		padding: 0px 15px;
+		font-size: 12px;
+		height: 34px;
+		line-height: 34px;
+	}
+	.form-horizontal .form-group {
+		margin: 5px 0px 10px 0px;
+		text-align: left;
+	}
+	.textAlign {
+		text-align: right!important;
+	}
+</style>
+<div style=" overflow-y:scroll;overflow-x: hidden;" id="scollDiv" ng-style="{'height':'{{scollDivHeight}}'}">
+	<div class="modal-header">
+		<!--<button type="button" class="close" ng-click="close()">-->
+			<!--<span>&times;</span>-->
+		<!--</button>-->
+		<h3 class="modal-title">新 增</h3>
+	</div>
+    <div style="margin: 10px 0px 0px 0px;">
+		<div class="modal-header">
+			<!--<button type="button" class="close" ng-click="close()">-->
+			<!--<span>&times;</span>-->
+			<!--</button>-->
+			<span class="modal-title" style="font-size: 16px;font-weight: 500;">模块信息</span>
+		</div>
+
+		<div class="modal-body">
+			<form name="codeCategoryAddform" class="form-horizontal" novalidate>
+				<div class="row">
+
+					<div class="form-group col-xs-2 textAlign"><label class="control-label required ">模块号：</label></div>
+					<div class="form-group col-xs-3">
+						<input type="text" ng-model="projectModule.num" ng-required="true" id="moduleNum" name="moduleNum" class="form-control"/>
+					</div>
+					<div class="form-group col-xs-1"></div>
+					<div class="form-group col-xs-2 textAlign"><label class="control-label required">模块名称：</label></div>
+					<div class="form-group col-xs-3">
+						<input type="text" ng-model="projectModule.name" ng-required="true" id="moduleName" name="moduleName" class="form-control"/>
+					</div>
+					<div class="form-group col-xs-1"></div>
+					<!--<div class="form-group col-xs-6">-->
+						<!--<label class="col-xs-4 control-label required">模块号：</label>-->
+						<!--<div class="col-xs-8">-->
+							<!--<input type="text" ng-model="projectModule.num" ng-required="true" id="moduleNum" name="moduleNum" class="form-control"/>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="form-group col-xs-6">-->
+						<!--<label class="col-xs-4 control-label required">模块名称：</label>-->
+						<!--<div class="col-xs-8">-->
+							<!--<input type="text" ng-model="projectModule.name" ng-required="true" id="moduleName" name="moduleName" class="form-control"/>-->
+						<!--</div>-->
+					<!--</div>-->
+				</div>
+				<div class="row">
+
+
+					<div class="form-group col-xs-2 textAlign"><label class="control-label required ">学期：</label></div>
+					<div class="form-group col-xs-3">
+						<select ng-change="onChange()" ui-select2 ng-options="semesterObj.id as semesterObj.acadYearSemester  for semesterObj in semesterObjs"
+								ng-required="true" ng-model="projectModule.semesterId" id="semesterId_select" name="semesterId" ui-jq="chosen"
+								ui-options="{search_contains: true}" class="form-control" ui-chosen="timeSettingModifyform.semesterId">
+							<option value="">==请选择==</option>
+						</select>
+					</div>
+					<div class="form-group col-xs-1"></div>
+					<div class="form-group col-xs-2 textAlign"><label class="control-label required">是否启用：</label></div>
+					<div class="form-group col-xs-3">
+						<select ng-model="projectModule.enableSign" ng-required="true" id="enableSign" name="enableSign" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">
+							<option value="">== 请选择 ==</option>
+							<option value="1">是</option>
+							<option value="0">否</option>
+						</select>
+					</div>
+					<div class="form-group col-xs-1"></div>
+
+					<!--<div class="form-group col-xs-6">-->
+						<!--<label class="col-xs-4 control-label required">学期：</label>-->
+						<!--<div class="col-xs-8">-->
+							<!--<select ng-change="onChange()" ui-select2 ng-options="semesterObj.id as semesterObj.acadYearSemester  for semesterObj in semesterObjs"-->
+									<!--ng-required="true" ng-model="projectModule.semesterId" id="semesterId_select" name="semesterId" ui-jq="chosen"-->
+									<!--ui-options="{search_contains: true}" class="form-control" ui-chosen="timeSettingModifyform.semesterId">-->
+								<!--<option value="">==请选择==</option>-->
+							<!--</select>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="form-group col-xs-6">-->
+						<!--<label class="col-xs-4 control-label required">是否启用：</label>-->
+						<!--<div class="col-xs-8">-->
+							<!--<select ng-model="projectModule.enableSign" ng-required="true" id="enableSign" name="enableSign" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">-->
+								<!--<option value="">== 请选择 ==</option>-->
+								<!--<option value="1">是</option>-->
+								<!--<option value="0">否</option>-->
+							<!--</select>-->
+						<!--</div>-->
+					<!--</div>-->
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-2 textAlign"><label class="control-label required">备注：</label></div>
+					<div class="form-group col-xs-9"><textarea ng-model="projectModule.remark" id="remark" name="remark" style="border-color: #cfdadd;width:100%;border-radius: 4px;" rows="3"></textarea></div>
+					<div class="form-group col-xs-1"></div>
+						<!--<div class="form-group col-xs-12">-->
+							<!--<label class="col-xs-2  control-label" style="margin-left: -5px;">备注：</label>-->
+							<!--<textarea class="col-xs-10" ng-model="projectModule.remark" id="remark" name="remark" class="form-control" style="width: 81.6%;margin-top: 10px;border-color: #cfdadd;" rows="3"></textarea>-->
+						<!--</div>-->
+					<!--<div class="col-xs-1"></div>-->
+				</div>
+
+
+			</form>
+
+
+		</div>
+
+		<div class="modal-header" >
+			<!--<button type="button" class="close" ng-click="close()">-->
+			<!--<span>&times;</span>-->
+			<!--</button>-->
+			<span class="modal-title" style="font-size: 16px;font-weight: 500;">时间信息</span>
+		</div>
+
+		<div class="modal-body">
+			<form name="codeCategoryForm" class="form-horizontal" novalidate>
+				<div class="row">
+					<div class="col-xs-1"></div>
+					<div class="right-content-table col-xs-10">
+						<div id="toolbar" class="btn-group">
+							<div>
+								<button type="button" has-permission="projectModule:Moduleinsert:insert" class="btn btn-default add-btn" ng-click="openAdd()">
+									<span class="fa fa-edit toolbar-btn-icon"></span>新增
+								</button>
+								&nbsp;
+								<button type="button" has-permission="projectModule:Moduleinsert:delete" class="btn btn-default del-btn" ng-click="openDelete()">
+									<span class="fa fa-edit toolbar-btn-icon"></span>删除
+								</button>
+								&nbsp;
+								<button style="margin-left:0px;" type="button" class="btn btn-default" ng-click="goBack()">
+									<span ></span>返 回
+								</button>
+							</div>
+						</div>
+						<table id="plateTimeTable" ui-jq="bootstrapTable" ui-options="plateTimeTable" class="table table-responsive"></table>
+					</div>
+					<div class="col-xs-1"></div>
+				</div>
+
+				<div class="row" style="margin-top:10px ">
+					<div class="col-xs-5" ></div>
+					<button class="btn btn-primary" style="margin-left: 25px;" type="button" ng-click="ok(codeCategoryAddform)">确 定</button>
+					<button class="btn btn-default" style="margin-left: 40px;" type="button" ng-click="close()">取 消</button>
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+
+
+</div>

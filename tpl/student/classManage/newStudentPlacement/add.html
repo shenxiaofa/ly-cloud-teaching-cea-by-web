@@ -1,0 +1,97 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">新 增</h3>
+</div>
+<div class="modal-body">
+	<form name="reportRegisterControlAddform" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">学年学期：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegisterControl.semesterId" ui-chosen="reportRegisterControlAddform.semesterId" ng-required="true" id="semesterId_select" name="semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="semesterIdItem in semesterIdData" value="{{semesterIdItem.id}}">{{semesterIdItem.acadYearSemester}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label">当前注册学期：</label>
+				<div class="col-xs-8">
+					<label class="radio-inline">
+						<input type="radio" ng-model="reportRegisterControl.registerSemesterSign" name="registerSemesterSign" value="1"> 是
+					</label>
+					&nbsp;
+					<label class="radio-inline">
+						<input type="radio" ng-model="reportRegisterControl.registerSemesterSign" name="registerSemesterSign" value="0"> 否
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">注册开始日期：</label>
+				<div class="col-xs-8">
+					<div class="input-group">
+						<input ng-model="reportRegisterControl.registerStartTime" id="registerStartTime" name="registerStartTime" type="text" class="form-control"
+							   uib-datepicker-popup="yyyy-MM-dd"
+							   is-open="registerStartTimeOptions.opened"
+							   datepicker-options="registerStartTimeOptions.dateOptions"
+							   ng-required="true"
+							   current-text="今天"
+							   clear-text="清除"
+							   close-text="关闭"
+							   ng-click="registerStartTimeOptions.open()" />
+					  <span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="registerStartTimeOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+					  </span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">注册结束日期：</label>
+				<div class="col-xs-8">
+					<div class="input-group">
+						<input ng-model="reportRegisterControl.registerEndTime" id="registerEndTime" name="registerEndTime" type="text" class="form-control"
+							   uib-tooltip="注册结束日期不能小于注册开始日期"
+							   tooltip-placement="bottom"
+							   tooltip-trigger="'focus'"
+							   tooltip-enable="registerEndTimeTooltipEnableAndOpen"
+							   tooltip-is-open="registerEndTimeTooltipEnableAndOpen"
+							   uib-datepicker-popup="yyyy-MM-dd"
+							   is-open="registerEndTimeOptions.opened"
+							   datepicker-options="registerEndTimeOptions.dateOptions"
+							   ng-required="true"
+							   date-gt
+							   equals="reportRegisterControl.registerStartTime"
+							   current-text="今天"
+							   clear-text="清除"
+							   close-text="关闭"
+							   ng-click="registerEndTimeOptions.open()"/>
+					  <span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="registerEndTimeOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+					  </span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label">启用缴费注册：</label>
+				<div class="col-xs-8">
+					<label class="radio-inline">
+						<input type="radio" ng-model="reportRegisterControl.enabledRegisterSign" name="enabledRegisterSign" value="1"> 是
+					</label>
+					&nbsp;
+					<label class="radio-inline">
+						<input type="radio" ng-model="reportRegisterControl.enabledRegisterSign" name="enabledRegisterSign" value="0"> 否
+					</label>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(reportRegisterControlAddform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

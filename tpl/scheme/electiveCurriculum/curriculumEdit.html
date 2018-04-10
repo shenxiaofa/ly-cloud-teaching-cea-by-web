@@ -1,0 +1,95 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">教学计划编辑</h3>
+</div>
+<div class="modal-body">
+	<form name="curriculumEditForm" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required" >开课学期：</label>
+				<div class="col-xs-8">
+					<select ng-model="InCurriculumStoreDto.semesterId" ng-required="true" id="semesterId" name="semesterId" class="form-control">
+						<option>==请选择==</option>
+						<option value="2017-2018-1">2017-2018-1</option>
+						<option value="2017-2018-2">2017-2018-2</option>
+						<option value="2016-2017-1">2016-2017-1</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label required" >课程名称：</label>
+				<label class="col-xs-8 control-label text-left" >{{InCurriculumStoreDto.courseName}}</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required" >课程属性：</label>
+				<label class="col-xs-8 control-label text-left" >{{InCurriculumStoreDto.coursePropertyName}}</label>
+			</div>
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label" >开课单位：</label>
+				<label class="col-xs-8 control-label text-left" >{{InCurriculumStoreDto.courseDeptName}}</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label required" >学分：</label>
+				<label class="col-xs-8 control-label text-left" >{{InCurriculumStoreDto.credit}}</label>
+				<!--<div class="col-xs-8">-->
+					<!--<input type="text" ng-required="true" ng-model="InCurriculumStoreDto.credit" name="credit" id="credit" class="form-control"/>-->
+				<!--</div>-->
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required" >总学时：</label>
+				<label class="col-xs-8 control-label text-left" >{{InCurriculumStoreDto.totalHour}}</label>
+				<!--<div class="col-xs-8">
+					<input type="text" ng-required="true" ng-model="InCurriculumStoreDto.totalHour" name="totalHour" id="totalHour" class="form-control"/>
+				</div>-->
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label" >考核方式：</label>
+				<label class="col-xs-8 control-label text-left" >{{InCurriculumStoreDto.examWay}}</label>
+				<!--<div class="col-xs-8">
+					<select ng-model="InCurriculumStoreDto.examWayNum" id="examWayNum" name="examWayNum" class="form-control">
+						<option>==请选择==</option>
+						<option value="1">笔试闭卷</option>
+					</select>
+				</div>-->
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required" >开课方式：</label>
+				<div class="col-xs-8">
+					<select ng-model="InCurriculumStoreDto.way" ng-required="true" id="way" name="way" class="form-control">
+						<option value="1">普通课</option>
+						<option value="2">项目课</option>
+						<option value="3">等级课</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label" >上课人数：</label>
+				<label class="col-xs-8 control-label text-left" >{{InCurriculumStoreDto.studentCount}}</label>
+				<!--<div class="col-xs-8">
+					<input type="text" ng-required="true" ng-model="InCurriculumStoreDto.studentCount" name="studentCount" id="studentCount" class="form-control"/>
+				</div>-->
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-xs-2 control-label">备注：</label>
+				<textarea class="col-xs-9" ng-model="InCurriculumStoreDto.remark" name="remark" id="remark" class="form-control"></textarea>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="save(curriculumEditForm)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

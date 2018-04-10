@@ -1,0 +1,20 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "department": "教务处",
+        "courseNum":"36521",
+        "courseName":"软件技术",
+        "courseModel":"专业必修",
+        "examWay":"考试",
+        "credit":"3",
+        "totalHour":"36",
+        "workHour":"18",
+        "theoryHour":"18",
+        "practiceHour":"18"
+      }
+    ]
+  }
+}
+

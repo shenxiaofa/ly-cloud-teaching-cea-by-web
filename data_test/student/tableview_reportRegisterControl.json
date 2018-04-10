@@ -1,0 +1,15 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "id": "1",
+        "semester": "2017-1",
+        "registerStartTime":"2017-10-11",
+        "registerEndTime":"2017-10-11",
+        "enabledRegisterSign":"1",
+        "registerSemesterSign":"0"
+      }
+    ]
+  }
+}

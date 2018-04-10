@@ -1,0 +1,26 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "id": "1",
+        "name": "通识基础课",
+        "kcxz": {
+          "id": "2",
+          "name": "选修"
+        },
+        "presetCourseSign":"1",
+        "modelDataRange": [
+          {
+            "id": "1",
+            "name": "表演系"
+          },
+          {
+            "id": "2",
+            "name": "导演系"
+          }
+        ]
+      }
+    ]
+  }
+}

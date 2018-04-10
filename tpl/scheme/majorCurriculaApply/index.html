@@ -1,0 +1,69 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="majorCurriculaApplyForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">所属校区：</label>
+						<div class="col-xs-6">
+							<select name="campusNumber" id="campusNumber" ng-model="MajorCurriculaApply.campusNumber" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">年级：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="MajorCurriculaApply.grade" id="grade" name="grade" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">专业/代码：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="MajorCurriculaApply.majorCode" id="majorCode" name="majorCode" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">学生类别：</label>
+						<div class="col-xs-6">
+							<select name="educationLevel_ID" id="educationLevel_ID" ng-model="MajorCurriculaApply.educationLevel_ID" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">审核状态：</label>
+						<div class="col-xs-6 ">
+							<select name="reviewStatus" id="reviewStatus" ng-model="MajorCurriculaApply.reviewStatus" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+								<option value="0">未提交</option>
+								<option value="1">审核中</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<table id="majorCoursePlanApplyTable" ui-jq="bootstrapTable" ui-options="majorCoursePlanApplyTable" class="table table-responsive"></table>
+	</div>
+</div>

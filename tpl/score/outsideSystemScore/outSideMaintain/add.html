@@ -1,0 +1,115 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="cancel()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">新增</h3>
+</div>
+<div class="modal-body">
+	<form name="outSideMaintainCopyform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<div class="col-xs-6">
+				<label class="col-xs-5 control-label ">姓名：</label>
+				<div class="col-xs-5">
+					<div class="input-group" style="width: 102%;">
+						<input ng-model="outSideMaintain.studentName" ng-readonly="true" ng-required="true" id="studentName" name="studentName" type="text" class="form-control">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button" ng-click="selectStudent()">选择</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<label class="col-xs-4 control-label ">学号：</label>
+				<div class="col-xs-5">
+					<input type="text" disabled ng-model="outSideMaintain.studentNum" id="studentNum" name="studentNum" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-6">
+				<label class="col-xs-5 control-label ">所属学院：</label>
+				<div class="col-xs-5">
+					<input type="text" disabled ng-model="outSideMaintain.departmentName" id="studentDepartmentName" name="studentDepartmentName" class="form-control"/>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<label class="col-xs-4 control-label ">年级专业：</label>
+				<div class="col-xs-5">
+					<input type="text" disabled ng-model="outSideMaintain.semesterMajor" id="semesterMajor" name="semesterMajor" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-6">
+				<label class="col-xs-5 control-label ">班级：</label>
+				<div class="col-xs-5">
+					<input type="text" disabled ng-model="outSideMaintain.className" id="clazzName" name="clazzName" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-6">
+				<label class="col-xs-5 control-label required">学年学期：</label>
+				<div class="col-xs-5">
+					<select ng-model="outSideMaintain.semesterId" id="semesterId" name="semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option value="">==请选择==</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<label class="col-xs-4 control-label required">中文课程名称：</label>
+				<div class="col-xs-5">
+					<input type="text" ng-model="outSideMaintain.cnCourseName" id="cnCourseName" name="cnCourseName" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-6">
+				<label class="col-xs-5 control-label required">英文课程名称：</label>
+				<div class="col-xs-5">
+					<input type="text" ng-model="outSideMaintain.enCourseName" id="enCourseName" name="enCourseName" class="form-control"/>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<label class="col-xs-4 control-label required">课程模块：</label>
+				<div class="col-xs-5">
+					<select ng-model="outSideMaintain.courseModular" id="courseModular" name="courseModular" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option value="">==请选择==</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-6">
+				<label class="col-xs-5 control-label ">学时：</label>
+				<div class="col-xs-5">
+					<input type="number" ng-model="outSideMaintain.totalHour" id="totalHour" name="totalHour" class="form-control"/>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<label class="col-xs-4 control-label required">学分：</label>
+				<div class="col-xs-5">
+					<input type="number" ng-model="outSideMaintain.credit" id="credit" name="credit" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<!--<div class="col-xs-6">-->
+				<!--<label class="col-xs-5 control-label ">成绩类别：</label>-->
+				<!--<div class="col-xs-5">-->
+					<!--<input type="text" ng-model="outSideMaintain.scoreType" id="scoreType" name="scoreType" class="form-control"/>-->
+				<!--</div>-->
+			<!--</div>-->
+			<div class="col-xs-6">
+				<label class="col-xs-5 control-label ">成绩：</label>
+				<div class="col-xs-5">
+					<input type="number" ng-model="outSideMaintain.score" id="score" name="score" class="form-control"/>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(outSideMaintainCopyform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

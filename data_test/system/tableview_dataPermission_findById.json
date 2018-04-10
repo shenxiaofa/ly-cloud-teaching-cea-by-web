@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "success": true,
+    "statusCode": 200,
+    "message": "ok"
+  },
+  "data": {
+    "sjqxbh":"1",
+    "fwbh": "system",
+    "fwmc": "系统管理",
+    "wddm": "XS",
+    "wdmc":"系所"
+  }
+}

@@ -1,0 +1,50 @@
+{"total": "5", "rows":
+	[
+		{
+			"id": "436a6402bb5942d2b6d6111a15e8798c",
+			"semester": "2017年春",
+			"courseNum":"classUnit01",
+			"courseName":"毛概",
+			"courseModule":"模块三",
+			"courseProperty":"必修",
+			"electiveCount":"4",
+			"actualCount":"2"
+		},{
+		"id": "436a6402bb5942d2b6d6111a15e8798c",
+		"semester": "2017年春",
+		"courseNum":"classUnit01",
+		"courseName":"毛概",
+		"courseModule":"模块三",
+		"courseProperty":"必修",
+		"electiveCount":"4",
+		"actualCount":"2"
+	},{
+		"id": "436a6402bb5942d2b6d6111a15e8798c",
+		"semester": "2017年春",
+		"courseNum":"classUnit01",
+		"courseName":"毛概",
+		"courseModule":"模块三",
+		"courseProperty":"必修",
+		"electiveCount":"4",
+		"actualCount":"2"
+	},{
+		"id": "436a6402bb5942d2b6d6111a15e8798c",
+		"semester": "2017年春",
+		"courseNum":"classUnit01",
+		"courseName":"毛概",
+		"courseModule":"模块三",
+		"courseProperty":"必修",
+		"electiveCount":"4",
+		"actualCount":"2"
+	},{
+		"id": "436a6402bb5942d2b6d6111a15e8798c",
+		"semester": "2017年春",
+		"courseNum":"classUnit01",
+		"courseName":"毛概",
+		"courseModule":"模块三",
+		"courseProperty":"必修",
+		"electiveCount":"4",
+		"actualCount":"2"
+	}
+	]
+}

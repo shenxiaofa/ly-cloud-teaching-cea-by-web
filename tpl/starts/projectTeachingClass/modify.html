@@ -1,0 +1,50 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">修 改</h3>
+</div>
+<div class="modal-body">
+	<form name="projectModuleModifyform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required" >项目名称：</label>
+			<div class="col-xs-8 pull-left">
+				<select ng-model="teachingClass.projectId" ng-required="true" id="projectId" name="projectId" class="form-control ">
+					<option style="margin: auto" ng-repeat="date in dropDownData" value="{{date.id}}">{{date.name}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">最低开班人数：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="teachingClass.lowestCount" ng-required="true" id="lowestCount" name="lowestCount" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">最高容纳人数：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="teachingClass.highestCount" ng-required="true" id="highestCount" name="highestCount" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label" >板块：</label>
+			<div class="col-xs-8 pull-left">
+				<select ng-model="teachingClass.plateId"  id="plateId" name="plateId" class="form-control ">
+					<option style="margin: auto" ng-repeat="date in projectPalateData" value="{{date.id}}">{{date.name}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label" >对应行政班：</label>
+			<div class="col-xs-8 pull-left">
+				<select ng-model="teachingClass.executiveClassIds"  id="executiveClassIds" name="executiveClassIds"  ui-jq="chosen"  ui-options="{search_contains: true}" multiple class="form-control ">
+					<option style="margin: auto" ng-repeat="date in palateData" value="{{date.id}}">{{date.name}}</option>
+				</select>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(projectModuleModifyform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

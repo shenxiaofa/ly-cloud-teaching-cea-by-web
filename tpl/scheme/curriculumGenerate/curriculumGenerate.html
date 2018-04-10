@@ -1,0 +1,42 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">生成教学计划</h3>
+</div>
+<div class="modal-body">
+	<form name="curriculumGenerateForm" class="form-horizontal" novalidate >
+		<!--<div class="form-group">
+			<label class="col-xs-2 control-label required" >学年学期：</label>
+			<div class="col-xs-9">
+				<select name="semesterId" id="semesterId" ng-required="true" ng-model="inClassCurriculaFindDto.semesterId" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+					<option value="">==请选择==</option>
+				</select>
+			</div>
+		</div>-->
+		<div class="form-group">
+			<label class="col-xs-2 control-label" >年级：</label>
+			<div class="col-xs-9">
+				<select ng-model="inClassCurriculaFindDto.grade" id="grade" name="grade" class="form-control">
+					<option>==请选择==</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-2 control-label" >专业：</label>
+			<div class="col-xs-9">
+				<select ng-model="inClassCurriculaFindDto.majorId" id="majorId" name="majorId" class="form-control">
+					<option>==请选择==</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<p class="col-xs-2 text-right control-label" >注意：</p>
+			<p class="col-xs-9 text-warning text-left control-label">根据班级课程计划生成教学计划只做追加！</p>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="save(curriculumGenerateForm)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

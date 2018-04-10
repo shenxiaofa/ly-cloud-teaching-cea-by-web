@@ -1,0 +1,94 @@
+[
+    {
+        "id": 5,
+        "parentName": "公告管理",
+        "isShow": true,
+        "target": "",
+        "targetUrl": "",
+        "icon":"glyphicon glyphicon-stats",
+        "child": [
+            {
+                "name": "公告类型",
+                "isShow": true,
+                "target": "noticeTypeManage",
+                "targetUrl": "home.common.noticeTypeManage",
+                "permission": "noticeType:query"
+            },{
+                "name": "通知公告",
+                "isShow": true,
+                "target": "informNoticeManage",
+                "targetUrl": "home.common.informNoticeManage",
+                "permission": "informNotice:query"
+            }
+        ]
+    }, {
+    "id": 2,
+    "parentName": "用户权限管理",
+    "isShow": true,
+    "target": "",
+    "targetUrl": "",
+    "icon":"glyphicon glyphicon-stats",
+    "child": [{
+            "name": "部门管理",
+            "isShow": true,
+            "target": "departmentManage",
+            "targetUrl": "home.common.departmentManage",
+            "permission": "department:query"
+        },{
+            "name": "用户管理",
+            "isShow": true,
+            "target": "userManage",
+            "targetUrl": "home.common.userManage",
+            "permission": "user:query"
+        },{
+            "name": "角色管理",
+            "isShow": true,
+            "target": "roleManage",
+            "targetUrl": "home.common.roleManage",
+            "permission": "role:query"
+        },{
+            "name": "用户组管理",
+            "isShow": true,
+            "target": "userGroupManage",
+            "targetUrl": "home.common.userGroupManage",
+            "permission": "userGroup:query"
+        }
+    ]
+    },{
+        "id": 3,
+        "parentName": "权限资源管理",
+        "isShow": true,
+        "target": "",
+        "targetUrl": "",
+        "icon":"glyphicon glyphicon-stats",
+        "child": [
+            {
+                "name": "功能权限管理",
+                "isShow": true,
+                "target": "permissionManage",
+                "targetUrl": "home.common.permissionManage",
+                "permission": "permission:query"
+            },{
+                "name": "数据权限维度",
+                "isShow": true,
+                "target": "dataPermissionManage",
+                "targetUrl": "home.common.dataPermissionManage",
+                "permission": "permissionDataDimension:query"
+            },{
+                "name": "数据权限范围",
+                "isShow": true,
+                "target": "dataPermissionResourceManage",
+                "targetUrl": "home.common.dataPermissionResourceManage",
+                "permission": "permissionDataRange:query"
+            }
+        ]
+    },{
+      "id": 4,
+      "parentName": "查看操作日志",
+      "isShow": true,
+      "target": "operationLog",
+      "targetUrl": "home.common.operationLog",
+      "icon":"glyphicon glyphicon-stats",
+      "permission": "operationLog:query"
+    }
+]

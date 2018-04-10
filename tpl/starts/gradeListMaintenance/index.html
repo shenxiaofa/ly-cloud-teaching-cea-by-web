@@ -1,0 +1,118 @@
+<div class="right-content">
+    <div class="right-content-search" id = "searchHeight">
+        <div>
+            <label class="control-label search-control" ng-click="searchFormHideToggle()">
+                <i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+            </label>
+        </div>
+        <div ng-hide="isHideSearchForm">
+            <form name="gradeListMaintenanceSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+                <div class="row">
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label ">年级：</label>
+                        <div class="col-xs-7">
+                            <select ng-model="gradeListMaintenance.year"  id="grade" name="grade" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option  ng-repeat="date in gradeData" value="{{date.id}}">{{date.value}}</option>
+                                <!--<option  ng-repeat="date in gradeData" >==请选择==</option>-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label ">学院：</label>
+                        <div class="col-xs-7">
+                            <select ng-model="gradeListMaintenance.facultyId"  id="facultyId" name="facultyId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option  ng-repeat="date in facultyData" value="{{date.id}}">{{date.departmentName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">专业方向：</label>
+                        <div class="col-xs-7">
+                            <select ng-model="gradeListMaintenance.professionId"  id="professionalDirection" name="professionalDirection" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option  ng-repeat="date in professionData" value="{{date.id}}">{{date.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">班级：</label>
+                        <div class="col-xs-7">
+                            <select ng-model="gradeListMaintenance.executiveClassId"  id="executiveClassId" name="executiveClassId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option  ng-repeat="date in collegeData" value="{{date.id}}">{{date.departmentName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-5 control-label ">学号：</label>
+                        <div class="col-xs-7">
+                            <select ng-model="gradeListMaintenance.num"  id="StudentId" name="StudentId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option  ng-repeat="date in numData" value="{{date.id}}">{{date.num}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-5 control-label ">姓名：</label>
+                        <div class="col-xs-7">
+                            <select ng-model="gradeListMaintenance.studentId"  id="name" name="name" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option  ng-repeat="date in nameData" value="{{date.id}}">{{date.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-5 control-label ">等级类型：</label>
+                        <div class="col-xs-7">
+                            <select ng-model="gradeListMaintenance.levelType"  id="rankType" name="rankType" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option  ng-repeat="date in rankTypeData" value="{{date.id}}">{{date.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-5 control-label ">等级：</label>
+                        <div class="col-xs-7">
+                            <select ng-model="gradeListMaintenance.gradeId"  id="rank" name="rank" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option  ng-repeat="date in rankData" value="{{date.id}}">{{date.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 btn-center">
+                        <!-- 点击触发 ng-submit 事件 -->
+                        <button type="submit" class="btn btn-info">
+                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<div class="right-content-table">
+    <div id="toolbar" class="btn-group">
+        <div>
+            <button has-permission="gradeListMaintenance:insert" type="button" class="btn btn-default add-btn" ng-click="openAdd()">
+                <span class="fa fa-plus toolbar-btn-icon"></span>新增
+            </button>
+            &nbsp;
+            <button has-permission="gradeListMaintenance:update" type="button" class="btn btn-default " ng-click="openModify()">
+                <span class="fa fa-edit toolbar-btn-icon"></span>修改
+            </button>
+            &nbsp;
+            <button has-permission="gradeListMaintenance:delete" type="button" class="btn btn-default del-btn" ng-click="openDelete()">
+                <span class="fa fa-times toolbar-btn-icon"></span>删除
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span >开课学年学期：<pspan style="color:red">{{sznj}}</pspan></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span >开始时间：<pspan style="color:red">{{kssj}}</pspan></span>&nbsp;&nbsp;&nbsp;
+            <span >结束时间：<pspan style="color:red">{{jssj}}</pspan></span>
+        </div>
+    </div>
+    <table id="showTable" ui-jq="bootstrapTable" ui-options="showTable" class="table table-responsive"></table>
+</div>
+</div>

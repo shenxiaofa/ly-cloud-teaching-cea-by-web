@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "label": "2016-2017-2",
+      "data": {
+        "type": "term"
+      },
+      "children": [
+        {
+          "label": "英语(201645)",
+          "data": {
+            "type": "name"
+          }
+        }, {
+          "label": "计算机基础",
+          "data": {
+            "type": "name"
+          }
+        }
+      ]
+    },
+    {
+      "label": "2017-2018-1",
+      "data": {
+        "type": "term"
+      },
+      "children": [
+        {
+          "label": "英语(201645)",
+          "data": {
+            "type": "name"
+          }
+        }
+      ]
+    }
+  ]
+}

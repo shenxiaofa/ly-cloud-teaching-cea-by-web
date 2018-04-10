@@ -1,0 +1,137 @@
+{
+  "total": 12, "rows":
+[{
+  "id": "0001",
+  "xh": "1",
+  "grade":"2016",
+  "college":"导演系",
+  "professionalDirection":"导演",
+  "class": "2016",
+  "StudentId": "1610002",
+  "name": "张三",
+  "rankType": "英语等级2",
+  "rank": "A级"
+},{
+  "id": "0002",
+  "xh": "2",
+  "grade":"2016",
+  "college":"演员系",
+  "professionalDirection":"演员",
+  "class": "2016",
+  "StudentId": "1610003",
+  "name": "李四",
+  "rankType": "英语等级1",
+  "rank": "B级"
+},{
+  "id": "0003",
+  "xh": "3",
+  "grade":"2015",
+  "college":"戏剧系",
+  "professionalDirection":"戏剧演员",
+  "class": "2015003",
+  "StudentId": "1510004",
+  "name": "张三",
+  "rankType": "英语等级",
+  "rank": "C级"
+},{
+  "id": "0004",
+  "xh": "1",
+  "grade":"2015",
+  "college":"导演系",
+  "professionalDirection":"导演",
+  "class": "2015002",
+  "StudentId": "1610002",
+  "name": "赵薇",
+  "rankType": "英语等级2",
+  "rank": "A级"
+},{
+  "id": "0005",
+  "xh": "2",
+  "grade":"2015",
+  "college":"演员系",
+  "professionalDirection":"演员",
+  "class": "2015001",
+  "StudentId": "1510002",
+  "name": "黄晓明",
+  "rankType": "英语等级1",
+  "rank": "B级"
+},{
+  "id": "0006",
+  "xh": "3",
+  "grade":"2014",
+  "college":"话剧系",
+  "professionalDirection":"话剧",
+  "class": "2014001",
+  "StudentId": "1610003",
+  "name": "张三",
+  "rankType": "英语等级",
+  "rank": "C级"
+},{
+  "id": "0007",
+  "xh": "1",
+  "grade":"2016",
+  "college":"演员系",
+  "professionalDirection":"演员",
+  "class": "2016001",
+  "StudentId": "1610002",
+  "name": "赵薇",
+  "rankType": "英语等级2",
+  "rank": "A级"
+},{
+  "id": "0008",
+  "xh": "2",
+  "grade":"2016002",
+  "college":"导演系",
+  "professionalDirection":"导演",
+  "class": "2016",
+  "StudentId": "1610002",
+  "name": "张三",
+  "rankType": "英语等级1",
+  "rank": "B级"
+},{
+  "id": "0009",
+  "xh": "3",
+  "grade":"2016",
+  "college":"话剧系",
+  "professionalDirection":"话剧",
+  "class": "2016003",
+  "StudentId": "1610002",
+  "name": "黄晓明",
+  "rankType": "英语等级",
+  "rank": "C级"
+},{
+  "id": "00010",
+  "xh": "1",
+  "grade":"2016",
+  "college":"导演系",
+  "professionalDirection":"导演",
+  "class": "2016",
+  "StudentId": "1610002",
+  "name": "张三",
+  "rankType": "英语等级2",
+  "rank": "B级"
+},{
+  "id": "00011",
+  "xh": "2",
+  "grade":"2014",
+  "college":"演员系",
+  "professionalDirection":"演员",
+  "class": "2014002",
+  "StudentId": "1610002",
+  "name": "张三",
+  "rankType": "英语等级1",
+  "rank": "A级"
+},{
+  "id": "00012",
+  "xh": "3",
+  "grade":"2016",
+  "college":"话剧系",
+  "professionalDirection":"话剧",
+  "class": "2016",
+  "StudentId": "1610002",
+  "name": "张三",
+  "rankType": "英语等级",
+  "rank": "C级"
+}]
+}
+

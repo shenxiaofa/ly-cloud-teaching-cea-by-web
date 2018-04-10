@@ -1,0 +1,81 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="classListManageForm" class="form-horizontal search-form">
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">学年学期：</label>
+						<div class="col-xs-6">
+							<select id="semesterId" class="form-control">
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">课程名称/编号：</label>
+						<div class="col-xs-6">
+							<input ng-model="classListManage.courseNameOrNum" type="text" id="courseNumOrName" name="courseNumOrName" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">开课单位：</label>
+						<div class="col-xs-6">
+							<input ng-model="classListManage.openDeptName" type="text" id="openDeptName" name="openDeptName" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">学分：</label>
+						<div class="col-xs-2">
+							<input ng-model="classListManage.creditMin" type="text" id="creditMin" name="creditMin" class="form-control"/>
+						</div>
+						<div class="col-xs-2" style="padding: 7px 0 0 25px;">
+							~
+						</div>
+						<div class="col-xs-2">
+							<input ng-model="classListManage.creditMax" type="text" id="creditMax" name="creditMax" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">已选人数：</label>
+						<div class="col-xs-2">
+							<input ng-model="classListManage.choosedNumMin" type="text" id="choosedNumMin" name="choosedNumMin" class="form-control"/>
+						</div>
+						<div class="col-xs-2" style="padding: 7px 0 0 25px;">
+							~
+						</div>
+						<div class="col-xs-2">
+							<input ng-model="classListManage.choosedNumMax" type="text" id="choosedNumMax" name="choosedNumMax" class="form-control"/>
+						</div>
+					</div>
+					<!--<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">任课教师：</label>
+						<div class="col-xs-6">
+							<input ng-model="classListManage.teacher" type="text" id="teacher" name="teacher" class="form-control"/>
+						</div>
+					</div>-->
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<table id="classListManageTable" ui-jq="bootstrapTable" ui-options="classListManageTable" class="table"></table>
+	</div>
+</div>
+

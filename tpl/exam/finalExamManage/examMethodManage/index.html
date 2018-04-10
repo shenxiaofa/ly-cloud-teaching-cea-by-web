@@ -1,0 +1,160 @@
+<style>
+	.modal-footer {
+		border-top: 0px #e5e5e5 solid!important;
+	    padding: 10px;
+	}
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+    	border-bottom: none;
+	}
+</style>
+<!--//考试方式申请-->
+<div class="right-content">
+	<uib-tabset active="activeForm">
+		<!--<uib-tab index="0" heading="考试方式申请">
+    		<div class="right-content-table">
+				<table id="examinationMethodApplyTable" ui-jq="bootstrapTable" ui-options="examinationMethodApplyTable" class="table table-responsive"></table>
+			</div>
+		</uib-tab>-->
+		<uib-tab index="1" heading="考试方式审核" ng-click="shClickAlready()">
+			<div class="right-content-search">
+				<div>
+					<label class="control-label search-control" ng-click="shSearchFormHideToggle()">
+						<i class="fa" ng-class="{'fa-caret-down': !shIsHideSearchForm, 'fa-caret-right': shIsHideSearchForm}"></i>&nbsp;查询条件
+					</label>
+				</div>
+				<div ng-hide="shIsHideSearchForm">
+					<form name="shpyfabzkzsh_form" class="form-horizontal search-form">
+						<div class="row">
+							<div class="form-group col-xs-4">
+								<label class="col-xs-4 control-label">学年学期：</label>
+								<div class="col-xs-8" >
+									<select name="semesterId_review" id="semesterId_review" ng-model="makeupExamList.semesterId" class="form-control" ui-jq="chosen"  ui-options="{search_contains: true}">
+										<option value="">==请选择==</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group col-xs-4">
+								<label class="col-xs-4 control-label">审批状态：</label>
+								<div class="col-xs-8">
+									<select ng-model="makeupExamList.status" id="status" name="status" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+										<option value="">==请选择==</option>
+										<option value="2">审核中</option>
+										<option value="1">已通过</option>
+										<option value="0">未通过</option>
+									</select>
+								</div>
+							</div>
+			            </div>
+			            <div class="row">
+
+			            </div>
+			            <div class="row">
+							<div class="col-xs-12 btn-center">
+								<!-- 点击触发 ng-submit 事件 -->
+								<button type="submit" class="btn btn-info" ng-click="shSearchSubmit()">
+									<span class="fa fa-search refer btn-icon-padding"></span>查询
+								</button>
+								<button type="button" class="btn btn-default" ng-click="shSearchReset()">
+									<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row right-content-table">
+				<div id="toolbar" class="btn-group">
+					<div>
+						<button id="btn_set" type="button" class="btn btn-default" ng-click="batchApproval()">
+							<span ></span>批量审批
+						</button>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<table id="examinationMethodApprovalTable" ui-jq="bootstrapTable" ui-options="examinationMethodApprovalTable" class="table table-responsive"></table>
+				</div>
+			</div>
+		</uib-tab>
+		<uib-tab index="2" heading="考试方式维护" ng-click="whClickAlready()">
+			<div search-show-hide  class="right-content-search searchDiv">
+				<div>
+					<label class="control-label search-control" ng-click="whSearchFormHideToggle()">
+						<i class="fa" ng-class="{'fa-caret-down': !whIsHideSearchForm, 'fa-caret-right': whIsHideSearchForm}"></i>&nbsp;查询条件
+					</label>
+				</div>
+				<div ng-hide="whIsHideSearchForm">
+					<form name="pyfabzkzwh_form" class="form-horizontal search-form">
+						<div class="row">
+							<div class="form-group col-xs-4" >
+								<label class="col-xs-4 control-label">学年学期：</label>
+								<div class="col-xs-8" >
+									<select ng-options="plateObj.id as plateObj.acadYearSemester  for plateObj in semesterObjs" ng-model="makeupExaminationList.semesterId" id="semesterId" name="semesterId" ui-jq="chosen"  ui-options="{search_contains: true}" class="form-control">
+										<option value="">==请选择==</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group col-xs-4" >
+								<label class="col-xs-4 control-label" style="padding-left: 13px;">课程代码/名称：</label>
+								<div class="col-xs-8" >
+									<!--<input ng-model="ssdw" class="form-control"  class="input-small">-->
+									<input type="text" ng-model="makeupExaminationList.courseIdOrName" id="courseIdOrName" name="courseIdOrName" class="form-control"/>
+								</div>
+							</div>
+							<div class="form-group col-xs-4">
+								<label class="col-xs-4 control-label" >开课单位：</label>
+								<div class="col-xs-8" >
+									<!--<input ng-model="ssdw" class="form-control"  class="input-small">-->
+									<input type="text" ng-model="makeupExaminationList.deptId" id="deptId" name="deptId" class="form-control"/>
+								</div>
+							</div>
+			            </div>
+			            <div class="row">
+							<div class="form-group col-xs-4" >
+								<label class="col-xs-4 control-label">教学班名称：</label>
+								<div class="col-xs-8" >
+									<input type="text" ng-model="makeupExaminationList.teachingClassName" id="teachingClassName" name="teachingClassName" class="form-control"/>
+								</div>
+							</div>
+							<div class="form-group col-xs-4">
+								<label class="col-xs-4 control-label">考试方式：</label>
+								<div class="col-xs-8" >
+									<select ng-model="makeupExaminationList.examWay" id="examWay" name="examWay" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+										<option value="">==请选择==</option>
+									</select>
+								</div>
+							</div>
+			            </div>
+			            <div class="row">
+							<div class="col-xs-12 btn-center">
+								<!-- 点击触发 ng-submit 事件 -->
+								<button type="submit" class="btn btn-info" ng-click="whSearchSubmit()">
+									<span class="fa fa-search refer btn-icon-padding"></span>查询
+								</button>
+								<button type="button" class="btn btn-default" ng-click="whSearchReset()">
+									<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="right-content-table">
+				<div id="toolbar3" class="btn-group">
+					<div>
+						<button id="btn_add" type="button" class="btn btn-default" ng-click="ok()">
+							<span class="glyphicon glyphicon-plus toolbar-btn-icon"></span>保存
+						</button>
+					</div>
+				</div>
+				<table id="examinationMethodMaintainTable" ui-jq="bootstrapTable" ui-options="examinationMethodMaintainTable" class="table table-responsive"></table>
+			</div>
+		</uib-tab>
+	</uib-tabset>
+</div>
+
+
+

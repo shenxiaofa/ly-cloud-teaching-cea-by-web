@@ -1,0 +1,62 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="cancel()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">申请系统外成绩</h3>
+</div>
+<div class="modal-body">
+	<form name="schemeVersionCopyform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-2 control-label required">学年学期：</label>
+			<div class="col-xs-3">
+				<select name="semesterId" id="semesterId" ng-model="outsideApply.semesterId" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+					<option value="">==请选择==</option>
+				</select>
+			</div>
+			<label class="col-xs-2 control-label required">中文课程名称：</label>
+			<div class="col-xs-3">
+				<input type="text"  ng-model="outsideApply.cnCourseName" id="cnCourseName" name="cnCourseName" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-2 control-label required">英文课程名称：</label>
+			<div class="col-xs-3">
+				<input type="text"  ng-model="outsideApply.enCourseName" id="enCourseName" name="enCourseName" class="form-control"/>
+			</div>
+			<label class="col-xs-2 control-label required">课程模块：</label>
+			<div class="col-xs-3">
+				<select name="courseModular"   id="courseModular" ng-model="outsideApply.courseModular" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+					<option value="">==请选择==</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-2 control-label">学时：</label>
+			<div class="col-xs-3">
+				<input type="text"  ng-model="outsideApply.totalHour" id="totalHour" name="totalHour" class="form-control"/>
+			</div>
+			<label class="col-xs-2 control-label required">学分：</label>
+			<div class="col-xs-3">
+				<input type="text"  ng-model="outsideApply.credit" id="credit" name="credit" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-2 control-label">成绩类别：</label>
+			<div class="col-xs-3">
+				<select name="scoreType"   id="scoreType" ng-model="outsideApply.scoreType" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+					<option value="">==请选择==</option>
+				</select>
+			</div>
+			<label class="col-xs-2 control-label">成绩：</label>
+			<div class="col-xs-3">
+				<input type="text"  ng-model="outsideApply.score" id="score" name="score" class="form-control"/>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok()">办理完成</button>
+	<button class="btn btn-primary" type="button" ng-click="save()">保存草稿</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

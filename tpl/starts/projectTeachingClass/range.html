@@ -1,0 +1,153 @@
+<style>
+	.ul_select{
+		border: 1px solid #ccc;border-radius: 3px;height: 200px;width: 195px;
+	}
+
+	.li_select{
+		border-bottom: 1px #eee solid;padding: 2px 10px;color: #555;font-size: 14px;
+	}
+	.scroll{
+		overflow:auto;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">修读范围</h3>
+</div>
+<div class="modal-body">
+	<form name="pyfabzkz_form" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<div style="margin-left:20px">
+				<uib-tabset type="pills">
+					<uib-tab heading="学院/系部" select="department()">
+						<div class="form-group" style="margin-left:90px;margin-top: 20px;">
+							<select class="col-xs-8"  ng-model="selected" ng-init="selected='可选'" id="selectRemark" style="border-radius: 3px;height: 30px;width: 84.5%;border-color: #ccc;">
+								<option value="可选">可选</option>
+								<option value="不可选">不可选</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-4">
+								<div class="input-group" style="margin-left:90px">
+									<ul id="mutiSelect" class="ul_select scroll" style="width: 340px;">
+										<li class="li_select" ng-repeat="childArray in arrays"
+											ng-click="selectChildArrays(childArray)" class="nav-item" >{{childArray.name}}
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="input-group"  style="margin-left:156px">
+									<ul id="mutiSelected" class="ul_select scroll" style="width: 340px;">
+										<li class="li_select" ng-repeat="childArray in arraySeled"
+											ng-click="selectedChildArrays(childArray)" class="nav-item" >{{childArray.name}}||
+											<a ng-if='childArray.selectSign' style="color: green">可选</a>
+											<a ng-if='!childArray.selectSign' style="color: red">不可选</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</uib-tab>
+					<uib-tab heading="年级" select="grade()">
+						<div class="form-group" style="margin-left:90px;margin-top: 20px">
+							<select  class="col-xs-8"  ng-model="selected1" ng-init="selected1='可选'" id="selectRemark2" style="border-radius: 3px;height: 30px;width: 84.5%;border-color: #ccc">
+								<option value="可选">可选</option>
+								<option value="不可选">不可选</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-4">
+								<div class="input-group"  style="margin-left:90px" >
+									<ul id="mutiSelect2" class="ul_select scroll" style="width: 340px;">
+										<li class="li_select" ng-repeat="childArray in arrays2"
+											ng-click="selectChildArrays2(childArray)" class="nav-item" >{{childArray.name}}
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="input-group"  style="margin-left:156px" >
+									<ul id="mutiSelected2" class="ul_select scroll" style="width: 340px;">
+										<li class="li_select" ng-repeat="childArray in arraySeled2"
+											ng-click="selectedChildArrays2(childArray)" class="nav-item" >{{childArray.name}}||
+											<a ng-if='childArray.selectSign' style="color: green">可选</a>
+											<a ng-if='!childArray.selectSign' style="color: red">不可选</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</uib-tab>
+					<uib-tab heading="专业" select="major()">
+						<div class="form-group" style="margin-left:90px;margin-top: 20px">
+							<select  class="col-xs-8"  ng-model="selected2" ng-init="selected2='可选'" id="selectRemark3" style="border-radius: 3px;height: 30px;width: 84.5%;border-color: #ccc">
+								<option value="可选">可选</option>
+								<option value="不可选">不可选</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-4">
+								<div class="input-group"  style="margin-left:90px">
+									<ul id="mutiSelect3" class="ul_select scroll" style="width: 340px;">
+										<li class="li_select" ng-repeat="childArray in arrays3"
+											ng-click="selectChildArrays3(childArray)" class="nav-item" >{{childArray.name}}
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="input-group"  style="margin-left:156px">
+									<ul id="mutiSelected3" class="ul_select scroll" style="width: 340px;">
+										<li class="li_select" ng-repeat="childArray in arraySeled3"
+											ng-click="selectedChildArrays3(childArray)" class="nav-item" >{{childArray.name}}||
+											<a ng-if='childArray.selectSign' style="color: green">可选</a>
+											<a ng-if='!childArray.selectSign' style="color: red">不可选</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</uib-tab>
+					<uib-tab heading="行政班" select="executiveClass()">
+						<div class="form-group" style="margin-left:90px;margin-top: 20px">
+							<select  class="col-xs-8"  ng-model="selected3"  ng-init="selected3='可选'" id="selectRemark4" style="border-radius: 3px;height: 30px;width: 84.5%;border-color: #ccc">
+								<option value="可选">可选</option>
+								<option value="不可选">不可选</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-4">
+								<div class="input-group"  style="margin-left:90px" >
+									<ul id="mutiSelect4" class="ul_select scroll" style="width: 340px;">
+										<li class="li_select" ng-repeat="childArray in arrays4"
+											ng-click="selectChildArrays4(childArray)" class="nav-item" >{{childArray.name}}
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="input-group"  style="margin-left:156px">
+									<ul id="mutiSelected4" class="ul_select scroll" style="width: 340px;">
+										<li class="li_select" ng-repeat="childArray in arraySeled4"
+											ng-click="selectedChildArrays4(childArray)" class="nav-item" >{{childArray.name}}||
+											<a ng-if='childArray.selectSign' style="color: green">可选</a>
+											<a ng-if='!childArray.selectSign' style="color: red">不可选</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</uib-tab>
+				</uib-tabset>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(pyfabzkz_form)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

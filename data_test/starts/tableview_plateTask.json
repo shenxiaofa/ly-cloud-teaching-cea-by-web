@@ -1,0 +1,29 @@
+{
+  "total": 4, "rows":
+[{
+  "id": "0001",
+  "xh": "1",
+  "Modular":"模块1",
+  "numberOfTeachingTasks":"2",
+  "classTime":"周一（1，2）周二（3，4）"
+},{
+  "id": "0002",
+  "xh": "2",
+  "Modular":"模块2",
+  "numberOfTeachingTasks":"5",
+  "classTime":"周一（1，2）周二（3，4）"
+},{
+  "id": "0003",
+  "xh": "3",
+  "Modular":"模块3",
+  "numberOfTeachingTasks":"3",
+  "classTime":"周一（1，2）周二（3，4）"
+},{
+  "id": "0004",
+  "xh": "4",
+  "Modular":"模块4",
+  "numberOfTeachingTasks":"3",
+  "classTime":"周一（1，2）周二（3，4）"
+}]
+}
+

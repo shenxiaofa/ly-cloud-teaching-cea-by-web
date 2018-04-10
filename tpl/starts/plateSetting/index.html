@@ -1,0 +1,103 @@
+<style>
+	.right-content-left-table {
+	    height: 659px;
+	}
+	.right-content-table1 {
+	    width: 84%;
+	    padding: 0px 0px 0px 0px;
+	    display: inline-block;
+	    vertical-align: top;
+	}
+</style>
+<div class="right-content">
+    <div class="right-content-left-table">
+        <div class="col">
+            <div class="wrapper-md">
+                <span ng-if="doing_async">...loading...</span>
+                <div class="left-tree" ng-style="leftTreeStyle" ng-scroll-bar>
+                    <ul id="menuTree" z-tree tree-options="zTreeOptions" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right-content-table1">
+	    <div class="right-content-search" id="searchHeight" >
+	        <div>
+	            <label class="control-label search-control" ng-click="searchFormHideToggle()">
+	                <i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+	            </label>
+	        </div>
+	        <div ng-hide="isHideSearchForm">
+	            <form name="plateSettingSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+	                <div class="row">
+	                    <div class="form-group col-xs-4">
+	                        <label class="col-xs-6 control-label">学院：</label>
+	                        <div class="col-xs-5">
+	                            <input type="text" ng-model="plateSetting.deptName" id="college" name="college" class="form-control"/>
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-xs-4">
+	                        <label class="col-xs-6 control-label">专业：</label>
+	                        <div class="col-xs-5">
+	                            <input type="text" ng-model="plateSetting.major" id="major" name="major" class="form-control"/>
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-xs-4">
+	                        <label class="col-xs-7 control-label">行政班级：</label>
+	                        <div class="col-xs-5">
+	                            <input type="text" ng-model="plateSetting.executiveClass" id="executiveClass" name="executiveClass" class="form-control"/>
+	                        </div>
+	                    </div>
+	                </div>
+	
+	                <div class="row">
+	                    <div class="form-group col-xs-4">
+	                        <label class="col-xs-6 control-label">课程名称：</label>
+	                        <div class="col-xs-5">
+	                            <input type="text" ng-model="plateSetting.courseName" id="courseName" name="courseName" class="form-control"/>
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-xs-4">
+	                        <label class="col-xs-6 control-label">板块：</label>
+	                        <div class="col-xs-5">
+	                            <input type="text" ng-model="plateSetting.plateName" id="plate" name="plate" class="form-control"/>
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-xs-4" >
+	                        <label class="col-xs-7 control-label ">是否设置板块：</label>
+	                        <div class="col-xs-5">
+	                            <select ng-model="plateSetting.settingSign"  id="sfszbk" name="sfszbk" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+	                                <option value="">== 请选择 ==</option>
+	                                <option value="1">是</option>
+	                                <option value="0">否</option>
+	                            </select>
+	                        </div>
+	                    </div>
+	                </div>
+	
+	                <div class="row">
+	                    <div class="col-xs-12 btn-center">
+	                        <!-- 点击触发 ng-submit 事件 -->
+	                        <button type="submit" class="btn btn-info">
+	                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+	                        </button>
+	                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+	                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+	                        </button>
+	                    </div>
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	    <div class="right-content-table">
+	        <div id="toolbar" class="btn-group">
+	            <div>
+	                <button has-permission="plateSetting:remove" type="button" class="btn btn-default del-btn" ng-click="cleanPlate()">
+	                    <span class="glyphicon glyphicon-remove toolbar-btn-icon"></span>清空板块安排
+	                </button>
+	            </div>
+	        </div>
+	        <table id="showTable" ui-jq="bootstrapTable" ui-options="showTable" class="table table-responsive"></table>
+	    </div>
+    </div>
+</div>

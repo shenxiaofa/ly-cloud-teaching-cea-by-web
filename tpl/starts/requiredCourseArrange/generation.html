@@ -1,0 +1,37 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+
+	<div style="color:red;text-align: center" >按行政班生成，只做追加，不覆盖已存在的教学班！！</div>
+</div>
+<div class="modal-body">
+	<form name="codeCategoryAddform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-4 control-label required text-align:left">最低开班人数：</label>
+			<div class="col-xs-7">
+				<input type="text" ng-model="courseArrange.lowestCount" ng-required="true" id="lowestCount" name="lowestCount" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-4 control-label required text-align:left">最高人数：</label>
+			<div class="col-xs-7">
+				<input type="text" ng-model="courseArrange.highestCount" ng-required="true" id="highestCount" name="highestCount" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-4 control-label text-align:left">是否生成班级名单：</label>
+			<label class="col-xs-2 control-label">
+				<input type="radio" ng-value=true ng-model="courseArrange.classListSign" name="classListSign">是
+
+			</label>
+			<label class="col-xs-2 control-label">
+				<input type="radio" ng-value=false ng-model="courseArrange.classListSign" name="classListSign" ng-checked="true">否
+			</label>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(codeCategoryAddform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

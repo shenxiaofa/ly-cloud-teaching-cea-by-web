@@ -1,0 +1,56 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">新 增</h3>
+</div>
+<div class="modal-body">
+	<form name="resourcesAddForm" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">编号：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="resources.zybh" ng-required="true" id="zybh" name="zybh" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">名称：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="resources.zymc" ng-required="true" id="zymc" name="zymc" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">URI：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="resources.uri" id="uri" name="uri" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">操作类型：</label>
+			<div class="col-xs-8">
+				<select ng-model="resources.action" id="action_select" name="action" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+					<option value="">== 请选择 ==</option>
+					<option value="get">get</option>
+					<option value="post">post</option>
+					<option value="put">put</option>
+					<option value="delete">delete</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">状态：</label>
+			<div class="col-xs-8" style="padding-top: 6px;">
+				<label class="radio-inline">
+					<input type="radio" ng-model="resources.zt" name="zt" value="0"> 禁用
+				</label>
+				&nbsp;
+				<label class="radio-inline">
+					<input type="radio" ng-model="resources.zt" name="zt" value="1"> 启用
+				</label>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(resourcesAddForm)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

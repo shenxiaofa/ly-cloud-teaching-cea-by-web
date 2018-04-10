@@ -1,0 +1,175 @@
+<style>
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+    	border-bottom: none;
+	}
+</style>
+<div class="right-content" >
+	<div class="col-xs-12" style="padding: 5px 5px 0px 5px;">
+		<uib-tabset active="active">
+			<uib-tab index="0" heading="可录任务" ng-click="clickAlready1()">
+				<div class="right-content-search" style="margin-top: 5px;">
+					<div>
+						<label class="control-label search-control" ng-click="searchFormToggle()">
+							<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+						</label>
+					</div>
+					<div ng-hide="isHideSearchForm">
+						<form name="curriculaSearchForm" ng-submit="curriculaSearchSubmit()" class="form-horizontal search-form" novalidate>
+							<div class="row">
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">学年学期：</label>
+									<div class="col-xs-6">
+										<select name="semester"   id="semester" ng-model="searchParamClass.semester" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+											<option value="">==请选择==</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">课程名/编号：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="searchParamClass.courseNumOrCourseName" id="courseNumOrCourseName" name="courseNumOrCourseName" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">开课单位：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="searchParamClass.department" id="department" name="department" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">学分：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="searchParamClass.credit" id="credit" name="credit" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">课程属性：</label>
+									<div class="col-xs-6">
+										<select name="courseProperty" id="courseProperty" ng-model="searchParamClass.courseProperty" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+											<option value="">==请选择==</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">班级名称：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="searchParamClass.className" id="clazzName" name="clazzName" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 btn-center">
+									<!-- 点击触发 ng-submit 事件 -->
+									<button type="submit" class="btn btn-info">
+										<span class="fa fa-search refer btn-icon-padding"></span>查询
+									</button>
+									<button type="button" class="btn btn-default" ng-click="curriculaSearchReset()">
+										<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div style="padding: 0px 5px 0px 5px;">
+					<div id="toolbar" class="btn-group">
+						<div>
+							<button type="button" has-permission="majorSchemeInfoManage:copyScheme" class="btn btn-default " ng-click="producedTask()">
+								<span class="fa fa-copy toolbar-btn-icon"></span>生成录入名单
+							</button>
+							<button type="button" has-permission="majorSchemeInfoManage:copyScheme" class="btn btn-default " ng-click="appointEnter()">
+								<span class="fa fa-copy toolbar-btn-icon"></span>指定录入人
+							</button>
+							<button type="button" has-permission="majorSchemeInfoManage:copyScheme" class="btn btn-default " ng-click="updateTime()">
+								<span class="fa fa-copy toolbar-btn-icon"></span>批量更改任务时间
+							</button>
+						</div>
+					</div>
+					<table id="enteringClassTable" ui-jq="bootstrapTable" ui-options="enteringClassTable" class="table table-responsive"></table>
+				</div>
+			</uib-tab>
+			<uib-tab index="1" heading="录入人维护" ng-click="clickAlready2()">
+				<div class="right-content-search" style="margin-top: 5px;">
+					<div>
+						<label class="control-label search-control" ng-click="searchFormHideToggle()">
+							<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+						</label>
+					</div>
+					<div ng-hide="isHideSearchForm">
+						<form name="curriculaSearchForm2" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+							<div class="row">
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">学年学期：</label>
+									<div class="col-xs-6">
+										<select name="semester_"   id="semester_" ng-model="searchParamPeople.semester" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+											<option value="">==请选择==</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">课程名/编号：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="searchParamPeople.courseNumOrCourseName" id="courseNumOrCourseName_" name="courseNumOrCourseName_" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">开课单位：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="searchParamPeople.department" id="department_" name="department_" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">学分：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="searchParamPeople.credit" id="credit_" name="credit_" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">成绩录入人：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="searchParamPeople.inputName" id="inputName" name="inputName" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">班级名称：</label>
+									<div class="col-xs-6">
+										<input type="text" ng-model="searchParamPeople.className" id="clazzName_" name="clazzName_" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 btn-center">
+									<!-- 点击触发 ng-submit 事件 -->
+									<button type="submit" class="btn btn-info">
+										<span class="fa fa-search refer btn-icon-padding"></span>查询
+									</button>
+									<button type="button" class="btn btn-default" ng-click="searchReset()">
+										<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div style="padding: 5px 5px 0px 5px;">
+					<div id="toolbar_tab2" class="btn-group">
+						<div>
+							<button type="button"  class="btn btn-default " ng-click="delEnter()">
+								<span class="fa fa-copy toolbar-btn-icon"></span>删除录入人
+							</button>
+						</div>
+					</div>
+					<table id="enteringPersonTable" ui-jq="bootstrapTable" ui-options="enteringPersonTable" class="table table-responsive"></table>
+				</div>
+			</uib-tab>
+		</uib-tabset>
+	</div>
+</div>

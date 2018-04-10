@@ -1,0 +1,17 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "id": "1",
+        "name": "2017年培养方案",
+        "xslb":"本科",
+        "grade":"2017",
+        "startTime":"2017-5-6",
+        "endTime":"2017-9-9",
+        "creator":"admin",
+        "createTime":"2017-5-6"
+      }
+    ]
+  }
+}

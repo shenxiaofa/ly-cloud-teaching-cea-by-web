@@ -1,0 +1,44 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">添加公告类型</h3>
+</div>
+<div class="modal-body">
+	<form name="noticeTypeAddForm" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">公告类型：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="noticeType.noticeTypeName" ng-required="true" id="noticeTypeName" name="noticeTypeName" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">排序号：</label>
+				<div class="col-xs-8">
+					<input type="number"  ng-model="noticeType.sortNum" id="sortNum" name="sortNum" class="form-control"
+						   integer
+						   tooltip-placement="bottom"
+						   tooltip-trigger="'focus'"
+						   tooltip-enable="noticeTypeAddForm.sortNum.$error.integer"
+						   tooltip-is-open="noticeTypeAddForm.sortNum.$error.integer"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">描述：</label>
+				<div class="col-xs-8">
+					<textarea rows="3" ng-model="noticeType.describe"  maxlength="500" id="describe" name="describe"  class="form-control" ></textarea>
+					<!--<input type="text" ng-model="noticeType.describe" id="describe" name="describe" class="form-control"/>-->
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(noticeTypeAddForm)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

@@ -1,0 +1,161 @@
+<style>
+	/*.pull- pagination-detail{
+
+	}*/
+</style>
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="scheduleManageSearchForm" class="form-horizontal search-form">
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">学籍状态：</label>
+						<div class="col-xs-6">
+							<select ng-model="statusInfo.schoolStatus" name="schoolStatus" id="schoolStatus" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+								<option value="1">在籍</option>
+								<option value="0">不在籍</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">在校状态：</label>
+						<div class="col-xs-6">
+							<select ng-model="statusInfo.schoolCondition" name="schoolCondition"
+									id="schoolCondition" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+								<option value="1">在校</option>
+								<option value="0">离校</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">学生类别：</label>
+						<div class="col-xs-6">
+							<select ng-model="statusInfo.studentTypeCode" ng-options="studentType.id as studentType.name for studentType in studentTypeList"
+									name="studentTypeCode" id="studentTypeCode_search" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">学 号：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="statusInfo.num" id="num" name="num" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">姓 名：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="statusInfo.name" id="name" name="name" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">性 别：</label>
+						<div class="col-xs-6">
+							<select ng-model="statusInfo.sexCode" ng-options="sex.id as sex.name for sex in sexList"
+									name="sexCode" id="sexCode_search" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">民 族：</label>
+						<div class="col-xs-6">
+							<select ng-model="statusInfo.nationCode" ng-options="nation.id as nation.name for nation in nationList"
+									name="nationCode" id="nationCode_search" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">校 区：</label>
+						<div class="col-xs-6">
+							<select ng-model="statusInfo.campusId" ng-options="campus.id as campus.name for campus in campusList"
+									name="campusId" id="campusId_search" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">所属学院：</label>
+						<div class="col-xs-6">
+							<select ng-model="statusInfo.deptId" ng-options="dept.id as dept.name for dept in deptList"
+									name="deptId" id="deptId_search" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">年 级：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="statusInfo.grade" id="grade" name="grade" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">专 业：</label>
+						<div class="col-xs-6">
+							<select ng-model="statusInfo.majorId" ng-options="major.id as major.name for major in majorList"
+									name="majorId" id="majorId_search" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">班 级：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="statusInfo.executiveClassName" id="executiveClassName" name="executiveClassName" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<button type="submit" class="btn btn-info" ng-click="searchSubmit(scheduleManageSearchForm)">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default " ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="" class="right-content-table">
+		<div id="toolbar" class="btn-group">
+			<div>
+				<button type="button" has-permission="undergraduatesInfo:insert" class="btn btn-default add-btn" ng-click="openAdd()">
+					<span class="fa fa-plus toolbar-btn-icon"></span>新增
+				</button>
+				<!--&nbsp;-->
+				<!--<button type="button" class="btn btn-default " ng-click="openModify()">-->
+					<!--<span class="fa fa-edit toolbar-btn-icon"></span>批量修改-->
+				<!--</button>-->
+				&nbsp;
+				<button type="button" has-permission="undergraduatesInfo:delete" class="btn btn-default del-btn" ng-click="openDelete()">
+					<span class="fa fa-times toolbar-btn-icon"></span>删除
+				</button>
+				<!--&nbsp;-->
+				<!--<button type="button" class="btn btn-default " ng-click="studentNum()">-->
+					<!--<span class="fa fa-edit toolbar-btn-icon"></span>生成学号-->
+				<!--</button>-->
+			</div>
+		</div>
+		<table id="scheduleManageTable" ui-jq="bootstrapTable" ui-options="scheduleManageTable" class="table table-responsive"></table>
+	</div>
+</div>
+
+
+
+

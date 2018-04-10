@@ -1,0 +1,51 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="noticeTypeSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">类型名称：</label>
+						<div class="col-xs-6">
+							<input type="text" ng-model="noticeType.noticeTypeName" id="noticeTypeName" name="noticeTypeName" class="form-control"/>
+						</div>
+					</div>
+					<div class="col-xs-3 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<!--<div class="col-xs-12 btn-center">
+						&lt;!&ndash; 点击触发 ng-submit 事件 &ndash;&gt;
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>-->
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<div id="toolbar" class="btn-group">
+			<div>
+				<button has-permission="noticeType:insert" type="button" class="btn btn-default add-btn" ng-click="openAdd()">
+					<span class="fa fa-plus toolbar-btn-icon"></span>新增
+				</button>
+			</div>
+		</div>
+		<table id="noticeTypeTable" ui-jq="bootstrapTable" ui-options="noticeTypeTable" class="table table-responsive"></table>
+	</div>
+</div>

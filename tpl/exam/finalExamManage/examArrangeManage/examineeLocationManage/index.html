@@ -1,0 +1,141 @@
+<div class="right-content">
+    <div class="right-content-search">
+        <div>
+            <label class="control-label search-control" ng-click="searchFormHideToggle()">
+                <i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+            </label>
+        </div>
+        <div ng-hide="isHideSearchForm">
+            <form name="examineeLocationManageSearchForm" class="form-horizontal search-form" novalidate>
+                <div class="row">
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">学年学期：</label>
+			            <div class="col-xs-8" align="left">
+			                <select name="semesterId" id="semesterId" ng-model="examineeLocationManage.semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+			                    <option value="">==请选择==</option>
+			                </select>
+			            </div>
+			        </div>
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label" style="padding-left: 13px;">课程代码/名称：</label>
+			            <div class="col-xs-8" align="left">
+			                <input class="form-control" ng-model="examineeLocationManage.courseNum" style="padding-left:5px;" class="input-small">
+			            </div>
+			        </div>
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label" style="padding-left: 1px;">考试班编号/名称：</label>
+			            <div class="col-xs-8" align="left">
+			                <input class="form-control" ng-model="examineeLocationManage.classNum" style="padding-left:5px;" class="input-small">
+			            </div>
+			        </div>
+                </div>
+                <div class="row">
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">开课单位：</label>
+			            <div class="col-xs-8" align="left">
+			                <input class="form-control" ng-model="examineeLocationManage.deptId" style="padding-left:5px;" class="input-small">
+			            </div>
+			        </div>
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">学分：</label>
+			            <div class="col-xs-3" align="left">
+			                <input class="form-control" ng-model="examineeLocationManage.credit" style="padding-left:5px;" class="input-small">
+			            </div>
+			            <label class="col-xs-2 control-label" style="text-align:center;">至</label>
+			            <div class="col-xs-3" align="left">
+			                <input class="form-control" ng-model="examineeLocationManage.credit" style="padding-left:5px;" class="input-small">
+			            </div>
+			        </div>
+			        <div class="form-group col-xs-4">
+			            <label class="col-xs-4 control-label">学时：</label>
+			            <div class="col-xs-3" align="left">
+			                <input class="form-control" ng-model="examineeLocationManage.hours" style="padding-left:5px;" class="input-small">
+			            </div>
+			            <label class="col-xs-2 control-label" style="text-align:center;">至</label>
+			            <div class="col-xs-3" align="left">
+			                <input class="form-control" ng-model="examineeLocationManage.hours" style="padding-left:5px;" class="input-small">
+			            </div>
+			        </div>
+                </div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label" >考试开始时间：</label>
+						<div class="col-xs-8">
+							<div class="col-xs-6">
+								<div class="input-group">
+									<input ng-model="examineeLocationManage.startDate" id="startTime" name="startTime" type="text" class="form-control"
+										   uib-datepicker-popup="yyyy-MM-dd"
+										   is-open="ksrqOptions.opened"
+										   datepicker-options="ksrqOptions.dateOptions"
+										   current-text="今天"
+										   clear-text="清除"
+										   close-text="关闭"
+										   ng-click="ksrqOptions.open()"
+										   ng-change="ksrqOptions.changed()"/>
+									<!--<span class="input-group-btn">-->
+										<!--<button type="button" class="btn btn-default" ng-click="ksrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>-->
+									<!--</span>-->
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div uib-timepicker ng-model="examineeLocationManage.startTime" style="float: right;"
+									 show-spinners="false"
+									 show-seconds="false"
+									 show-meridian="false">
+								</div>
+							</div>
+						</div>
+						<!--<datetimepicker dateID="timepicker1" ng-model="examineeLocationManage.startExamTime" ng-model="time1" format="yyyy-MM-dd hh:ii" class="form-control"></datetimepicker>-->
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label" >考试结束时间：</label>
+						<div class="col-xs-8">
+							<div class="col-xs-6">
+								<div class="input-group">
+									<input ng-model="examineeLocationManage.endDate" id="endTime" name="endTime" type="text" class="form-control"
+										   uib-datepicker-popup="yyyy-MM-dd"
+										   is-open="jsrqOptions.opened"
+										   datepicker-options="jsrqOptions.dateOptions"
+										   current-text="今天"
+										   clear-text="清除"
+										   close-text="关闭"
+										   ng-click="jsrqOptions.open()"
+										   ng-change="jsrqOptions.changed()"/>
+									<!--<span class="input-group-btn">-->
+									<!--<button type="button" class="btn btn-default" ng-click="ksrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>-->
+									<!--</span>-->
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div uib-timepicker ng-model="examineeLocationManage.endTime" style="float: right;"
+									 show-spinners="false"
+									 show-seconds="false"
+									 show-meridian="false">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="row">
+			        <div class="col-xs-12 btn-center">
+                        <!-- 点击触发 ng-submit 事件 -->
+                        <button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+			        </div>
+		    	</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+	    <div id="toolbar" class="btn-group">
+	        <button id="btn_toDown" type="button" class="btn btn-default" ng-click="arrangeLocation()">
+	            <span class="glyphicon glyphicon-plus" style="margin-right:5px"></span>安排学生考点
+	        </button>
+	    </div>
+		<table id="examineeLocationTable" ui-jq="bootstrapTable" ui-options="examineeLocationTable" class="table table-responsive"></table>
+	</div>
+</div>

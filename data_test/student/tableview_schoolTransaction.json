@@ -1,0 +1,26 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "id": "1",
+        "basicExaNumber": "",
+        "basicName":"周天海",
+        "classCodeName":"其他",
+        "approvalDate":"",
+        "dispNumber":"教务处通知",
+        "treasonName":"成绩太差",
+        "texplain":"延长学习年限一年",
+        "rollStandard":"4854058",
+        "rollStandardName":"历史学",
+        "rollStateName":"结业",
+        "rollGrade":"2003",
+        "stuNumber":"00024027",
+        "rollCollegeNumName":"人文科学学院",
+        "rollDepartmentName":"历史学系",
+        "rollClassName":"030601010001",
+        "rollPredGradDate":"遗漏"
+      }
+    ]
+  }
+}

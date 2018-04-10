@@ -1,0 +1,51 @@
+<style>
+	.tabStyle > a{
+		color: #eea236 !important;
+	}
+	.btn-warning.disabled, .btn-warning[disabled] {
+	    padding: 0 15px!important;
+    	height: 34px;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">班级课程计划申请</h3>
+</div>
+<div class="modal-body" style="height: 500px">
+	<form name="outerForm" class="tab-form-demo">
+		<uib-tabset active="activeForm" >
+			<uib-tab ng-repeat="a in title"  index="$index" heading="{{a.name+'('+a.creditDemand+'学分)'+a.tabClass}}" classes="{{a.style}}"  ng-click="change(a)">
+				<ng-form name="nestedForm">
+					<div class="row right-content-table" style="padding: 10px">
+						<div class="col-xs-9">
+							<button type="button" has-permission='classCurriculaApply:applyAdjust:insert' class="btn btn-default add-btn" ng-click="openAdd()">
+								<span class="fa fa-plus toolbar-btn-icon"></span>新增
+							</button>
+						</div>
+						<div class="col-xs-3" style="padding-top: 10px; color: red;">
+							<small>
+								共{{a.creditDemand}}学分，已完成{{completeCredit}}学分
+							</small>
+						</div>
+					</div>
+				</ng-form>
+			</uib-tab>
+			<!--<uib-tab index="1" heading="专业必选(30学分)">
+				Some Tab Content
+			</uib-tab>
+			<uib-tab index="2" heading="公共必修课(30学分)">
+				More Tab Content
+			</uib-tab>-->
+		</uib-tabset>
+	</form>
+	<div class="right-content-table">
+		<table id="adjustApplyTable" ui-jq="bootstrapTable" ui-options="adjustApplyTable" class="table table-responsive"></table>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" has-permission='classCurriculaApply:applyAdjust:save' type="button" ng-click="save()">保 存</button>
+	<button class="btn btn-info" ng-class="btnClass" ng-disabled="btnDisable" has-permission='classCurriculaApply:applyAdjust:toReview' type="button" ng-click="toReview()">送 审</button>
+	<button class="btn btn-default" type="button" ng-click="close()">关 闭</button>
+</div>

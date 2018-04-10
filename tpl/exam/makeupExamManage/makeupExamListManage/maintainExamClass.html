@@ -1,0 +1,88 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">补考学生名单维护</h3>
+</div>
+<div class="right-content">
+
+    <!--<div search-show-hide  class="col-xs-12 searchDiv right-content-search">-->
+    <div class="col-xs-12 searchDiv right-content-search">
+        <!--<div class="control-label" >-->
+            <!--<span class="fa {{searchListFlag}}"  ></span>-->
+            <!--<label class="control-label search-control" ng-click="showHideSearchList()">&nbsp;查询条件</label>-->
+        <!--</div>-->
+        <div class="col-xs-12 " ng-hide="searchList">
+            <form name="pyfabzkz_form" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+                <div class="row">
+                    <!--<div class="form-group col-xs-4" >
+                        <label class="col-xs-5 control-label">考试地点：</label>
+                        <label class="col-xs-7"style="margin-top:7px;">{{student.ksdd}}</label>
+                        &lt;!&ndash;<div class="col-xs-7">&ndash;&gt;
+                            &lt;!&ndash;&lt;!&ndash;<input ng-model="ssdw" class="form-control"  class="input-small">&ndash;&gt;&ndash;&gt;
+                            &lt;!&ndash;<input type="text" ng-model="student.ksdd" id="ksdd" name="ksdd" class="form-control"/>&ndash;&gt;
+                        &lt;!&ndash;</div>&ndash;&gt;
+                    </div>-->
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-5 control-label">学年学期：</label>
+                        <!--<div class="col-xs-7"  >-->
+                        <!--<input type="text" ng-model="student.kcmc" id="kcmc" name="kcmc" class="form-control"/>-->
+                        <!--</div>-->
+                        <label class="col-xs-7"style="margin-top:7px;">{{student.semester}}</label>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label" >课程编号：</label>
+                        <!--<div class="col-xs-7">-->
+                        <!--<input type="text" ng-model="student.kcbh" id="kcbh" name="kcbh" class="form-control"/>-->
+                        <!--</div>-->
+                        <label class="col-xs-7"style="margin-top:7px;">{{student.courseNum}}</label>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-5 control-label">课程名称：</label>
+                        <!--<div class="col-xs-7"  >-->
+                        <!--<input type="text" ng-model="student.kcmc" id="kcmc" name="kcmc" class="form-control"/>-->
+                        <!--</div>-->
+                        <label class="col-xs-7"style="margin-top:7px;">{{student.courseNanme}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">开课单位：</label>
+                        <!--<div class="col-xs-7">-->
+                        <!--<input type="text" ng-model="student.kkdw" id="kkdw" name="kkdw" class="form-control"/>-->
+                        <!--</div>-->
+                        <label class="col-xs-7"style="margin-top:7px;">{{student.dept}}</label>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">学分：</label>
+                        <!--<div class="col-xs-7">-->
+                        <!--<input type="text" ng-model="student.xf" id="xf" name="xf" class="form-control"/>-->
+                        <!--</div>-->
+                        <label class="col-xs-7"style="margin-top:7px;">{{student.credit}}</label>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">考试学生数：</label>
+                        <!--<div class="col-xs-7">-->
+                        <!--<input type="text" ng-model="student.bkxss" id="bkxss" name="bkxss" class="form-control"/>-->
+                        <!--</div>-->
+                        <label class="col-xs-7"style="margin-top:7px;">{{student.studentCount}}</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="right-content-table">
+        <table id="studentListTable" ui-jq="bootstrapTable" ui-options="studentListTable" class="table table-responsive"></table>
+    </div>
+
+    <div class="col-xs-12 modal-footer" style="text-align:right;padding-right: 30px;background-color: #FFFFFF;">
+        <button class="btn btn-primary" ng-click="ok()">
+            确认
+        </button>
+        <button class="btn btn-default" ng-click="cancel()" >
+            取消
+        </button>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+	<h3 class="modal-title">教学班转入</h3>
+</div>
+<div class="modal-body">
+	<form name="transferTeacherClassForm" class="form-horizontal " novalidate>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">学年学期：</label>
+			<div class="col-xs-8">
+				<select id="semesterId" ng-required="true" class="form-control">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">选课轮次：</label>
+			<div class="col-xs-8">
+				<select ng-model="transferTeacherClass.roundId"  ng-required="true" id="roundId" name="roundId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">选课标签：</label>
+			<div class="col-xs-8" style="padding-top: 6px;">
+				<label class="checkbox-inline">
+                    <input type="checkbox" ng-model="transferTeacherClass.chooseLabel[0]" ng-true-value='1' name="chooseLabel" value="1"> 校公选
+                </label> &nbsp;
+				<label class="checkbox-inline">
+                    <input type="checkbox" ng-model="transferTeacherClass.chooseLabel[1]" ng-true-value='2' name="chooseLabel" value="2">
+                        	院系选修
+                </label> &nbsp;
+				<!--<label class="checkbox-inline">
+                        <input type="checkbox" ng-model="transferTeacherClass.course" name="course" value="requiredCourse"> 必修课
+                    </label>&nbsp;-->
+				<label class="checkbox-inline">
+                        <input type="checkbox" ng-model="transferTeacherClass.chooseLabel[2]" ng-true-value='3' name="chooseLabel" value="3"> 体育课
+                    </label>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(transferTeacherClassForm)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

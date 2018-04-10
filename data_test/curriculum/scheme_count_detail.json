@@ -1,0 +1,81 @@
+{
+  "data": {
+    "total": 6,
+    "rows": [
+      {
+        "schemeVersion":"2017版",
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "studentType":"本科",
+        "className":"软件工程1班",
+        "studentCount":"50"
+      }, {
+        "schemeVersion":"2017版",
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "studentType":"本科",
+        "className":"软件工程1班",
+        "studentCount":"50"
+      }, {
+        "schemeVersion":"2017版",
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "studentType":"本科",
+        "className":"软件工程1班",
+        "studentCount":"50"
+      }, {
+        "schemeVersion":"2017版",
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "studentType":"本科",
+        "className":"软件工程1班",
+        "studentCount":"50"
+      }, {
+        "schemeVersion":"2017版",
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "studentType":"本科",
+        "className":"软件工程1班",
+        "studentCount":"50"
+      }, {
+        "schemeVersion":"2017版",
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "studentType":"本科",
+        "className":"软件工程1班",
+        "studentCount":"50"
+      }, {
+        "schemeVersion":"2017版",
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "studentType":"本科",
+        "className":"软件工程1班",
+        "studentCount":"50"
+      }, {
+        "schemeVersion":"2017版",
+        "campusName": "南校区",
+        "deptName": "计算机科学与技术",
+        "grade":"2017",
+        "marjorName":"软件工程",
+        "studentType":"本科",
+        "className":"软件工程1班",
+        "studentCount":"50"
+      }
+    ]
+  }
+}
+

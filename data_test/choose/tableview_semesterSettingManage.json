@@ -1,0 +1,24 @@
+{
+	"total": "1",
+	"rows": [
+		{
+			"semester": "2017-2018-1",
+			"chooseSemester": "否",
+			"unregisteredChoose": "否",
+			"arrearsChoose": "否",
+			"unfinishedEvaluateChoose": "否"
+		}, {
+			"semester": "2017-2018-2",
+			"chooseSemester": "否",
+			"unregisteredChoose": "否",
+			"arrearsChoose": "否",
+			"unfinishedEvaluateChoose": "否"
+		}, {
+			"semester": "2018-2019-1",
+			"chooseSemester": "",
+			"unregisteredChoose": "",
+			"arrearsChoose": "",
+			"unfinishedEvaluateChoose": ""
+		}
+	]
+}

@@ -1,0 +1,60 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">新增学生</h3>
+</div>
+<div class="modal-body">
+    <form name="codeLevel_addstudent_form" ng-submit="searchSubmit()" class="form-horizontal" novalidate>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-4 control-label">学号/姓名：</label>
+                <div class="col-xs-8">
+                    <input type="text" ng-model="studentInfo.name" id="name" name="name" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-4 control-label required" >院系：</label>
+                <div class="col-xs-8 pull-left">
+                    <select ng-model="studentInfo.facultyId" ng-required="true" id="facultyId" name="facultyId" class="form-control ">
+                        <option style="margin: auto" ng-repeat="date in facultyData" value="{{date.id}}">{{date.departmentName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-4 control-label required" >专业：</label>
+                <div class="col-xs-8 pull-left">
+                    <select ng-model="studentInfo.professionId" ng-required="true" id="professionId" name="professionId" class="form-control ">
+                        <option style="margin: auto" ng-repeat="date in professionData" value="{{date.id}}">{{date.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-4 control-label required" >行政班级：</label>
+                <div class="col-xs-8 pull-left">
+                    <select ng-model="studentInfo.executiveClassId" ng-required="true" id="executiveClassId" name="executiveClassId" class="form-control ">
+                        <option style="margin: auto" ng-repeat="date in courseData" value="{{date.num}}">{{date.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4 btn-center">
+                <!-- 点击触发 ng-submit 事件 -->
+                <button type="submit" class="btn btn-info">
+                    <span class="fa fa-search refer btn-icon-padding"></span>查询
+                </button>
+                <button type="button" class="btn btn-default" ng-click="searchReset()">
+                    <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                </button>
+            </div>
+        </div>
+        <div class="right-content-table">
+            <table id="studentInfoTable" ui-jq="bootstrapTable" ui-options="studentInfoTable" class="table table-responsive"></table>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(codeLevel_addstudent_form)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

@@ -1,0 +1,50 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">代码维护</h3>
+</div>
+<form name="codeMaintenanceAddform" ng-submit="searchSubmit()" class="form-horizontal" novalidate>
+	<div class="right-content-search">
+		<div class="form-group">
+			<label class="col-xs-2 control-label ">项目代码：</label>
+			<div class="col-xs-3">
+				<input type="text" ng-model="code.num" id="num" name="num" class="form-control"/>
+			</div>
+			<label class="col-xs-2 control-label ">项目名称：</label>
+			<div class="col-xs-3">
+				<input type="text" ng-model="code.name" id="xm" name="name" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-12 btn-center">
+				<!-- 点击触发 ng-submit 事件 -->
+				<button type="submit" class="btn btn-info">
+					<span class="fa fa-search refer btn-icon-padding"></span>查询
+				</button>
+				<button type="button" class="btn btn-default" ng-click="searchReset()">
+					<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<div id="toolbar1" class="btn-group">
+			<div>
+				<button has-permission="project:codeMaintenance:insert" type="button" class="btn btn-default add-btn" ng-click="openAddCode()">
+					<span class="fa fa-plus toolbar-btn-icon"></span>新增
+				</button>
+				&nbsp;
+				<button has-permission="project:codeMaintenance:delete" type="button" class="btn btn-default del-btn" ng-click="openDelete()">
+					<span class="fa fa-times toolbar-btn-icon"></span>删除
+				</button>
+			</div>
+		</div>
+		<table id="codeMaintenanceTable" ui-jq="bootstrapTable" ui-options="codeMaintenanceTable" class="table table-responsive"></table>
+	</div>
+</form>
+<div class="modal-footer">
+	<button class="btn btn-default" type="button" ng-click="close()">关 闭</button>
+</div>
+
+</div>

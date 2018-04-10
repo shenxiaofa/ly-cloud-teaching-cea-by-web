@@ -1,0 +1,236 @@
+<style>
+    .tableScroll{
+        min-width:2500px;
+        overflow-x:scroll;
+        overflow-y:hidden;
+    }
+</style>
+<div class="right-content">
+    <div class="right-content-search">
+        <div>
+            <label class="control-label search-control" ng-click="searchFormHideToggle()">
+                <i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+            </label>
+        </div>
+        <div ng-hide="isHideSearchForm">
+            <form name="stuRewPunishInfoSearch_form" class="form-horizontal search-form">
+                <div class="row">
+                    <!--学号-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">学号：</label>
+                        <div class="col-xs-6 changeClass">
+                            <input type="text" ng-model="stuRewPunishInfo.rewPunCcode" id="rewPunCcode" name="rewPunCcode"
+                                   class="form-control"/>
+                        </div>
+                    </div>
+                    <!--姓名-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">姓名：</label>
+                        <div class="col-xs-6 changeClass">
+                            <input type="text" ng-model="stuRewPunishInfo.rewPunSutName" id="rewPunSutName"
+                                   name="rewPunSutName" class="form-control"/>
+                        </div>
+                    </div>
+                    <!--性别-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">性别：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunGender"
+                                    ng-options="rewPunGender.dataNumber as rewPunGender.dataName for rewPunGender in rewPunGenderList"
+                                    name="rewPunGender" id="rewPunGender_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--学院-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6 control-label">学院：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunCollege"
+                                    ng-options="rewPunCollege.departmentNumber as rewPunCollege.departmentName for rewPunCollege in rewPunCollegeList"
+                                    name="rewPunCollege" id="rewPunCollege_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--专业方向-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">专业方向：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunMajor"
+                                    ng-options="rewPunMajor.code as rewPunMajor.name for rewPunMajor in rewPunMajorList"
+                                    name="rewPunMajor" id="rewPunMajor_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--年级-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">年级：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunGrade"
+                                    ng-options="rewPunGrade.id as rewPunGrade.dataNumber for rewPunGrade in rewPunGradeList"
+                                    name="rewPunGrade" id="rewPunGrade_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--年级专业方向-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">年级专业方向：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunGradeMajor"
+                                    ng-options="rewPunGradeMajor.code as rewPunGradeMajor.name for rewPunGradeMajor in rewPunGradeMajorList"
+                                    name="rewPunGradeMajor" id="rewPunGradeMajor_search" class="form-control"
+                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--违纪类别-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">违纪类别：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunTypeCode"
+                                    ng-options="rewPunTypeCode.id as rewPunTypeCode.name for rewPunTypeCode in rewPunTypeCodeList"
+                                    name="rewPunTypeCode" id="rewPunTypeCode_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--处分来源-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">处分来源：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunSource"
+                                    ng-options="rewPunSource.id as rewPunSource.name for rewPunSource in rewPunSourceList"
+                                    name="rewPunSource" id="rewPunSource_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--处分名称-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">处分名称：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunCode"
+                                    ng-options="rewPunCode.id as rewPunCode.name for rewPunCode in rewPunCodeList"
+                                    name="rewPunCode" id="rewPunCode_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--处分日期-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">处分日期：</label>
+                        <div class="col-xs-6 changeClass"  >
+                            <div class="input-group">
+                                <input ng-model="stuRewPunishInfo.rewPunTime" id="rewPunTime" name="rewPunTime" type="text"
+                                       class="form-control"
+                                       uib-datepicker-popup="yyyy-MM-dd"
+                                       is-open="rewPunTimeOptions.opened"
+                                       datepicker-options="rewPunTimeOptions.dateOptions"
+                                       current-text="今天"
+                                       clear-text="清除"
+                                       close-text="关闭"
+                                       ng-click="rewPunTimeOptions.open()"/>
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="rewPunTimeOptions.open()">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                  </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--处分部门-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">处分部门：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunDepar"
+                                    ng-options="rewPunDepar.departmentNumber as rewPunDepar.departmentName for rewPunDepar in rewPunDeparList"
+                                    name="rewPunDepar" id="rewPunDepar_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--是否按时毕业-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">是否按时毕业：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunWheGraduate"
+                                    ng-options="rewPunWheGraduate.value as rewPunWheGraduate.name for rewPunWheGraduate in rewPunWheGraduateList"
+                                    name="rewPunWheGraduate" id="rewPunWheGraduate_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--是否获得学位-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">是否获得学位：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunWheDegree"
+                                    ng-options="rewPunWheDegree.value as rewPunWheDegree.name for rewPunWheDegree in rewPunWheDegreeList"
+                                    name="rewPunWheDegree" id="rewPunWheDegree_search" class="form-control" ui-jq="chosen"
+                                    ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--是否在校-->
+                    <div class="form-group  col-lg-3 col-md-4 col-sm-6">
+                        <label class="col-xs-6  control-label">是否在校：</label>
+                        <div class="col-xs-6 changeClass">
+                            <select ng-model="stuRewPunishInfo.rewPunWhetherAtsch"
+                                    ng-options="rewPunWhetherAtsch.value as rewPunWhetherAtsch.name for rewPunWhetherAtsch in rewPunWhetherAtschList"
+                                    name="rewPunWhetherAtsch" id="rewPunWhetherAtsch_search" class="form-control"
+                                    ui-jq="chosen" ui-options="{search_contains: true}">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 btn-center">
+                        <button type="submit" class="btn btn-info" ng-click="searchSubmit(stuRewPunishInfoSearch_form)">
+                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="reset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="" class="right-content-table" >
+        <div id="stuRewPunishInfo_toolbar" class="btn-group">
+            <div>
+                <button type="button" has-permission="stuRewPunishInfo:insert" class="btn btn-default add-btn"
+                        ng-click="openAdd()">
+                    <span class="fa fa-plus toolbar-btn-icon"></span>新增
+                </button>
+                &nbsp;
+                <button type="button" has-permission="stuRewPunishInfo:delete" class="btn btn-default del-btn"
+                        ng-click="openDelete()">
+                    <span class="fa fa-times toolbar-btn-icon"></span>删除
+                </button>
+            </div>
+        </div>
+        <div style="">
+        <table id="stuRewPunishInfoManageTable" ui-jq="bootstrapTable" ui-options="stuRewPunishInfoManageTable"
+               class="table table-responsive tableScroll"></table>
+        </div>
+    </div>
+</div>
+
+
+
+

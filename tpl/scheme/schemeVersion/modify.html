@@ -1,0 +1,114 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">修 改</h3>
+</div>
+<div class="modal-body">
+	<form name="schemeVersionModifyform" class="form-horizontal" novalidate>
+		<input type="hidden" ng-model="schemeVersion.id" id="id" name="id"/>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">版本名称：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="schemeVersion.name" ng-required="true" id="name" name="name" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">学生类别：</label>
+			<div class="col-xs-8">
+				<select ng-model="schemeVersion.educationLevel_ID" ui-chosen="schemeVersionModifyform.educationLevel" ng-required="true" id="educationLevel_ID" name="educationLevel_ID" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+					<option value="">==请选择==</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">学制：</label>
+			<div class="col-xs-8">
+				<select ng-model="schemeVersion.educationYear"  ui-chosen="schemeVersionAddform.educationYear" ng-required="true" id="educationYear" name="educationYear" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+					<option value="">==请选择==</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">适用年份：</label>
+			<div class="col-xs-8">
+				<input
+						maxlength="4"
+						type="text"
+						ng-model="schemeVersion.grade"
+						ng-required="true"
+						integer
+						id="grade"
+						name="grade"
+						class="form-control"
+						uib-tooltip="请填写整数，如：'2017'"
+						tooltip-placement="bottom"
+						tooltip-trigger="'focus'"
+						tooltip-enable="schemeVersionModifyform.grade.$error.integer"
+						tooltip-is-open="schemeVersionModifyform.grade.$error.integer"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">开始日期：</label>
+			<div class="col-xs-8" style="width: 67.2%;">
+				<div class="input-group">
+					<input ng-model="schemeVersion.startTime" id="startTime" name="startTime" type="text" class="form-control"
+						   uib-datepicker-popup="yyyy-MM-dd"
+						   is-open="startTimeOptions.opened"
+						   datepicker-options="startTimeOptions.dateOptions"
+						   ng-required="true"
+						   current-text="今天"
+						   clear-text="清除"
+						   close-text="关闭"
+						   ng-click="startTimeOptions.open()" />
+				  <span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="startTimeOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+				  </span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">结束日期：</label>
+			<div class="col-xs-8" style="width: 67.2%;">
+				<div class="input-group">
+					<input ng-model="schemeVersion.endTime" id="endTime" name="endTime" type="text" class="form-control"
+						   uib-tooltip="结束日期不能小于开始日期"
+						   tooltip-placement="bottom"
+						   tooltip-trigger="'focus'"
+						   tooltip-enable="endTimeTooltipEnableAndOpen"
+						   tooltip-is-open="endTimeTooltipEnableAndOpen"
+						   uib-datepicker-popup="yyyy-MM-dd"
+						   is-open="endTimeOptions.opened"
+						   datepicker-options="endTimeOptions.dateOptions"
+						   ng-required="true"
+						   date-gt
+						   equals="schemeVersion.startTime"
+						   current-text="今天"
+						   clear-text="清除"
+						   close-text="关闭"
+						   ng-click="endTimeOptions.open()"/>
+				  <span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="endTimeOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+				  </span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">培养方案简介：</label>
+			<div class="col-xs-8">
+				<textarea ng-model="schemeVersion.remark" id="remark" name="remark" class="form-control" rows="3"></textarea>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(schemeVersionModifyform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

@@ -1,0 +1,125 @@
+<style>
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+    	border-bottom: none;
+	}
+	#modelTab > ul > li {
+		height: 30px !important;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">专业培养方案</h3>
+</div>
+<div class="modal-body" style="height: 500px">
+	<form name="versionModelModifyForma" class="form-horizontal" novalidate>
+	<uib-tabset active="activeJustified" justified="true">
+		<uib-tab index="0" heading="基本信息" has-permission='majorSchemeInfoManage:baseInfo' style="padding-bottom: 15px">
+			<input type="hidden" ng-model="majorInfo.majorScheme_ID" id="majorScheme_ID" name="majorScheme_ID"/>
+			<input type="hidden" ng-model="majorInfo.gradeMajor_ID" id="gradeMajor_ID" name="gradeMajor_ID"/>
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label class="col-xs-4 control-label">专业代码：</label>
+					<div class="col-xs-8">
+						<input type="text" ng-model="majorInfo.majorCode" disabled id="majorCode" name="majorCode" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="col-xs-4 control-label">专业名称：</label>
+					<div class="col-xs-8">
+						<input type="text" ng-model="majorInfo.majorName" disabled  id="majorName" name="majorName" class="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label class="col-xs-4 control-label">基本学制：</label>
+					<div class="col-xs-8">
+						<input type="text" ng-model="majorInfo.educationYear" disabled id="educationYear" name="educationYear" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="col-xs-4 control-label">学生类别：</label>
+					<div class="col-xs-8">
+						<input type="text" ng-model="majorInfo.studentCategory" disabled id="studentCategory" name="studentCategory" class="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label class="col-xs-4 control-label">学科门类：</label>
+					<div class="col-xs-8">
+						<input type="text" ng-model="majorInfo.disciplineCode" disabled id="disciplineCode" name="disciplineCode" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="col-xs-4 control-label">授予学位：</label>
+					<div class="col-xs-8">
+						<input type="text" ng-model="majorInfo.degree" disabled id="degree" name="degree" class="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label class="col-xs-4 control-label">最短修读年限：</label>
+					<div class="col-xs-8">
+						<input type="text" ng-model="majorInfo.minStudyYear" disabled id="minStudyYear" name="minStudyYear" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="col-xs-4 control-label">最长修读年限：</label>
+					<div class="col-xs-8">
+						<input type="text" ng-model="majorInfo.maxStudyYear" disabled id="maxStudyYear" name="maxStudyYear" class="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label class="col-xs-2 control-label required">培养方案简介：</label>
+					<div class="col-xs-9" ng-style="red">
+						<textarea ng-model="majorInfo.info" maxlength="500" id="info" name="info" ng-required="true" class="form-control" rows="10"></textarea>
+					</div>
+				</div>
+			</div>
+		</uib-tab>
+		<uib-tab index="1" heading="学时学分" has-permission='majorSchemeInfoManage:credit'>
+			<div class="right-content-table">
+				<table id="majorSchemeInfoEdit" ui-jq="bootstrapTable" ui-options="majorSchemeInfoEdit" class="table table-responsive"></table>
+			</div>
+		</uib-tab>
+		<uib-tab index="2" heading="课程设置" has-permission='majorSchemeInfoManage:courseSet'>
+			<uib-tabset active="activeForm" id="modelTab">
+				<uib-tab ng-repeat="a in title" index="$index" heading="{{a.name}}" ng-click="change(a)">
+					<ng-form name="nestedForm">
+						<div class="row right-content-table" style="padding-bottom: 10px">
+							<div class="col-xs-9">
+								<button type="button" has-permission="majorSchemeInfoManage:course:insert" class="btn btn-default add-btn" ng-click="openAddCourse()">
+									<span class="fa fa-plus toolbar-btn-icon"></span>新增
+								</button>
+							</div>
+							<div class="col-xs-3" style="padding-top: 10px">
+								<small>
+									共{{a.creditDemand}}学分，已完成{{completeCredit}}学分
+								</small>
+							</div>
+						</div>
+
+					</ng-form>
+				</uib-tab>
+			</uib-tabset>
+			<div class="right-content-table">
+				<table id="majorCoursePlanEnter" ui-jq="bootstrapTable" ui-options="majorCoursePlanEnter" class="table table-responsive"></table>
+			</div>
+		</uib-tab>
+	</uib-tabset>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(versionModelModifyForma)">保 存</button>
+	<button class="btn btn-default" type="button" ng-click="close()">关 闭</button>
+</div>

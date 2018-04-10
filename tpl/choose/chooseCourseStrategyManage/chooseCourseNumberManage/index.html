@@ -1,0 +1,141 @@
+<style>
+	.modal-footer {
+		border-top: 0px #e5e5e5 solid!important;
+	    padding: 10px;
+	}
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+    	border-bottom: none;
+	}
+</style>
+<div class="right-content">
+	<uib-tabset active="activeForm">
+		<uib-tab index="1" heading="选课门数控制" ng-click="leftClickAlready()">
+			<div class="right-content-table">
+				<div id="toolbar1" class="btn-group" style="padding-top: 10px;">
+					<button id="btn_set" type="button" class="btn btn-default" ng-click="leftAdd()">
+						<span></span>新增
+					</button>
+				</div>
+				<table id="chooseCourseNumberManageTable" ui-jq="bootstrapTable" ui-options="chooseCourseNumberManageTable" class="table table-responsive"></table>
+			</div>
+		</uib-tab>
+		<uib-tab index="2" heading="按范围设置选课门数控制" ng-click="centerClickAlready()">
+			<div search-show-hide  class="right-content-search searchDiv">
+				<div>
+					<label class="control-label search-control" ng-click="centerSearchFormHideToggle()">
+						<i class="fa" ng-class="{'fa-caret-down': !centerIsHideSearchForm, 'fa-caret-right': centerIsHideSearchForm}"></i>&nbsp;查询条件
+					</label>
+				</div>
+				<div ng-hide="centerIsHideSearchForm">
+					<form name="chooseCourseNumberbyRangeManageform" class="form-horizontal search-form">
+						<div class="row">
+							<div class="form-group col-xs-4" >
+								<label class="col-xs-4 control-label">学年学期：</label>
+								<div class="col-xs-8" >
+									<select id="semesterIdCenter" class="form-control">
+									</select>
+								</div>
+							</div>
+							<div class="form-group col-xs-4" >
+								<label class="col-xs-4 control-label" style="padding-left: 13px;">上课院系：</label>
+								<div class="col-xs-8" >
+									<input type="text" ng-model="chooseCourseNumberManage.deptName" id="deptName" name="deptName" class="form-control"/>
+								</div>
+							</div>
+							<div class="form-group col-xs-4">
+								<label class="col-xs-4 control-label" >上课年级：</label>
+								<div class="col-xs-8" >
+									<input type="text" ng-model="chooseCourseNumberManage.gradeName" id="gradeName" name="gradeName" class="form-control"/>
+								</div>
+							</div>
+			            </div>
+			            <div class="row">
+							<div class="form-group col-xs-4" >
+								<label class="col-xs-4 control-label">上课专业：</label>
+								<div class="col-xs-8" >
+									<input type="text" ng-model="chooseCourseNumberManage.majorName" id="majorName" name="majorName" class="form-control"/>
+								</div>
+							</div>
+							<div class="form-group col-xs-4">
+								<label class="col-xs-4 control-label">上课班级：</label>
+								<div class="col-xs-8" >
+									<input type="text" ng-model="chooseCourseNumberManage.fromClassName" id="fromClassName" name="fromClassName" class="form-control"/>
+								</div>
+							</div>
+			            </div>
+			            <div class="row">
+							<div class="col-xs-12 btn-center">
+								<!-- 点击触发 ng-submit 事件 -->
+								<button type="submit" class="btn btn-info" ng-click="centerSearchSubmit()">
+									<span class="fa fa-search refer btn-icon-padding"></span>查询
+								</button>
+								<button type="button" class="btn btn-default" ng-click="centerSearchReset()">
+									<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="right-content-table">
+				<div id="toolbar2" class="btn-group" style="padding-top: 10px;">
+					<button id="btn_add" type="button" class="btn btn-default" ng-click="centerAdd()">
+						<span class="glyphicon glyphicon-plus toolbar-btn-icon"></span>新增
+					</button>
+				</div>
+				<table id="chooseCourseNumberManageByRangeTable" ui-jq="bootstrapTable" ui-options="chooseCourseNumberManageByRangeTable" class="table table-responsive"></table>
+			</div>
+		</uib-tab>
+		<!--<uib-tab index="3" heading="按标签设置选课门数控制" ng-click="rightClickAlready()">
+			<div search-show-hide  class="right-content-search searchDiv">
+				<div>
+					<label class="control-label search-control" ng-click="rightSearchFormHideToggle()">
+						<i class="fa" ng-class="{'fa-caret-down': !rightIsHideSearchForm, 'fa-caret-right': rightIsHideSearchForm}"></i>&nbsp;查询条件
+					</label>
+				</div>
+				<div ng-hide="rightIsHideSearchForm">
+					<form name="chooseCourseNumberbyMarkManageform" class="form-horizontal search-form">
+						<div class="row">
+							<div class="form-group col-xs-4" >
+								<label class="col-xs-4 control-label">学年学期：</label>
+								<div class="col-xs-8" >
+									<select id="semesterIdRight" class="form-control">
+									</select>
+								</div>
+							</div>
+							<div class="form-group col-xs-4" >
+								<label class="col-xs-4 control-label" style="padding-left: 13px;">学生标签：</label>
+								<div class="col-xs-8" >
+									<input type="text" ng-model="chooseCourseNumberManage.studentMark" id="studentMark" name="studentMark" class="form-control"/>
+								</div>
+							</div>
+							<div class="col-xs-4 btn-center">
+								<button type="submit" class="btn btn-info" ng-click="rightSearchSubmit()">
+									<span class="fa fa-search refer btn-icon-padding"></span>查询
+								</button>
+								<button type="button" class="btn btn-default" ng-click="rightSearchReset()">
+									<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+								</button>
+							</div>
+			            </div>
+					</form>
+				</div>
+			</div>
+			<div class="right-content-table">
+				<div id="toolbar3" class="btn-group" style="padding-top: 10px;">
+					<button id="btn_add" type="button" class="btn btn-default" ng-click="rightAdd()">
+						<span class="glyphicon glyphicon-plus toolbar-btn-icon"></span>新增
+					</button>
+				</div>
+				<table id="chooseCourseNumberManageByMarkTable" ui-jq="bootstrapTable" ui-options="chooseCourseNumberManageByMarkTable" class="table table-responsive"></table>
+			</div>
+		</uib-tab>-->
+	</uib-tabset>
+</div>
+
+
+

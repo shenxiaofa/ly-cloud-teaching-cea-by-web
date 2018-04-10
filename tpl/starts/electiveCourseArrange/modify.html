@@ -1,0 +1,32 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">修 改</h3>
+</div>
+<div class="modal-body">
+	<form name="courseArrangeModifyform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">教学班名称：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="courseArrange.name" ng-required="true" id="name" name="name" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">最低开班人数：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="courseArrange.lowestCount" ng-required="true" id="lowestCount" name="lowestCount" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">最高人数：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="courseArrange.highestCount"  ng-required="true"  id="highestCount" name="highestCount" class="form-control"/>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(courseArrangeModifyform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

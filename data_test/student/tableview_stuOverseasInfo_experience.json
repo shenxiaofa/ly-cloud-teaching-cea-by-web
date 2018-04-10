@@ -1,0 +1,25 @@
+{
+  "data": {
+    "total": 3,
+    "list": [
+      {
+        "experBeginTime": "2017-01-11",
+        "experEndTime": "2019-09-26",
+        "experStudyUnit": "联奕",
+        "experSite": "广州天河"
+      },
+      {
+        "experBeginTime": "2012-03-15",
+        "experEndTime": "2014-09-26",
+        "experStudyUnit": "湖南大学",
+        "experSite": "湖南长沙"
+      },
+      {
+        "experBeginTime": "2017-01-11",
+        "experEndTime": "2019-09-26",
+        "experStudyUnit": "联奕",
+        "experSite": "广州天河"
+      }
+    ]
+  }
+}

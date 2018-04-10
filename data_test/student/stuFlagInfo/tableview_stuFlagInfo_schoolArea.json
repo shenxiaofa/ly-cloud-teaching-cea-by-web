@@ -1,0 +1,27 @@
+{
+  "data": {
+    "total": 4,
+    "list": [
+      {
+        "dataNumber": "0",
+        "name": "东校区",
+        "id": "324"
+      },
+      {
+        "dataNumber": "1",
+        "name": "南校区",
+        "id": "56"
+      },
+      {
+        "dataNumber": "2",
+        "name": "西校区",
+        "id": "345423"
+      },
+      {
+        "dataNumber": "9",
+        "name": "北校区",
+        "id": "45656"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "data": {
+    "total": 2,
+    "rows": [
+      {
+        "noticeId": "1",
+        "noticeName": "联奕放假通知",
+        "noticeTypeName":"教务通知",
+        "status":0
+      },
+      {
+        "noticeId": "2",
+        "noticeName": "联奕年会通知",
+        "noticeTypeName":"教务通知",
+        "status":1
+      }
+    ]
+  }
+}

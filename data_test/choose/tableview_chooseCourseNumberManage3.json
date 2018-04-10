@@ -1,0 +1,24 @@
+{
+	"total": "1",
+	"rows": [
+		{
+			"semester": "2017-2018-1",
+			"studentMark": "体育特长生",
+			"highestNum": "15",
+			"schoolNum": "5",
+			"deptNum": "10"
+		}, {
+			"semester": "2017-2018-1",
+			"studentMark": "特招生",
+			"highestNum": "15",
+			"schoolNum": "5",
+			"deptNum": "10"
+		}, {
+			"semester": "2017-2018-1",
+			"studentMark": "新生",
+			"highestNum": "15",
+			"schoolNum": "5",
+			"deptNum": "10"
+		}
+	]
+}

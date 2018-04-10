@@ -1,0 +1,23 @@
+{
+  "data": {
+    "total": 2,
+    "list": [
+      {
+        "familyRelationCodeId": "5061353",
+        "familyRelationCode": "父亲",
+        "familyMemberName": "某某一",
+        "familyAge": "68",
+        "familyWorkUnit": "无",
+        "familyPhone": "13243534654"
+      },
+      {
+        "familyRelationCodeId": "5061353",
+        "familyRelationCode": "母亲",
+        "familyMemberName": "某某二",
+        "familyAge": "59",
+        "familyWorkUnit": "医生",
+        "familyPhone": "13453634544"
+      }
+    ]
+  }
+}

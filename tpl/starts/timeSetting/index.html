@@ -1,0 +1,85 @@
+<div class="modal-body" style="height:{{relativeHeight}}px">
+	<form name="timeSettingModifyform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<div class="form-group col-xs-2"></div>
+			<div class="form-group col-xs-10" style="margin-left: 10px">
+				<label class="col-xs-3 control-label" style="color: red;">当前学年学期：{{timeSetting.semesterId}}</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group col-xs-2"></div>
+			<label class="col-xs-2 control-label required">学年学期：</label>
+			<div class="col-xs-4">
+				<select ng-change="onChange()" ui-select2 ng-options="semesterObj.id as semesterObj.acadYearSemester  for semesterObj in semesterObjs"
+						ng-required="true" ng-model="timeSetting.semesterId" id="semesterId_select" name="semesterId" ui-jq="chosen"
+						ui-options="{search_contains: true}" class="form-control" ui-chosen="timeSettingModifyform.semesterId">
+					<option value="">==请选择==</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group col-xs-2"></div>
+			<label class="col-xs-2 control-label">是否开课学年学期：</label>
+			<label class="col-xs-1 control-label">
+				<input type="radio" value='1' ng-model="timeSetting.openSign"  name="selectState">是
+
+			</label>
+			<label class="col-xs-1 control-label">
+				<input type="radio" value='0' ng-model="timeSetting.openSign" ng-checked="true"  name="selectState">否
+			</label>
+		</div>
+		<div class="form-group">
+			<div class="form-group col-xs-2"></div>
+			<label class="col-xs-2 control-label">排课开始时间：</label>
+			<div class="col-xs-4">
+				<div class="input-group" style="width: 102%;">
+					<input ng-model="timeSetting.startTime" id="startTime" name="startTime" type="text" class="form-control"
+						   uib-datepicker-popup="yyyy-MM-dd"
+						   is-open="ksrqOptions.opened"
+						   datepicker-options="ksrqOptions.dateOptions"
+						   ng-required="true"
+						   current-text="今天"
+						   clear-text="清除"
+						   close-text="关闭"
+						   ng-click="ksrqOptions.open()" />
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="ksrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group col-xs-2"></div>
+			<label class="col-xs-2 control-label">排课结束时间：</label>
+			<div class="col-xs-4">
+				<div class="input-group" style="width: 102%;">
+					<input ng-model="timeSetting.endTime" id="endTime" name="endTime" type="text" class="form-control"
+						   uib-tooltip="结束日期不能小于开始日期"
+						   tooltip-placement="bottom"
+						   tooltip-trigger="'focus'"
+						   tooltip-enable="jsrqTooltipEnableAndOpen"
+						   tooltip-is-open="jsrqTooltipEnableAndOpen"
+						   uib-datepicker-popup="yyyy-MM-dd"
+						   is-open="jsrqOptions.opened"
+						   datepicker-options="jsrqOptions.dateOptions"
+						   ng-required="true"
+						   date-gt
+						   equals="timeSetting.startTime"
+						   current-text="今天"
+						   clear-text="清除"
+						   close-text="关闭"
+						   ng-click="jsrqOptions.open()"/>
+					 <span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="jsrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+					 </span>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div class="form-group center">
+		<div class="form-group col-xs-5"></div>
+		<div class="col-xs-4 ">
+			<button has-permission="startsTimeSetting:save" class="btn btn-primary center" type="button" ng-click="ok(timeSettingModifyform)">保存</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,92 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="cancel()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">教室信息</h3>
+</div>
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="classroomInfoSearchForm" class=" search-form" novalidate>
+				<div class="row">
+					<div class="form-group form-horizontal col-xs-4">
+						<label class="col-xs-4 control-label">校区：</label>
+						<div class="col-xs-8" >
+							<select name="campusId" id="campusId" class="form-control" ng-model="roomInfo.campusId" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group form-horizontal col-xs-4">
+						<label class="col-xs-4 control-label">教学楼：</label>
+						<div class="col-xs-8" align="left">
+							<select name="teachingBuilding" id="teachingBuilding" class="form-control" ng-model="roomInfo.buildingId" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group form-horizontal col-xs-4">
+						<label class="col-xs-4 control-label">教室类型：</label>
+						<div class="col-xs-8" align="left">
+							<select name="classType" id="classType" class="form-control" ng-model="roomInfo.type" ui-jq="chosen" ui-options="{search_contains: true}">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group form-horizontal col-xs-4">
+						<label class="col-xs-4 control-label">教室编号：</label>
+						<div class="col-xs-8" align="left">
+							<input name="className" id="className" class="form-control" ng-model="roomInfo.roomNum" >
+
+						</div>
+					</div>
+					<div class="form-group form-horizontal col-xs-4">
+						<label class="col-xs-4 control-label">座位数：</label>
+						<div class="col-xs-3" align="left">
+							<input class="form-control" ng-model="roomInfo.seatMin" >
+						</div>
+						<label class="col-xs-2 control-label" style="text-align:center;padding:5px 0 0 0;"> - </label>
+						<div class="col-xs-3" align="left">
+							<input class="form-control" ng-model="roomInfo.seatMax" >
+						</div>
+					</div>
+					<div class="form-group form-horizontal col-xs-4">
+						<label class="col-xs-4 control-label">考试座位数:</label>
+						<div class="col-xs-3" align="left">
+							<input class="form-control" ng-model="roomInfo.examSeatMin" >
+						</div>
+						<label class="col-xs-2 control-label" style="text-align:center;padding:5px 0 0 0;"> - </label>
+						<div class="col-xs-3" align="left">
+							<input class="form-control" ng-model="roomInfo.examSeatMax" >
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<table id="classroomInfoTable" ui-jq="bootstrapTable" ui-options="classroomInfoTable" class="table table-responsive"></table>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(classroomInfoSearchForm)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

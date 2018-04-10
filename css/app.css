@@ -1,0 +1,201 @@
+div.circle-avatar{
+    /* make it responsive */
+    max-width: 100%;
+    width:100%;
+    height:auto;
+    display:block;
+
+    /* make it a circle */
+    border-radius:50%;
+
+    /* Centering on image`s center*/
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+
+    /* it makes the clue thing, takes smaller dimension to fill div */
+    background-size: cover;
+
+    /* it is optional, for making this div centered in parent*/
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.form-control {
+    border-color: #cfdadd;
+  
+}
+
+.form-control,
+.form-control:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: #23b7e5;
+}
+
+.form-horizontal .control-label.text-left {
+    text-align: left;
+}
+
+.form-control-spin {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    z-index: 2;
+    margin-top: -7px;
+}
+
+
+.form-validation .form-control.ng-dirty.ng-invalid {
+    border-color: #f05050;
+}
+
+.form-validation .form-control.ng-dirty.ng-valid,
+.form-validation .form-control.ng-dirty.ng-valid:focus {
+    border-color: #27c24c;
+}
+
+label.required:before {
+    content: '* ';
+    color: red;
+}
+
+/* cover bootstrap tooltip */
+.tooltip {
+    font-size: 14px;
+    line-height: 2;
+}
+.tooltip-inner {
+    color: #a94442;
+    background-color: #F2DEDE;
+}
+.tooltip.top .tooltip-arrow {
+    border-top-color: #EBCCD1;
+}
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #EBCCD1;
+}
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #EBCCD1;
+}
+.tooltip.right .tooltip-arrow {
+    border-right-color: #EBCCD1;
+}
+.tooltip.left .tooltip-arrow {
+    border-left-color: #EBCCD1;
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #EBCCD1;
+}
+.tooltip.bottom-left .tooltip-arrow {
+    border-bottom-color: #EBCCD1;
+}
+.tooltip.bottom-right .tooltip-arrow {
+    border-bottom-color: #EBCCD1;
+}
+
+/* right content begin */
+.right-content {
+    padding:0px;
+}
+.right-content-search {
+    padding: 10px ;
+    background: #f5f7f9;
+}
+.search-control {
+    cursor: pointer;
+    display: inline-block;
+}
+.search-form {
+    padding-top: 5px;
+}
+.right-content .left-tree {
+    border-right: 1px solid #e5e5e5;
+    padding: 5px 0 0 5px;
+}
+.right-content-table {
+    padding:0px 10px;
+}
+.btn-icon-padding {
+    padding-right: 6px;
+}
+/* right content begin */
+
+.toolbar-btn-icon {
+    padding-right: 5px;
+}
+
+.searchDiv {
+    background: #f5f7f9;
+}
+.searchIcon{
+    padding: 20px;
+}
+.btn-center{
+    text-align: center;
+}
+
+/* multi-select custom */
+.ms-selectable .custom-header, .ms-selection .custom-header {
+    text-align: center;
+    font-weight: bold;
+    height: 32px;
+    padding-top: 6px;
+    background-color: #f5f7f9;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+
+/* 清除form-group默认padding */
+.control-label{
+     padding-right: 5px;
+ }
+.form-group div{
+    padding: 0px;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.right-content-left-table {
+    width: 15%;
+    height: 800px;
+    display: inline-block;
+}
+
+.right-content-middle-table {
+    width: 1px;
+    height: 900px;
+    background: url("../img/line.png");
+    display: inline-block;
+    vertical-align: top;
+}
+.right-content-table1 {
+    width: 84%;
+    padding:10px 20px 0px 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+.right-content-textarea {
+    width: 100%;
+    height: 150px;
+    padding:10px 20px 0px 20px;
+}
+
+
+/* 覆盖 bootstrap table 样式 */
+.fixed-table-container .bs-checkbox {
+    vertical-align: middle;
+}

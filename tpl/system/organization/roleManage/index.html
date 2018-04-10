@@ -1,0 +1,71 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="roleSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">角色编号：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="role.jsbh" id="jsbh" name="jsbh" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">角色名称：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="role.mc" id="mc" name="mc" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">角色类型：</label>
+						<div class="col-xs-8">
+							<select ng-model="role.lx" id="lx" name="lx" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option value="">== 请选择 ==</option>
+								<option value="1">组织类</option>
+								<option value="2">非组织类</option>
+								<option value="3">公共类</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">状态：</label>
+						<div class="col-xs-8">
+							<select ng-model="role.zt" id="zt" name="zt" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option value="">== 请选择 ==</option>
+								<option value="0">停用</option>
+								<option value="1">启用</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<div id="toolbar" class="btn-group">
+			<div>
+				<button has-permission="role:insert" type="button" class="btn btn-default add-btn" ng-click="openAdd()">
+					<span class="fa fa-plus toolbar-btn-icon"></span>新增
+				</button>
+			</div>
+		</div>
+		<table id="roleTable" ui-jq="bootstrapTable" ui-options="roleTable" class="table table-responsive"></table>
+	</div>
+</div>

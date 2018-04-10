@@ -1,0 +1,21 @@
+{
+	"total": "1",
+	"rows": [
+		{
+			"semester": "2017-2018-1",
+			"highestNum": "第一轮预选",
+			"schoolNum": "2014",
+			"deptNum": "软件工程"
+		}, {
+			"semester": "2017-2018-1",
+			"highestNum": "第二轮预选",
+			"schoolNum": "2014",
+			"deptNum": "软件工程"
+		}, {
+			"semester": "2017-2018-1",
+			"highestNum": "第三轮预选",
+			"schoolNum": "2017",
+			"deptNum": "网络工程"
+		}
+	]
+}

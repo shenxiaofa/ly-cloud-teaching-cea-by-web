@@ -1,0 +1,60 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">注 册</h3>
+</div>
+<div class="modal-body">
+	<form name="reportRegisterModifyform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">学号：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="reportRegister.studentNum" ng-required="true" ng-readonly="true" id="studentNum" name="studentNum" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">姓名：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="reportRegister.studentName" ng-required="true" ng-readonly="true" id="studentName" name="studentName" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">班级：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="reportRegister.executiveClassName" ng-required="true" ng-readonly="true" id="executiveClassName" name="executiveClassName" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">学年学期：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="reportRegister.semesterId" ng-required="true" ng-readonly="true" id="semesterId" name="semesterId" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">注册状态：</label>
+			<div class="col-xs-8">
+				<select ng-model="reportRegister.registerStatusCode" ui-chosen="reportRegisterAddform.registerStatusCode" ng-required="true" id="registerStatusCode_select" name="registerStatusCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+					<option ng-repeat="registerStatusCodeItem in registerStatusCodeData" value="{{registerStatusCodeItem.dataNumber}}">{{registerStatusCodeItem.dataName}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">未注册原因：</label>
+			<div class="col-xs-8">
+				<select ng-model="reportRegister.unregisterReasonCode" ui-chosen="reportRegisterAddform.unregisterReasonCode" id="unregisterReasonCode_select" name="unregisterReasonCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+					<option ng-repeat="unregisterReasonCodeItem in unregisterReasonCodeData" value="{{unregisterReasonCodeItem.dataNumber}}">{{unregisterReasonCodeItem.dataName}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">备注：</label>
+			<div class="col-xs-8">
+				<textarea ng-model="reportRegister.remark" maxlength="500" id="remark" name="remark" class="form-control" rows="3"></textarea>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(reportRegisterModifyform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

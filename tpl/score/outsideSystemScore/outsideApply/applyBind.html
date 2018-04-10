@@ -1,0 +1,63 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">申请系统外成绩</h3>
+</div>
+<div class="right-content">
+
+    <div class="col-xs-12 searchDiv right-content-search">
+        <div class="col-xs-12 " ng-hide="searchList">
+            <form name="pyfabzkz_form" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+                <div class="row">
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label" >课程编号：</label>
+                        <label class="col-xs-7"style="margin-top:7px;">{{outsideApply.courseNum}}</label>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-5 control-label">课程名称：</label>
+                        <label class="col-xs-7"style="margin-top:7px;">{{outsideApply.courseName}}</label>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">开课单位：</label>
+                        <label class="col-xs-7"style="margin-top:7px;">{{outsideApply.departmentName}}</label>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">学分：</label>
+                        <label class="col-xs-7"style="margin-top:7px;">{{outsideApply.credit}}</label>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">课程性质：</label>
+                        <label class="col-xs-7"style="margin-top:7px;">{{outsideApply.courseProperty}}</label>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">课程成绩：</label>
+                        <label class="col-xs-7"style="margin-top:7px;">{{outsideApply.courseScore}}</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="right-content-table">
+        <div id="toolbar" class="btn-group col-xs-12">
+        </div>
+        <table id="outsideApplyListTable" ui-jq="bootstrapTable" ui-options="outsideApplyListTable" class="table table-responsive"></table>
+    </div>
+
+    <div class="col-xs-12 modal-footer" style="text-align:right;padding-right: 30px;background-color: #FFFFFF;">
+        <button class="btn btn-primary" ng-click="ok()">
+            保存草稿箱
+        </button>
+        <button class="btn btn-primary" ng-click="ok()">
+            办理完成
+        </button>
+        <button class="btn btn-default" ng-click="cancel()" >
+            取消
+        </button>
+    </div>
+</div>

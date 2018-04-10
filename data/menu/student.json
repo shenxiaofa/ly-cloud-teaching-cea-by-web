@@ -1,0 +1,110 @@
+[
+	{
+		"id": 1,
+		"parentName": "班级信息管理",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "行政班级管理",
+				"isShow": true,
+				"target": "executiveClass",
+				"targetUrl": "home.common.executiveClass",
+            	"permission": "executiveClass:query"
+			},
+			{
+				"name": "新生分班管理",
+				"isShow": true,
+				"target": "newStudentPlacement",
+				"targetUrl": "home.common.newStudentPlacement",
+				"permission": "newStudentPlacement:query"
+			},
+			{
+				"name": "学生分班管理",
+				"isShow": true,
+				"target": "studentPlacement",
+				"targetUrl": "home.common.studentPlacement",
+				"permission": "studentDivideClassControl:query"
+			}
+		]
+	},{
+		"id": 2,
+		"parentName": "学籍信息管理",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "基本信息管理",
+				"isShow": true,
+				"target": "undergraduatesInfoManage",
+				"targetUrl": "home.common.undergraduatesInfoManage",
+            	"permission": "undergraduatesInfo:query"
+			},{
+				"name": "国内学生学籍信息管理",
+				"isShow": true,
+				"target": "stuFullTimeInfoManage",
+				"targetUrl": "home.common.stuFullTimeInfoManage",
+				"permission": "stuFullTimeInfo:query"
+			},{
+				"name": "学生照片管理",
+				"isShow": true,
+				"target": "stuPhotoManage",
+				"targetUrl": "home.common.stuPhotoManage",
+				"permission": "stuPhoto:query"
+			},{
+				"name": "留学生学籍信息管理",
+				"isShow": true,
+				"target": "stuOverseasInfoManage",
+				"targetUrl": "home.common.stuOverseasInfoManage",
+				"permission": "stuOverseasInfo:query"
+			},{
+				"name": "学生惩处信息维护",
+				"isShow": true,
+				"target": "stuRewPunishInfoManage",
+				"targetUrl": "home.common.stuRewPunishInfoManage",
+				"permission": "stuRewPunishInfo:query"
+			},{
+				"name": "学生标签管理",
+				"isShow": true,
+				"target": "stuFlagManage",
+				"targetUrl": "home.common.stuFlagManage",
+				"permission": "stuFlag:query"
+			}
+		]
+	},{
+		"id": 3,
+		"parentName": "学籍异动管理",
+		"isShow": true,
+		"target": "schoolTransaction",
+		"targetUrl": "home.common.schoolTransaction",
+		"icon":"glyphicon glyphicon-stats",
+		"permission": "schoolTransaction:query"
+	},{
+		"id": 4,
+		"parentName": "报到注册管理",
+		"isShow": true,
+		"target": "",
+		"targetUrl": "",
+		"icon": "glyphicon glyphicon-stats",
+		"child": [
+			{
+				"name": "报到注册控制",
+				"isShow": true,
+				"target": "reportRegisterControl",
+				"targetUrl": "home.common.reportRegisterControl",
+				"permission": "reportRegisterControl:query"
+			},
+			{
+				"name": "报到注册管理",
+				"isShow": true,
+				"target": "reportRegisterManage",
+				"targetUrl": "home.common.reportRegisterManage",
+				"permission": "reportRegister:query"
+			}
+		]
+	}
+]

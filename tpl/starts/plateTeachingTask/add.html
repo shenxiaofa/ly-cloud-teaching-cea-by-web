@@ -1,0 +1,41 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">新 增</h3>
+</div>
+<div class="modal-body">
+	<form name="plateArrangeAddform" class="form-horizontal" novalidate>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">班级个数：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="plateTeaching.count" ng-required="true" id="count" name="count" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">等级：</label>
+			<div class="col-xs-8">
+				<select ng-change="testChange()" ng-options="plateObj.id as plateObj.name  for plateObj in semesterObjs" ui-chosen="plateArrangeAddform.gradeId" ng-required="true"
+						ng-model="plateTeaching.gradeId" id="gradeId" name="gradeId" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">
+					<option value="">==请选择==</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label required">最低开班人数：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="plateTeaching.lowestCount" ng-required="true" id="lowestCount" name="lowestCount" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">最高人数：</label>
+			<div class="col-xs-8">
+				<input type="text" ng-model="plateTeaching.highestCount" ng-required="true" id="highestCount" name="highestCount" class="form-control"/>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(plateArrangeAddform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

@@ -1,0 +1,227 @@
+[
+  {
+    "id": 1,
+    "parentName": "成绩密码管理",
+    "isShow": true,
+    "target": "scorePasswordManagerController",
+    "targetUrl": "home.common.scorePasswordManagerController",
+    "icon":"fa fa-th-large"
+  },{
+  "id": 2,
+  "parentName": "正考成绩管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "成绩录入控制",
+    "isShow": true,
+    "target": "scoreEnteringController",
+    "targetUrl": "home.common.scoreEnteringController"
+  },{
+    "name": "正考成绩录入",
+    "isShow": true,
+    "target": "formalScoreEnterController",
+    "targetUrl": "home.common.formalScoreEnterController"
+  },{
+    "name": "成绩监控管理",
+    "isShow": true,
+    "target": "scoreReviewController",
+    "targetUrl": "home.common.scoreReviewController"
+  }]
+},{
+  "id": 3,
+  "parentName": "补考成绩管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "成绩录入控制",
+    "isShow": true,
+    "target": "makeupScoreEnteringController",
+    "targetUrl": "home.common.makeupScoreEnteringController"
+  },{
+    "name": "补考成绩录入",
+    "isShow": true,
+    "target": "makeupScoreEnterController",
+    "targetUrl": "home.common.makeupScoreEnterController"
+  },{
+    "name": "成绩监控管理",
+    "isShow": true,
+    "target": "makeupScoreReviewController",
+    "targetUrl": "home.common.makeupScoreReviewController"
+  }]
+},{
+  "id": 4,
+  "parentName": "清考成绩管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "成绩录入控制",
+    "isShow": true,
+    "target": "cleanScoreEnteringController",
+    "targetUrl": "home.common.cleanScoreEnteringController"
+  },{
+    "name": "清考成绩录入",
+    "isShow": true,
+    "target": "cleanScoreEnterController",
+    "targetUrl": "home.common.cleanScoreEnterController"
+  },{
+    "name": "成绩监控管理",
+    "isShow": true,
+    "target": "cleanScoreReviewController",
+    "targetUrl": "home.common.cleanScoreReviewController"
+  }]
+},
+  {
+  "id": 5,
+  "parentName": "学生缓考管理",
+  "isShow": false,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "学生缓考申请",
+    "isShow": true,
+    "target": "studentsSlowExamination",
+    "targetUrl": "home.common.studentsSlowExamination"
+  },{
+    "name": "学生缓考审批",
+    "isShow": true,
+    "target": "studentsSlowExaminationApproval",
+    "targetUrl": "home.common.studentsSlowExaminationApproval"
+  },{
+    "name": "缓考学生维护",
+    "isShow": true,
+    "target": "studentsSlowExaminationMaintain",
+    "targetUrl": "home.common.studentsSlowExaminationMaintain"
+  }]
+},
+  {
+  "id": 6,
+  "parentName": "学生免考管理",
+  "isShow": false,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "学生免考申请",
+    "isShow": true,
+    "target": "studentExemptExaminationApply",
+    "targetUrl": "home.common.studentExemptExaminationApply"
+  }, {
+    "name": "学生免考审批",
+    "isShow": true,
+    "target": "studentsExemptExaminationApproval",
+    "targetUrl": "home.common.studentsExemptExaminationApproval"
+  }, {
+    "name": "免考学生维护",
+    "isShow": true,
+    "target": "studentsExemptExaminationMaintain",
+    "targetUrl": "home.common.studentsExemptExaminationMaintain"
+  }]
+},{
+  "id": 7,
+  "parentName": "成绩修改管理",
+  "isShow": false,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "成绩修改申请",
+    "isShow": true,
+    "target": "achievementModificationApply",
+    "targetUrl": "home.common.achievementModificationApply"
+  },{
+    "name": "成绩修改审核",
+    "isShow": true,
+    "target": "achievementModificationApproval",
+    "targetUrl": "home.common.achievementModificationApproval"
+  },{
+    "name": "成绩修改统计",
+    "isShow": true,
+    "target": "achievementModificationMaintain",
+    "targetUrl": "home.common.achievementModificationMaintain"
+  }]
+},{
+  "id": 8,
+  "parentName": "成绩认定管理",
+  "isShow": false,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "成绩认定申请",
+    "isShow": true,
+    "target": "achievementConfirmationApply",
+    "targetUrl": "home.common.achievementConfirmationApply"
+  },{
+    "name": "成绩认定审核",
+    "isShow": true,
+    "target": "achievementConfirmationApproval",
+    "targetUrl": "home.common.achievementConfirmationApproval"
+  },{
+    "name": "成绩认定查询",
+    "isShow": true,
+    "target": "achievementConfirmationMaintain",
+    "targetUrl": "home.common.achievementConfirmationMaintain"
+  }]
+},{
+  "id": 9,
+  "parentName": "成绩维护管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "成绩信息维护",
+    "isShow": true,
+    "target": "scoreInfoMaintainController",
+    "targetUrl": "home.common.scoreInfoMaintainController"
+  }]
+},{
+  "id": 10,
+  "parentName": "系统外成绩管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "系统外成绩申请",
+    "isShow": false,
+    "target": "outsideApplyController",
+    "targetUrl": "home.common.outsideApplyController"
+  },{
+    "name": "系统外成绩审核",
+    "isShow": true,
+    "target": "outsideReviewController",
+    "targetUrl": "home.common.outsideReviewController"
+  },{
+    "name": "外校成绩绑定审核",
+    "isShow": true,
+    "target": "outsideBindReviewController",
+    "targetUrl": "home.common.outsideBindReviewController"
+  },{
+    "name": "系统外成绩维护",
+    "isShow": true,
+    "target": "outSideMaintainController",
+    "targetUrl": "home.common.outSideMaintainController"
+  }]
+},{
+  "id": 11,
+  "parentName": "成绩单批量打印",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "成绩批量打印",
+    "isShow": true,
+    "target": "batchPrinting",
+    "targetUrl": "home.common.batchPrinting"
+  }]
+}
+]

@@ -1,0 +1,28 @@
+
+
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">考试方式批量审批</h3>
+</div>
+<div class="modal-body">
+    <form name="courseArrangeAddform" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label class="col-xs-3 control-label required">审批意见：</label>
+            <div class="col-xs-8">
+                <select ng-model="spyj" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                    <option value="">==请选择==</option>
+                    <option value="">通过</option>
+                    <option value="">不通过</option>
+                </select>
+                <div style="height:20px"></div>
+                <textarea type="text" ng-model="spyj" ng-required="true" id="spyj" name="spyj" class="form-control" rows="3" style="height: 100px;"/>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(courseArrangeAddform)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

@@ -1,0 +1,108 @@
+<style>
+	.myTrasfer {
+		margin-top: 8px;
+	}
+</style>
+<script>
+	$(document).ready(function() {
+		$("#goBack").click(function() {
+			setTimeout("javascript:history.go(-1)", 200);
+		});
+	});
+</script>
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="teachingTaskMaintainForm" class="form-horizontal search-form">
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">教学班容量：</label>
+						<div class="col-xs-2">
+							<input ng-model="teachingTaskMaintain.teachingTaskMin" type="text" id="teachingTaskMin" name="teachingTaskMin" class="form-control" />
+						</div>
+						<div class="col-xs-2" style="padding: 7px 0 0 25px;">
+							~
+						</div>
+						<div class="col-xs-2">
+							<input ng-model="teachingTaskMaintain.teachingTaskMax" type="text" id="teachingTaskMax" name="teachingTaskMax" class="form-control" />
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">任课教师：</label>
+						<div class="col-xs-6">
+							<input ng-model="teachingTaskMaintain.teacher" type="text" id="teacher" name="teacher" class="form-control" />
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">周次：</label>
+						<div class="col-xs-2">
+							<input ng-model="teachingTaskMaintain.weeklyMin" type="text" id="weeklyMin" name="weeklyMin" class="form-control" />
+						</div>
+						<div class="col-xs-2" style="padding: 7px 0 0 25px;">
+							~
+						</div>
+						<div class="col-xs-2">
+							<input ng-model="teachingTaskMaintain.weeklyMax" type="text" id="weeklyMax" name="weeklyMax" class="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">星期：</label>
+						<div class="col-xs-6">
+							<input ng-model="teachingTaskMaintain.week" type="text" id="week" name="week" class="form-control" />
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-6 control-label">节次：</label>
+						<div class="col-xs-6">
+							<input ng-model="teachingTaskMaintain.section" type="text" id="section" name="section" class="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<div style="height:30px;line-height:30px;width:100%;display:inline-block;">
+			<div style="width:25%;float:left;margin-top:12px;">
+				<button id="btn_add" type="button" class="btn btn-default" ng-click="batchDelete()">
+						<span class="glyphicon glyphicon-plus toolbar-btn-icon"></span>批量删除
+				</button>
+				<button id="goBack" type="button" class="btn btn-default">
+						<span class="fa fa-backward toolbar-btn-icon"></span>返回
+				</button>
+			</div>
+			<div style="width:75%;float:right;margin-top:15px;font-size:14px;">
+				<span>课程名称：</span>
+				<label>{{chooseCourse.courseName}}</label>
+				&nbsp&nbsp&nbsp&nbsp&nbsp
+				<span>开课单位：</span>
+				<label>{{chooseCourse.openDeptName}}</label>
+				&nbsp&nbsp&nbsp&nbsp&nbsp
+				<span>课程属性：</span>
+				<label>{{chooseCourse.courseType}}</label>
+				&nbsp&nbsp&nbsp&nbsp&nbsp
+				<span>学分：</span>
+				<label>{{chooseCourse.credit}}</label>
+			</div>
+		</div>
+		<table id="teachingTaskMaintainTable" ui-jq="bootstrapTable" ui-options="teachingTaskMaintainTable" class="table"></table>
+	</div>
+</div>

@@ -1,0 +1,80 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">添加家庭成员</h3>
+</div>
+<div class="modal-body">
+    <form name="stuFamilyAddForm" class="form-horizontal" novalidate>
+        <div class="row">
+            <!-- 学号 -->
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label required">学号：</label>
+                <div class="col-xs-8">
+                    <!--<input ng-model="stuFamily.stuNumber" ng-required="true" id="stuNumber" name="stuNumber" class="form-control">-->
+                    <span ng-bind="stuFullTimeInfo_family.stuNumber"  id="stuNumber" name="stuNumber" class="form-control" style="border: 0px;">14301025</span>
+                </div>
+            </div>
+            <!-- 姓名 -->
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label required">学生姓名：</label>
+                <div class="col-xs-8">
+                    <span ng-bind="stuFullTimeInfo_family.stuName"  ng-required="true" id="stuName" name="stuName" class="form-control" style="border: 0px;">14301025</span>
+                </div>
+            </div>
+            <!-- 称谓 -->
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label required"> 称谓：</label>
+                <div class="col-xs-8">
+                    <select ng-model="stuFullTimeInfo_family.familyRelationCode" ng-required="true"
+                            ui-chosen="stuFamilyAddForm.familyRelationCode"
+                            ng-options="familyRelationCode.id as familyRelationCode.name for familyRelationCode in familyRelationCodeList"
+                            name="familyRelationCode" id="familyRelationCode_search" class="form-control"
+                            ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 姓名 -->
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label required"> 姓名：</label>
+                <div class="col-xs-8">
+                    <input ng-model="stuFullTimeInfo_family.familyMemberName" ng-required="true"  id="familyMemberName" name="familyMemberName" class="form-control" ng-maxlength="60">
+                </div>
+            </div>
+
+            <!-- 年龄 -->
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label required"> 年龄：</label>
+                <div class="col-xs-8">
+                    <input ng-model="stuFullTimeInfo_family.familyAge" ng-required="true"  id="familyAge" name="familyAge" class="form-control" integer type="number" ng-maxlength="3">
+                </div>
+            </div>
+            <!-- 工作单位 -->
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label required"> 工作单位：</label>
+                <div class="col-xs-8">
+                    <input ng-model="stuFullTimeInfo_family.familyWorkUnit" ng-required="true" id="familyWorkUnit" name="familyWorkUnit" class="form-control" ng-maxlength="180">
+                </div>
+            </div>
+            <!-- 联系电话 -->
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label required"> 联系电话：</label>
+                <div class="col-xs-8">
+                    <input ng-model="stuFullTimeInfo_family.familyPhone" ng-required="true" id="familyPhone" name="familyPhone" class="form-control" ng-maxlength="30">
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-xs-3 control-label">说明：</label>
+                <div class="col-xs-8">
+                    <p class="form-control" style="border: 0px;">没有工作单位的可以填写“务农”或者“无工作“</p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(stuFamilyAddForm)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

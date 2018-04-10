@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "success": 200
+  },
+  "data": {
+    "total": 3,
+    "rows": [{
+      "title": "Books",
+      "key": "1",
+      "expanded": true,
+      "folder": true,
+      "author": "Sun Tzu",
+      "children": [{
+        "title": "Art of War",
+        "key": "2",
+        "type": "book",
+        "author": "Sun Tzu",
+        "year": -500,
+        "qty": 21,
+        "price": 5.95
+      },
+        {
+          "title": "The Hobbit",
+          "key": "3",
+          "type": "book",
+          "author": "J.R.R. Tolkien",
+          "year": 1937,
+          "qty": 32,
+          "price": 8.97
+        },
+        {
+          "title": "The Little Prince",
+          "key": "4",
+          "type": "book",
+          "author": "Antoine de Saint-Exupery",
+          "year": 1943,
+          "qty": 21,
+          "price": 5.95
+        },
+        {
+          "title": "Don Quixote",
+          "key": "5",
+          "type": "book",
+          "author": "Miguel de Cervantes",
+          "year": 1615,
+          "qty": 21,
+          "price": 5.95
+        }
+      ]
+    },
+      {
+        "title": "Music",
+        "key": "6",
+        "folder": true,
+        "author": "Sun Tzu",
+        "children": [{
+          "title": "Nevermind",
+          "key": "17",
+          "type": "music",
+          "author": "Nirvana",
+          "year": 1991,
+          "qty": 21,
+          "price": 5.95
+        },
+          {
+            "title": "Autobahn",
+            "key": "7",
+            "type": "music",
+            "author": "Kraftwerk",
+            "year": 1974,
+            "qty": 21,
+            "price": 5.95
+          },
+          {
+            "title": "Kind of Blue",
+            "key": "8",
+            "type": "music",
+            "author": "Miles Davis",
+            "year": 1959,
+            "qty": 21,
+            "price": 5.95
+          },
+          {
+            "title": "Back in Black",
+            "key": "9",
+            "type": "music",
+            "author": "AC/DC",
+            "year": 1980,
+            "qty": 21,
+            "price": 5.95
+          },
+          {
+            "title": "The Dark Side of the Moon",
+            "key": "10",
+            "type": "music",
+            "author": "Pink Floyd",
+            "year": 1973,
+            "qty": 21,
+            "price": 5.95
+          },
+          {
+            "title": "Sgt. Pepper's Lonely Hearts Club Band",
+            "key": "11",
+            "type": "music",
+            "author": "The Beatles",
+            "year": 1967,
+            "qty": 21,
+            "price": 5.95
+          }
+        ]
+      }
+    ]
+  }
+}

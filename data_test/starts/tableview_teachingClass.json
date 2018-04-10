@@ -1,0 +1,33 @@
+{
+  "total": 4, "rows":
+[{
+  "id": "0001",
+  "xh": "1",
+  "teachingClassNumber":"0001",
+  "teachingClassName":"计算机一班",
+  "grade":"A",
+  "startStopCycle":"1-9"
+},{
+  "id": "0002",
+  "xh": "2",
+  "teachingClassNumber":"0002",
+  "teachingClassName":"计算机2班",
+  "grade":"B",
+  "startStopCycle":"1-9"
+},{
+  "id": "0003",
+  "xh": "3",
+  "teachingClassNumber":"0003",
+  "teachingClassName":"计算机3班",
+  "grade":"C",
+  "startStopCycle":"1-9"
+},{
+  "id": "0004",
+  "xh": "4",
+  "teachingClassNumber":"0004",
+  "teachingClassName":"计算机4班",
+  "grade":"B",
+  "startStopCycle":"1-9"
+}]
+}
+

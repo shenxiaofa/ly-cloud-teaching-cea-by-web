@@ -1,0 +1,64 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="cancel()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">申请系统外成绩</h3>
+</div>
+<div class="modal-body">
+	<form name="schemeVersionCopyform" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-4">
+				<label class="col-xs-5 control-label">姓名：</label>
+				<div class="col-xs-6">
+					<div class="input-group" style="width: 102%;">
+						<!--<input ng-model="outSideMaintain.sjqxbh" ng-hide="true" id="sjqxbh" name="sjqxbh" type="text" class="form-control">-->
+						<!--<input ng-model="outSideMaintain.wddm" ng-hide="true" id="wddm" name="wddm" type="text" class="form-control">-->
+						<input ng-model="outSideMaintain.studentName" ng-readonly="true" ng-required="true" id="studentName" name="studentName" type="text" class="form-control">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button" ng-click="selectStudent()">选择</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-5 control-label">学号：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{outSideMaintain.studentNum}}</label>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-5 control-label">所属学院：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{outSideMaintain.departmentName}}</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-4">
+				<label class="col-xs-5 control-label">年级专业：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{outSideMaintain.semesterMajor}}</label>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-5 control-label">班级：</label>
+				<label class="col-xs-7"style="margin-top:7px;">{{outSideMaintain.className}}</label>
+			</div>
+		</div>
+		<div class="form-group" style="border-top: 1px solid #e5e5e5;padding-top: 5px">
+			<div class="col-xs-6">
+				<label style="margin-left: 10px">系统外课程列表</label>
+			</div>
+			<div class="col-xs-6">
+				<label style="margin-left: 10px">计划课程列表</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-6" >
+				<table id="outsideCourseTable" ui-jq="bootstrapTable" ui-options="outsideCourseTable" class="table table-responsive"></table>
+			</div>
+			<div class="col-xs-6" >
+				<table id="courseCurriculaTable" ui-jq="bootstrapTable" ui-options="courseCurriculaTable" class="table table-responsive"></table>
+			</div>
+		</div>
+
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

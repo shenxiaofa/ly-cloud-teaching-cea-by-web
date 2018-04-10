@@ -1,0 +1,13 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "modelName": "通识基础模块",
+        "courseNature": "必修",
+        "credit": "45",
+        "preSetCourseSign": "是"
+      }
+    ]
+  }
+}

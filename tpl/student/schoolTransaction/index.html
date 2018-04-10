@@ -1,0 +1,94 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="schoolTransactionSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">考生号：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="schoolTransaction.basicExaNumber" id="basicExaNumber" name="basicExaNumber" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">姓名：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="schoolTransaction.basicName" id="basicName" name="basicName" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">异动类型：</label>
+						<div class="col-xs-8">
+							<select ng-model="schoolTransaction.classCode" id="classCode" name="classCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="classCodeItem in classCodeData" value="{{classCodeItem.dataNumber}}">{{classCodeItem.dataName}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">国标专业：</label>
+						<div class="col-xs-8">
+							<select ng-model="schoolTransaction.rollStandard" id="rollStandard" name="rollStandard" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="rollStandardItem in rollStandardData" value="{{rollStandardItem.code}}">{{rollStandardItem.name}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">学院：</label>
+						<div class="col-xs-8">
+							<select ng-model="schoolTransaction.rollCollegeNum" id="rollCollegeNum" name="rollCollegeNum" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="rollCollegeNumItem in rollCollegeNumData" value="{{rollCollegeNumItem.departmentNumber}}">{{rollCollegeNumItem.departmentName}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">当前所在年级：</label>
+						<div class="col-xs-8">
+							<select ng-model="schoolTransaction.rollGrade" id="rollGrade" name="rollGrade" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="rollGradeItem in rollGradeData" value="{{rollGradeItem.id}}">{{rollGradeItem.dataNumber}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">文号：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="schoolTransaction.dispNumber" id="dispNumber" name="dispNumber" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<div id="toolbar" class="btn-group">
+			<div>
+				<button has-permission="schoolTransaction:insert" type="button" class="btn btn-default add-btn" ng-click="openAdd()">
+					<span class="fa fa-plus toolbar-btn-icon"></span>新增
+				</button>
+				&nbsp;
+				<button has-permission="schoolTransaction:export" type="button" class="btn btn-default" ng-click="export()">
+					<span class=""></span>导出
+				</button>
+			</div>
+		</div>
+		<table id="schoolTransactionTable" ui-jq="bootstrapTable" ui-options="schoolTransactionTable" class="table table-responsive"></table>
+	</div>
+</div>

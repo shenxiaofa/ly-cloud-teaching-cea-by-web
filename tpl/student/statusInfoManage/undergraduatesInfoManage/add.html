@@ -1,0 +1,323 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">新 增</h3>
+</div>
+
+<div class="modal-body">
+    <form name="gradePlateSetting_add_form" class="form-horizontal" novalidate>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">学号：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.num" ng-required="true" id="moduleNum" name="moduleNum" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">姓名：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.name" ng-required="true" id="moduleName" name="moduleName" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">性别：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.sexCode" name="sexCode" ng-options="sex.id as sex.name for sex in sexList"
+                            ui-chosen="gradePlateSetting_add_form.sexCode" ng-required="true"
+                            id="sexCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">培养方式：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.trainWayCode" ui-chosen="gradePlateSetting_add_form.trainWay" ng-required="true"
+                            id="trainWayCode" name="trainWayCode" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">
+                        <option value="">== 请选择 ==</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">学生类别：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.trainGradeCode" ui-chosen="gradePlateSetting_add_form.trainGrade" ng-required="true"
+                            id="trainGradeCode" name="trainGradeCode" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">
+                        <option value="">== 请选择 ==</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">籍贯：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.nativePlaceCode" ng-required="true" id="nativePlaceCode" name="nativePlaceCode" class="form-control"/>
+                </div>
+                <!--<div class="col-xs-7">-->
+                    <!--<select ng-model="statusInfo.nativePlaceCode" ui-chosen="gradePlateSetting_add_form.nativePlaceCode" ng-required="true"-->
+                            <!--id="nativePlaceCode" name="nativePlaceCode" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">-->
+                        <!--<option value="">== 请选择 ==</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">院系：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.deptId" name="deptId" ng-options="dept.id as dept.name for dept in deptList"
+                            ui-chosen="gradePlateSetting_add_form.college" ng-required="true"
+                            id="deptId" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">年级：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.grade" name="grade"  ui-chosen="gradePlateSetting_add_form.grade" ng-required="true"
+                            id="grade" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">专业：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.majorId" name="majorId"  ui-chosen="gradePlateSetting_add_form.major" ng-required="true"
+                            id="majorId" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">学制：</label>
+                <div class="col-xs-7">
+                    <input type="number" ng-model="statusInfo.learnSystem" id="learnSystem" name="learnSystem" ng-required="true" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">班级：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.executiveClassId" name="executiveClassId" ui-chosen="gradePlateSetting_add_form.executiveClassName" ng-required="true"
+                            id="executiveClassId" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">政治面貌：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.politicalOutlookCode" name="politicalOutlookCode" ui-chosen="gradePlateSetting_add_form.politicalOutlook" ng-required="true"
+                            id="politicalOutlookCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label">曾用名：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.usedName" id="usedName" name="usedName" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">民族：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.nationCode" name="nationCode" ng-options="nation.id as nation.name for nation in nationList"
+                            ui-chosen="gradePlateSetting_add_form.nation" ng-required="true"
+                            id="nationCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+            <!--<div class="form-group col-xs-4">-->
+                <!--<label class="col-xs-5 control-label required">是否应届：</label>-->
+                <!--<div class="col-xs-7">-->
+                    <!--<select ng-model="statusInfo.freshSign" name="freshSign" ui-chosen="gradePlateSetting_add_form.freshSign" ng-required="true"-->
+                            <!--id="freshSign" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">-->
+                        <!--<option value="">==请选择==</option>-->
+                        <!--<option value="1">是</option>-->
+                        <!--<option value="0">否</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">学生类别：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.studentTypeCode" name="studentTypeCode" ui-chosen="gradePlateSetting_add_form.studentTypeCode" ng-required="true"
+                            id="studentTypeCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="1">身份证</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label">姓名拼音：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.spellName" id="spellName" name="spellName" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">出生年月：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.birthDay" ng-required="true" id="birthDay" name="birthDay" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">考生号：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.candidateNum" ng-required="true" id="candidateNum" name="candidateNum" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">入学方式：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.entranceWayCode" name="entranceWayCode" ui-chosen="gradePlateSetting_add_form.entranceWay" ng-required="true"
+                            id="entranceWayCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="1">统招</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-4 ">
+                <label class="col-xs-5 control-label required">入学时间：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.entranceTime" ng-required="true" id="entranceTime" name="entranceTime" class="form-control"/>
+                </div>
+            </div>
+            <!--<div class="form-group col-xs-4">-->
+                <!--<label class="col-xs-5 control-label">考区：</label>-->
+                <!--<div class="col-xs-7">-->
+                    <!--<input type="text" ng-model="statusInfo.examArea" id="examArea" name="examArea" class="form-control"/>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">校 区：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.campusId" ng-options="campus.id as campus.name for campus in campusList"
+                            name="campusId" id="campusId" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">证件类型：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.identifyTypeCode" name="identifyTypeCode" ui-chosen="gradePlateSetting_add_form.identifyType" ng-required="true"
+                            id="identifyTypeCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="1">身份证</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label required">身份证号：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.identifyNum" ng-required="true" id="identifyNum" name="identifyNum" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label">学生电话：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.phoneNum" id="phoneNum" name="phoneNum" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label">邮箱：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.email" id="email" name="email" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label">QQ：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.QQ"  id="QQ" name="QQ" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label class="col-xs-5 control-label">微信号：</label>
+                <div class="col-xs-7">
+                    <input type="text" ng-model="statusInfo.weChatNum" id="weChatNum" name="weChatNum" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row">-->
+            <!--<div class="form-group col-xs-4">-->
+                <!--<label class="col-xs-5 control-label required">学生类别：</label>-->
+                <!--<div class="col-xs-7">-->
+                    <!--<select ng-model="statusInfo.studentTypeCode" name="studentTypeCode" ui-chosen="gradePlateSetting_add_form.studentTypeCode" ng-required="true"-->
+                            <!--id="studentTypeCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">-->
+                        <!--<option value="">==请选择==</option>-->
+                        <!--<option value="1">身份证</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group col-xs-4">-->
+                <!--<label class="col-xs-5 control-label required">校 区：</label>-->
+                <!--<div class="col-xs-7">-->
+                    <!--<select ng-model="statusInfo.campusId" ng-options="campus.id as campus.name for campus in campusList"-->
+                            <!--name="campusId" id="campusId" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">-->
+                        <!--<option value="">==请选择==</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="form-group col-xs-8" style="margin-left: -45px">-->
+                <!--<label class="col-xs-3 control-label" >家庭地址：</label>-->
+                <!--<div class="col-xs-9">-->
+                    <!--<input type="text" ng-model="statusInfo.homeAddress" id="homeAddress" name="homeAddress" class="form-control"/>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="form-group col-xs-8" style="margin-left: -45px">-->
+                <!--<label class="col-xs-3 control-label" >通讯地址：</label>-->
+                <!--<div class="col-xs-9">-->
+                    <!--<input type="text" ng-model="statusInfo.postalAddress" id="postalAddress" name="postalAddress" class="form-control"/>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="form-group col-xs-8" style="margin-left: -45px">-->
+                <!--<label class="col-xs-3 control-label" >特长或爱好：</label>-->
+                <!--<div class="col-xs-9">-->
+                    <!--<input type="text" ng-model="statusInfo.specialHobby" id="specialHobby" name="specialHobby" class="form-control"/>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="form-group col-xs-8" style="margin-left: -45px">-->
+                <!--<label class="col-xs-3 control-label" >备注：</label>-->
+                <!--<div class="col-xs-9">-->
+                    <!--<input type="text" ng-model="statusInfo.remark" id="remark" name="remark" class="form-control"/>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button"  ng-click="ok(gradePlateSetting_add_form)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

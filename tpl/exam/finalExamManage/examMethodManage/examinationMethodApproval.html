@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">确定考试方式</h3>
+</div>
+
+<div class="modal-body">
+    <table id="examinationMethodApprovalTable2" ui-jq="bootstrapTable" ui-options="examinationMethodApprovalTable2" class="table table-responsive"></table>
+    <div class="col-xs-12" style="padding:10px;">
+        <label class="col-xs-2 control-label required" style="text-align:right;padding:5px 0 0 0;">审批意见：</label>
+        <div class="col-xs-10" align="left" style="padding:0px;text-align:left;">
+            <textarea id="spyj" name="spyj" ng-model="spyj" type="text" class="form-control"  style="height: 100px;"/>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-info" ng-click="ok(1)"> 通 过 </button>
+        <button class="btn btn-info" ng-click="ok(0)"> 退 回 </button>
+        <button class="btn btn-default " ng-click="cancel()"> 取 消 </button>
+    </div>
+</div>
+

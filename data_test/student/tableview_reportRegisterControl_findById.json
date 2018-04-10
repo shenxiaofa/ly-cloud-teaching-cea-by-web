@@ -1,0 +1,11 @@
+{
+  "code": 200,
+  "data": {
+      "id": "1",
+      "semesterId": "2016-2017-1",
+      "registerStartTime":"2017-10-11",
+      "registerEndTime":"2017-10-11",
+      "enabledRegisterSign":"1",
+      "registerSemesterSign":"0"
+  }
+}

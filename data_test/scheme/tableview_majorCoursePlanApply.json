@@ -1,0 +1,17 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "campus": "南校区",
+        "grade":"20173901",
+        "deptName":"计算机学院",
+        "majorName":"网络安全",
+        "majorCode":"wlaq3302",
+        "educationLevel":"本科",
+        "checkSign":"通过审核"
+      }
+    ]
+  }
+}
+

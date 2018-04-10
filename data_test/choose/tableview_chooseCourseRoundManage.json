@@ -1,0 +1,24 @@
+{
+	"total": "1",
+	"rows": [
+		{
+			"semester": "2017-2018-1",
+			"roundName": "第一轮预选",
+			"startTime": "2017-9-20 09:00:00",
+			"endTime": "2017-9-20 09:00:00",
+			"releaseSign": "是"
+		}, {
+			"semester": "2017-2018-1",
+			"roundName": "第二轮预选",
+			"startTime": "2017-9-20 09:00:00",
+			"endTime": "2017-9-20 09:00:00",
+			"releaseSign": "是"
+		}, {
+			"semester": "2017-2018-1",
+			"roundName": "第三轮预选",
+			"startTime": "2017-9-20 09:00:00",
+			"endTime": "2017-9-20 09:00:00",
+			"releaseSign": "是"
+		}
+	]
+}

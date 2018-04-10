@@ -1,0 +1,119 @@
+[
+    {
+        "id": 1,
+        "parentName": "方案版本管理",
+        "isShow": true,
+        "target": "",
+        "targetUrl": "",
+        "icon": "fa fa-cog",
+        "child": [
+            {
+            "name": "版本信息管理",
+            "isShow": true,
+            "target": "schemeVersionManage",
+            "targetUrl": "home.common.schemeVersionManage",
+            "permission": "schemeVersion:query"
+        },
+            {
+            "name": "课程体系管理",
+            "isShow": true,
+            "target": "versionModelManage",
+            "targetUrl": "home.common.versionModelManage",
+            "permission": "versionModel:query"
+        },{
+            "name": "版本学分管理",
+            "isShow": true,
+            "target": "schemeVersionCreditManage",
+            "targetUrl": "home.common.schemeVersionCreditManage",
+            "permission": "schemeVersionCredit:query"
+        }]
+    },{
+    "id": 2,
+    "parentName": "专业方案管理",
+    "isShow": true,
+    "target": "",
+    "targetUrl": "",
+    "icon":"glyphicon glyphicon-stats",
+    "child": [{
+            "name": "专业方案信息管理",
+            "isShow": true,
+            "target": "majorSchemeInfoManage",
+            "targetUrl": "home.common.majorSchemeInfoManage",
+            "permission": "majorSchemeInfoManage:query"
+        },{
+            "name": "专业课程计划申请",
+            "isShow": true,
+            "target": "majorCurriculaApply",
+            "targetUrl": "home.common.majorCurriculaApply",
+            "permission": "majorCurriculaApply:query"
+        },{
+            "name": "专业课程计划审核",
+            "isShow": true,
+            "target": "majorCurriculaReview",
+            "targetUrl": "home.common.majorCurriculaReview",
+            "permission": "majorCurriculaReview:query"
+        }]
+    },{
+    "id": 3,
+    "parentName": "班级方案管理",
+    "isShow": true,
+    "target": "",
+    "targetUrl": "",
+    "icon":"glyphicon glyphicon-stats",
+    "child": [{
+            "name": "班级方案信息管理",
+            "isShow": true,
+            "target": "classSchemeInfoManage",
+            "targetUrl": "home.common.classSchemeInfoManage",
+            "permission": "classSchemeInfoManage:query"
+        },{
+            "name": "班级课程计划申请",
+            "isShow": true,
+            "target": "classCurriculaApply",
+            "targetUrl": "home.common.classCurriculaApply",
+            "permission": "classCurriculaApply:query"
+        },{
+            "name": "班级课程计划审核",
+            "isShow": true,
+            "target": "classCurriculaReview",
+            "targetUrl": "home.common.classCurriculaReview",
+            "permission": "classCurriculaReview:query"
+        }]
+    },{
+        "id": 4,
+        "parentName": "教学计划管理",
+        "isShow": true,
+        "target": "",
+        "targetUrl": "",
+        "icon":"glyphicon glyphicon-stats",
+        "child":[
+            {
+                "name":"教学计划统计生成",
+                "isShow":true,
+                "target":"curriculumGenerateIndex",
+                "targetUrl":"home.common.curriculumGenerateIndex",
+                "permission": "curriculumGenerateIndex:query"
+            },
+            {
+                "name":"必选课修读情况查询",
+                "isShow":false,
+                "target":"mandatoryStudied",
+                "targetUrl":"home.common.mandatoryStudied"
+            },
+            {
+                "name":"必修课教学计划管理",
+                "isShow":true,
+                "target":"compulsoryCurriculum",
+                "targetUrl":"home.common.compulsoryCurriculum",
+                "permission": "compulsoryCurriculum:query"
+            },
+            {
+                "name":"选修课教学计划管理",
+                "isShow":true,
+                "target":"electiveCurriculum",
+                "targetUrl":"home.common.electiveCurriculum",
+                "permission": "electiveCurriculum:query"
+            }
+        ]
+    }
+]

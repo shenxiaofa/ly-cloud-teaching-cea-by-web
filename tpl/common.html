@@ -1,0 +1,25 @@
+<div class="page">
+    <div class="side" left-sidebar="left-sidebar" login-user="ocsCtr.loginUser"></div>
+
+    <div class="content" >
+        <header class="header" >
+            <div class="breadcrunmbs">
+                <span class="sidebar">
+                    <a ng-click="ocsCtr.toggleThinLeftNav()">
+                        <i class="fa fa-outdent fa-lg" aria-hidden="true"></i>
+                    </a>
+                </span>
+                &nbsp;
+                <span ncy-breadcrumb-html ncy-breadcrumb-html-separator=" / " ></span>
+                <!--<ul class="pull-right header-item">
+                    <li class="header-user">
+                    <div select-con>
+                        <button class="ui-btn ui-btn-none username ui-btn-select" ng-cloak>admin &nbsp;<i class="fa fa-angle-right up drop"></i></button>
+                    </div>
+                    </li>
+                </ul>-->
+            </div>
+        </header>
+        <div class="module container" ui-view="" ></div>
+    </div>     
+</div>

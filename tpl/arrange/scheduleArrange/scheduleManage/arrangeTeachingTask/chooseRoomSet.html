@@ -1,0 +1,70 @@
+<style>
+	.search-form {
+	    padding-top: 0;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">选择上课地点</h3>
+</div>
+<div class="modal-body">
+	<div class="right-content-search">
+		<div ng-hide="isHideSearchForm">
+			<form name="arrangeTeachingTaskChooseRoomSearchForm" class="form-horizontal search-form">
+				<div class="row">
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label">教室编号：</label>
+						<div class="col-xs-6">
+							<input ng-model="arrangeTeachingTask.roomName" type="text" id="roomName" name="roomName" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label">管理单位：</label>
+						<div class="col-xs-6">
+							<select id="deptId" class="form-control">
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label">座位数>：</label>
+						<div class="col-xs-6">
+							<input ng-model="arrangeTeachingTask.seatNumLt" type="text" id="seatNumLt" name="seatNumLt" 
+									class="form-control" onkeyup="this.value=this.value.replace(/\D/g,'')" 
+                                    onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-6">
+						<label class="col-xs-6 control-label">座位数<：</label>
+						<div class="col-xs-6">
+							<input ng-model="arrangeTeachingTask.seatNumGt" type="text" id="seatNumGt" name="seatNumGt" 
+									class="form-control" onkeyup="this.value=this.value.replace(/\D/g,'')" 
+                                    onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-8 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info" style="margin-right: 36px;" ng-click="searchSubmit(arrangeTeachingTaskChooseRoomSearchForm)">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<table id="arrangeTeachingChooseRoomSetTable" ui-jq="bootstrapTable" ui-options="arrangeTeachingChooseRoomSetTable" class="table table-responsive"></table>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(arrangeTeachingTaskAdjustSearchForm)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

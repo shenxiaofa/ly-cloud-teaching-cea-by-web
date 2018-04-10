@@ -1,0 +1,91 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="pyfabzkz_form" class="form-horizontal search-form" novalidate>
+                <div class="row">
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-4 control-label">学院：</label>
+                        <div class="col-xs-8">
+                            <!--<input ng-model="ssdw" class="form-control"  class="input-small">-->
+                            <input type="text" ng-model="batchPrinting.departmentName" id="departmentName" name="departmentName" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label" >年级：</label>
+                        <div class="col-xs-8" >
+                            <select name="" ng-model="batchPrinting.gradeName" id="gradeName" name="gradeName" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control" >
+                                <option value="">==请选择==</option>
+                                <option value="1">2015</option>
+                                <option value="2">2016</option>
+                                <option value="3">2017</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-4 control-label" >专业：</label>
+                        <div class="col-xs-8" >
+                            <input ng-model="batchPrinting.majorName" id="majorName" name="majorName" class="form-control" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label">班级：</label>
+                        <div class="col-xs-8"  >
+                            <input ng-model="batchPrinting.className" id="clazzName" name="clazzName" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label">姓名/学号：</label>
+                        <div class="col-xs-8"  >
+                            <input ng-model="batchPrinting.studentNameOrStudentNum" id="studentNameOrStudentNum" name="studentNameOrStudentNum" class="form-control" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 btn-center">
+                        <!-- 点击触发 ng-submit 事件 -->
+                        <button type="submit" class="btn btn-info" ng-click="searchSubmit()">
+                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+	<div class="right-content-table">
+	    <div id="toolbar" class="btn-group">
+			<div>
+                <button id="btn_print" type="button" class="btn btn-default" ng-click="print()">
+                    <span ></span>打印
+                </button>
+                <button id="btn_preview" type="button" class="btn btn-default" ng-click="preview()">
+                    <span ></span>预览
+                </button>
+			</div>
+	    </div>
+		<table id="invigilationTeachersTable" ui-jq="bootstrapTable" ui-options="invigilationTeachersTable" class="table table-responsive"></table>
+        <form id="tableForm" ng-hide="true">
+            <div class="col-xs-3" id="table">
+                <table id="scoreIntoTable" ui-jq="bootstrapTable" ui-options="scoreIntoTable" class="table table-responsive"></table>
+            </div>
+            <div class="col-xs-3" id="table1">
+                <table id="scoreIntoTable1" ui-jq="bootstrapTable" ui-options="scoreIntoTable1" class="table table-responsive"></table>
+            </div>
+            <div class="col-xs-3" id="table2">
+                <table id="scoreIntoTable2" ui-jq="bootstrapTable" ui-options="scoreIntoTable2" class="table table-responsive"></table>
+            </div>
+            <div class="col-xs-3" id="table3">
+                <table id="scoreIntoTable3" ui-jq="bootstrapTable" ui-options="scoreIntoTable3" class="table table-responsive"></table>
+            </div>
+        </form>
+	</div>
+</div>

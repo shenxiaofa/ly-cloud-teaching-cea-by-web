@@ -1,0 +1,33 @@
+{
+	"total": "1",
+	"rows": [
+		{
+			"semester": "2017-2018-1",
+			"deptName": "计算机科学",
+			"gradeName": "2016",
+			"majorName": "软件工程",
+			"fromClassName": "软件1班",
+			"highestNum": "第一轮预选",
+			"schoolNum": "2014",
+			"deptNum": "软件工程"
+		}, {
+			"semester": "2017-2018-1",
+			"deptName": "计算机科学",
+			"gradeName": "2016",
+			"majorName": "软件工程",
+			"fromClassName": "软件1班",
+			"highestNum": "第二轮正选",
+			"schoolNum": "2014",
+			"deptNum": "软件工程"
+		}, {
+			"semester": "2017-2018-1",
+			"deptName": "计算机科学",
+			"gradeName": "2017",
+			"majorName": "软件工程",
+			"fromClassName": "软件1班",
+			"highestNum": "第三轮补退选",
+			"schoolNum": "2017",
+			"deptNum": "软件工程"
+		}
+	]
+}

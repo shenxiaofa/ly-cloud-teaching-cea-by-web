@@ -1,0 +1,28 @@
+{
+  "data": {
+    "total": 3,
+    "list": [
+      {
+        "startTime": "2017-01-11",
+        "endTime": "2019-09-26",
+        "sendToCollegeName": "联奕大学",
+        "sentToMajorName": "计算机专业",
+        "exchangeStatus": "--"
+      },
+      {
+        "startTime": "2017-01-11",
+        "endTime": "2019-09-26",
+        "sendToCollegeName": "联奕大学",
+        "sentToMajorName": "计算机专业",
+        "exchangeStatus": "--"
+      },
+      {
+        "startTime": "2017-01-11",
+        "endTime": "2019-09-26",
+        "sendToCollegeName": "联奕大学",
+        "sentToMajorName": "计算机专业",
+        "exchangeStatus": "--"
+      }
+    ]
+  }
+}

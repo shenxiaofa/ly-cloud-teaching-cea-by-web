@@ -1,0 +1,70 @@
+<style>
+	.bootstrap-table .table:not(.table-condensed), .bootstrap-table .table:not(.table-condensed)>tbody>tr>td, .bootstrap-table .table:not(.table-condensed)>tbody>tr>th, .bootstrap-table .table:not(.table-condensed)>tfoot>tr>td, .bootstrap-table .table:not(.table-condensed)>tfoot>tr>th, .bootstrap-table .table:not(.table-condensed)>thead>tr>td {
+	    padding: 2px 4px 0 4px;
+	    line-height: 14px!important;
+	}
+	.btn_selectButton {
+	    background-color: rgb(255, 255, 255);
+		height: 34px;
+		width: 100%; 
+		cursor: pointer;
+		border: 1px solid rgb(222, 222, 222);
+		border-radius: 4px;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">新增信息</h3>
+</div>
+<form name="roomTimeDemandAddform" class="form-horizontal search-form">
+	<div class="modal-body">
+		<div class="right-content-table">
+			<div id="" class="row">
+				<div class="form-group col-xs-6">
+					<label class="col-xs-3 control-label required">是否可排：</label>
+					<div class="col-xs-9">
+						<select ng-model="roomTimeDemand.arrangeSign" ui-chosen="roomTimeDemandAddform.arrangeSign" ng-required="true" name="arrangeSign" id="arrangeSign" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+							<option value="">==请选择==</option>
+							<option value="1">可排</option>
+							<option value="2">不可排</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="col-xs-3 control-label required">单双周：</label>
+					<div class="col-xs-9">
+						<select ng-model="roomTimeDemand.oddEvenWeek" ui-chosen="roomTimeDemandAddform.oddEvenWeek" ng-required="true" name="oddEvenWeek" id="oddEvenWeek" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+							<option value="">==请选择==</option>
+							<option value="1">全部</option>
+							<option value="2">单周</option>
+							<option value="3">双周</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div id="" class="row">
+				<div class="form-group col-xs-6">
+					<label class="col-xs-3 control-label required">开始周次：</label>
+					<div class="col-xs-9">
+						<input type="text" ng-model="roomTimeDemand.startWeek" ng-required="true" id="startWeek" name="startWeek" class="form-control"
+									onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+					</div>
+				</div>
+				<div class="form-group col-xs-6">
+					<label class="col-xs-3 control-label required">结束周次：</label>
+					<div class="col-xs-9">
+						<input type="text" ng-model="roomTimeDemand.endWeek" ng-required="true" id="endWeek" name="endWeek" class="form-control"
+									onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+					</div>
+				</div>
+			</div>
+			<table id="roomTimeDemandAddTable" ui-jq="bootstrapTable" ui-options="roomTimeDemandAddTable" class="table table-responsive"></table>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="button" ng-click="ok(roomTimeDemandAddform)">确 定</button>
+		<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+	</div>
+</form>

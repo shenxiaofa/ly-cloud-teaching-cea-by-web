@@ -1,0 +1,109 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">注 册</h3>
+</div>
+<div class="modal-body">
+	<div class="col-xs-12" style="padding: 0; border-bottom: solid 1px #DDDDDD; margin-bottom: 10px;">
+		<div class="right-content-search">
+			<div>
+				<label class="control-label search-control" ng-click="searchFormHideToggle()">
+					<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+				</label>
+			</div>
+			<div ng-hide="isHideSearchForm">
+				<form name="studentSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+					<div class="row">
+						<div class="form-group col-xs-6">
+							<label class="col-xs-4 control-label">学号/姓名：</label>
+							<div class="col-xs-8">
+								<input type="text" ng-model="student.num" name="num" class="form-control"/>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 btn-center">
+							<!-- 点击触发 ng-submit 事件 -->
+							<button type="submit" class="btn btn-info">
+								<span class="fa fa-search refer btn-icon-padding"></span>查询
+							</button>
+							<button type="button" class="btn btn-default" ng-click="searchReset()">
+								<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="selectStudentTableDiv" style="padding: 5px 0px 0px 0px;">
+			<table id="selectStudentTable" ui-jq="bootstrapTable" ui-options="selectStudentTable" class="table table-responsive"></table>
+		</div>
+	</div>
+	<form name="reportRegisterAddform" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-4">
+				<label class="col-xs-4 control-label required">学号：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="reportRegister.studentNum" ng-required="true" ng-readonly="true" id="studentNum" name="studentNum" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-4 control-label required">姓名：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="reportRegister.studentName" ng-required="true" ng-readonly="true" id="studentName" name="studentName" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-4 control-label required">性别：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="reportRegister.studentSex" ng-required="true" ng-readonly="true" id="studentSex" name="studentSex" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-4">
+				<label class="col-xs-4 control-label required">班级：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="reportRegister.executiveClassName" ng-required="true" ng-readonly="true" id="executiveClassName" name="executiveClassName" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-4 control-label required">学年学期：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.semesterId" ui-chosen="reportRegisterAddform.semesterId" ng-required="true" id="semesterId_select" name="semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="semesterIdItem in semesterIdData" value="{{semesterIdItem.id}}">{{semesterIdItem.acadYearSemester}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-xs-4">
+				<label class="col-xs-4 control-label required">注册状态：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.registerStatusCode" ui-chosen="reportRegisterAddform.registerStatusCode" ng-required="true" id="registerStatusCode_select" name="registerStatusCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="registerStatusCodeItem in registerStatusCodeData" value="{{registerStatusCodeItem.dataNumber}}">{{registerStatusCodeItem.dataName}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">未注册原因：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.unregisterReasonCode" ui-chosen="reportRegisterAddform.unregisterReasonCode" id="unregisterReasonCode_select" name="unregisterReasonCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="unregisterReasonCodeItem in unregisterReasonCodeData" value="{{unregisterReasonCodeItem.dataNumber}}">{{unregisterReasonCodeItem.dataName}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-xs-6">
+				<label class="col-xs-2 control-label">备注：</label>
+				<div class="col-xs-9">
+					<textarea ng-model="reportRegister.remark" maxlength="500" id="remark" name="remark" class="form-control" rows="3"></textarea>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(reportRegisterAddform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

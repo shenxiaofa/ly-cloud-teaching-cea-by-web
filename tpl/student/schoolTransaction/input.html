@@ -1,0 +1,228 @@
+<style>
+	.form-title {
+		margin-top: 20px;
+		margin-bottom: 10px;
+		position: relative;
+	}
+	.form-title .line {
+		position: absolute;
+		top: 10px;
+		border-top: 1px solid #e5e5e5;
+		margin-left: 10px;
+		width: 90%;
+	}
+</style>
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">新 增</h3>
+</div>
+<div class="modal-body">
+	<div class="form-title">学生当前情况<span class="line" style="width: 89%;"></span></div>
+	<form name="studentForm" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-4">
+				<label class="col-xs-4 control-label">学生学号：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.num" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">学生姓名：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.name" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">学生性别：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.sex" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">院系名称：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.deptName" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">所在年级：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.grade" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">专业名称：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.majorName" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">班级名称：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.executiveClassName" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">培养层次：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.trainGradeName" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">学制：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.learnSystem" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">当前学籍状态：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.currentStatusName" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">是否在籍：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="student.schoolStatusName" ng-readonly="true" class="form-control"/>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div class="form-title">异动后情况<span class="line"></span></div>
+	<form name="schoolTransactionAddform" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-4">
+				<label class="col-xs-4 control-label required">异动类型：</label>
+				<div class="col-xs-8">
+					<select ng-model="schoolTransaction.classCode" ui-chosen="schoolTransactionAddform.classCode" ng-required="true" id="classCode_select" name="classCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="classCodeItem in classCodeData" value="{{classCodeItem.dataNumber}}">{{classCodeItem.dataName}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label required">异动原因：</label>
+				<div class="col-xs-8">
+					<select ng-model="schoolTransaction.tReason" ui-chosen="schoolTransactionAddform.tReason" ng-required="true" id="tReason_select" name="tReason" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="tReasonItem in tReasonData" value="{{tReasonItem.dataNumber}}">{{tReasonItem.dataName}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label required">异动日期：</label>
+				<div class="col-xs-8">
+					<div class="input-group">
+						<input ng-model="schoolTransaction.tDate" id="tDate" name="tDate" type="text" class="form-control"
+							   ng-required="true"
+							   uib-datepicker-popup="yyyy-MM-dd"
+							   is-open="tDateOptions.opened"
+							   datepicker-options="tDateOptions.dateOptions"
+							   current-text="今天"
+							   clear-text="清除"
+							   close-text="关闭"
+							   ng-click="tDateOptions.open()" />
+					  <span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="tDateOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+					  </span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label required">生效学期：</label>
+				<div class="col-xs-8">
+					<select ng-model="schoolTransaction.semesterId" ui-chosen="schoolTransactionAddform.semesterId" ng-required="true" id="semesterId_select" name="semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="semesterIdItem in semesterIdData" value="{{semesterIdItem.id}}">{{semesterIdItem.acadYearSemester}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">院系名称：</label>
+				<div class="col-xs-8">
+					<select ng-model="schoolTransaction.deptId" id="deptId_select" name="deptId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="deptIdItem in deptIdData" value="{{deptIdItem.departmentNumber}}">{{deptIdItem.departmentName}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">所在年级：</label>
+				<div class="col-xs-8">
+					<select ng-model="schoolTransaction.grade" id="grade_select" name="grade" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="gradeItem in gradeData" value="{{gradeItem.id}}">{{gradeItem.dataNumber}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">专业名称：</label>
+				<div class="col-xs-8">
+					<select ng-model="schoolTransaction.tProfessionalNumber" id="tProfessionalNumber_select" name="tProfessionalNumber" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="tProfessionalNumberItem in tProfessionalNumberData" value="{{tProfessionalNumberItem.code}}">{{tProfessionalNumberItem.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label required">班级名称：</label>
+				<div class="col-xs-8">
+					<select ng-model="schoolTransaction.tClassNumber" ui-chosen="schoolTransactionAddform.tClassNumber" ng-required="true" id="tClassNumber_select" name="tClassNumber" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="tClassNumberItem in tClassNumberData" value="{{tClassNumberItem.id}}">{{tClassNumberItem.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label required">异动文号：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="schoolTransaction.approvalNumber" name="approvalNumber" id="approvalNumber" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label required">发文日期：</label>
+				<div class="col-xs-8">
+					<div class="input-group">
+						<input ng-model="schoolTransaction.dispDate" id="dispDate" name="dispDate" type="text" class="form-control"
+							   ng-required="true"
+							   uib-datepicker-popup="yyyy-MM-dd"
+							   is-open="dispDateOptions.opened"
+							   datepicker-options="dispDateOptions.dateOptions"
+							   current-text="今天"
+							   clear-text="清除"
+							   close-text="关闭"
+							   ng-click="dispDateOptions.open()" />
+					  <span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="dispDateOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+					  </span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group  col-xs-4">
+				<label class="col-xs-4 control-label">异动去向：</label>
+				<div class="col-xs-8">
+					<input type="text" ng-model="schoolTransaction.tWhereabouts" name="tWhereabouts" id="tWhereabouts" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-12">
+				<label class="col-xs-2 control-label">异动理由：</label>
+				<div class="col-xs-9">
+					<textarea ng-model="schoolTransaction.tExplain" maxlength="500" id="tExplain" name="tExplain" class="form-control" rows="3"></textarea>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(schoolTransactionAddform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

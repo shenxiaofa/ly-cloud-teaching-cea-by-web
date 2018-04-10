@@ -1,0 +1,101 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button>
+	<h3 class="modal-title">批量注册</h3>
+</div>
+<div class="modal-body">
+	<form name="reportRegisterBatchAddform" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label required">学年学期：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.semesterId" ui-chosen="reportRegisterBatchAddform.semesterId" ng-required="true" id="semesterId_select" name="semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="semesterIdItem in semesterIdData" value="{{semesterIdItem.id}}">{{semesterIdItem.acadYearSemester}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label">学籍状态：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.schoolStatus" name="schoolStatus" id="schoolStatus_select" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+						<option value="">==请选择==</option>
+						<option value="1">在籍</option>
+						<option value="0">不在籍</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">学生类别：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.studentTypeCode" id="studentTypeCode_select" name="studentTypeCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="studentTypeCodeItem in studentTypeCodeData" value="{{studentTypeCodeItem.dataNumber}}">{{studentTypeCodeItem.dataName}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label">上课院系：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.deptId" id="deptId_select" name="deptId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="deptIdItem in deptIdData" value="{{deptIdItem.departmentNumber}}">{{deptIdItem.departmentName}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">上课年级：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.gradeName" id="gradeName_select" name="gradeName" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="gradeNameItem in gradeNameData" value="{{gradeNameItem.id}}">{{gradeNameItem.dataNumber}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label">专业名称：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.majorId" id="majorId_select" name="majorId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="majorIdItem in majorIdData" value="{{majorIdItem.code}}">{{majorIdItem.name}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<label class="col-xs-4 control-label">班级名称：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.executiveClassId" id="executiveClassId_select" name="executiveClassId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="executiveClassIdItem in executiveClassIdData" value="{{executiveClassIdItem.id}}">{{executiveClassIdItem.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label">默认注册状态：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.registerStatusCode" id="registerStatusCode_select" name="registerStatusCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="registerStatusCodeItem in registerStatusCodeData" value="{{registerStatusCodeItem.dataNumber}}">{{registerStatusCodeItem.dataName}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group  col-xs-6">
+				<label class="col-xs-4 control-label">默认未注册原因：</label>
+				<div class="col-xs-8">
+					<select ng-model="reportRegister.unregisterReasonCode" id="unregisterReasonCode_select" name="unregisterReasonCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+						<option ng-repeat="unregisterReasonCodeItem in unregisterReasonCodeData" value="{{unregisterReasonCodeItem.dataNumber}}">{{unregisterReasonCodeItem.dataName}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div class="color_red text-l p5">
+		<div class="fl h50">说明：</div><div class="fl h50">批量注册信息，对于已经注册的信息不再重新注册（同一学期的同一学生有且只有一条注册信息）。</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok(reportRegisterBatchAddform)">确 定</button>
+	<button class="btn btn-default" type="button" ng-click="close()">取 消</button>
+</div>

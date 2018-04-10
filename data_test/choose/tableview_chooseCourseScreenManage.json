@@ -1,0 +1,66 @@
+{
+	"total": "1",
+	"rows": [
+		{
+			"semester": "2017-2018-1",
+			"roundName": "正选",
+			"chosenControl": "可退可选",
+			"courseNum": "F2080001",
+			"courseName": "Excel高级应用",
+			"screenState": "已筛选",
+			"openDeptName": "教务处",
+			"courseType": "选修",
+			"credit": "2",
+			"teachingTaskName": "Excel高级应用1班",
+			"teacher": "张三",
+			"teachingTaskMax": "40",
+			"beChoosedNum": "100",
+			"ChoosedNum": "40"
+		}, {
+			"semester": "2017-2018-1",
+			"roundName": "正选",
+			"chosenControl": "可退可选",
+			"courseNum": "F2080001",
+			"courseName": "C语言程序设计",
+			"screenState": "已筛选",
+			"openDeptName": "计算机科学",
+			"courseType": "任选",
+			"credit": "2",
+			"teachingTaskName": "Excel高级应用2班",
+			"teacher": "李四",
+			"teachingTaskMax": "45",
+			"beChoosedNum": "60",
+			"ChoosedNum": "45"
+		}, {
+			"semester": "2017-2018-1",
+			"roundName": "正选",
+			"chosenControl": "可退可选",
+			"courseNum": "F2080001",
+			"courseName": "数据挖掘",
+			"screenState": "未筛选",
+			"openDeptName": "计算机科学",
+			"courseType": "选修",
+			"credit": "2",
+			"teachingTaskName": "Excel高级应用3班",
+			"teacher": "李四",
+			"teachingTaskMax": "40",
+			"beChoosedNum": "40",
+			"ChoosedNum": "0"
+		}, {
+			"semester": "2017-2018-1",
+			"roundName": "正选",
+			"chosenControl": "可退可选",
+			"courseNum": "F2080001",
+			"courseName": "体育",
+			"screenState": "未筛选",
+			"openDeptName": "体育部",
+			"courseType": "必修",
+			"credit": "2",
+			"teachingTaskName": "Excel高级应用4班",
+			"teacher": "王五",
+			"teachingTaskMax": "40",
+			"beChoosedNum": "40",
+			"ChoosedNum": "0"
+		}
+	]
+}

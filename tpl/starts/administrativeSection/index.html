@@ -1,0 +1,92 @@
+<div class="right-content">
+	<div class="col-xs-2 left-tree" ng-style="leftTreeStyle" ng-scroll-bar>
+		<ul id="menuTree" z-tree tree-options="zTreeOptions" class="ztree"></ul>
+	</div>
+	<div class="col-xs-10" style="padding: 5px 5px 0px 5px;">
+		<div class="right-content-search">
+			<div>
+				<label class="control-label search-control" ng-click="searchFormHideToggle()">
+					<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+				</label>
+			</div>
+			<div ng-hide="isHideSearchForm">
+				<form name="sectionSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<label class="col-xs-6 control-label">学院：</label>
+							<div class="col-xs-5">
+								<input type="text" ng-model="adminSection.collegeName" id="collegeName" name="collegeName" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-6 control-label">专业：</label>
+							<div class="col-xs-5">
+								<input type="text" ng-model="adminSection.majorName" id="majorName" name="majorName" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-7 control-label">行政班级：</label>
+							<div class="col-xs-5">
+								<input type="text" ng-model="adminSection.executiveClassName" id="executiveClassName" name="executiveClassName" class="form-control"/>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<label class="col-xs-6 control-label">课程名称：</label>
+							<div class="col-xs-5">
+								<input type="text" ng-model="adminSection.courseName" id="courseName" name="courseName" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-6 control-label">板块：</label>
+							<div class="col-xs-5">
+								<input type="text" ng-model="adminSection.plateName" id="plateName" name="plateName" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-7 control-label">是否设置版块：</label>
+							<div class="col-xs-5 radio">
+								<label class="col-xs-6 control-label" style="text-align: left">
+									<input type="radio" ng-model="adminSection.settingSign" name="optionsRadios" id="optionsYes" value="1" > 是
+								</label>
+								<label class="col-xs-6 control-label" style="text-align: left">
+									<input type="radio" ng-model="adminSection.settingSign" name="optionsRadios" id="optionsNo" value="0" > 否
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 btn-center">
+							<!-- 点击触发 ng-submit 事件 -->
+							<button type="submit" class="btn btn-info">
+								<span class="fa fa-search refer btn-icon-padding"></span>查询
+							</button>
+							<button type="button" class="btn btn-default" ng-click="searchReset()">
+								<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="right-content-table">
+			<div id="toolbar" class="btn-group">
+				<div>
+					<button has-permission="administrativeSection:batchSet" type="button" class="btn btn-default " ng-click="openAdd()">
+						<span class="fa fa-edit toolbar-btn-icon"></span>批量设置
+					</button>
+					&nbsp;
+					<button has-permission="administrativeSection:remove" type="button" class="btn btn-default del-btn" ng-click="openDelete()">
+						<span class="fa fa-edit toolbar-btn-icon"></span>清空板块安排
+					</button>
+					&nbsp;
+					<button has-permission="administrativeSection:delete" type="button" class="btn btn-default del-btn" ng-click="openDeleteById()">
+						<span class="fa fa-times toolbar-btn-icon"></span>批量删除
+					</button>
+				</div>
+			</div>
+			<table id="administrativeSectionTable" ui-jq="bootstrapTable" ui-options="administrativeSectionTable" class="table table-responsive"></table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,66 @@
+<div class="login">
+    <div class="text">
+        <img src="img/login_logo.png" alt="">
+        <div class="login-input">
+            <ul id="myTab" class="nav nav-tabs">
+                <li><a data-toggle="tab" target="_self"></a></li>
+                <li class="active"><a href="#admin" data-toggle="tab" target="_self">管理员登录</a></li>
+                <li><a data-toggle="tab" target="_self"></a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="admin">
+                    <form class="form-horizontal" role="form" name="adminForm"
+                          ng-submit="simpleLogin(adminName,adminPwd, aVrifyCode,adminForm.$valid,managerModule)" novalidate>
+                        <div class="form-group">
+                            <label class="col-xs-3 col-sm-3 control-label">账号:</label>
+                            <div class="col-xs-8 col-sm-8">
+                                <input type="text" class="form-control" name="adminName" placeholder="请输入账号"
+                                       ng-model="adminName" ng-required="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 col-sm-3 control-label">密码:</label>
+                            <div class="col-xs-8 col-sm-8">
+                                <input type="password" class="form-control" name="adminPwd"
+                                       placeholder="请输入密码"  ng-model="adminPwd"  ng-required="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 col-sm-3 control-label">验证码:</label>
+                            <div class="col-xs-4 col-sm-4">
+                                <input type="text" class="form-control" name="aVrifyCode"
+                                       placeholder="请输入验证码"  ng-model="aVrifyCode"  ng-required="true">
+                            </div>
+                            <label class="col-xs-4 col-sm-4 control-label" style="padding-top: 0; padding-right: 0;">
+                                <img title="点击刷新验证码" alt="点击刷新验证码" ng-click="updateVrifyCode(managerModule)" ng-src="{{managerVrifyCodeUrl}}" style="cursor: pointer;"/>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 col-sm-3 control-label"></label>
+                            <div class="col-xs-8 col-sm-8">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6">
+                                        <button type="submit" class="btn login_btn" ng-disabled="adminForm.$invalid">登录</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                   
+                                    <div class="col-xs-6 col-sm-6">
+                                        <a href="javascript:;" style="margin-left:-45px">忘记密码(重置密码)</a>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>版权所有<span>&copy;</span>北京电影学院  技术支持：联奕科技股份有限公司<span>COPYRIGHT©1999-2017,SUN YAT-SEN</span></p>
+    </div>
+    <style>
+
+    </style>
+</div>

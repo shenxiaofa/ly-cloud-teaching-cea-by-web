@@ -1,0 +1,45 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "id": "1",
+        "name": "通识基础课",
+        "kcxz": {
+          "id": "2",
+          "name": "选修"
+        },
+        "presetCourseSign":"1",
+        "modelOperationRange": [
+          {
+            "id": "1",
+            "name": "表演系"
+          },
+          {
+            "id": "2",
+            "name": "导演系"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "必修课",
+        "kcxz": {
+          "id": "1",
+          "name": "必修"
+        },
+        "presetCourseSign":"2",
+        "modelOperationRange": [
+          {
+            "id": "1",
+            "name": "表演系"
+          },
+          {
+            "id": "2",
+            "name": "导演系"
+          }
+        ]
+      }
+    ]
+  }
+}

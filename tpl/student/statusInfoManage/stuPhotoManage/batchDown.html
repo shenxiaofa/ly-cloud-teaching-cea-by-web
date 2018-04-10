@@ -1,0 +1,73 @@
+<style>
+    .modal-footer{
+        border-top:0px #e5e5e5 solid!important;
+    }
+    .backColor{
+        background: #03a9f4 none repeat scroll 0 0 !important;
+        border: 1px solid #03a9f4 !important;
+        color: #ffffff !important;
+    }
+
+</style>
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">批量下载</h3>
+</div>
+
+<div class="modal-body">
+    <form name="stuPhotoInfoBatchDown_form" class="form-horizontal" novalidate>
+        <div class="col-xs-12 modal-con ">
+            <div class="col-xs-12 p0">
+                <div class="col-xs-12">
+                    <div class="form-group col-xs-11">
+                        <label class="col-xs-5 control-label "> 照片类型：</label>
+                        <div class="col-xs-6 " style="padding-top: 6px;">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="stuPhotoInfoBatchDown.photoType" name="photoType"
+                                       value="1"> 入学照片
+                            </label>
+                            &nbsp;
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="stuPhotoInfoBatchDown.photoType" name="photoType"
+                                       value="0"> 毕业照片
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group col-xs-11">
+                    <label class="col-xs-5 control-label required">学院：</label>
+                    <div class="col-xs-6 " style="padding-top: 6px;">
+                        <select ng-model="stuPhotoInfoBatchDown.collegeNum" ng-required="true"
+                                ui-chosen="stuPhotoInfoBatchDown_form.collegeNum"
+                                ng-options="collegeNum.id as collegeNum.name for collegeNum in collegeNumList"
+                                name="collegeNum" id="collegeNum" class="form-control" ui-jq="chosen"
+                                ui-options="{search_contains: true}">
+                            <option value="">==请选择==</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-xs-11">
+                    <label class="col-xs-5 control-label required">年级：</label>
+                    <div class="col-xs-6 " style="padding-top: 6px;">
+                        <select ng-model="stuPhotoInfoBatchDown.grade" ng-required="true"
+                                ui-chosen="stuPhotoInfoBatchDown_form.grade"
+                                ng-options="grade.id as grade.name for grade in gradeList"
+                                name="grade" id="grade" class="form-control" ui-jq="chosen"
+                                ui-options="{search_contains: true}">
+                            <option value="">==请选择==</option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default backColor" type="button" ng-click="down(stuPhotoInfoBatchDown_form)">下载照片</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">关 闭</button>
+</div>

@@ -1,0 +1,18 @@
+<div  class="right-content">
+    <div class="right-content-table">
+        <div id="toolbar" class="btn-group">
+            <div>
+                <button has-permission="hierarchicalCodeMaintenance:insert" id="btn_add" type="button" class="btn btn-default add-btn" ng-click="openAdd()">
+                    <span class="glyphicon glyphicon-plus toolbar-btn-icon"></span>新增
+                </button>
+
+                &nbsp;
+                <button has-permission="hierarchicalCodeMaintenance:delete" id="btn_delete" type="button"  class="btn btn-default del-btn" ng-click="openDelete()">
+                    <span class="glyphicon glyphicon-remove toolbar-btn-icon" ></span>删除
+                </button>
+
+            </div>
+        </div>
+        <table id="showTable" ui-jq="bootstrapTable" ui-options="showTable" class="table table-responsive"></table>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="modal-header">
+
+	<h3 class="modal-title" ><div class="top-left col-xs-8">用户组成员管理 &nbsp;&nbsp;（用户组名称：{{userGroup.yhzmc}}）</div></h3>
+
+	<div class=" top-right"><button type="button" class="close" ng-click="close()">
+		<span>&times;</span>
+	</button></div>
+</div>
+<div class="modal-body">
+		<div class="right-content-search">
+			<div>
+				<label class="control-label search-control" ng-click="searchFormHideToggle()">
+					<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+				</label>
+			</div>
+			<div ng-hide="isHideSearchForm">
+				<form name="userGroupSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">用户类型：</label>
+							<div class="col-xs-8">
+								<select ng-model="user.yhlx" ui-chosen="userGroupSearchForm.yhlx" id="yhlx_select" name="yhlx" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+									<option value="">== 请选择 ==</option>
+									<option value="1">教职工</option>
+									<option value="2">学生</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">部门名称：</label>
+							<div class="col-xs-8">
+								<input type="text" ng-model="user.dwmc" id="dwmc" name="dwmc" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">用户账号：</label>
+							<div class="col-xs-8">
+								<input type="text" ng-model="user.yhbh" id="yhbh" name="yhbh" class="form-control"/>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">用户名称：</label>
+							<div class="col-xs-8">
+								<input type="text" ng-model="user.xm" id="xm" name="xm" class="form-control"/>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 btn-center">
+							<!-- 点击触发 ng-submit 事件 -->
+							<button type="submit" class="btn btn-info">
+								<span class="fa fa-search refer btn-icon-padding"></span>查询
+							</button>
+							<button type="button" class="btn btn-default" ng-click="searchReset()">
+								<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="right-content-table">
+			<div id="childToolbar" class="btn-group">
+				<div>
+					<button  type="button" class="btn btn-default add_btn" ng-click="openAdd()">
+						<span class="fa fa-plus toolbar-btn-icon">&nbsp;新增</span>
+					</button>
+					<button  type="button" class="btn btn-default del-btn" ng-click="openDelete()">
+						<span class="fa fa-times toolbar-btn-icon">&nbsp;删除</span>
+					</button>
+				</div>
+			</div>
+			<table id="userTable" ui-jq="bootstrapTable" ui-options="userTable" class="table table-responsive"></table>
+		</div>
+	</div>
+</div>

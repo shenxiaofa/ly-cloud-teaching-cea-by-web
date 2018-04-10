@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html ng-app="hiocsApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>北影教务系统</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="vendor/libs/bootstrap/bootstrap.css" type="text/css">
+
+    <!-- ui-switch -->
+    <link rel="stylesheet" href="vendor/angular/ui-switch/angular-ui-switch.min.css" type="text/css">
+
+    <!-- zTree -->
+    <link rel="stylesheet" href="vendor/jquery/zTree/css/zTreeStyle/metro.css" type="text/css">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="vendor/libs/font-awesome/font-awesome.min.css" type="text/css">
+
+    <!-- angular -->
+    <link rel="stylesheet" href="vendor/angular/ng-scroll-bar/ng-scroll-bar.min.css" type="text/css">
+
+    <!-- app -->
+    <link rel="stylesheet" href="css/base.css" type="text/css">
+    <link rel="stylesheet" href="css/lycea.css" type="text/css">
+    <link rel="stylesheet" href="css/app.css" type="text/css">
+
+    <!-- app directive -->
+    <link rel="stylesheet" href="js/directive/left-sidebar/left-sidebar.css" type="text/css">
+    <link rel="stylesheet" href="js/directive/left-sidebar/left-sidebar-icon.css" type="text/css">
+
+    <link rel="stylesheet" href="css/bussiness.css" type="text/css">
+
+    <link rel="stylesheet" href="js/directive/angular-bootstrap-nav-tree/abn_tree.css" type="text/css">
+
+    <!-- login -->
+    <link rel="stylesheet" href="css/login/login.css" type="text/css">
+</head>
+<body ng-controller="hiocsCtr as ocsCtr" ng-class="{'thin-left-nav':$storage.thinLeftNav}">
+
+    <!-- 加载提示 -->
+    <div class="tc zhe" style="width: 100%; height: 100%; text-align: center;" ng-show="showLoading">
+        <img src="img/loading.gif" style="position: absolute; margin-top: -21px;top: 50%;margin-left: -21px;left: 50%;">
+    </div>
+
+    <div class="warp_bg" ui-view=""></div>
+
+    <!-- jquery -->
+    <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery/jquery-ui.min.js"></script>
+
+    <!-- sockjs -->
+    <script type="text/javascript" src="vendor/libs/sockjs/sockjs.min.js"></script>
+
+    <!-- stomp -->
+    <script type="text/javascript" src="vendor/libs/stomp/stomp.min.js"></script>
+
+    <!-- lodop -->
+    <script type="text/javascript" src="vendor/libs/lodop/LodopFuncs.js"></script>
+
+    <!-- encrypt -->
+    <script type="text/javascript" src="vendor/libs/gt/gt.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery/jquery-base64/jquery.base64.js"></script>
+
+    <!-- zTree -->
+    <script type="text/javascript" src="vendor/jquery/zTree/js/jquery.ztree.all-3.5.min.js"></script>
+
+    <!-- bootstrap -->
+    <script type="text/javascript" src="vendor/libs/bootstrap/bootstrap.min.js"></script>
+
+    <!-- angular -->
+    <script type="text/javascript" src="vendor/angular/angular/angular.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular-ui-router/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular-breadcrumb/angular-breadcrumb.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/ocLazyLoad/ocLazyLoad.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/bindonce/bindonce.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular-locale/angular-locale_zh-cn.js"></script>
+    <script type="text/javascript" src="vendor/angular/ui-bootstrap-tpls/ui-bootstrap-tpls-2.4.0.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/ng-scroll-bar/ng-scroll-bar.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/ngStorage/ngStorage.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/ng-clipboard/ngclipboard.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular-cookies/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular-uuid4/angular-uuid4.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/ui-switch/angular-ui-switch.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular-file-upload/angular-file-upload.js"></script>
+
+    <!-- app -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/run.js"></script>
+    <script type="text/javascript" src="js/config.lazyload.js"></script>
+
+    <!-- app router -->
+    <script type="text/javascript" src="js/config.router.js"></script>
+    <script type="text/javascript" src="js/router/scheme.js"></script>
+    <script type="text/javascript" src="js/router/arrange.js"></script>
+    <script type="text/javascript" src="js/router/starts.js"></script>
+    <script type="text/javascript" src="js/router/system.js"></script>
+    <script type="text/javascript" src="js/router/student.js"></script>
+    <script type="text/javascript" src="js/router/exam.js"></script>
+    <script type="text/javascript" src="js/router/score.js"></script>
+    <script type="text/javascript" src="js/router/studentInfo.js"></script>
+    <script type="text/javascript" src="js/router/choose.js"></script>
+
+    <!-- app controller -->
+    <script type="text/javascript" src="js/controller/appController.js"></script>
+
+    <!-- app service -->
+    <script type="text/javascript" src="js/service/ui-load.js"></script>
+    <script type="text/javascript" src="js/service/alertService/alertService.js"></script>
+    <script type="text/javascript" src="js/service/formVerifyService.js"></script>
+
+    <!-- app directive -->
+    <script type="text/javascript" src="js/directive/ui-nav/ui-nav.js"></script>
+    <script type="text/javascript" src="js/directive/left-sidebar/left-sidebar.js"></script>
+    <script type="text/javascript" src="js/directive/ui-jq.js"></script>
+    <script type="text/javascript" src="js/directive/integer.js"></script>
+    <script type="text/javascript" src="js/directive/date-gt.js"></script>
+    <script type="text/javascript" src="js/directive/search-showHide.js"></script>
+    <script type="text/javascript" src="js/directive/angular-bootstrap-nav-tree/abn_tree_directive.js"></script>
+    <script type="text/javascript" src="js/directive/z-tree.js"></script>
+    <script type="text/javascript" src="js/directive/ui-chosen.js"></script>
+    <script type="text/javascript" src="js/directive/has-permission.js"></script>
+    <script type="text/javascript" src="js/directive/has-role.js"></script>
+    <script type="text/javascript" src="js/directive/select-content.js"></script>
+    <script type="text/javascript" src="js/directive/onFinishRenderFilters.js"></script>
+
+    <!-- 登录 -->
+    <script type="text/javascript" src="tpl/login/js/loginController.js"></script>
+    <script type="text/javascript" src="tpl/login/js/loginService.js"></script>
+
+    <!-- 登出 -->
+    <script type="text/javascript" src="tpl/login/js/logoutController.js"></script>
+    <script type="text/javascript" src="tpl/login/js/logoutService.js"></script>
+
+    <!-- 基础数据 -->
+    <script type="text/javascript" src="tpl/baseinfo/general/js/generalService.js"></script>
+
+    <!-- 培养方案 -->
+    <script type="text/javascript" src="tpl/scheme/schemeVersion/js/schemeVersionController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/schemeVersion/js/schemeVersionService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/versionModel/js/versionModelController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/versionModel/js/versionModelService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/schemeVersionCredit/js/schemeVersionCreditController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/schemeVersionCredit/js/schemeVersionCreditService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/majorSchemeInfoManage/js/majorSchemeInfoManageController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/majorSchemeInfoManage/js/majorSchemeInfoManageService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/majorCurriculaApply/js/majorCurriculaApplyController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/majorCurriculaApply/js/majorCurriculaApplyService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/majorCurriculaReview/js/majorCurriculaReviewService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/majorCurriculaReview/js/majorCurriculaReviewController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/classSchemeInfoManage/js/classSchemeInfoManageController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/classSchemeInfoManage/js/classSchemeInfoManageService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/classCurriculaApply/js/classCurriculaApplyController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/classCurriculaApply/js/classCurriculaApplyService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/classCurriculaReview/js/classCurriculaReviewController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/classCurriculaReview/js/classCurriculaReviewService.js"></script>
+	<script type="text/javascript" src="tpl/scheme/curriculumGenerate/js/curriculumGenerateController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/curriculumGenerate/js/curriculumGenerateService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/mandatoryStudied/js/mandatoryStudiedController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/compulsoryCurriculum/js/compulsoryCurriculumController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/compulsoryCurriculum/js/compulsoryCurriculumService.js"></script>
+    <script type="text/javascript" src="tpl/scheme/electiveCurriculum/js/electiveCurriculumController.js"></script>
+    <script type="text/javascript" src="tpl/scheme/electiveCurriculum/js/electiveCurriculumService.js"></script>
+
+	<!-- 排课安排管理 -->
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/arrangeTeachingTask/js/adjustSetController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/arrangeTeachingTask/js/adjustSetService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/arrangeTeachingTask/js/arrangeSetController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/arrangeTeachingTask/js/arrangeSetService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/arrangeTeachingTask/js/arrangeTeachingTaskController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/arrangeTeachingTask/js/arrangeTeachingTaskService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/arrangeTeachingTask/js/chooseRoomController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/arrangeTeachingTask/js/chooseRoomService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/js/scheduleManageController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/js/scheduleManageService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/courseTimeDemand/js/courseTimeDemandController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/courseTimeDemand/js/courseTimeDemandService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/courseTimeDemand/js/courseTimeDemandSetController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/courseTimeDemand/js/courseTimeDemandSetService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/basicSetting/timeSetting/js/timeSettingController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/basicSetting/timeSetting/js/timeSettingService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/roomTimeDemand/js/roomTimeDemandController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/roomTimeDemand/js/roomTimeDemandService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/roomTimeDemand/js/roomTimeDemandSetController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/roomTimeDemand/js/roomTimeDemandSetService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/teacherTimeDemand/js/teacherTimeDemandController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/teacherTimeDemand/js/teacherTimeDemandService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/teacherTimeDemand/js/teacherTimeDemandSetController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/demandSetting/teacherTimeDemand/js/teacherTimeDemandSetService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/teacherSchedule/js/teacherScheduleController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/teacherSchedule/js/teacherScheduleService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/teacherSchedule/js/teacherScheduleDetailController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/roomSchedule/js/roomScheduleController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/roomSchedule/js/roomScheduleService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/roomSchedule/js/roomScheduleDetailController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/studentSchedule/js/studentScheduleController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/studentSchedule/js/studentScheduleService.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/studentSchedule/js/studentScheduleDetailController.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleDetail/GezEntry.js"></script>
+    <script type="text/javascript" src="tpl/arrange/scheduleArrange/scheduleManage/arrangeTeachingTask/js/teacherSelectorController.js"></script>
+    <script ></script>//
+
+    <!--开课安排管理-->
+    <script type="text/javascript" src="tpl/starts/gradeListMaintenance/js/gradeListMaintenanceController.js"></script>
+    <script type="text/javascript" src="tpl/starts/gradeListMaintenance/js/gradeListMaintenanceService.js"></script>
+    <script type="text/javascript" src="tpl/starts/gradePlateSetting/js/gradePlateSettingController.js"></script>
+    <script type="text/javascript" src="tpl/starts/gradePlateSetting/js/gradePlateSettingService.js"></script>
+    <script type="text/javascript" src="tpl/starts/hierarchicalCodeMaintenance/js/hierarchicalCodeMaintenanceController.js"></script>
+    <script type="text/javascript" src="tpl/starts/hierarchicalCodeMaintenance/js/hierarchicalCodeMaintenanceService.js"></script>
+    <script type="text/javascript" src="tpl/starts/plateSetting/js/plateSettingController.js"></script>
+    <script type="text/javascript" src="tpl/starts/plateSetting/js/plateSettingService.js"></script>
+    <script type="text/javascript" src="tpl/starts/plateTeachingTask/js/plateTeachingTaskController.js"></script>
+    <script type="text/javascript" src="tpl/starts/plateTeachingTask/js/plateTeachingTaskService.js"></script>
+    <script type="text/javascript" src="tpl/starts/timeSetting/js/timeSettingController.js"></script>
+    <script type="text/javascript" src="tpl/starts/timeSetting/js/timeSettingService.js"></script>
+    <script type="text/javascript" src="tpl/starts/requiredCourseClassManage/js/requiredCourseController.js"></script>
+    <script type="text/javascript" src="tpl/starts/requiredCourseClassManage/js/requiredCourseService.js"></script>
+    <script type="text/javascript" src="tpl/starts/requiredCourseArrange/js/requiredCourseArrangeController.js"></script>
+    <script type="text/javascript" src="tpl/starts/requiredCourseArrange/js/requiredCourseArrangeService.js"></script>
+    <script type="text/javascript" src="tpl/starts/projectCodeMaintenance/js/projectCodeMaintenanceController.js"></script>
+    <script type="text/javascript" src="tpl/starts/projectCodeMaintenance/js/projectCodeMaintenanceService.js"></script>
+    <script type="text/javascript" src="tpl/starts/projectCode/js/projectCodeController.js"></script>
+    <script type="text/javascript" src="tpl/starts/projectCode/js/projectCodeService.js"></script>
+
+    <script type="text/javascript" src="tpl/starts/electiveCourseArrange/js/electiveCourseArrangeController.js"></script>
+    <script type="text/javascript" src="tpl/starts/electiveCourseArrange/js/electiveCourseArrangeService.js"></script>
+    <script type="text/javascript" src="tpl/starts/electiveCourseClassManage/js/electiveCourseController.js"></script>
+    <script type="text/javascript" src="tpl/starts/electiveCourseClassManage/js/electiveCourseService.js"></script>
+    <script type="text/javascript" src="tpl/starts/projectModule/js/projectModuleController.js"></script>
+    <script type="text/javascript" src="tpl/starts/projectModule/js/projectModuleService.js"></script>
+    <script type="text/javascript" src="tpl/starts/projectTeachingClass/js/teachingClassController.js"></script>
+    <script type="text/javascript" src="tpl/starts/projectTeachingClass/js/teachingClassService.js"></script>
+    <script type="text/javascript" src="tpl/starts/administrativeSection/js/administrativeSectionController.js"></script>
+    <script type="text/javascript" src="tpl/starts/administrativeSection/js/administrativeSectionService.js"></script>
+
+    <!-- 系统管理 -->
+    <script type="text/javascript" src="tpl/system/organization/roleManage/js/roleManageController.js"></script>
+    <script type="text/javascript" src="tpl/system/organization/roleManage/js/roleManageService.js"></script>
+    <script type="text/javascript" src="tpl/system/organization/departmentManage/js/departmentManageController.js"></script>
+    <script type="text/javascript" src="tpl/system/organization/departmentManage/js/departmentManageService.js"></script>
+    <script type="text/javascript" src="tpl/system/organization/userManage/js/userManageController.js"></script>
+    <script type="text/javascript" src="tpl/system/organization/userManage/js/userSelectorController.js"></script>
+    <script type="text/javascript" src="tpl/system/organization/userManage/js/userManageService.js"></script>
+    <script type="text/javascript" src="tpl/system/organization/userGroupManage/js/userGroupManageController.js"></script>
+    <script type="text/javascript" src="tpl/system/organization/userGroupManage/js/userGroupManageService.js"></script>
+    <script type="text/javascript" src="tpl/system/permissionManage/permissionManage/js/permissionManageController.js"></script>
+    <script type="text/javascript" src="tpl/system/permissionManage/permissionManage/js/permissionManageService.js"></script>
+    <script type="text/javascript" src="tpl/system/permissionManage/dataPermissionManage/js/dataPermissionManageController.js"></script>
+    <script type="text/javascript" src="tpl/system/permissionManage/dataPermissionManage/js/dataPermissionManageService.js"></script>
+    <script type="text/javascript" src="tpl/system/permissionManage/dataPermissionManage/js/dataPermissionSelectorController.js"></script>
+    <script type="text/javascript" src="tpl/system/permissionManage/dataPermissionResourceManage/js/dataPermissionResourceManageController.js"></script>
+    <script type="text/javascript" src="tpl/system/permissionManage/dataPermissionResourceManage/js/dataPermissionResourceManageService.js"></script>
+    <script type="text/javascript" src="tpl/system/log/operationLog/js/operationLogController.js"></script>
+    <script type="text/javascript" src="tpl/system/log/operationLog/js/operationLogService.js"></script>
+    <script type="text/javascript" src="tpl/system/notice/noticeTypeManage/js/noticeTypeManageController.js"></script>
+    <script type="text/javascript" src="tpl/system/notice/noticeTypeManage/js/noticeTypeManageService.js"></script>
+    <script type="text/javascript" src="tpl/system/notice/informNoticeManage/js/informNoticeManageController.js"></script>
+    <script type="text/javascript" src="tpl/system/notice/informNoticeManage/js/informNoticeManageService.js"></script>
+
+    <script type="text/javascript" src="tpl/system/notice/informNoticeManage/js/userSelectorMutipleController.js"></script>
+
+	<!-- 学生管理 -->
+    <script type="text/javascript" src="tpl/student/classManage/executiveClass/js/executiveClassController.js"></script>
+    <script type="text/javascript" src="tpl/student/classManage/executiveClass/js/executiveClassService.js"></script>
+    <script type="text/javascript" src="tpl/student/classManage/newStudentPlacement/js/newStudentPlacementController.js"></script>
+    <script type="text/javascript" src="tpl/student/classManage/newStudentPlacement/js/newStudentPlacementService.js"></script>
+    <script type="text/javascript" src="tpl/student/classManage/newStudentPlacement/manage/js/newStudentPlacementManageController.js"></script>
+    <script type="text/javascript" src="tpl/student/classManage/newStudentPlacement/manage/js/newStudentPlacementManageService.js"></script>
+    <script type="text/javascript" src="tpl/student/classManage/studentPlacement/js/studentPlacementController.js"></script>
+    <script type="text/javascript" src="tpl/student/classManage/studentPlacement/js/studentPlacementService.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/undergraduatesInfoManage/js/undergraduatesInfoManageController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/undergraduatesInfoManage/js/undergraduatesInfoManageService.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuFullTimeInfoManage/js/stuFullTimeInfoManageController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuFullTimeInfoManage/js/stuFullTimeInfoManageService.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuFullTimeInfoManage/js/stuFullTimeInfoManageAddController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuFullTimeInfoManage/js/stuFullTimeInfoManageEditController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuFullTimeInfoManage/js/stuFullTimeInfoManageViewController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuPhotoManage/js/stuPhotoManageController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuPhotoManage/js/stuPhotoManageService.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuOverseasInfoManage/js/stuOverseasInfoManageController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuOverseasInfoManage/js/stuOverseasInfoManageService.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuOverseasInfoManage/js/stuOverseasInfoManageAddController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuOverseasInfoManage/js/stuOverseasInfoManageEditController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuOverseasInfoManage/js/stuOverseasInfoManageViewController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuRewPunishInfoManage/js/stuRewPunishInfoManageController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuRewPunishInfoManage/js/stuRewPunishInfoManageService.js"></script>
+    <!--<script type="text/javascript" src="tpl/student/statusInfoManage/stuFlagManage/js/AfterExport.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuFlagManage/js/drillTable.js"></script>-->
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuFlagManage/js/stuFlagManageController.js"></script>
+    <script type="text/javascript" src="tpl/student/statusInfoManage/stuFlagManage/js/stuFlagManageService.js"></script>
+    <script type="text/javascript" src="tpl/student/schoolTransaction/js/schoolTransactionController.js"></script>
+    <script type="text/javascript" src="tpl/student/schoolTransaction/js/schoolTransactionService.js"></script>
+    <script type="text/javascript" src="tpl/student/reportRegister/control/js/reportRegisterControlController.js"></script>
+    <script type="text/javascript" src="tpl/student/reportRegister/control/js/reportRegisterControlService.js"></script>
+    <script type="text/javascript" src="tpl/student/reportRegister/manage/js/reportRegisterController.js"></script>
+    <script type="text/javascript" src="tpl/student/reportRegister/manage/js/reportRegisterService.js"></script>
+
+    <!--考务管理-->
+    <script type="text/javascript" src="tpl/exam/invigilationTeachersManage/js/invigilationTeachersManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/invigilationTeachersManage/js/invigilationTeachersManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/clearExamManage/clearExamCourseCheck/js/clearExamCourseCheckController.js"></script>
+    <script type="text/javascript" src="tpl/exam/clearExamManage/clearExamCourseCheck/js/clearExamCourseCheckService.js"></script>
+    <script type="text/javascript" src="tpl/exam/clearExamManage/clearExamCourseManage/js/clearExamCourseManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/clearExamManage/clearExamCourseManage/js/clearExamCoursetManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/clearExamManage/clearExamListManage/js/clearExamListManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/clearExamManage/clearExamListManage/js/clearExamListManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examArrangeCount/js/examArrangeCountController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examArrangeCount/js/examArrangeCountService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examClassManage/js/examClassManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examClassManage/js/examClassManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examDatetimeManage/js/examDatetimeManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examDatetimeManage/js/examDatetimeManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examineeLocationManage/js/examineeLocationManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examineeLocationManage/js/examineeLocationManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examLocationManage/js/examLocationManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examLocationManage/js/examLocationManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examRecordManage/js/examRecordManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examRecordManage/js/examRecordManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examTeacherCount/js/examTeacherCountController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examTeacherCount/js/examTeacherCountService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examTeacherManage/js/examTeacherManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examArrangeManage/examTeacherManage/js/examTeacherManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examCourseCheck/js/examinationCourseCheckController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examCourseCheck/js/examinationCourseCheckService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examCourseManage/js/examinationCourseManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examCourseManage/js/examinationCourseManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examMethodManage/js/examMethodManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examMethodManage/js/examMethodManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examPaperNumberManage/js/examPaperNumberManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examPaperNumberManage/js/examPaperNumberManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examQualificationManage/js/examQualificationManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/examQualificationManage/js/examQualificationManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamArrangeCount/js/makeupExamArrangeCountController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamArrangeCount/js/makeupExamArrangeCountService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamClassManage/js/makeupExamClassManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamClassManage/js/makeupExamClassManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamDatetimeManage/js/makeupExamDatetimeManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamDatetimeManage/js/makeupExamDatetimeManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamineeLocationManage/js/makeupExamineeLocationManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamineeLocationManage/js/makeupExamineeLocationManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamLocationManage/js/makeupExamLocationManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamLocationManage/js/makeupExamLocationManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamRecordManage/js/makeupExamRecordManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamRecordManage/js/makeupExamRecordManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamTeacherCount/js/makeupExamTeacherCountController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamTeacherCount/js/makeupExamTeacherCountService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamTeacherManage/js/makeupExamTeacherManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamArrangeManage/makeupExamTeacherManage/js/makeupExamTeacherManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamCourseCheck/js/makeupExamCourseCheckController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamCourseCheck/js/makeupExamCourseCheckService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamCourseManage/js/makeupExamCourseManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamCourseManage/js/makeupExamCoursetManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamListManage/js/makeupExamListManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamListManage/js/makeupExamListManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamPaperNumberManage/js/makeupExamPaperNumberManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/makeupExamManage/makeupExamPaperNumberManage/js/makeupExamPaperNumberManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/finalExamListManage/js/finalExamListManageController.js"></script>
+    <script type="text/javascript" src="tpl/exam/finalExamManage/finalExamListManage/js/finalExamListManageService.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentsSlowExamination/apply/js/studentSlowExamController.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentsSlowExamination/apply/js/studentSlowExamService.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentsSlowExamination/approval/js/scoreSlowApprovalController.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentsSlowExamination/approval/js/scoreSlowApprovalService.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentsSlowExamination/maintain/js/scoreSlowMaintainController.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentsSlowExamination/maintain/js/scoreSlowMaintainService.js"></script>
+
+    <script type="text/javascript" src="tpl/exam/studentExemptExamination/apply/js/studentExemptExamController.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentExemptExamination/apply/js/studentExemptExamService.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentExemptExamination/approval/js/scoreExemptApprovalController.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentExemptExamination/approval/js/scoreExemptApprovalService.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentExemptExamination/maintain/js/scoreExemptMaintainController.js"></script>
+    <script type="text/javascript" src="tpl/exam/studentExemptExamination/maintain/js/scoreExemptMaintainService.js"></script>
+    <!-- 成绩管理-->
+    <script type="text/javascript" src="tpl/score/scorePasswordManager/js/scorePasswordManagerController.js"></script>
+    <script type="text/javascript" src="tpl/score/scorePasswordManager/js/scorePasswordManagerService.js"></script>
+    <script type="text/javascript" src="tpl/score/formalExamScore/scoreEntering/js/scoreEnteringController.js"></script>
+    <script type="text/javascript" src="tpl/score/formalExamScore/scoreEntering/js/scoreEnteringService.js"></script>
+    <script type="text/javascript" src="tpl/score/formalExamScore/teacherScoreEnter/js/teacherScoreEnterController.js"></script>
+    <script type="text/javascript" src="tpl/score/formalExamScore/teacherScoreEnter/js/teacherScoreEnterService.js"></script>
+    <script type="text/javascript" src="tpl/score/formalExamScore/formalScoreEnter/js/formalScoreEnterController.js"></script>
+    <script type="text/javascript" src="tpl/score/formalExamScore/formalScoreEnter/js/formalScoreEnterService.js"></script>
+    <script type="text/javascript" src="tpl/score/formalExamScore/scoreReview/js/scoreReviewController.js"></script>
+    <script type="text/javascript" src="tpl/score/formalExamScore/scoreReview/js/scoreReviewService.js"></script>
+    <script type="text/javascript" src="tpl/score/makeupExamScore/makeupScoreEnter/js/makeupScoreEnterController.js"></script>
+    <script type="text/javascript" src="tpl/score/makeupExamScore/makeupScoreEnter/js/makeupScoreEnterService.js"></script>
+    <script type="text/javascript" src="tpl/score/makeupExamScore/scoreEntering/js/scoreEnteringController.js"></script>
+    <script type="text/javascript" src="tpl/score/makeupExamScore/scoreEntering/js/scoreEnteringService.js"></script>
+    <script type="text/javascript" src="tpl/score/makeupExamScore/teacherScoreEnter/js/teacherScoreEnterController.js"></script>
+    <script type="text/javascript" src="tpl/score/makeupExamScore/teacherScoreEnter/js/teacherScoreEnterService.js"></script>
+    <script type="text/javascript" src="tpl/score/makeupExamScore/scoreReview/js/scoreReviewController.js"></script>
+    <script type="text/javascript" src="tpl/score/makeupExamScore/scoreReview/js/scoreReviewService.js"></script>
+    <script type="text/javascript" src="tpl/score/cleanExamScore/cleanScoreEnter/js/cleanScoreEnterController.js"></script>
+    <script type="text/javascript" src="tpl/score/cleanExamScore/cleanScoreEnter/js/cleanScoreEnterService.js"></script>
+    <script type="text/javascript" src="tpl/score/cleanExamScore/scoreEntering/js/scoreEnteringController.js"></script>
+    <script type="text/javascript" src="tpl/score/cleanExamScore/scoreEntering/js/scoreEnteringService.js"></script>
+    <script type="text/javascript" src="tpl/score/cleanExamScore/teacherScoreEnter/js/teacherScoreEnterController.js"></script>
+    <script type="text/javascript" src="tpl/score/cleanExamScore/teacherScoreEnter/js/teacherScoreEnterService.js"></script>
+    <script type="text/javascript" src="tpl/score/cleanExamScore/scoreReview/js/scoreReviewController.js"></script>
+    <script type="text/javascript" src="tpl/score/cleanExamScore/scoreReview/js/scoreReviewService.js"></script>
+    <script type="text/javascript" src="tpl/score/maintainManager/scoreInfoMaintain/js/scoreInfoMaintainController.js"></script>
+    <script type="text/javascript" src="tpl/score/maintainManager/scoreInfoMaintain/js/scoreInfoMaintainService.js"></script>
+    <script type="text/javascript" src="tpl/score/outsideSystemScore/outsideApply/js/outsideApplyController.js"></script>
+    <script type="text/javascript" src="tpl/score/outsideSystemScore/outsideApply/js/outsideApplyService.js"></script>
+    <script type="text/javascript" src="tpl/score/outsideSystemScore/outsideReview/js/outsideReviewController.js"></script>
+    <script type="text/javascript" src="tpl/score/outsideSystemScore/outsideReview/js/outsideReviewService.js"></script>
+    <script type="text/javascript" src="tpl/score/outsideSystemScore/outsideBindReview/js/outsideBindReviewController.js"></script>
+    <script type="text/javascript" src="tpl/score/outsideSystemScore/outsideBindReview/js/outsideBindReviewService.js"></script>
+    <script type="text/javascript" src="tpl/score/outsideSystemScore/outSideMaintain/js/outSideMaintainController.js"></script>
+    <script type="text/javascript" src="tpl/score/outsideSystemScore/outSideMaintain/js/outSideMaintainService.js"></script>
+    <script type="text/javascript" src="tpl/score/outsideSystemScore/outSideMaintain/js/studentSelectorController.js"></script>
+
+    <script type="text/javascript" src="tpl/score/achievementModification/apply/js/achievementModifyApplyService.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementModification/apply/js/achievementModifyApplyController.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementModification/approval/js/achievementModifyApprovalController.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementModification/approval/js/achievementModifyApprovalService.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementModification/maintain/js/achievementModifyMaintainController.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementModification/maintain/js/achievementModifyMaintainService.js"></script>
+
+    <script type="text/javascript" src="tpl/score/achievementConfirmation/apply/js/achievementConfirmApplyController.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementConfirmation/apply/js/achievementConfirmApplyService.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementConfirmation/approval/js/achievementConfirmApprovalController.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementConfirmation/approval/js/achievementConfirmApprovalService.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementConfirmation/maintain/js/achievementConfirmMaintainController.js"></script>
+    <script type="text/javascript" src="tpl/score/achievementConfirmation/maintain/js/achievementConfirmMaintainService.js"></script>
+
+    <script type="text/javascript" src="tpl/score/batchPrinting/js/batchPrintingController.js"></script>
+    <script type="text/javascript" src="tpl/score/batchPrinting/js/batchPrintingService.js"></script>
+
+    <!--选课管理-->
+    <script type="text/javascript" src="tpl/choose/chooseCourseStrategyManage/semesterSettingManage/js/semesterSettingManageController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseStrategyManage/semesterSettingManage/js/semesterSettingManageService.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseStrategyManage/prohibitionListManage/js/prohibitionListManageController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseStrategyManage/prohibitionListManage/js/prohibitionListManageService.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseStrategyManage/chooseCourseRoundManage/js/chooseCourseRoundManageController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseStrategyManage/chooseCourseRoundManage/js/chooseCourseRoundManageService.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseStrategyManage/chooseCourseNumberManage/js/chooseCourseNumberManageController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseStrategyManage/chooseCourseNumberManage/js/chooseCourseNumberManageService.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseProcessManage/chooseCourseManage/js/chooseCourseManageController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseProcessManage/chooseCourseManage/js/chooseCourseManageService.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseProcessManage/chooseCourseManage/teachingTaskMaintain/js/teachingTaskMaintainController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseProcessManage/chooseCourseManage/teachingTaskMaintain/js/teachingTaskMaintainService.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseProcessManage/monitorAdjustManage/js/monitorAdjustManageController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseProcessManage/monitorAdjustManage/js/monitorAdjustManageService.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseResultManage/chooseCourseScreenManage/js/chooseCourseScreenManageController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseResultManage/chooseCourseScreenManage/js/chooseCourseScreenManageService.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseResultManage/chooseCourseResultManage/js/chooseCourseResultManageController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseResultManage/chooseCourseResultManage/js/chooseCourseResultManageService.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseResultManage/chooseCourseResultManage/classStudentsMaintain/js/classStudentsMaintainController.js"></script>
+    <script type="text/javascript" src="tpl/choose/chooseCourseResultManage/chooseCourseResultManage/classStudentsMaintain/js/classStudentsMaintainService.js"></script>
+    <script type="text/javascript" src="tpl/choose/classListManage/classListManage/js/classListManageController.js"></script>
+    <script type="text/javascript" src="tpl/choose/classListManage/classListManage/js/classListManageService.js"></script>
+    <script type="text/javascript" src="tpl/choose/classListManage/classListManage/classListMaintain/js/classListMaintainController.js"></script>
+    <script type="text/javascript" src="tpl/choose/classListManage/classListManage/classListMaintain/js/classListMaintainService.js"></script>
+</body>
+</html>

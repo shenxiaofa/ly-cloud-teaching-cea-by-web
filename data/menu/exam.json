@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "parentName": "监考教师管理",
+    "isShow": true,
+    "target": "invigilationTeachersManage",
+    "targetUrl": "home.common.invigilationTeachersManage",
+    "icon":"fa fa-th-large"
+  },{
+  "id": 8,
+  "parentName": "考试资格管理",
+  "isShow": true,
+  "target": "examQualificationManage",
+  "targetUrl": "home.common.examQualificationManage",
+  "icon":"fa fa-th-large"
+},{
+  "id": 9,
+  "parentName": "正考安排管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "科目名单管理",
+    "isShow": true,
+    "target": "finalExaminationListManage",
+    "targetUrl": "home.common.finalExaminationListManage"
+  },{
+    "name": "考试安排分工维护",
+    "isShow": true,
+    "target": "examinationCourseManage",
+    "targetUrl": "home.common.examinationCourseManage"
+  },{
+    "name": "考试方式确认管理",
+    "isShow": true,
+    "target": "examinationMethodManage",
+    "targetUrl": "home.common.examinationMethodManage"
+  },{
+    "name": "考试安排分工查看",
+    "isShow": true,
+    "target": "examinationCourseCheck",
+    "targetUrl": "home.common.examinationCourseCheck"
+  }]
+},{
+  "id": 10,
+  "parentName": "正考排考管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "考试班管理",
+    "isShow": true,
+    "target": "examClassManage",
+    "targetUrl": "home.common.examClassManage"
+  },{
+    "name": "考试时间管理",
+    "isShow": true,
+    "target": "examDatetimeManage",
+    "targetUrl": "home.common.examDatetimeManage"
+  },{
+    "name": "考试地点管理",
+    "isShow": true,
+    "target": "examLocationManage",
+    "targetUrl": "home.common.examLocationManage"
+  }, {
+    "name": "考生地点管理",
+    "isShow": true,
+    "target": "examineeLocationManage",
+    "targetUrl": "home.common.examineeLocationManage"
+  }, {
+    "name": "监考老师安排",
+    "isShow": true,
+    "target": "examTeacherManage",
+    "targetUrl": "home.common.examTeacherManage"
+  },{
+    "name": "考试安排统计",
+    "isShow": true,
+    "target": "examArrangeCount",
+    "targetUrl": "home.common.examArrangeCount"
+  },{
+    "name": "监考教师统计",
+    "isShow": true,
+    "target": "examTeacherCount",
+    "targetUrl": "home.common.examTeacherCount"
+  },{
+    "name": "考试记录管理",
+    "isShow": true,
+    "target": "examRecordManage",
+    "targetUrl": "home.common.examRecordManage"
+  }]
+},{
+  "id": 11,
+  "parentName": "补考安排管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "科目名单管理",
+    "isShow": true,
+    "target": "makeupExaminationListManage",
+    "targetUrl": "home.common.makeupExaminationListManage"
+  },{
+    "name": "科目安排分工维护",
+    "isShow": true,
+    "target": "makeupExaminationCourseManage",
+    "targetUrl": "home.common.makeupExaminationCourseManage"
+  },{
+    "name": "科目安排分工查看",
+    "isShow": true,
+    "target": "makeupExaminationCourseCheck",
+    "targetUrl": "home.common.makeupExaminationCourseCheck"
+  }]
+},{
+  "id": 7,
+  "parentName": "补考排考管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "补考考试班管理",
+    "isShow": true,
+    "target": "makeupExamClassManage",
+    "targetUrl": "home.common.makeupExamClassManage"
+  },{
+    "name": "补考考试时间管理",
+    "isShow": true,
+    "target": "makeupExamDatetimeManage",
+    "targetUrl": "home.common.makeupExamDatetimeManage"
+  },{
+    "name": "补考考试地点管理",
+    "isShow": true,
+    "target": "makeupExamLocationManage",
+    "targetUrl": "home.common.makeupExamLocationManage"
+  },{
+    "name": "补考考生地点管理",
+    "isShow": true,
+    "target": "makeupExamineeLocationManage",
+    "targetUrl": "home.common.makeupExamineeLocationManage"
+  },{
+    "name": "补考监考老师安排",
+    "isShow": true,
+    "target": "makeupExamTeacherManage",
+    "targetUrl": "home.common.makeupExamTeacherManage"
+  },{
+    "name": "补考考试安排统计",
+    "isShow": true,
+    "target": "makeupExamArrangeCount",
+    "targetUrl": "home.common.makeupExamArrangeCount"
+  },{
+    "name": "补考监考老师统计",
+    "isShow": true,
+    "target": "makeupExamTeacherCount",
+    "targetUrl": "home.common.makeupExamTeacherCount"
+  },{
+    "name": "补考考试记录管理",
+    "isShow": true,
+    "target": "makeupExamRecordManage",
+    "targetUrl": "home.common.makeupExamRecordManage"
+  }]
+},{
+  "id": 12,
+  "parentName": "清考安排管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+  "name": "科目名单管理",
+  "isShow": true,
+  "target": "clearExaminationListManage",
+  "targetUrl": "home.common.clearExaminationListManage"
+  },{
+    "name": "科目安排分工维护",
+    "isShow": true,
+    "target": "clearExaminationCourseManage",
+    "targetUrl": "home.common.clearExaminationCourseManage"
+  },{
+    "name": "科目安排分工查看",
+    "isShow": true,
+    "target": "clearExaminationCourseCheck",
+    "targetUrl": "home.common.clearExaminationCourseCheck"
+  }]
+}, {
+  "id": 5,
+  "parentName": "试卷编号管理",
+  "isShow": false,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "正考试卷编号管理",
+    "isShow": true,
+    "target": "examinationPaperNumberManage",
+    "targetUrl": "home.common.examinationPaperNumberManage"
+  },{
+    "name": "补考试卷编号管理",
+    "isShow": true,
+    "target": "makeupExaminationPaperNumberManage",
+    "targetUrl": "home.common.makeupExaminationPaperNumberManage"
+  }]
+}, {
+  "id": 13,
+  "parentName": "学生缓考管理",
+  "isShow": true,
+  "target": "",
+  "targetUrl": "",
+  "icon":"glyphicon glyphicon-stats",
+  "child": [{
+    "name": "学生缓考申请",
+    "isShow": false,
+    "target": "studentsSlowExamination",
+    "targetUrl": "home.common.studentsSlowExamination"
+  },{
+    "name": "学生缓考审批",
+    "isShow": true,
+    "target": "studentsSlowExaminationApproval",
+    "targetUrl": "home.common.studentsSlowExaminationApproval"
+  },{
+    "name": "缓考学生维护",
+    "isShow": true,
+    "target": "studentsSlowExaminationMaintain",
+    "targetUrl": "home.common.studentsSlowExaminationMaintain"
+  }]
+},
+  {
+    "id": 14,
+    "parentName": "学生免考管理",
+    "isShow": true,
+    "target": "",
+    "targetUrl": "",
+    "icon":"glyphicon glyphicon-stats",
+    "child": [{
+      "name": "学生免考申请",
+      "isShow": false,
+      "target": "studentExemptExaminationApply",
+      "targetUrl": "home.common.studentExemptExaminationApply"
+    }, {
+      "name": "学生免考审批",
+      "isShow": true,
+      "target": "studentsExemptExaminationApproval",
+      "targetUrl": "home.common.studentsExemptExaminationApproval"
+    }, {
+      "name": "免考学生维护",
+      "isShow": true,
+      "target": "studentsExemptExaminationMaintain",
+      "targetUrl": "home.common.studentsExemptExaminationMaintain"
+    }]
+  }
+]

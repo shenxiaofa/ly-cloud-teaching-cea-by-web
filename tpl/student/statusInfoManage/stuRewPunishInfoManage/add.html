@@ -1,0 +1,297 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">新 增</h3>
+</div>
+
+<div class="modal-body">
+    <form name="stuRewPunishInfoAdd_form" class="form-horizontal" novalidate>
+        <div class="row">
+            <!-- 学号 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label required">学号：</label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunCcode" ng-blur="findMsg()" id="rewPunCcode" name="rewPunCcode"
+                           class="form-control"  ng-required="true"  ng-maxlength="60"/>
+                </div>
+            </div>
+            <!-- 姓名 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">姓名： </label>
+                <div class="col-xs-6 ">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunSutName" id="rewPunSutName" name="rewPunSutName"
+                           class="form-control"  readonly=""  ng-maxlength="40"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 性别 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label ">性别 ：</label>
+                <div class="col-xs-6 ">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunGender" id="rewPunGender" name="rewPunGender"
+                           class="form-control"  readonly=""  ng-maxlength="36"/>
+                </div>
+            </div>
+            <!-- 学籍状态 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label ">学籍状态：</label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunSchrollState" id="rewPunSchrollState" name="rewPunSchrollState"
+                           class="form-control"  readonly=""  ng-maxlength="60"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 是否在校 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label "> 是否在校：</label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunWhetherAtsch" id="rewPunWhetherAtsch" name="rewPunWhetherAtsch"
+                           class="form-control"  readonly=""  ng-maxlength="60"/>
+                </div>
+            </div>
+            <!-- 学院 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label "> 学院： </label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunCollege" id="rewPunCollege" name="rewPunCollege"
+                           class="form-control"  readonly=""  ng-maxlength="60"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 年级专业方向名称 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label "> 年级专业方向名称：</label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunGradeMajor" id="rewPunGradeMajor" name="rewPunGradeMajor"
+                           class="form-control"  readonly=""  ng-maxlength="60"/>
+                </div>
+            </div>
+            <!-- 违纪日期 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label "> 违纪日期 ：</label>
+                <div class="col-xs-6" style="width:51%;">
+                    <div class="input-group">
+                        <input ng-model="stuRewPunishInfo.rewPundate" id="rewPundate" name="rewPundate" type="text"
+                               class="form-control"
+                               uib-datepicker-popup="yyyy-MM-dd"
+                               is-open="rewPundateOptions.opened"
+                               datepicker-options="rewPundateOptions.dateOptions"
+                               current-text="今天"
+                               clear-text="清除"
+                               close-text="关闭"
+                               ng-click="rewPundateOptions.open()"/>
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="rewPundateOptions.open()">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                  </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 违纪类别 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label required">违纪类别：</label>
+                <div class="col-xs-6 ">
+                    <select ng-model="stuRewPunishInfo.rewPunTypeCode" name="rewPunTypeCode" ng-options="rewPunTypeCode.id as rewPunTypeCode.name for rewPunTypeCode in rewPunTypeCodeList"
+                            ui-chosen="stuRewPunishInfoAdd_form.rewPunTypeCode" ng-required="true"
+                            id="rewPunTypeCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 违纪简况 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label ">违纪简况：</label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunBriefing" id="rewPunBriefing" name="rewPunBriefing"
+                           class="form-control" ng-maxlength="60"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 处分来源码--><!-- 这里的处分来源既要绑定码值也要绑定name值传给后台-->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label required">处分来源：</label>
+                <div class="col-xs-6 ">
+                  <!--  <select ng-model="stuRewPunishInfo.rewPunSourceItem" name="rewPunSource" ng-options="  rewPunSource.name for rewPunSource in rewPunSourceList"
+                            ui-chosen="stuRewPunishInfoAdd_form.rewPunSource" ng-required="true"
+                            id="rewPunSource" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>-->
+                    <select ng-model="stuRewPunishInfo.rewPunSource" name="rewPunSource" ng-options=" rewPunSource.dataNumber as  rewPunSource.name for rewPunSource in rewPunSourceList"
+                            ui-chosen="stuRewPunishInfoAdd_form.rewPunSource" ng-required="true"
+                            id="rewPunSource" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 处分名称 --><!-- 这里的处分名称既要绑定码值也要绑定name值传给后台-->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label required"> 处分名称：</label>
+                <div class="col-xs-6">
+                    <select ng-model="stuRewPunishInfo.rewPunCode" name="rewPunCode" ng-options=" rewPunCode.dataNumber as rewPunCode.name for rewPunCode in rewPunCodeList"
+                            ui-chosen="stuRewPunishInfoAdd_form.rewPunCode" ng-required="true"
+                            id="rewPunCode" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 处分日期 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label required ">处分日期：</label>
+                <div class="col-xs-6" style="width:51%;">
+                    <div class="input-group">
+                        <input ng-model="stuRewPunishInfo.rewPunTime" id="rewPunTime" name="rewPunTime" type="text" ng-required="true"
+                               class="form-control"
+                               uib-datepicker-popup="yyyy-MM-dd"
+                               is-open="rewPunTimeOptions.opened"
+                               datepicker-options="rewPunTimeOptions.dateOptions"
+                               current-text="今天"
+                               clear-text="清除"
+                               close-text="关闭"
+                               ng-click="rewPunTimeOptions.open()"/>
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="rewPunTimeOptions.open()">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                  </span>
+                    </div>
+                </div>
+            </div>
+            <!-- 处分文号 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label ">处分文号：</label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunProof" id="rewPunProof" name="rewPunProof"
+                           class="form-control" ng-maxlength="60"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 处分撤销日期 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label "> 处分撤销日期 ：</label>
+                <div class="col-xs-6" style="width:51%;">
+                    <div class="input-group">
+                        <input ng-model="stuRewPunishInfo.rewPunRepealTime" id="rewPunRepealTime" name="rewPunRepealTime" type="text"
+                               class="form-control"
+                               uib-datepicker-popup="yyyy-MM-dd"
+                               is-open="rewPunRepealTimeOptions.opened"
+                               datepicker-options="rewPunRepealTimeOptions.dateOptions"
+                               current-text="今天"
+                               clear-text="清除"
+                               close-text="关闭"
+                               ng-click="rewPunRepealTimeOptions.open()"/>
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="rewPunRepealTimeOptions.open()">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                  </span>
+                    </div>
+                </div>
+            </div>
+            <!--  处分撤销文号 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label "> 处分撤销文号：</label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunRepealProof" id="rewPunRepealProof" name="rewPunRepealProof"
+                           class="form-control" ng-maxlength="60"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--处分发起部门 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label required">处分发起部门：</label>
+                <div class="col-xs-6">
+                    <select ng-model="stuRewPunishInfo.rewPunSponDepar" name="rewPunSponDepar" ng-options="rewPunSponDepar.departmentNumber as rewPunSponDepar.departmentName for rewPunSponDepar in rewPunSponDeparList"
+                            ui-chosen="stuRewPunishInfoAdd_form.rewPunSponDepar" ng-required="true"
+                            id="rewPunSponDepar" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 处分部门 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label required">处分部门：</label>
+                <div class="col-xs-6">
+                    <select ng-model="stuRewPunishInfo.rewPunDepar" name="rewPunDepar" ng-options="rewDepar.departmentNumber as rewDepar.departmentName for rewDepar in rewPunDeparList"
+                            ui-chosen="stuRewPunishInfoAdd_form.rewPunDepar" ng-required="true"
+                            id="rewPunDepar" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label "> 是否按时毕业：
+                </label>
+                <div class="col-xs-6 "  style="padding-top: 6px;">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="stuRewPunishInfo.rewPunWheGraduate" name="rewPunWheGraduate" value="1"> 是
+                    </label>
+                    &nbsp;
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="stuRewPunishInfo.rewPunWheGraduate" name="rewPunWheGraduate" value="0"> 否
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label "> 是否获得学位：</label>
+                <div class="col-xs-6 " style="padding-top: 6px;">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="stuRewPunishInfo.rewPunWheDegree" name="rewPunWheDegree" value="1"> 是
+                    </label>
+                    &nbsp;
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="stuRewPunishInfo.rewPunWheDegree" name="rewPunWheDegree" value="0"> 否
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 适用条款 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label ">适用条款：</label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunAdapt" id="rewPunAdapt" name="rewPunAdapt"
+                           class="form-control " ng-maxlength="60"/>
+                </div>
+            </div>
+            <!-- 处分金额 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label ">处分金额： </label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunMoney" id="rewPunMoney" name="rewPunMoney"
+                           class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 处分原因 -->
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label ">处分原因：
+                </label>
+                <div class="col-xs-6">
+                    <input type="text" ng-model="stuRewPunishInfo.rewPunCause" id="rewPunCause" name="rewPunCause"
+                           class="form-control"/>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(stuRewPunishInfoAdd_form)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

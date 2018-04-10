@@ -1,0 +1,59 @@
+<div class="modal-header">
+    <h3 class="modal-title">板块安排</h3>
+</div>
+
+<div class="modal-body">
+    <form name="codeGrade_add_form" class="form-horizontal" novalidate>
+        <div class="row" style="margin-left: 1px">
+
+            <div class="form-group col-xs-6 ">
+                <label class="col-xs-4 control-label" >学院：</label>
+                <div class="col-xs-8">
+                    <input type="text" ng-model="plateSetting.deptName" id="college" name="college" class="form-control" disabled/>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+
+                <label class="col-xs-4 control-label " >专业：</label>
+                <div class="col-xs-8">
+                    <input type="text" ng-model="plateSetting.major" id="major" name="major" class="form-control" disabled/>
+                </div>
+            </div>
+
+        </div>
+        <div class="row" style="margin-left: 1px">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-4 control-label">班级：</label>
+                <div class="col-xs-8">
+                    <input type="text" ng-model="plateSetting.executiveClass" id="executiveClass" name="executiveClass" class="form-control" disabled/>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-xs-4 control-label">课程：</label>
+                <div class="col-xs-8">
+                    <input type="text" ng-model="plateSetting.courseName"  id="courseName" name="courseName" class="form-control" disabled/>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <!--<div class="col-xs-1">-->
+            <label class="col-xs-2 control-label">板块：</label>
+            <div class="col-xs-9 pull-left" style="width: 76.6%;">
+                <select ng-change="testChange()" ui-select2 ng-options="plateObj.id as plateObj.name  for plateObj in plateObjs"
+                        ng-model="plateSetting.plateId" id="plateId" name="plateId" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">
+                    <option value="">==请选择==</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">时间：</label>
+            <div class="col-xs-9" style="width: 76.6%;">
+                <textarea style="height: 180px" ng-model="plateSetting.plateTime" ng-required="true" id="plateTime" name="plateTime" class="form-control" disabled/>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button"  ng-click="ok(codeGrade_add_form)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

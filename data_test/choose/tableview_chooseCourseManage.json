@@ -1,0 +1,46 @@
+{
+	"total": "1",
+	"rows": [
+		{
+			"semester": "2017-2018-1",
+			"roundName": "正选",
+			"status": "进行中",
+			"courseNum": "F2080001",
+			"courseName": "Excel高级应用",
+			"openWay": "普通课",
+			"teachingTaskNum": "12",
+			"courseType": "选修",
+			"openDeptName": "教务处"
+		}, {
+			"semester": "2017-2018-1",
+			"roundName": "正选",
+			"status": "进行中",
+			"courseNum": "F2080002",
+			"courseName": "C语言程序设计",
+			"openWay": "普通课",
+			"teachingTaskNum": "5",
+			"courseType": "任选",
+			"openDeptName": "计算机科学"
+		}, {
+			"semester": "2017-2018-1",
+			"roundName": "正选",
+			"status": "进行中",
+			"courseNum": "F2080003",
+			"courseName": "数据挖掘",
+			"openWay": "普通课",
+			"teachingTaskNum": "3",
+			"courseType": "选修",
+			"openDeptName": "计算机科学"
+		}, {
+			"semester": "2017-2018-1",
+			"roundName": "正选",
+			"status": "进行中",
+			"courseNum": "F2080004",
+			"courseName": "体育",
+			"openWay": "体育课",
+			"teachingTaskNum": "20",
+			"courseType": "必修",
+			"openDeptName": "体育部"
+		}
+	]
+}

@@ -1,0 +1,22 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "id": "1",
+        "classNo": "16n080714T00001",
+        "className":"16n080714T00001",
+        "peopleNums":"",
+        "allpel":"",
+        "male":"",
+        "female":"",
+        "collegeName":"电子与信息工程学院",
+        "grade":"2016",
+        "majorNumber":"n080714T00",
+        "majorName":"电子信息科学与技术",
+        "gradeMajorName":"16级电子信息科学与技术",
+        "campusName":"广州校区东校园"
+      }
+    ]
+  }
+}

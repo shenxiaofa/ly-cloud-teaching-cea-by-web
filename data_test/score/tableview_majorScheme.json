@@ -1,0 +1,17 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "num": "1",
+        "educationLevel":"本科",
+        "courseModel":"专业课",
+        "courseCategory":"基础素质课",
+        "makeupSign":"是",
+        "rebuildSign":"是",
+        "creator":"admin",
+        "editor":"admin"
+      }
+    ]
+  }
+}

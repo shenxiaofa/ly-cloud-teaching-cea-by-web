@@ -1,0 +1,125 @@
+<style>
+    .modal-body .stu-img .col-xs-12 {
+        margin: 10px 0;
+    }
+
+    .modal-body .stu-img .col-xs-12 p {
+        line-height: 30px;
+        margin-bottom: 0;
+    }
+
+    .stu-img .col-xs-12 p {
+        margin-right: 30px;
+        display: inline-block;
+        min-width: 130px;
+        line-height: 20px !important;
+        width: 200px;
+    }
+
+     p {
+         margin: 0 0 15px;
+     }
+
+     .stu-img {
+         padding: 10px 25px !important;
+     }
+
+    .picSaveHiden {
+         visibility: hidden;
+     }
+
+     .picSaveShow {
+         visibility: visible;
+     }
+
+     .search_btn, .save {
+         background: #03a9f4 none repeat scroll 0 0;
+         border: 1px solid #03a9f4;
+         color: #ffffff;
+     }
+     .stu-img .col-xs-6 h5 {
+         margin-bottom: 5px;
+         border-bottom: 1px solid #ddd;
+         margin-top:10px;
+         width:82%;
+     }
+     .stu-img .col-xs-6 h5 span {
+         border-bottom: 2px solid #03A9F5;
+     }
+     .modal-footer{
+         border-top:0px #e5e5e5 solid!important;
+     }
+</style>
+
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">照片上传</h3>
+</div>
+
+<div class="modal-body">
+    <div class="col-xs-12 modal-con stu-img">
+        <div class="col-xs-12">
+            <p>学号：<span ng-bind="stuPhotoInfo.stuNumber"> </span></p>
+            <p>姓名：<span ng-bind="stuPhotoInfo.stuName"> </span></p>
+            <p>性别：<span ng-bind="stuPhotoInfo.sexCode"> </span></p>
+        </div>
+        <div class="col-xs-12">
+            <p>学院：<span ng-bind="stuPhotoInfo.collegeNum">国际翻译学院</span></p>
+            <p>专业：<span ng-bind="stuPhotoInfo.major">英语（国际翻译学院）</span></p>
+        </div>
+        <!--<form id="Form1" method="post" enctype="multipart/form-data">-->
+        <form name="stuPhotoUploadStart_form" class="form-horizontal" novalidate>
+            <div class="col-xs-6">
+                <h5><span>入学照片：</span></h5>
+                <div class="image_container" style="height:150px;">
+                    <img id="startPhotoUrl" src="img/man.png">
+                </div>
+                <div class="col-xs-8" style="height: auto">
+                    <input type="file" name="stuPhotoFile" onchange="angular.element(this).scope().change('1')"
+                           ng-model="stuPhotoInfo.stuPhotoFile"
+                           ngf-max-size="200KB" ngf-min-height="100" id="startPhotoFile"
+                           style="display: none;">
+                    <button class="btn search_btn" style="cursor: pointer;" onclick="startPhotoFile.click();">
+                        选择文件
+                    </button>
+                    <div style="margin-top:5px;width:100px;">
+                        <button class="btn search_btn picSaveHiden" style=" margin-left:11px;" id="saveStartButton"
+                                ng-click="toUpload('1')">保存
+                        </button>
+                    </div>
+                    <p id="startPhotoMessage" ng-bind="startPhotoMessage" style="color:red"></p>
+                </div>
+            </div>
+        </form>
+
+        <form name="stuPhotoUploadEnd_form" class="form-horizontal" novalidate>
+            <div class="col-xs-6">
+                <h5><span>毕业照片：</span></h5>
+                <div class="image_container" style="height:150px;">
+                    <img id="endPhotoUrl" src="img/man.png">
+                </div>
+                <div class="col-xs-8" style="height: auto">
+                    <input type="file" name="stuPhotoFile" onchange="angular.element(this).scope().change('2')"
+                           ng-model="stuPhotoInfo.stuPhotoFile2"
+                           ngf-max-size="200KB" ngf-min-height="100" id="endPhotoFile"
+                           style="display: none;">
+                    <button class="btn search_btn" style="cursor: pointer;" onclick="endPhotoFile.click();">
+                        选择文件
+                    </button>
+                    <div style="margin-top:5px;width:100px;">
+                        <button class="btn search_btn picSaveHiden" style=" margin-left:11px;" id="saveEndButton"
+                                ng-click="toUpload('2')">保存
+                        </button>
+                    </div>
+                    <p id="endPhotoMessage" ng-bind="endPhotoMessage" style="color:red"></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer" >
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>
+

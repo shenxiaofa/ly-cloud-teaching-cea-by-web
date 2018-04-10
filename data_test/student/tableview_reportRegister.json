@@ -1,0 +1,20 @@
+{
+  "data": {
+    "total": 3,
+    "rows": [
+      {
+        "id": "1",
+        "payStatusLabel": "未缴",
+        "registerStatusLabel":"已注册",
+        "studentId":"1000010",
+        "studentName":"陈颖",
+        "deptName":"人文学院",
+        "majorName":"网络工程",
+        "gradeLabel":"2017-2323级",
+        "executiveClassName":"23232班",
+        "registerWayLabel":"手动注册",
+        "unregisterReasonLabel":"遗漏"
+      }
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+<style>
+
+    .radio-class {
+        padding-top: 2px!important;
+    }
+</style>
+
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">修改</h3>
+</div>
+<div class="right-content">
+
+    <div search-show-hide  class="col-xs-12 searchDiv right-content-search" style="padding-bottom: 0;">
+        <div  ng-hide="searchList">
+            <form name="chooseCourseRoundManageUpdateForm" class="form-horizontal search-form" novalidate>
+                <div class="row">
+                    <div class="form-group col-xs-6" >
+                        <label class="col-xs-4 control-label required">学年学期：</label>
+                        <div class="col-xs-8">
+                            <select id="semesterIdAdd" class="form-control" >
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label class="col-xs-4 control-label required">选课轮次名称：</label>
+                        <div class="col-xs-8">
+                            <input type="text" ng-model="chooseCourseRoundManage.roundName" id="roundName" ng-required="true" name="roundName" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-6">
+                        <label class="col-xs-4 control-label required">选课开始时间：</label>
+                        <div class="col-xs-8">
+                            <div class="input-group">
+                                <input ng-model="chooseCourseRoundManage.startDate" id="startDate" name="startDate" type="text" class="form-control"
+                                       uib-datepicker-popup="yyyy-MM-dd"
+                                       is-open="ksrqOptions.opened"
+                                       datepicker-options="ksrqOptions.dateOptions"
+                                       ng-required="true"
+                                       current-text="今天"
+                                       clear-text="清除"
+                                       close-text="关闭"
+                                       ng-click="ksrqOptions.open()" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="ksrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label class="col-xs-4 control-label required">选课结束时间：</label>
+                        <div class="col-xs-8">
+                            <div class="input-group">
+                                <input ng-model="chooseCourseRoundManage.endDate" id="endDate" name="endDate" type="text" class="form-control"
+                                       uib-tooltip="结束日期不能小于开始日期"
+                                       tooltip-placement="bottom"
+                                       tooltip-trigger="'focus'"
+                                       tooltip-enable="jsrqTooltipEnableAndOpen"
+                                       tooltip-is-open="jsrqTooltipEnableAndOpen"
+                                       uib-datepicker-popup="yyyy-MM-dd"
+                                       is-open="jsrqOptions.opened"
+                                       datepicker-options="jsrqOptions.dateOptions"
+                                       ng-required="true"
+                                       date-gt
+                                       equals="chooseCourseRoundManage.startDate"
+                                       current-text="今天"
+                                       clear-text="清除"
+                                       close-text="关闭"
+                                       ng-click="jsrqOptions.open()" ng-change="jsrqOptions.changed()"/>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="jsrqOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-6" >
+                        <label class="col-xs-4 control-label required">每天选课开始时间：</label>
+                        <div class="col-xs-8">
+                            <div class="input-group">
+                                <!--<input ng-model="chooseCourseRoundManage.everyStartTime" id="everyStartTime" name="everyStartTime" type="text" class="form-control"-->
+                                <!--uib-datepicker-popup="yyyy-MM-dd"-->
+                                <!--is-open="kssjOptions.opened"-->
+                                <!--datepicker-options="kssjOptions.dateOptions"-->
+                                <!--ng-required="true"-->
+                                <!--current-text="今天"-->
+                                <!--clear-text="清除"-->
+                                <!--close-text="关闭"-->
+                                <!--ng-click="kssjOptions.open()" />-->
+                                <!--<span class="input-group-btn">-->
+                                <!--<button type="button" class="btn btn-default" ng-click="kssjOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>-->
+                                <!--</span>-->
+                                <div uib-timepicker ng-model="chooseCourseRoundManage.startTime"
+                                     show-spinners="false"
+                                     show-seconds="false"
+                                     show-meridian="false" ng-required="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-6" >
+                        <label class="col-xs-4 control-label required">每天选课结束时间：</label>
+                        <div class="col-xs-8">
+                            <div class="input-group">
+                                <!--<input ng-model="chooseCourseRoundManage.everyEndTime" id="everyEndTime" name="everyEndTime" type="text" class="form-control"-->
+                                <!--uib-tooltip="结束日期不能小于开始日期"-->
+                                <!--tooltip-placement="bottom"-->
+                                <!--tooltip-trigger="'focus'"-->
+                                <!--tooltip-enable="jssjTooltipEnableAndOpen"-->
+                                <!--tooltip-is-open="jssjTooltipEnableAndOpen"-->
+                                <!--uib-datepicker-popup="yyyy-MM-dd"-->
+                                <!--is-open="jssjOptions.opened"-->
+                                <!--datepicker-options="jssjOptions.dateOptions"-->
+                                <!--ng-required="true"-->
+                                <!--date-gt-->
+                                <!--equals="chooseCourseRoundManage.everyStartTime"-->
+                                <!--current-text="今天"-->
+                                <!--clear-text="清除"-->
+                                <!--close-text="关闭"-->
+                                <!--ng-click="jssjOptions.open()"/>-->
+                                <!--<span class="input-group-btn">-->
+                                <!--<button type="button" class="btn btn-default" ng-click="jssjOptions.open()"><i class="glyphicon glyphicon-calendar"></i></button>-->
+                                <!--</span>-->
+                                <div uib-timepicker ng-model="chooseCourseRoundManage.endTime"
+                                     show-spinners="false"
+                                     show-seconds="false"
+                                     show-meridian="false" ng-required="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div style="padding: 15px 0;background-color: #fff;margin-left: -10px;border-top: 1px solid #ddd;width: 102%;">
+                    <div class="row">
+                        <div class="form-group col-xs-6">
+                            <label class="col-xs-4 control-label">选课控制：</label>
+                            <div class="col-xs-8 radio-class">
+                                <input type="radio" name="select1" ng-checked="true" ng-model="chooseCourseRoundManage.chosenControl" value="1"/> 可退可选
+                                <input type="radio" name="select1" ng-model="chooseCourseRoundManage.chosenControl" value="2"/> 只可选课
+                                <input type="radio" name="select1" ng-model="chooseCourseRoundManage.chosenControl" value="3"/> 只可退课
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <label class="col-xs-4 control-label">教学人数控制：</label>
+                            <div class="col-xs-8 radio-class">
+                                <input type="radio" name="select2" ng-checked="true" ng-model="chooseCourseRoundManage.teachingNumControl" value="1"/> 不控制人数
+                                <input type="radio" name="select2" ng-model="chooseCourseRoundManage.teachingNumControl" value="2"/> 控制人数
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-6" >
+                            <label class="col-xs-4 control-label">预置课是否可退：</label>
+                            <div class="col-xs-8 radio-class">
+                                <input type="radio" name="select3" ng-checked="true" ng-model="chooseCourseRoundManage.perCourseRetreatSign" value="1"/> 是
+                                <input type="radio" name="select3" ng-model="chooseCourseRoundManage.perCourseRetreatSign" value="2"/> 否
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-6" >
+                            <label class="col-xs-4 control-label">允许冲突选课：</label>
+                            <div class="col-xs-8 radio-class">
+                                <input type="radio" name="select4" ng-checked="true" ng-model="chooseCourseRoundManage.allowConflictSign" value="1"/> 是
+                                <input type="radio" name="select4" ng-model="chooseCourseRoundManage.allowConflictSign" value="2"/> 否
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div style="padding: 15px 0;background-color: #fff;margin-left: -10px;border-top: 1px solid #ddd;width: 102%;">
+                    <div class="row">
+                        <div class="form-group col-xs-6">
+                            <label class="col-xs-4 control-label">选课方式：</label>
+                            <div class="col-xs-8 radio-class">
+                                <input type="radio" name="select5" ng-checked="true" ng-model="chooseCourseRoundManage.way" value="1"/> 先到先得
+                                <input type="radio" name="select5" ng-model="chooseCourseRoundManage.way" value="2"/> 抽签筛选
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <label class="col-xs-4 control-label">选课标签：</label>
+                            <div class="col-xs-8 radio-class">
+                                <input type="checkbox" name="select6" ng-model="chooseCourseRoundManage.mark1" value="1"/> 校公选
+                                <input type="checkbox" name="select6" ng-model="chooseCourseRoundManage.mark2" value="2"/> 院系选修
+                                <input type="checkbox" name="select6" ng-model="chooseCourseRoundManage.mark3" value="3"/> 必修课
+                                <input type="checkbox" name="select6" ng-model="chooseCourseRoundManage.mark4" value="4"/> 体育课
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div class="col-xs-12 modal-footer" style="text-align: right;padding: 15px 0;background-color: #fff;margin-left: -8px;width: 102%;">
+            <button class="btn btn-primary" ng-click="ok(chooseCourseRoundManageUpdateForm)">
+                确认
+            </button>
+            <button class="btn btn-default" ng-click="close()" >
+                取消
+            </button>
+        </div>
+    </div>

@@ -1,0 +1,82 @@
+<style>
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+    	border-bottom: none;
+	}
+</style>
+<div class="right-content" >
+	<div class="col-xs-2 left-tree" ng-style="leftTreeStyle" ng-scroll-bar>
+		<ul id="menuTree" z-tree tree-options="zTreeOptions" class="ztree"></ul>
+	</div>
+	<div class="col-xs-10" style="padding: 5px 5px 0px 5px;">
+		<uib-tabset active="active">
+			<uib-tab index="0" heading="模块设置" ng-click="clickAlready1()">
+				<div style="padding: 0px 5px 0px 5px;">
+					<div id="versionModelToolbar" class="btn-group">
+						<div>
+							<button type="button" has-permission="versionModel:model:insert" id="btn-add" class="btn btn-default add-btn" ng-click="versionModelOpenAdd()">
+								<span class="fa fa-plus toolbar-btn-icon"></span>新增
+							</button>
+							&nbsp;
+							<button type="button" has-permission="versionModel:model:delete" id="btn-delete" class="btn btn-default del-btn" ng-click="versionModelOpenDelete()">
+								<span class="fa fa-times toolbar-btn-icon"></span>删除
+							</button>
+						</div>
+					</div>
+					<table id="versionModelTable" ui-jq="bootstrapTable" ui-options="versionModelTable" class="table table-responsive"></table>
+				</div>
+			</uib-tab>
+			<uib-tab index="1" heading="数据维护" ng-click="clickAlready2()">
+				<div class="right-content-search" style="margin-top: 5px;">
+					<div>
+						<label class="control-label search-control" ng-click="searchFormHideToggle()">
+							<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+						</label>
+					</div>
+					<div ng-hide="isHideSearchForm">
+						<form name="modelDataRangeSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+							<div class="row">
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">模块名称：</label>
+									<div class="col-xs-8">
+										<input type="text" ng-model="modelDataRange.name" id="name" name="name" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group col-xs-4">
+									<label class="col-xs-4 control-label">操作单位：</label>
+									<div class="col-xs-8">
+										<input type="text" ng-model="modelDataRange.department" id="department" name="department" class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 btn-center">
+									<!-- 点击触发 ng-submit 事件 -->
+									<button type="submit" class="btn btn-info">
+										<span class="fa fa-search refer btn-icon-padding"></span>查询
+									</button>
+									<button type="button" class="btn btn-default" ng-click="searchReset()">
+										<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div style="padding: 5px 5px 0px 5px;">
+					<div id="modelDataRangeToolbar" class="btn-group">
+						<div>
+							<button type="button" has-permission="versionModel:data:clean" id="btn-delete" class="btn btn-default del-btn" ng-click="modelDataRangeOpenDelete()">
+								<span class="fa fa-times toolbar-btn-icon"></span>清空数据范围
+							</button>
+						</div>
+					</div>
+					<table id="modelDataRangeTable" ui-jq="bootstrapTable" ui-options="modelDataRangeTable" class="table table-responsive"></table>
+				</div>
+			</uib-tab>
+		</uib-tabset>
+	</div>
+</div>

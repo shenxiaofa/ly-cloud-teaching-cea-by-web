@@ -1,0 +1,87 @@
+<div class="right-content">
+
+    <div search-show-hide  class="col-xs-12 searchDiv right-content-search">
+        <div class="control-label" >
+            <label class="control-label search-control" ng-click="searchFormHideToggle()">
+                <i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+            </label>
+        </div>
+        <div ng-hide="isHideSearchForm">
+            <form name="pyfabzkz_form" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+                <div class="row">
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-4 control-label" style="padding-left: 13px;">学年学期：</label>
+                        <div class="col-xs-8" >
+                            <!--<input ng-model="ssdw" class="form-control"  class="input-small">-->
+                            <input type="text" ng-model="searchParam.semester" id="semester" name="semester" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-4 control-label"  >课程代码/名称：</label>
+                        <div class="col-xs-8" >
+                            <!--<input ng-model="ssdw" class="form-control"  class="input-small">-->
+                            <input type="text" ng-model="searchParam.courseNumOrCourseName" id="courseNumOrCourseName" name="courseNumOrCourseName" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label" >开课单位：</label>
+                        <div class="col-xs-8" >
+                            <input type="text" ng-model="searchParam.department" id="department" name="department" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label" >学分：</label>
+                        <div class="col-xs-3"  >
+                            <input type="text" ng-model="searchParam.creditMin" id="creditMin" name="creditMin" class="form-control"/>
+                        </div>
+                        <label class="col-xs-2 control-label" style="text-align:center;padding:5px 0 0 0;"> 至 </label>
+                        <div class="col-xs-3"  >
+                            <input type="text" ng-model="searchParam.creditMax" id="creditMax" name="creditMax" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label" >录入完毕：</label>
+                        <div class="col-xs-8" >
+                            <select ng-model="searchParam.inputStatus"  id="inputStatus" name="inputStatus" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option value="">==请选择==</option>
+                                <option value="2017-2018-1">2017-2018-1</option>
+                                <option value="2017-2018-2">2017-2018-2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-4 control-label" >审核状态：</label>
+                        <div class="col-xs-8" >
+                            <select ng-model="searchParam.reviewStatus" ng-required="true" id="reviewStatus" name="reviewStatus" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option value="">==请选择==</option>
+                                <option value="2017-2018-1">2017-2018-1</option>
+                                <option value="2017-2018-2">2017-2018-2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 btn-center">
+                        <!-- 点击触发 ng-submit 事件 -->
+                        <button type="submit" class="btn btn-info">
+                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="right-content-table">
+        <div id="toolbar" class="btn-group">
+        </div>
+        <table id="teacherInputTable" ui-jq="bootstrapTable" ui-options="teacherInputTable" class="table table-responsive"></table>
+    </div>
+</div>

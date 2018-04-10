@@ -1,0 +1,145 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">修 改</h3>
+</div>
+
+<div class="modal-body">
+    <form name="gradePlateSetting_view_form" class="form-horizontal" novalidate>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">原校区：</label>
+                <div class="col-xs-7">
+                    <!--<select ng-model="statusInfo.campus" name="campus" id="campus_origin" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">-->
+                        <!--<option value="">==请选择==</option>-->
+                        <!--<option value="205">东校区</option>-->
+                        <!--<option value="206">西校区</option>-->
+                        <!--<option value="207">南校区</option>-->
+                    <!--</select>-->
+                    <input type="text" ng-model="statusInfo.campus" ng-required="true" id="campus_origin" readonly="readonly"    name="campus" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">原学院：</label>
+                <div class="col-xs-7">
+                    <!--<select ng-model="statusInfo.college" name="college" ui-chosen="gradePlateSetting_modify_form.college"-->
+                            <!--id="college_origin" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">-->
+                        <!--<option value="">==请选择==</option>-->
+                        <!--<option value="205">计算机科学与技术学院</option>-->
+                        <!--<option value="208">外语外贸学院</option>-->
+                    <!--</select>-->
+                    <input type="text" ng-model="statusInfo.college" id="college_origin" readonly="readonly" name="college" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">原年级专业：</label>
+                <div class="col-xs-7">
+                    <!--<select ng-model="gradePlateSetting.major" ui-chosen="gradePlateSetting_modify_form.major"-->
+                            <!--id="major_origin" name="major" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">-->
+                        <!--<option value="">== 请选择 ==</option>-->
+                        <!--<option value="1">国家任务</option>-->
+                    <!--</select>-->
+                    <input type="text" ng-model="statusInfo.major" id="major_origin" readonly="readonly" name="major" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">原年级：</label>
+                <div class="col-xs-7">
+                    <!--<select ng-model="statusInfo.grade" name="grade"  ui-chosen="gradePlateSetting_modify_form.grade" ng-required="true"-->
+                            <!--id="grade_origin" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">-->
+                        <!--<option value="">==请选择==</option>-->
+                        <!--<option value="205">2016</option>-->
+                        <!--<option value="208">2017</option>-->
+                    <!--</select>-->
+                    <input type="text" ng-model="statusInfo.grade" id="grade_origin" readonly="readonly" name="grade" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">原班级：</label>
+                <div class="col-xs-7">
+                    <!--<select ng-model="statusInfo.majorClass" name="majorClass" ui-chosen="gradePlateSetting_modify_form.majorClass" ng-required="true"-->
+                            <!--id="majorClass_origin" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">-->
+                        <!--<option value="">==请选择==</option>-->
+                        <!--<option value="205">商务英语1班</option>-->
+                        <!--<option value="208">商务英语2班</option>-->
+                    <!--</select>-->
+                    <input type="text" ng-model="statusInfo.majorClass" id="majorClass_origin" name="majorClass" readonly="readonly" class="form-control"/>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form name="gradePlateSetting_modify_form" class="form-horizontal" novalidate style="margin-top: 50px;">
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">新校区：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.campus" name="campus" id="campus" ui-chosen="gradePlateSetting_modify_form.campus" ng-required="true"
+                            class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="205">东校区</option>
+                        <option value="206">西校区</option>
+                        <option value="207">南校区</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">新学院：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.college" name="college" ui-chosen="gradePlateSetting_modify_form.college" ng-required="true"
+                            id="college" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="205">计算机科学与技术学院</option>
+                        <option value="208">外语外贸学院</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">新年级专业：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.major" ui-chosen="gradePlateSetting_modify_form.major" ng-required="true"
+                            id="major" name="major" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">
+                        <option value="">== 请选择 ==</option>
+                        <option value="1">国家任务</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">新年级：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.grade" name="grade"  ui-chosen="gradePlateSetting_modify_form.grade" ng-required="true"
+                            id="grade" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="205">2016</option>
+                        <option value="208">2017</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="col-xs-5 control-label">新班级：</label>
+                <div class="col-xs-7">
+                    <select ng-model="statusInfo.majorClass" name="majorClass" ui-chosen="gradePlateSetting_modify_form.majorClass" ng-required="true"
+                            id="majorClass" class="form-control" ui-jq="chosen" ui-options="{search_contains: true}">
+                        <option value="">==请选择==</option>
+                        <option value="205">商务英语1班</option>
+                        <option value="208">商务英语2班</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button"  ng-click="ok(gradePlateSetting_modify_form)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>

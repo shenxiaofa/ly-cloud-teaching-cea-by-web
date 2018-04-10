@@ -1,0 +1,120 @@
+<style>
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-radius: 6px 6px 0 0;
+		border-top-color: #03a9f5;
+    	border-bottom: none;
+	}
+</style>
+<uib-tabset active="active">
+	<uib-tab index="0" heading="所修课程" class="right-content" ng-click="leftClickAlready()">
+		<div class="right-content-search">
+			<div>
+				<label class="control-label search-control" ng-click="searchFormHideToggle1()">
+					<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm1, 'fa-caret-right': isHideSearchForm1}"></i>&nbsp;查询条件
+				</label>
+			</div>
+			<div ng-hide="isHideSearchForm1">
+				<form name="examClassManageSearchFormLeft" class="form-horizontal search-form">
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">学年学期：</label>
+							<div class="col-xs-8">
+								<select name="" id="" ng-model="examClassManageRight.semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+									<option value="">==请选择==</option>
+									<option value="2017-2018-1">2017-2018-1</option>
+									<option value="2017-2018-2">2017-2018-2</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label" style="padding-left: 13px;">课程名称/编号：</label>
+							<div class="col-xs-8">
+								<input class="form-control" ng-model="examClassManageRight.courseNumAndName" class="input-small">
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">开课单位：</label>
+							<div class="col-xs-8">
+								<input class="form-control" ng-model="examClassManageRight.departmentId" class="input-small">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 btn-center">
+							<!-- 点击触发 ng-submit 事件 -->
+							<button type="submit" class="btn btn-info" ng-click="searchSubmitRight()">
+								<span class="fa fa-search refer btn-icon-padding"></span>查询
+							</button>
+							<button type="button" class="btn btn-default" ng-click="searchResetRight()">
+								<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="right-content-table">
+			<table id="examClassCreateTable" ui-jq="bootstrapTable" ui-options="examClassCreateTable" class="table table-responsive"></table>
+		</div>
+	</uib-tab>
+
+
+	<uib-tab index="1" heading="免考申请信息" class="right-content" ng-click="rightClickAlready()">
+		<div class="right-content-search">
+			<div>
+				<label class="control-label search-control" ng-click="searchFormHideToggle2()">
+					<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm2, 'fa-caret-right': isHideSearchForm2}"></i>&nbsp;查询条件
+				</label>
+			</div>
+			<div ng-hide="isHideSearchForm2">
+				<form name="examClassManageSearchFormRight" class="form-horizontal search-form" novalidate>
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">学年学期：</label>
+							<div class="col-xs-8">
+								<select name="semesterId" id="semesterId" ng-model="examClassManageRight.semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+									<option value="">==请选择==</option>
+									<option value="2017-2018-1">2017-2018-1</option>
+									<option value="2017-2018-2">2017-2018-2</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label" style="padding-left: 13px;">课程名称/编号：</label>
+							<div class="col-xs-8">
+								<input class="form-control" ng-model="examClassManageRight.courseNumAndName" class="input-small">
+							</div>
+						</div>
+						<div class="form-group col-xs-4">
+							<label class="col-xs-4 control-label">审核状态：</label>
+							<div class="col-xs-8">
+								<select ng-model="examClassManageRight.approvalStatus" ui-jq="chosen" ui-options="{search_contains: true}" class="col-xs-8 form-control">
+									<option value="">==请选择==</option>
+									<option value="0">通过</option>
+									<option value="1">不通过</option>
+									<option value="2">待审核</option>
+								</select>
+							</div>
+						</div>
+	                </div>
+	                <div class="row">
+						<div class="col-xs-12 btn-center">
+							<!-- 点击触发 ng-submit 事件 -->
+							<button type="submit" class="btn btn-info" ng-click="searchSubmitRight()">
+								<span class="fa fa-search refer btn-icon-padding"></span>查询
+							</button>
+							<button type="button" class="btn btn-default" ng-click="searchResetRight()">
+								<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="right-content-table">
+			<table id="examClassMaintainTable" ui-jq="bootstrapTable" ui-options="examClassMaintainTable" class="table table-responsive"></table>
+		</div>
+	</uib-tab>
+</uib-tabset>

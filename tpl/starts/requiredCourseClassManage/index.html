@@ -1,0 +1,67 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="classManageSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-5 control-label">学期学年：</label>
+						<div class="col-xs-7">
+							<select ng-change="testChange(semesterObj)" ui-select2 ng-options="semesterObj.id as semesterObj.name  for semesterObj in semesterObjs"  ng-model="classManage.semesterId" id="semesterId" name="semesterId" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">
+								<option value="">==请选择==</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-5 control-label">课程名称：</label>
+						<div class="col-xs-7">
+							<input type="text" ng-model="classManage.courseName" id="courseName" name="courseName" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-5 control-label">课程号：</label>
+						<div class="col-xs-7">
+							<input type="text" ng-model="classManage.courseNum" id="courseNum" name="courseNum" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-5 control-label">课程模块：</label>
+						<div class="col-xs-7">
+							<input type="text" ng-model="classManage.moduleName" id="moduleName" name="moduleName" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-5 control-label">是否开班：</label>
+						<div class="col-xs-7">
+							<select ui-select2 ng-model="classManage.stopSign" id="stopSign" name="stopSign" ui-jq="chosen"ui-options="{search_contains: true}" class="form-control">
+								<option value="">==请选择==</option>
+								<option value="1">是</option>
+								<option value="0">否</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<table id="classManageTable" ui-jq="bootstrapTable" ui-options="classManageTable" class="table table-responsive"></table>
+	</div>
+</div>

@@ -1,0 +1,98 @@
+<div class="right-content">
+	<div class="right-content-search">
+		<div>
+			<label class="control-label search-control" ng-click="searchFormHideToggle()">
+				<i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+			</label>
+		</div>
+		<div ng-hide="isHideSearchForm">
+			<form name="newStudentPlacementSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form" novalidate>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">学院：</label>
+						<div class="col-xs-8">
+							<select ng-model="newStudentPlacement.deptId" id="deptId" name="deptId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="deptIdItem in deptIdData" value="{{deptIdItem.id}}">{{deptIdItem.acadYearSemester}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">年级：</label>
+						<div class="col-xs-8">
+							<select ng-model="newStudentPlacement.grade" id="grade" name="grade" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="gradeItem in gradeData" value="{{gradeItem.id}}">{{gradeItem.acadYearSemester}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">专业方向：</label>
+						<div class="col-xs-8">
+							<select ng-model="newStudentPlacement.professionDirectId" id="professionDirectId" name="professionDirectId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="professionDirectIdItem in professionDirectIdData" value="{{professionDirectIdItem.id}}">{{professionDirectIdItem.acadYearSemester}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">年级专业方向：</label>
+						<div class="col-xs-8">
+							<select ng-model="newStudentPlacement.gradeProfessionId" id="gradeProfessionId" name="gradeProfessionId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="gradeProfessionIdItem in gradeProfessionIdData" value="{{gradeProfessionIdItem.id}}">{{gradeProfessionIdItem.acadYearSemester}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">班号：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="newStudentPlacement.executiveClassNo" id="executiveClassNo" name="executiveClassNo" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">班级名称：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="newStudentPlacement.executiveClassName" id="executiveClassName" name="executiveClassName" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">校区：</label>
+						<div class="col-xs-8">
+							<select ng-model="newStudentPlacement.campus" id="campus" name="campus" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+								<option ng-repeat="campusItem in campusData" value="{{campusItem.id}}">{{campusItem.acadYearSemester}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="col-xs-4 control-label">班级计划人数：</label>
+						<div class="col-xs-8">
+							<input type="text" ng-model="newStudentPlacement.peopleNums" id="peopleNums" name="peopleNums" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 btn-center">
+						<!-- 点击触发 ng-submit 事件 -->
+						<button type="submit" class="btn btn-info">
+							<span class="fa fa-search refer btn-icon-padding"></span>查询
+						</button>
+						<button type="button" class="btn btn-default" ng-click="searchReset()">
+							<span class="fa fa-refresh reset btn-icon-padding"></span>重置
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="right-content-table">
+		<div id="toolbar" class="btn-group">
+			<div>
+				<button has-permission="newStudentPlacement:query" type="button" class="btn btn-default" ng-click="toPlacement()">
+					<span class=""></span>手动分班
+				</button>
+			</div>
+		</div>
+		<table id="newStudentPlacementTable" ui-jq="bootstrapTable" ui-options="newStudentPlacementTable" class="table table-responsive"></table>
+	</div>
+</div>

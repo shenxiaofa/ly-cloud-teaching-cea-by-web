@@ -1,0 +1,113 @@
+{
+  "total": 12, "rows":
+[{
+  "id": "0001",
+  "xh": "1",
+  "plateNumber":"01",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+},{
+  "id": "0002",
+  "xh": "2",
+  "plateNumber":"02",
+  "plateName":"演员板块",
+  "startStopCycle": "1-5",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "演员专业板块"
+},{
+  "id": "0003",
+  "xh": "3",
+  "plateNumber":"03",
+  "plateName":"戏剧板块",
+  "startStopCycle": "9-19",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是童话般的板块"
+},{
+  "id": "0004",
+  "xh": "4",
+  "plateNumber":"04",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+},{
+  "id": "0005",
+  "xh": "5",
+  "plateNumber":"05",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+},{
+  "id": "0006",
+  "xh": "6",
+  "plateNumber":"06",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+},{
+  "id": "0007",
+  "xh": "7",
+  "plateNumber":"07",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+},{
+  "id": "0008",
+  "xh": "8",
+  "plateNumber":"08",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+},{
+  "id": "0009",
+  "xh": "9",
+  "plateNumber":"09",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+},{
+  "id": "00010",
+  "xh": "10",
+  "plateNumber":"10",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+},{
+  "id": "00011",
+  "xh": "11",
+  "plateNumber":"11",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+},{
+  "id": "00012",
+  "xh": "12",
+  "plateNumber":"12",
+  "plateName":"导演板块",
+  "startStopCycle": "3-9",
+  "plateTime": "2017-03-46",
+  "Enable": "1",
+  "Remarks": "这是一个大碗的板块"
+}]
+}
+

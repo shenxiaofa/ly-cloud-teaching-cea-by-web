@@ -1,0 +1,63 @@
+<div class="right-content">
+    <div class="right-content-search" id = "searchHeight">
+        <div>
+            <label class="control-label search-control" ng-click="searchFormHideToggle()">
+                <i class="fa" ng-class="{'fa-caret-down': !isHideSearchForm, 'fa-caret-right': isHideSearchForm}"></i>&nbsp;查询条件
+            </label>
+        </div>
+        <div ng-hide="isHideSearchForm">
+            <form name="gradePlateSettingSearchForm" ng-submit="searchSubmit()" class="form-horizontal search-form">
+                <div class="row">
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">板块号：</label>
+                        <div class="col-xs-7">
+                            <input type="text" ng-model="gradePlateSetting.num" id="plateNumber" name="plateNumber" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-5 control-label">板块名称：</label>
+                        <div class="col-xs-7">
+                            <input type="text" ng-model="gradePlateSetting.name" id="plateName" name="plateName" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-4" >
+                        <label class="col-xs-5 control-label ">是否启用：</label>
+                        <div class="col-xs-7">
+                            <select ng-model="gradePlateSetting.startSign"  id="sfszbk" name="sfszbk" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                                <option value="">== 请选择 ==</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 btn-center">
+                        <!-- 点击触发 ng-submit 事件 -->
+                        <button type="submit" class="btn btn-info">
+                            <span class="fa fa-search refer btn-icon-padding"></span>查询
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="searchReset()">
+                            <span class="fa fa-refresh reset btn-icon-padding"></span>重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="right-content-table">
+        <div id="toolbar" class="btn-group">
+            <div>
+                <button type="button" has-permission="gradePlateSetting:insert" class="btn btn-default add-btn" ng-click="openAdd()">
+                    <span class="fa fa-plus toolbar-btn-icon"></span>新增
+                </button>
+                &nbsp;
+                <button type="button" has-permission="gradePlateSetting:delete" class="btn btn-default del-btn" ng-click="delete()">
+                    <span class="glyphicon glyphicon-remove toolbar-btn-icon"></span>删除
+                </button>
+            </div>
+        </div>
+        <table id="showTable" ui-jq="bootstrapTable" ui-options="showTable" class="table table-responsive"></table>
+    </div>
+</div>

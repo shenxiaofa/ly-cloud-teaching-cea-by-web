@@ -1,0 +1,102 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">
+        <span>&times;</span>
+    </button>
+    <h3 class="modal-title">生成正考科目及名单</h3>
+</div>
+<div class="modal-body">
+    <form name="jkjswh_add_form" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <label class="col-xs-2 "></label>
+                <label class="col-xs-3 control-label required">学年学期：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.semesterId" ng-required="true"  id="semesterId" name="semesterId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+                <!--<label class="col-xs-3 control-label ">学生类别：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.studentCategoryCode"  id="studentCategoryCode" name="studentCategoryCode" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+-->
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <!--<label class="col-xs-3 control-label ">开课单位：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.deptId" ng-change="showCourseLibrary"  id="deptId" name="deptId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>-->
+                <label class="col-xs-2 "></label>
+                <label class="col-xs-3 control-label ">课程属性：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.courseProperty" multiple id="courseProperty" name="courseProperty" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <div class="col-xs-11">
+                <label class="col-xs-3 control-label ">课程：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.courseId"  id="courseId" name="courseId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+                <label class="col-xs-3 control-label ">学籍状态：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.studentStatus"  id="studentStatus" name="studentStatus" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <label class="col-xs-3 control-label ">学院：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.collegeId"  id="collegeId" name="collegeId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+                <label class="col-xs-3 control-label ">年级：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.grade"  id="grade" name="grade" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <label class="col-xs-3 control-label ">专业：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.majorId"  id="majorId" name="majorId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+                <label class="col-xs-3 control-label ">班级：</label>
+                <div class="col-xs-3">
+                    <select ng-model="invigilationTeachers.classId"  id="classId" name="classId" ui-jq="chosen" ui-options="{search_contains: true}" class="form-control">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>-->
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(jkjswh_add_form)">确 定</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">取 消</button>
+</div>
